@@ -26,6 +26,7 @@
 \usepackage{dcolumn}% Align table columns on decimal point
 \usepackage{bm}% bold math
 \usepackage{natbib}
+\usepackage{xcolor}
 %\textwidth=6.0in 
 \newcommand{\half}{\frac{1}{2}}
 \newcommand{\beq}{\begin{equation}}
@@ -45,6 +46,8 @@
 \def\pp{\parallel}
 \def\c{\hspace{2pt}}
 \def\cN{{{\cal N}}}
+
+\newcommand{\SR}[1]{{\color{red} [SR: #1]}}
 
 \begin{document}
 
@@ -109,7 +112,7 @@ The results are summarized in Fig. \ref{correlations}.
 \section{Fendley-Sengupta-Sachdev model}
 There exists a model that is closer to the Rydberg atom experiments, called the Fendley-Sengupta-Sachdev model. The Hamiltonian is 
 \begin{equation}
-    \hat{H}=-J \sum_i d_i^{\dagger}+d_i+ U \sum_u n_i + V \sum_i n_{i-1}n_{i+1}.
+    \hat{H}=-J \sum_i (d_i^{\dagger}+d_i)+ U \sum_i n_i + V \sum_i n_{i-1}n_{i+1}.
 \end{equation}
 There can not be more than one boson occupying the same site, that is 
 \begin{equation}
@@ -122,7 +125,7 @@ In addition to that, the hardcore bosons cannot occupy neighboring sites; this i
 The phase diagram of this model has been studied using DMRG, see for example~\cite{10.21468/SciPostPhys.6.3.033}.
 \begin{figure}[htbp]
 \centering
-\includegraphics[scale=0.5]{phase_diagram.png}
+\includegraphics[scale=0.4]{phase_diagram.png}
 \caption{The phase diagram of the Fendley-Sengupta-Sachdev model. The plot is reproduced from~\cite{10.21468/SciPostPhys.6.3.033}. }
 \label{phasediagram}
 \end{figure}
@@ -131,6 +134,15 @@ One can change the coupling $J$ by changing the Rabi frequency of the external l
 The frequency of the external laser is adjusted so that the detuning away from resonance of the $|0\rangle$ to $|1\rangle$ transition is $U$. 
 (See Sachedev's new book ``Quantum Phases of Matter''). We can also replace the last term by a long-range repulsive interaction to represent the van der Waals interaction
 when both atoms are in their Rydberg states.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.3]{ss2ptHB.png}
+	\includegraphics[scale=0.3]{ee2ptHB.png}
+	\includegraphics[scale=0.35]{sse3ptHB.png}
+	\caption{The two-point and three-point functions of the Fendley-Sengupta-Sachdev model.}
+	\label{correlationsHB}
+\end{figure}
 
 We can again study this model using DMRG. We can identify 
 \begin{align}
@@ -152,17 +164,12 @@ We study a lattice with $L=40$ sites. We set the coupling constants to be
     J=1,\quad U=0.128, \quad V=-1, \quad {\rm and}\quad U_{rp}=20.
 \end{align}
 The two-point $\langle\sigma_0 \sigma_1\rangle$ and three-point functions  $\langle \epsilon_i \sigma_1 \sigma_{11}\rangle$ can be found in Fig.~\ref{correlationsHB}.
-\begin{figure}[htbp]
-\centering
-\includegraphics[scale=0.35]{ss2ptHB.png}
-\includegraphics[scale=0.35]{ee2ptHB.png}
-\includegraphics[scale=0.4]{sse3ptHB.png}
-\caption{The two-point and three-point functions of the Fendley-Sengupta-Sachdev model.}
-\label{correlationsHB}
-\end{figure}
-As we discussed, we can consider a more realistic model with long-range interaction between the excited atoms
+
+
+\section{A more realistic model}
+Finally, we can consider a more realistic model with van der Waals $1/r^6$ interaction between the excited atoms
 \begin{equation}
-    \hat{H}=-J \sum_i d_i^{\dagger}+d_i+ U \sum_u n_i + V\sum_{ij}\frac{1}{(d_{ij})^6}  n_{i}n_{j}.
+    \hat{H}=-J \sum_i (d_i^{\dagger}+d_i)+ U \sum_i n_i + V\sum_{ij}\frac{1}{(d_{ij})^6}  n_{i}n_{j}.
 \end{equation}
 Here $d_{ij}$ is the distance between the $i$-th and $j$-th sites. Since the sites are arranged to form a circle, we take
 \begin{align}
@@ -174,6 +181,11 @@ We find a critical point at
 \begin{align}
     J=1,\quad U=-2.15,\quad  V=8.
 \end{align}
+
+\SR{I think you promised Antoine the phase diagram}
+
+\SR{below needs to be modified because interchanging spins is not a symmetry of the Hamiltonian}
+
 We can also modify the map between the lattice operators and CFT operators,
 \begin{align}
     \sigma_{i+1/2}\sim &~(n_i-n_{i+1}),\nonumber\\
