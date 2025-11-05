@@ -1,10 +1,10 @@
 %%%%%%%
 %\documentclass[preprint,aps,nofootinbib,preprintnumbers,amsmath,amssymb,11pt]{revtex4-2}
-\documentclass[prb,twocolumn,11pt]{revtex4-1}
+\documentclass[prd,twocolumn,11pt]{revtex4-1}
 %%
 
 %%
-\usepackage{hyperref}
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
 \usepackage{amsthm}
 \usepackage{graphicx}
 \usepackage{amsfonts}
@@ -30,7 +30,7 @@
 %\textwidth=6.0in 
 \newcommand{\half}{\frac{1}{2}}
 \newcommand{\beq}{\begin{equation}}
-\newcommand{\eq}{\end{equation}}
+\newcommand{\eeq}{\end{equation}}
 \newcommand{\bea}{\begin{eqnarray}}
 \newcommand{\ea}{\end{eqnarray}}
 \newcommand{\p}{\partial}
@@ -48,6 +48,7 @@
 \def\cN{{{\cal N}}}
 
 \newcommand{\SR}[1]{{\color{red} [SR: #1]}}
+\newcommand{\red}{\color{red}}
 
 \begin{document}
 
@@ -64,10 +65,11 @@
 
 {\Large
 \bigskip
-Junchen Rong
+Junchen Rong$^1$, Slava Rychkov$^2$
 }
 {\\~
-\\CPHT, CNRS, \'Ecole Polytechnique, Institut Polytechnique de Paris, Palaiseau, France}
+\\${}^1$ CPHT, CNRS, \'Ecole Polytechnique, Institut Polytechnique de Paris, Palaiseau, France\\
+${}^2$ IHES, Bures-sur-Yvette }
 \end{center}
 \section{Introduction}
 At the critical point, the two-point function and three-point correlation function of operators look like~\cite{polyakov1969microscopic},
@@ -110,18 +112,25 @@ The results are summarized in Fig. \ref{correlations}.
 \label{correlations}
 \end{figure}
 \section{Fendley-Sengupta-Sachdev model}
-There exists a model that is closer to the Rydberg atom experiments, called the Fendley-Sengupta-Sachdev model. The Hamiltonian is 
+There exists a model that is closer to the Rydberg atom experiments, called the Fendley-Sengupta-Sachdev model. {\red The Hamiltonian is 
 \begin{equation}
     \hat{H}=-J \sum_i (d_i^{\dagger}+d_i)+ U \sum_i n_i + V \sum_i n_{i-1}n_{i+1}.
 \end{equation}
-There can not be more than one boson occupying the same site, that is 
+The Hilbert state on each site is two dimensional, spanned by $|0\rangle$ and $|1\rangle$. The creation operator $d^\dagger$ maps $|0\rangle$ to $|1\rangle$. We have
 \begin{equation}
-    n_i=0\quad {\rm or} \quad 1.
+    n_i=d_i^\dagger d_i
 \end{equation}
-In addition to that, the hardcore bosons cannot occupy neighboring sites; this is often called the Rydberg blockade condition, that is 
+which takes values 0,1 in  $|0\rangle$,$|1\rangle$. We refer to $|0\rangle$ as empty and $|1\rangle$ as occupied site. 
+
+The Fendley-Sengupta-Sachdev model imposes the "hardcore boson constraint" on the Hilbert space, saying that 
 \begin{equation}
     n_i n_{i+1}=0.
 \end{equation}
+}
+
+Experimentally, the model is realized by a chain of Rydberg atoms. We identify the ground state of the atom as the state not occupied by the boson $|0\rangle$, and the Rydberg excited state as the state occupied by the boson $|1\rangle=d^{\dagger}|0\rangle$. The atoms in the excited state interact with a repulsive $1/r^6$ interactions.  The "hardcore boson constraint" then corresponds to an extremely strong repulsion between excited atoms in neighboring sites; often called Rydberg blockade condition. while $V$ corresponds to a weaker but still not negligible repulsive interaction between excited atoms in next-to-neighboring sites. One can change the coupling $J$ by changing the Rabi frequency of the external laser.
+The frequency of the external laser is adjusted so that the detuning away from resonance of the $|0\rangle$ to $|1\rangle$ transition is $U$. (See Sachdev's new book ``Quantum Phases of Matter'').
+
 The phase diagram of this model has been studied using DMRG, see for example~\cite{10.21468/SciPostPhys.6.3.033}.
 \begin{figure}[htbp]
 \centering
@@ -129,11 +138,8 @@ The phase diagram of this model has been studied using DMRG, see for example~\ci
 \caption{The phase diagram of the Fendley-Sengupta-Sachdev model. The plot is reproduced from~\cite{10.21468/SciPostPhys.6.3.033}. }
 \label{phasediagram}
 \end{figure}
-The coupling constants are related to experimental parameters. We identify the ground state of the atom as the state not occupied by the boson $|0\rangle$, and the Rydberg state as the state occupied by the boson $|1\rangle=d^{\dagger}|0\rangle$. 
-One can change the coupling $J$ by changing the Rabi frequency of the external laser.
-The frequency of the external laser is adjusted so that the detuning away from resonance of the $|0\rangle$ to $|1\rangle$ transition is $U$. 
-(See Sachedev's new book ``Quantum Phases of Matter''). We can also replace the last term by a long-range repulsive interaction to represent the van der Waals interaction
-when both atoms are in their Rydberg states.
+
+ 
 
 \begin{figure}[h!]
 	\centering
@@ -144,12 +150,12 @@ when both atoms are in their Rydberg states.
 	\label{correlationsHB}
 \end{figure}
 
-We can again study this model using DMRG. We can identify 
+We set up our own study of this model using DMRG. We can identify 
 \begin{align}
     d^{\dagger}+d \quad \rightarrow  \quad X.
 \end{align}
-Here $X$ is the Pauli Matrix. 
-To impose the Rydberg blockade condition, we add a strong repulsive interaction 
+Here $X$ is the $\sigma^x$ Pauli Matrix. 
+In our study, to impose the Rydberg blockade condition, we add a strong repulsive interaction 
 \begin{align}
     \hat{H}_{rp}=U_{rp} \sum_i n_i n_{i+1}.
 \end{align}
@@ -163,6 +169,8 @@ We study a lattice with $L=40$ sites. We set the coupling constants to be
 \begin{align}
     J=1,\quad U=0.128, \quad V=-1, \quad {\rm and}\quad U_{rp}=20.
 \end{align}
+\SR{why is $V$ negative? This does not make sense from the point of view of comparing with Rydberg atoms. Should be redone with a more physical positive $V$. $U_{rp}=20$ seems small compared to the actual $2^6=64$ for the $1/r^6$ potential.}
+
 The two-point $\langle\sigma_0 \sigma_1\rangle$ and three-point functions  $\langle \epsilon_i \sigma_1 \sigma_{11}\rangle$ can be found in Fig.~\ref{correlationsHB}.
 
 
@@ -176,19 +184,19 @@ Here $d_{ij}$ is the distance between the $i$-th and $j$-th sites. Since the sit
     d_{ij}=a \frac{\sin(\frac{|i-j|}{L}\pi)}{\sin(\frac{1}{L}\pi)},
 \end{align}
 where $a$ is the lattice constant. We will set $a=1$ for later discussion. 
-The sign of the first term does not change the physics. We can flip the sign by the redefinition of state 
+The sign of $\Omega$ is not important, as it can flipped by redefining the phase of the $|1\rangle$ state,  $|1\rangle \to -|1\rangle$.
+%\begin{align}
+%d^{\dagger}|0\rangle \rightarrow -d^{\dagger}|0\rangle. 
+%\end{align}
+The experimentally accessible parameter space is, roughly,
 \begin{align}
-d^{\dagger}|0\rangle \rightarrow -d^{\dagger}|0\rangle. 
-\end{align}
-Roughly speaking, in experiment, one can access the parameter space 
-\begin{align}
-\Omega/C_6 \in [0,5],\quad \Delta/J \in[-5,5].
+\Omega/C_6 \in [0,5],\quad \Delta/C_6 \in[-5,5].
 \end{align}
 The phase diagram near the Ising transition is reported in Fig.~\ref{phasediagramHBlong}.
 \begin{figure}[htbp]
 \centering
 \includegraphics[scale=0.5]{phase_diagram_SSF_LR.png}
-\caption{The phase diagram Fendley-Sengupta-Sachdev model with $1/r^6$ interaction.}
+\caption{The phase diagram of the Fendley-Sengupta-Sachdev model with $1/r^6$ interaction. \SR{Is it appropriate to call this model FSG model?} \SR{Is there a reason why this diagram is symmetric with respect to $\Delta/C_6=1$ horizontal line?}}
 \label{phasediagramHBlong}
 \end{figure}
 The red circle corresponds to the point studied in~\cite{FangFang:2024eaw}. Where they studied the model at  
@@ -224,6 +232,36 @@ The results are summarized in Fig.~\ref{correlationsHBlong}, for two point and t
 \caption{The two-point and three-point functions of the Fendley-Sengupta-Sachdev model with $1/r^6$ interaction.}
 \label{correlationsHBlong}
 \end{figure}
+
+\appendix
+
+\section{Matching of lattice operators and CFT operators}
+
+Consider any lattice operator $O_{lat}(i)$ on a collection of sites $S$ around a point $i$. This lattice operator will be matched to a linear combination of CFT operators at point $i$:
+\beq
+O_{lat}(i) = \sum c_\alpha O_{CFT}^\alpha(i)
+\eeq
+Here $O_{CFT}^\alpha(i)$ are CFT operators and coefficients $c_\alpha$ depend on the operator $O_{lat}$. 
+Unit operator will also appear in this list, in case we have a nonzero vev.
+
+Now consider the same lattice operator shifted by one lattice site. The claim is that this operator will match on the same linear combination of CFT operators, except up to inverting the signs of $\mathbb{Z}_2$ odd operators:
+\beq
+O_{lat}(i+1) = \sum_{\alpha\text{ $\mathbb{Z}_2$ even}} c_\alpha O_{CFT}^\alpha(i+1)- \sum_{\alpha\text{ $\mathbb{Z}_2$ odd}} c_\alpha O_{CFT}^\alpha(i+1)
+\eeq
+I could give some rationale behind this rule, but let me skip it for now.
+
+This implies that $O_{lat}(i)-O_{lat}(i+1)$ will match to $\mathbb{Z}_2$ odd operators, while $O_{lat}(i)+O_{lat}(i+1)$ will match to $\mathbb{Z}_2$ even operators.
+
+Hence let us consider the operators
+\beq
+n_i-n_{i+1}
+\eeq
+and
+\beq
+n_i+n_{i+1} - VEV
+\eeq
+By the above discussion these will map to $(-1)^i \sigma(i+1/2) $ and $\epsilon(i+1/2)$ plus subleading corrections.
+
 
 %\begin{multicols}{2}
 %\twocolumngrid
