@@ -179,7 +179,7 @@ Finally, we can consider a more realistic model with van der Waals $1/r^6$ inter
 \begin{equation}
     \hat{H}=\frac{\Omega}{2} \sum_i (d_i^{\dagger}+d_i)- \Delta \sum_i n_i + C_6\sum_{ij}\frac{1}{(d_{ij})^6}  n_{i}n_{j}.
 \end{equation}
-Here $d_{ij}$ is the distance between the $i$-th and $j$-th sites. Since the sites are arranged to form a circle, we get
+Here $d_{ij}$ is the distance between the $i$-th and $j$-th sites. Since the sites are arranged to form a circle, we have
 \begin{align}
     d_{ij}=a \frac{\sin(\frac{|i-j|}{L}\pi)}{\sin(\frac{1}{L}\pi)},
 \end{align}
@@ -237,30 +237,40 @@ The results are summarized in Fig.~\ref{correlationsHBlong}, for two point and t
 
 \section{Matching of lattice operators and CFT operators}
 
-Consider any lattice operator $O_{lat}(i)$ on a collection of sites $S$ around a point $i$. This lattice operator will be matched to a linear combination of CFT operators at point $i$:
+Consider any lattice operator $O_{lat}(0)$ on a collection of sites $S$ around $0$. This lattice operator will be matched to a linear combination of CFT operators at point $x=0$:
 \beq
-O_{lat}(i) = \sum c_\alpha O_{CFT}^\alpha(i)
+O_{lat}(0) = \sum c_\alpha O_\alpha(0)
 \eeq
-Here $O_{CFT}^\alpha(i)$ are CFT operators and coefficients $c_\alpha$ depend on the operator $O_{lat}$. 
+Here $O_\alpha(0)$ are CFT operators and coefficients $c_\alpha$ depend on the lattice operator $O_{lat}$. 
 Unit operator will also appear in this list, in case we have a nonzero vev.
 
-Now consider the same lattice operator shifted by one lattice site. The claim is that this operator will match on the same linear combination of CFT operators, except up to inverting the signs of $\mathbb{Z}_2$ odd operators:
+Now consider the same lattice operator shifted by $i$ lattice site. The claim is that such a lattice translation is equivalent in the CFT to a translation times the CFT $\mathbb{Z}_2$ to the power $i$. This means that:
 \beq
-O_{lat}(i+1) = \sum_{\alpha\text{ $\mathbb{Z}_2$ even}} c_\alpha O_{CFT}^\alpha(i+1)- \sum_{\alpha\text{ $\mathbb{Z}_2$ odd}} c_\alpha O_{CFT}^\alpha(i+1)
+O_{lat}(i) = \sum_{\text{even}} c_\alpha O_\alpha(i) + (-1)^i\sum_{\text{odd}} c_\alpha O_\alpha(i)
 \eeq
 I could give some rationale behind this rule, but let me skip it for now.
 
-This implies that $O_{lat}(i)-O_{lat}(i+1)$ will match to $\mathbb{Z}_2$ odd operators, while $O_{lat}(i)+O_{lat}(i+1)$ will match to $\mathbb{Z}_2$ even operators.
+This implies that 
+\beq
+O_{lat}(i+1)-O_{lat}(i) \sim \sum_{\text{even}} c_\alpha \partial_x O_\alpha(i+1/2) + (-1)^{i+1} \sum_{\rm odd}2 c_\alpha \,O_\alpha(i+1/2),
+\eeq
+where we expanded differences of CFT operators to the first order in the Taylor expansion. On the other hand
+\beq
+O_{lat}(i+1)+O_{lat}(i) \sim \sum_{\text{even}} 2 c_\alpha O_\alpha(i+1/2) + (-1)^{i+1} \sum_{\rm odd}c_\alpha \,\partial_x O_\alpha(i+1/2),
+\eeq
 
-Hence let us consider the operators
+Hence the operator
 \beq
-n_i-n_{i+1}
+(-1)^{i+1}[n_{i+1}-n_i] \sim \sigma(i+1/2)+ (-1)^{i+1}\partial \epsilon (i+1/2) +\ldots
 \eeq
-and
+up to unknown proportionality coefficient in the r.h.s. On the other hand
 \beq
-n_i+n_{i+1} - VEV
+n_{i+1}+n_{i} \sim 1 + \epsilon(i+1/2)+ (-1)^{i+1} \partial \sigma (i+1/2) +\ldots
 \eeq
-By the above discussion these will map to $(-1)^i \sigma(i+1/2) $ and $\epsilon(i+1/2)$ plus subleading corrections.
+Since the dimension of $\partial \epsilon$ is sufficiently large compared to the dimension of $\sigma$, the first lattice operator approximates the CFT field sigma well. On the other hand the second operator may have a significant admixture of $\partial \sigma$ which has dimension just a bit higher than $\epsilon$. So it helps to consider further averaging over three sites which kills this admixture:
+\beq
+n_{i+1}+2n_{i} +n_{i-1}\equiv [n_{i+1}+n_{i}]+ [n_{i}+n_{i-1}] \sim 1 + \epsilon(i)+ 0 \times \partial \sigma (i+1/2) +\ldots
+\eeq
 
 
 %\begin{multicols}{2}
