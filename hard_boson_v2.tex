@@ -112,7 +112,7 @@ The results are summarized in Fig. \ref{correlations}.
 \label{correlations}
 \end{figure}
 \section{Fendley-Sengupta-Sachdev model}
-There exists a model that is closer to the Rydberg atom experiments, called the Fendley-Sengupta-Sachdev model. {\red The Hamiltonian is 
+There exists a model that is closer to the Rydberg atom experiments, called the Fendley-Sengupta-Sachdev model. The Hamiltonian is 
 \begin{equation}
     \hat{H}=-J \sum_i (d_i^{\dagger}+d_i)+ U \sum_i n_i + V \sum_i n_{i-1}n_{i+1}.
 \end{equation}
@@ -126,7 +126,6 @@ The Fendley-Sengupta-Sachdev model imposes the "hardcore boson constraint" on th
 \begin{equation}
     n_i n_{i+1}=0.
 \end{equation}
-}
 
 Experimentally, the model is realized by a chain of Rydberg atoms. We identify the ground state of the atom as the state not occupied by the boson $|0\rangle$, and the Rydberg excited state as the state occupied by the boson $|1\rangle=d^{\dagger}|0\rangle$. The atoms in the excited state interact with a repulsive $1/r^6$ interactions.  The "hardcore boson constraint" then corresponds to an extremely strong repulsion between excited atoms in neighboring sites; often called Rydberg blockade condition. while $V$ corresponds to a weaker but still not negligible repulsive interaction between excited atoms in next-to-neighboring sites. One can change the coupling $J$ by changing the Rabi frequency of the external laser.
 The frequency of the external laser is adjusted so that the detuning away from resonance of the $|0\rangle$ to $|1\rangle$ transition is $U$. (See Sachdev's new book ``Quantum Phases of Matter'').
@@ -159,6 +158,9 @@ In our study, to impose the Rydberg blockade condition, we add a strong repulsiv
 \begin{align}
     \hat{H}_{rp}=U_{rp} \sum_i n_i n_{i+1}.
 \end{align}
+
+\SR{The text below needs to be either modified to take into account our new understanding of operators}
+
 We can also identify the lattice operators with CFT operators according to,
 \begin{align}   
     \sigma_i \sim &\quad  (-1)^i n_i \nonumber\\
@@ -214,7 +216,7 @@ We can study the correlation function at any point on the critical line. We take
     \Omega/C_6=0.25,\quad \Delta/C_6=0.26875.
 \end{align}
 
-\SR{below needs to be modified because interchanging spins is not a symmetry of the Hamiltonian}
+\SR{below needs to be modified to take advantage of our new understanding of symmetry}
 
 We can also modify the map between the lattice operators and CFT operators,
 \begin{align}
@@ -271,6 +273,30 @@ Since the dimension of $\partial \epsilon$ is sufficiently large compared to the
 \beq
 n_{i+1}+2n_{i} +n_{i-1}\equiv [n_{i+1}+n_{i}]+ [n_{i}+n_{i-1}] \sim 1 + \epsilon(i)+ 0 \times \partial \sigma (i+1/2) +\ldots
 \eeq
+
+The latter operator is somewhat inconvenient to work with because it has range 2. One can construct a good operator of range 1 (only two points), but this requires finetuning of coefficients.
+
+Namely consider three lattice operators $O_1 = n_0+n_1, O_2=n_0-n_1, O_3=n_0 n_1$ and expand them in CFT operators $O^{CFT}_1=\epsilon(1/2), O^{CFT}_2=\sigma(1/2), O^{CFT}_3=\partial\sigma(1/2)$ (we omit any other CFT operator as having higher scaling dimension). We have 
+\beq
+O_a \sim M_{ab} O^{CFT}_b
+\eeq
+where the mixing matrix has the form
+\beq
+M=\begin{pmatrix}
+	*& 0 & *\\
+	0 & * & 0 \\
+	* & * & * 
+	\end{pmatrix}
+	\eeq
+where $*$ denotes a generically nonzero coefficient. This shows that there exists a linear combination of lattice operators
+$O_1 + a O_2 + b O_3$ which matches only on $\epsilon(1/2)$, without admixtures of $\sigma$ or $\partial\sigma$.
+
+To find this linear combination one can proceed as follows. First find a linear combination $O_3'$ of $O_3$ and $O_2$ which does not have admixture of $\sigma$. This admixture will show up as strong oscillating behavior $(-1)^i/i^{1/4}$ in the two point function.
+
+The find a linear combination of $O_1$ and $O_3'$ which does not have an admixture of $\partial\sigma$. This admixture gives oscillating behavior $(-1)^i/i^{2.25}$.
+
+In practice what one should do is to measure all 9 two-point functions $\langle O_a(0) O_b(i)\rangle$ and then start looking at mixings.
+
 
 
 %\begin{multicols}{2}
