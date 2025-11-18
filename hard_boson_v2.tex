@@ -293,9 +293,35 @@ $O_1 + a O_2 + b O_3$ which matches only on $\epsilon(1/2)$, without admixtures 
 
 To find this linear combination one can proceed as follows. First find a linear combination $O_3'$ of $O_3$ and $O_2$ which does not have admixture of $\sigma$. This admixture will show up as strong oscillating behavior $(-1)^i/i^{1/4}$ in the two point function.
 
-The find a linear combination of $O_1$ and $O_3'$ which does not have an admixture of $\partial\sigma$. This admixture gives oscillating behavior $(-1)^i/i^{2.25}$.
+Then find a linear combination of $O_1$ and $O_3'$ which does not have an admixture of $\partial\sigma$. This admixture gives oscillating behavior $(-1)^i/i^{2.25}$.
 
 In practice what one should do is to measure all 9 two-point functions $\langle O_a(0) O_b(i)\rangle$ and then start looking at mixings.
+
+\section{Algorithm for determining the best operator for $\epsilon$}
+
+Fix $k$. Consider lattice operators supported on $k$ points $0$,...,$k-1$. There are a total of $2^n$ operators, including the identity. Write operators in the basis of products of $n_i$. Only consider "non-rare" operators which do not involve consecutive products $n_i n_{i+1}$, $n_i n_{i+1} n_{i+2}$ etc since those will be very sensitive to rare fluctuations violating Rydberg blockade.
+
+For example for $k=3$ we have 4 non-rare lattice operators
+\beq
+1,n_0,n_1,n_2,n_0n_2
+\eeq
+For each of non-rare operators $L_i$, determine the coefficients in the expansion into the leading CFT operators (putting them at $x=(k-1)/2$ for definiteness)
+\beq
+L_i = a_i 1+b_i \epsilon+ c_i \sigma +d_i \partial\sigma
+\eeq
+Then impose that $\sum x_i L_i\sim \epsilon$, which gives
+\beq
+x_i a_i=x_ic_i=x_i d_i=0, \quad x_i b_i=1
+\label{eq:constr}
+\eeq
+Then compute the variance
+\beq
+(\sum x_i L_i)^2 = \sum x_i x_j L_i L_j\to \sum x_i x_j A_{ij}
+\label{eq:var}
+\eeq
+where $A_{ij}$ is obtained as the unit operator contribution of $L_iL_j$. It can be obtained by expanding $L_iL_j$, replacing all rare operators by zero, and using $a_i$ coefficients above for the non-rare operators.
+Finally minimize the variance \eqref{eq:var} over all $x_i$ satisfying constraints \eqref{eq:constr}.
+Note that this variance is the one relevant at large separation.
 
 
 
