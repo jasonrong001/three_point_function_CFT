@@ -323,6 +323,31 @@ where $A_{ij}$ is obtained as the unit operator contribution of $L_iL_j$. It can
 Finally minimize the variance \eqref{eq:var} over all $x_i$ satisfying constraints \eqref{eq:constr}.
 Note that this variance is the one relevant at large separation.
 
+\section{About error bars}
+
+\subsection{Real random variables}
+In probability theory textbooks, you will find the "central limit theorem" which says: Let $X_1$, $X_2$, \ldots is a sequence of independent identically distributed random variables with $\mathbb{E}(X_i)=\mu$ and $var(X_i)=\sigma^2$  ($\mu$ and $\sigma$ are the same for all $i$ since they are "identically distributed"). Define the random variable 
+\beq
+\bar X = \bar X_N = \frac 1 N(X_1+\ldots +X_N)
+\eeq
+Then the probability distribution function of $\bar X $ for $N$ large is approximately the gaussian with mean $\mu$ and variance $(\sigma_N)^2= (\sigma/\sqrt{N})^2$.
+
+That $\mathbb{E}(\bar X )=\mu$ for all $N$ is obvious. That $var(\bar X)=[\sigma/\sqrt{N}]^2$ is a small calculation. The nontrivial part of the theorem is that distribution becomes gaussian in the $N\to\infty$ limit, and not just some other distribution with the mean $\mu$ and variance $\sigma/\sqrt{N}$.
+
+What's the consequence for us? Suppose you do $N$ measurements of $X_1$,\ldots, $X_N$, and we want to estimate $\mu$ with error bars. If we know $\sigma$, then the answer is obvious, it will be $\bar X\pm \sigma/\sqrt{N}$. But suppose we don't know $\sigma$, then we have to estimate it from the samples. It turns out that the unbiased estimator for $\sigma$ is
+\beq
+[\sigma^2]_{est} = \frac{1}{N-1}\sum(X_i - \bar X)^2
+\eeq
+This formula is very natural, the only subtlety is that it has $\frac{1}{N-1}$ coefficient and not $\frac{1}{N}$, but for us the samples are huge, so this difference is inessential.
+
+Then in practice, given the $N$ measurements $X_1$,\ldots, $X_N$, you compute $\mu=\bar X$ and you assign standard-deviation error $\sigma/\sqrt{N}$ where you take $\sigma$ from the unbiased estimator.
+
+\subsection{Vector-valued random variables}
+
+We can repeat the above discussion for the case when each $X_i$ is a vector-valued random variable. In our case it will represent the values of correlation function at all separations. There will be correlations between different components of $X_i$. We could consider correlation matrix. But since we have O(20) components it will be difficult to picture this. Let's not do this for now, let's just treat each point as independent. This means that we will be overestimating errors for each point (since we will be marginalizing over all other points when computing the error for each point). Let's see what this gives, and if this is not good enough let's think more. 
+
+ 
+
 
 
 %\begin{multicols}{2}
