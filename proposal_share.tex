@@ -1,0 +1,175 @@
+%%%%%%%
+%\documentclass[preprint,aps,nofootinbib,preprintnumbers,amsmath,amssymb,11pt]{revtex4-2}
+\documentclass[prd,twocolumn,11pt]{revtex4-1}
+%%
+
+%%
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage[figuresright]{rotating}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{psfrag}
+\usepackage{subfigure}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{epsfig}
+% \graphicspath{ {images/} }
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{natbib}
+\usepackage{xcolor}
+%\textwidth=6.0in 
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\ea}{\end{eqnarray}}
+\newcommand{\p}{\partial}
+\newcommand{\nn}{\nonumber}
+\newcommand{\Rm}{\mathbb{R}}
+\linespread{1.1}
+
+\def\avg#1{\langle#1\rangle}
+\def\Re {\mbox{Re}}
+\def\Im {\mbox{Im}}
+\def\tr{\mbox{tr}}
+\def\nn{\nonumber}
+\def\pp{\parallel}
+\def\c{\hspace{2pt}}
+\def\cN{{{\cal N}}}
+
+\newcommand{\SR}[1]{{\color{red} [SR: #1]}}
+\newcommand{\red}{\color{red}}
+
+\begin{document}
+
+
+
+\def\thesection{\arabic{section}}
+\def\thesubsection{\arabic{section}.\arabic{subsection}}
+\numberwithin{equation}{section}
+
+\onecolumngrid
+\begin{center}
+{\Large {\bf Conformal symmetry test with Rydberg atoms - feasibility study}}
+\vspace{10pt}
+
+{\Large
+\bigskip
+Junchen Rong$^1$, Slava Rychkov$^2$
+}
+{\\~
+\\${}^1$ CPHT, CNRS, \'Ecole Polytechnique, Institut Polytechnique de Paris, Palaiseau, France\\
+${}^2$ IHES, Bures-sur-Yvette }
+\end{center}
+
+\section{Introduction}
+Conformal Field Theory (CFT) defines predicts correlation functions of local operators. We will be dealing with a particular 1+1D CFT called the Ising CFT. This CFT famously has three primary operators: $1$ (identity), $\sigma$, and $\epsilon$, of scaling dimensions $0$, $1/8$, $1$. The equal-time correlation functions of $\sigma$ and $\epsilon$ are predicted to be~\cite{polyakov1969microscopic}:
+\begin{align}
+	\langle\sigma(x_1)\sigma(x_2)\rangle &=\frac{1}{|x-y|^{2\Delta_{\sigma}}}, \label{eq:ss}\\
+\langle\epsilon(x_1)\epsilon(x_2)\rangle &=\frac{1}{|x-y|^{2\Delta_{\epsilon}}},\label{eq:ee} \\
+	\langle\sigma(x_1)\sigma(x_2)\epsilon(x_3)\rangle &=\frac{C_{\sigma\sigma\epsilon}}{|x_1-x_2|^{2\Delta_{\sigma}-\Delta_{\epsilon}}|x_1-x_3|^{\Delta_{\sigma}}|x_2-x_3|^{\Delta_{\sigma}}},\quad C_{\sigma\sigma\epsilon}=1/2.
+\end{align}
+These equations are written for equal-time correlation functions on an infinite-length straight line, Fig.~\ref{fig:straight-line-circle}(a). On a circle of length $L$, Fig.~\ref{fig:straight-line-circle}(b), we should use the same formulas with the substitution
+\beq
+|x_i-x_j|\to |x_i-x_j|_L \equiv \frac{L}{\pi} \sin\left(\frac{\pi}{L} |x_i-x_j|\right)
+\eeq
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=100pt]{fig-straight-line-circle.jpeg}
+	\caption{Equal-time correlations on infinite-length straight line (a) and circle of length $L$ (b)}
+	\label{fig:straight-line-circle}
+\end{figure}
+
+
+In Section \ref{sec:model} we describe a microscopic model realizable with Rydberg atoms, which reduces at its quantum critical point to the Ising model CFT. 
+
+%In Section \ref{sec:local-operators}:
+
+\section{Microscopic model}
+\label{sec:model}
+Consider a chain of $L$ Rydberg atoms equally spaced along a circle:
+\beq
+	\includegraphics[width=100pt]{fig-circle.jpeg}
+	\label{fig:circle}
+\eeq
+We describes states of this system in the 0-1 basis, where $|0\rangle$ ($|1\rangle$) on site $i$ corresponds to the $i$-th atom to be in the ground/Rydberg excited state.
+The creation operator $d_i^\dagger$ maps $|0_i\rangle$ to $|1_i\rangle$. We have the occupation number of site $i$.
+We refer to $|0\rangle$ as empty and $|1\rangle$ as occupied site. 
+
+Using the same conventions as in~\cite{FangFang:2024eaw},  we write a realistic Hamiltonian where the atoms in the excited states interact with a repulsive $1/r^6$ interactions:
+\begin{equation}
+    \hat{H}=\frac{\Omega}{2} \sum_i (d_i^{\dagger}+d_i) - \Delta \sum_i n_i + C_6\sum_{ij}\frac{1}{(d_{ij})^6}  n_{i}n_{j}.
+    \label{eq:model}
+\end{equation}
+Here $d_{ij}$ is the distance between the $i$-th and $j$-th sites,
+ \beq   d_{ij}=a \frac{\sin(\frac{|i-j|}{L}\pi)}{\sin(\frac{1}{L}\pi)},
+\eeq
+where $a$ is the lattice constant. We will set $a=1$ for later discussion. For the effects of distance variation see Sec.~\ref{sec:distvar}.
+
+The sign of $\Omega$ is not important, as it can flipped by redefining $|1\rangle \to -|1\rangle$.
+%\begin{align}
+%d^{\dagger}|0\rangle \rightarrow -d^{\dagger}|0\rangle. 
+%\end{align}
+The experimentally accessible parameter space is, roughly,
+\begin{align}
+\Omega/C_6 \in [0,5],\quad \Delta/C_6 \in[-5,5].
+\end{align}
+The phase diagram near the Ising transition is reported in Fig.~\ref{phasediagramHBlong}.
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=0.5]{phase_diagram_SSF_LR.png}
+\caption{The phase diagram of the Rydberg model \eqref{eq:model}. The red circle corresponds to the point studied in~\cite{FangFang:2024eaw}.}
+\label{phasediagramHBlong}
+\end{figure}
+
+It is useful to contrast this model with the transfer field Ising model (TFIM). TFIM has lattice onsite $\mathbb{Z}_2$ symmetry. This corresponds to the $\mathbb{Z}_2$ symmetry of the CFT under which $\sigma\to-\sigma$ while $\epsilon$ is invariant. In contrast, the Rydberg atom model \eqref{eq:model} does not have onsite $\mathbb{Z}_2$ symmetry. Instead, $\mathbb{Z}_2$ symmetry of the CFT will emerge from a lattice translation by one lattice unit. (In the broken phase, the expectation value $\langle n_i \rangle$ is periodic with period 2 and shift by one unit permutes the two ground states.) This will have to be taken into account when constructing lattice operators which represent CFT operators.
+
+\section{Two-point function of $\sigma$}
+
+Operator $\sigma$ has low scaling dimension. Its two-point function decreases with the distance, but only quite slowly. This is the easiest nontrivial observable to measure experimentally. We also believe that this will be a great way to tune the system to the critical point.
+
+The lattice operator that represents $\sigma$ is taken to be
+\beq
+\sigma(i+1/2) = a (-1)^i (n_i -n_{i+1})
+\label{eq:sigmalat}
+\eeq
+This equation is a good chance to understand the logic of matching local lattice operators and local CFT operators. Any local lattice operators corresponds to a linear combination of CFT operators and their derivatives. At large distances derivatives contribute less to correlation functions than the operators without derivatives, but still it's good to suppress them to get cleaner results. Particular linear combination $n_i -n_{i+1}$ kills some unwanted terms, and projects only on $\sigma$, which we put at point $i+1/2$, in the middle of the block of two lattice points $i,i+1$. When lattice operators are shifted by one unit, this gives a $\mathbb{Z}_2$ transformation in CFT. To compensate it we include $(-1)^i$ factor. Finally, CFT operators conventionally have unit normalization, see coefficient 1 in \eqref{eq:ss}. Lattice operators do not come with any natural normalization. We include constant $a$ in \eqref{eq:sigmalat} to achieve this.
+
+In Fig.~\ref{fig:sigma-sigma} we show the comparison between the exact CFT two-point function and the two-point function of lattice operators, as a function of the distance. We used DMRG to find the ground state of the $L=40$ chain, with Hamiltonian parameters:
+\beq
+\eeq
+We then used lattice operator \eqref{eq:sigmalat} to measure the two-point function. The constant $a=$. 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.5]{fig-sigma-sigma.pdf}
+	\caption{Log-log plot of the two-point function $\langle \sigma(0)\sigma(x)\rangle$ for $1\le |x|\le 20$. Solid blue line - exact CFT prediction. Red dots - our determination using DMRG and lattice operator \eqref{eq:sigmalat}. Dashed gray line is the log-log plot of $\propto x^{-0.25}$ in the same range, to guide the eye.}
+	\label{fig:sigma-sigma}
+\end{figure}
+
+
+
+\section{Effects of distance variation}
+\label{sec:distvar}
+ 
+
+
+
+%\begin{multicols}{2}
+%\twocolumngrid
+%\bibliographystyle{JHEP}
+\bibliography{reference.bib}
+%\end{multicols}
+\end{document}
+
+
+
