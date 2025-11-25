@@ -1,80 +1,78 @@
-%%%%%%%
-%\documentclass[preprint,aps,nofootinbib,preprintnumbers,amsmath,amssymb,11pt]{revtex4-2}
-\documentclass[prd,11pt]{revtex4-2}
-%%
+\documentclass[a4paper,11pt]{article}
+\pdfoutput=1 % if your are submitting a pdflatex (i.e.~if you have
+% images in pdf, png or jpg format)
 
-%%
-\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
-\usepackage{amsthm}
-\usepackage{graphicx}
-\usepackage{amsfonts}
-\usepackage[figuresright]{rotating}
-\usepackage{amssymb}
-\usepackage{amsmath}
-\usepackage{psfrag}
-\usepackage{subfigure}
-\usepackage{wrapfig}
-\usepackage{multirow}
-\usepackage{tabularx}
-\usepackage{float}
-\usepackage{epsfig}
-% \graphicspath{ {images/} }
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsfonts}
-\usepackage{graphicx}% Include figure files
-\usepackage{dcolumn}% Align table columns on decimal point
-\usepackage{bm}% bold math
-\usepackage{natbib}
-\usepackage{xcolor}
-%\textwidth=6.0in 
-\newcommand{\half}{\frac{1}{2}}
+\usepackage{jheppub,amsthm} % for details on the use of the package, please
+% see the JHEP-author-manual
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{booktabs,multirow, quotes}
+
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,graphicx,xcolor,alltt}
+\usepackage{framed}
+
+%%%%%%%%%% Start TeXmacs macros
+%\catcode`\<=\active \def<{
+%\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\newcommand{\longminus}{{-\!\!-}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+
+
 \newcommand{\beq}{\begin{equation}}
 \newcommand{\eeq}{\end{equation}}
 \newcommand{\bea}{\begin{eqnarray}}
 \newcommand{\ea}{\end{eqnarray}}
-\newcommand{\p}{\partial}
-\newcommand{\nn}{\nonumber}
-\newcommand{\Rm}{\mathbb{R}}
-\linespread{1.1}
 
-\def\avg#1{\langle#1\rangle}
-\def\Re {\mbox{Re}}
-\def\Im {\mbox{Im}}
-\def\tr{\mbox{tr}}
-\def\nn{\nonumber}
-\def\pp{\parallel}
-\def\c{\hspace{2pt}}
-\def\cN{{{\cal N}}}
 
-\newcommand{\SR}[1]{{\color{red} [SR: #1]}}
-\newcommand{\red}{\color{red}}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{example}{Example}[section]
+\theoremstyle{theorem}
+\newtheorem{lemma}{Lemma}[section]
+
+%%%%%%%%%% End TeXmacs macros
+\def\red{\color{red}}
+
 
 \makeatletter
-\def\@makefnmark{\hbox{\@textsuperscript{\normalfont\@thefnmark}}}
+\def\@fpheader{\ }
 \makeatother
 
-\begin{document}
+\title{Conformal symmetry test with Rydberg atoms - feasibility study}
+
+ 
+\author{Junchen Rong$^1$}
+\author{Slava Rychkov$^2$}
+
+% The "\note" macro will give a warning: "Ignoring empty anchor..."
+% you can safely ignore it.
+
+\affiliation{$^1$ CPHT, CNRS, \'Ecole Polytechnique, Institut Polytechnique de Paris, Palaiseau, France\\
+$^2$IHES, Bures-sur-Yvette}
+
+
+% e-mail addresses: one for each author, in the same order as the authors
+\emailAdd{junchen.rong@polytechnique.edu}
+\emailAdd{slava@ihes.fr}
 
 
 
-\def\thesection{\arabic{section}}
-\def\thesubsection{\arabic{section}.\arabic{subsection}}
-\numberwithin{equation}{section}
 
-\onecolumngrid
-\begin{center}
-{\Large {\bf Conformal symmetry test with Rydberg atoms - feasibility study}}
-\vspace{10pt}
+\abstract{This is a note on the measurement of 3pt function using Rydberg atom experiments}
 
-{\Large
-\bigskip
-Junchen Rong$^1$, Slava Rychkov$^2$
-}
-{\\~
-\\${}^1$ CPHT, CNRS, \'Ecole Polytechnique, Institut Polytechnique de Paris, Palaiseau, France\\
-${}^2$ IHES, Bures-sur-Yvette }
-\end{center}
+
+
+\begin{document} 
+	
+	\maketitle
+	
+	\flushbottom
+
+
+\flushbottom
+
 
 \section{Introduction}
 Conformal Field Theory (CFT) defines predicts correlation functions of local operators. We will be dealing with a particular 1+1D CFT called the Ising CFT. This CFT famously has three primary operators: $1$ (identity), $\sigma$, and $\epsilon$, of scaling dimensions $0$, $1/8$, $1$. The equal-time correlation functions of $\sigma$ and $\epsilon$ are predicted to be~\cite{polyakov1969microscopic}:
@@ -145,22 +143,23 @@ Operator $\sigma$ has low scaling dimension. Its two-point function decreases wi
 
 The lattice operator that represents $\sigma$ is taken to be
 \beq
-\sigma(i+1/2) = a (-1)^i (n_i -n_{i+1})
+\sigma(i+1/2) = c (-1)^i (n_i -n_{i+1})
 \label{eq:sigmalat}
 \eeq
 This equation is a good chance to understand the logic of matching local lattice operators and local CFT operators. Any local lattice operators corresponds to a linear combination of CFT operators and their derivatives. At large distances derivatives contribute less to correlation functions than the operators without derivatives, but still it's good to suppress them to get cleaner results. Particular linear combination $n_i -n_{i+1}$ kills some unwanted terms, enhancing the contribution of $\sigma$, which we put at point $i+1/2$, in the middle of the block of two lattice points $i,i+1$.\footnote{Note that it's still not an exact CFT $\sigma$, but much better approximation than, say, $(-1)^in_i$.} When lattice operators are shifted by one unit, this gives a $\mathbb{Z}_2$ transformation in CFT. To compensate it we include $(-1)^i$ factor. Finally, CFT operators conventionally have unit normalization, see coefficient 1 in \eqref{eq:ss}. Lattice operators do not come with any natural normalization. We include constant $a$ in \eqref{eq:sigmalat} to achieve this.
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[scale=0.3]{fig-sigma-sigma.pdf}
+	\includegraphics[scale=0.6]{fig-sigma-sigma.pdf}
 	\caption{The two-point function $\langle \sigma(0)\sigma(x)\rangle$ for $1\le |x|\le 20$, plotted in log-log-scale as a function of $|x|_L$, see Eq.~\eqref{eq:xL}. Solid blue line - exact CFT prediction $(|x|_L)^{-0.25}$. Red dots - our determination using DMRG and lattice operator \eqref{eq:sigmalat}. }
 	\label{fig:sigma-sigma}
 \end{figure}
 
 In Fig.~\ref{fig:sigma-sigma} we show the comparison between the exact CFT two-point function and the two-point function of lattice operators, as a function of the distance. We used DMRG to find the ground state of the $L=40$ chain, with Hamiltonian parameters:
 \beq
+\Omega/C_6=0.18, \quad \Delta/C_6=0.1843
 \eeq
-We then used lattice operator \eqref{eq:sigmalat} to measure the two-point function. The constant $a=$. 
+We then used lattice operator \eqref{eq:sigmalat} to measure the two-point function. The constant $c=1.32854$. 
 
 
 
@@ -169,14 +168,7 @@ We then used lattice operator \eqref{eq:sigmalat} to measure the two-point funct
 \label{sec:distvar}
  
 
-
-
-%\begin{multicols}{2}
-%\twocolumngrid
-%\bibliographystyle{JHEP}
 \bibliography{reference.bib}
-%\end{multicols}
+\bibliographystyle{utphys}
+
 \end{document}
-
-
-
