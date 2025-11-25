@@ -85,7 +85,8 @@ Conformal Field Theory (CFT) defines predicts correlation functions of local ope
 \end{align}
 These equations are written for equal-time correlation functions on an infinite-length straight line, Fig.~\ref{fig:straight-line-circle}(a). On a circle of length $L$, Fig.~\ref{fig:straight-line-circle}(b), we should use the same formulas with the substitution
 \beq
-|x_i-x_j|\to |x_i-x_j|_L \equiv \frac{L}{\pi} \sin\left(\frac{\pi}{L} |x_i-x_j|\right)
+|x_i-x_j|\to |x_i-x_j|_L ,\quad |x|_L:= \frac{L}{\pi} \sin\left(\frac{\pi}{L} |x|\right)
+\label{eq:xL}
 \eeq
 \begin{figure}[h]
 	\centering
@@ -149,16 +150,18 @@ The lattice operator that represents $\sigma$ is taken to be
 \eeq
 This equation is a good chance to understand the logic of matching local lattice operators and local CFT operators. Any local lattice operators corresponds to a linear combination of CFT operators and their derivatives. At large distances derivatives contribute less to correlation functions than the operators without derivatives, but still it's good to suppress them to get cleaner results. Particular linear combination $n_i -n_{i+1}$ kills some unwanted terms, enhancing the contribution of $\sigma$, which we put at point $i+1/2$, in the middle of the block of two lattice points $i,i+1$.\footnote{Note that it's still not an exact CFT $\sigma$, but much better approximation than, say, $(-1)^in_i$.} When lattice operators are shifted by one unit, this gives a $\mathbb{Z}_2$ transformation in CFT. To compensate it we include $(-1)^i$ factor. Finally, CFT operators conventionally have unit normalization, see coefficient 1 in \eqref{eq:ss}. Lattice operators do not come with any natural normalization. We include constant $a$ in \eqref{eq:sigmalat} to achieve this.
 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.3]{fig-sigma-sigma.pdf}
+	\caption{The two-point function $\langle \sigma(0)\sigma(x)\rangle$ for $1\le |x|\le 20$, plotted in log-log-scale as a function of $|x|_L$, see Eq.~\eqref{eq:xL}. Solid blue line - exact CFT prediction $(|x|_L)^{-0.25}$. Red dots - our determination using DMRG and lattice operator \eqref{eq:sigmalat}. }
+	\label{fig:sigma-sigma}
+\end{figure}
+
 In Fig.~\ref{fig:sigma-sigma} we show the comparison between the exact CFT two-point function and the two-point function of lattice operators, as a function of the distance. We used DMRG to find the ground state of the $L=40$ chain, with Hamiltonian parameters:
 \beq
 \eeq
 We then used lattice operator \eqref{eq:sigmalat} to measure the two-point function. The constant $a=$. 
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[scale=0.5]{fig-sigma-sigma.pdf}
-	\caption{Log-log plot of the two-point function $\langle \sigma(0)\sigma(x)\rangle$ for $1\le |x|\le 20$. Solid blue line - exact CFT prediction. Red dots - our determination using DMRG and lattice operator \eqref{eq:sigmalat}. Dashed gray line is the log-log plot of $\propto x^{-0.25}$ in the same range, to guide the eye.}
-	\label{fig:sigma-sigma}
-\end{figure}
+
 
 
 
