@@ -1,6 +1,6 @@
 %%%%%%%
 %\documentclass[preprint,aps,nofootinbib,preprintnumbers,amsmath,amssymb,11pt]{revtex4-2}
-\documentclass[prd,twocolumn,11pt]{revtex4-1}
+\documentclass[prd,11pt]{revtex4-2}
 %%
 
 %%
@@ -49,6 +49,10 @@
 
 \newcommand{\SR}[1]{{\color{red} [SR: #1]}}
 \newcommand{\red}{\color{red}}
+
+\makeatletter
+\def\@makefnmark{\hbox{\@textsuperscript{\normalfont\@thefnmark}}}
+\makeatother
 
 \begin{document}
 
@@ -143,7 +147,7 @@ The lattice operator that represents $\sigma$ is taken to be
 \sigma(i+1/2) = a (-1)^i (n_i -n_{i+1})
 \label{eq:sigmalat}
 \eeq
-This equation is a good chance to understand the logic of matching local lattice operators and local CFT operators. Any local lattice operators corresponds to a linear combination of CFT operators and their derivatives. At large distances derivatives contribute less to correlation functions than the operators without derivatives, but still it's good to suppress them to get cleaner results. Particular linear combination $n_i -n_{i+1}$ kills some unwanted terms, and projects only on $\sigma$, which we put at point $i+1/2$, in the middle of the block of two lattice points $i,i+1$. When lattice operators are shifted by one unit, this gives a $\mathbb{Z}_2$ transformation in CFT. To compensate it we include $(-1)^i$ factor. Finally, CFT operators conventionally have unit normalization, see coefficient 1 in \eqref{eq:ss}. Lattice operators do not come with any natural normalization. We include constant $a$ in \eqref{eq:sigmalat} to achieve this.
+This equation is a good chance to understand the logic of matching local lattice operators and local CFT operators. Any local lattice operators corresponds to a linear combination of CFT operators and their derivatives. At large distances derivatives contribute less to correlation functions than the operators without derivatives, but still it's good to suppress them to get cleaner results. Particular linear combination $n_i -n_{i+1}$ kills some unwanted terms, enhancing the contribution of $\sigma$, which we put at point $i+1/2$, in the middle of the block of two lattice points $i,i+1$.\footnote{Note that it's still not an exact CFT $\sigma$, but much better approximation than, say, $(-1)^in_i$.} When lattice operators are shifted by one unit, this gives a $\mathbb{Z}_2$ transformation in CFT. To compensate it we include $(-1)^i$ factor. Finally, CFT operators conventionally have unit normalization, see coefficient 1 in \eqref{eq:ss}. Lattice operators do not come with any natural normalization. We include constant $a$ in \eqref{eq:sigmalat} to achieve this.
 
 In Fig.~\ref{fig:sigma-sigma} we show the comparison between the exact CFT two-point function and the two-point function of lattice operators, as a function of the distance. We used DMRG to find the ground state of the $L=40$ chain, with Hamiltonian parameters:
 \beq
