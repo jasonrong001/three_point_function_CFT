@@ -34,6 +34,7 @@
 
 %%%%%%%%%% End TeXmacs macros
 \def\red{\color{red}}
+\newcommand{\SR}[1]{{\red \bf [{SR:} #1]}}
 
 
 \makeatletter
@@ -79,7 +80,7 @@ Conformal Field Theory (CFT) defines predicts correlation functions of local ope
 \begin{align}
 	\langle\sigma(x_1)\sigma(x_2)\rangle &=\frac{1}{|x-y|^{2\Delta_{\sigma}}}, \label{eq:ss}\\
 \langle\epsilon(x_1)\epsilon(x_2)\rangle &=\frac{1}{|x-y|^{2\Delta_{\epsilon}}},\label{eq:ee} \\
-	\langle\sigma(x_1)\sigma(x_2)\epsilon(x_3)\rangle &=\frac{C_{\sigma\sigma\epsilon}}{|x_1-x_2|^{2\Delta_{\sigma}-\Delta_{\epsilon}}|x_1-x_3|^{\Delta_{\sigma}}|x_2-x_3|^{\Delta_{\sigma}}},\quad C_{\sigma\sigma\epsilon}=1/2.
+	\langle\sigma(x_1)\sigma(x_2)\epsilon(x_3)\rangle &=\frac{C_{\sigma\sigma\epsilon}}{|x_1-x_2|^{2\Delta_{\sigma}-\Delta_{\epsilon}}|x_1-x_3|^{\Delta_{\sigma}}|x_2-x_3|^{\Delta_{\sigma}}},\quad C_{\sigma\sigma\epsilon}=1/2. \label{eq:ess}
 \end{align}
 These equations are written for equal-time correlation functions on an infinite-length straight line, Fig.~\ref{fig:straight-line-circle}(a). On a circle of length $L$, Fig.~\ref{fig:straight-line-circle}(b), we should use the same formulas with the substitution
 \beq
@@ -105,7 +106,7 @@ Consider a chain of $L$ Rydberg atoms equally spaced along a circle:
 	\includegraphics[width=100pt]{fig-circle.jpeg}
 	\label{fig:circle}
 \eeq
-We describes states of this system in the 0-1 basis, where $|0\rangle$ ($|1\rangle$) on site $i$ corresponds to the $i$-th atom to be in the ground/Rydberg excited state.
+We describe the states in the 0-1 basis, where $|0\rangle$ ($|1\rangle$) on site $i$ corresponds to the $i$-th atom to be in the ground/Rydberg excited state.
 The creation operator $d_i^\dagger$ maps $|0_i\rangle$ to $|1_i\rangle$. We have the occupation number of site $i$.
 We refer to $|0\rangle$ as empty and $|1\rangle$ as occupied site. 
 
@@ -135,7 +136,7 @@ The phase diagram near the Ising transition is reported in Fig.~\ref{phasediagra
 \label{phasediagramHBlong}
 \end{figure}
 
-It is useful to contrast this model with the transverse field Ising model (TFIM). TFIM has lattice onsite $\mathbb{Z}_2$ symmetry. This corresponds to the $\mathbb{Z}_2$ symmetry of the CFT under which $\sigma\to-\sigma$ while $\epsilon$ is invariant. In contrast, the Rydberg atom model \eqref{eq:model} does not have onsite $\mathbb{Z}_2$ symmetry. Instead, $\mathbb{Z}_2$ symmetry of the CFT will emerge from a lattice translation by one lattice unit. (In the broken phase, the expectation value $\langle n_i \rangle$ is periodic with period 2 and shift by one unit permutes the two ground states.) This will have to be taken into account when constructing lattice operators which represent CFT operators.
+It is useful to contrast this model with the transverse field Ising model (TFIM). TFIM has lattice onsite $\mathbb{Z}_2$ symmetry. This corresponds to the $\mathbb{Z}_2$ symmetry of the CFT under which $\sigma\to-\sigma$ while $\epsilon$ is invariant. In contrast, the Rydberg atom model \eqref{eq:model} does not have onsite $\mathbb{Z}_2$ symmetry. Instead, $\mathbb{Z}_2$ symmetry of the CFT will emerge from a lattice translation by one lattice unit. (In the broken phase, the expectation value $\langle n_i \rangle$ is periodic with period 2, and shift by one lattice unit permutes the two ground states.) This will have to be taken into account when constructing lattice operators which represent CFT operators.
 
 \section{Two-point function of $\sigma$}
 
@@ -146,12 +147,12 @@ The lattice operator that represents $\sigma$ is taken to be
 \sigma(i+1/2) = c_1 (-1)^i (n_i -n_{i+1})
 \label{eq:sigmalat}
 \eeq
-This equation is a good chance to understand the logic of matching local lattice operators and local CFT operators. Any local lattice operators corresponds to a linear combination of CFT operators and their derivatives. At large distances derivatives contribute less to correlation functions than the operators without derivatives, but still it's good to suppress them to get cleaner results. Particular linear combination $n_i -n_{i+1}$ kills some unwanted terms, enhancing the contribution of $\sigma$, which we put at point $i+1/2$, in the middle of the block of two lattice points $i,i+1$.\footnote{Note that it's still not an exact CFT $\sigma$, but much better approximation than, say, $(-1)^in_i$.} When lattice operators are shifted by one unit, this gives a $\mathbb{Z}_2$ transformation in CFT. To compensate it we include $(-1)^i$ factor. Finally, CFT operators conventionally have unit normalization, see coefficient 1 in \eqref{eq:ss}. Lattice operators do not come with any natural normalization. We include constant $c_1$ in \eqref{eq:sigmalat} to achieve this.
+This equation is a good chance to understand the logic of matching local lattice operators and local CFT operators. Any local lattice operators corresponds to a linear combination of CFT operators and their derivatives. At large distances derivatives contribute less to correlation functions than the operators without derivatives, but still it's good to suppress them to get cleaner results. The linear combination $n_i -n_{i+1}$ in \eqref{eq:sigmalat} kills some unwanted terms, enhancing the contribution of $\sigma$. In the l.h.s. of \eqref{eq:sigmalat}, we put the CFT operator $\sigma$ at point $x=i+1/2$, which is the middle of the block of two lattice points $i,i+1$.\footnote{\label{note:imperfect} Note that it's still not an exact CFT $\sigma$, but a much better approximation than, say, $(-1)^in_i$. This discussion can be made much more detailed and theoretical; here we focus on the essential details.} When lattice operators are shifted by one unit, this gives a $\mathbb{Z}_2$ transformation in CFT, which would map $\sigma\to-\sigma$. To compensate it we include $(-1)^i$ factor in the r.h.s. of \eqref{eq:sigmalat}. Finally, CFT operators conventionally have unit normalization, see coefficient 1 in \eqref{eq:ss}. Lattice operators do not come with any natural normalization. We include constant $c_1$ in \eqref{eq:sigmalat} to achieve this. This constant cannot be determined from first principles; it will need to be determined by a fit.
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=0.6]{fig-sigma-sigma.pdf}
-	\caption{The two-point function $\langle \sigma(0)\sigma(x)\rangle$ for $1\le |x|\le 20$, plotted in log-log-scale as a function of $|x|_L$, see Eq.~\eqref{eq:xL}. Solid blue line - exact CFT prediction $(|x|_L)^{-0.25}$. Red dots - our determination using DMRG and lattice operator \eqref{eq:sigmalat}. }
+	\caption{The two-point function $\langle \sigma(0)\sigma(x)\rangle$ in the range $2\le |x|\le 20$, plotted in log-log-scale as a function of $|x|_L$, see Eq.~\eqref{eq:xL}. Solid blue line - exact CFT prediction $(|x|_L)^{-0.25}$. Red dots - our determination using DMRG and lattice operator \eqref{eq:sigmalat}. We only show the DMRG result at separation $|x|\ge 2$, where the lattice operators don't overlap. \SR{modify the plot removing the point at $x=1$. But still plot for the blue line for $x>1$. }}
 	\label{fig:sigma-sigma}
 \end{figure}
 
@@ -161,34 +162,35 @@ In Fig.~\ref{fig:sigma-sigma} we show the comparison between the exact CFT two-p
 \eeq
 We then used lattice operator \eqref{eq:sigmalat} to measure the two-point function. The constant $c_1=1.32854$. 
 
-Similarly, we can map the CFT operator $\epsilon$ to the lattice operator as 
+In Fig.~\ref{fig:sigma-sigma}, we see that the two-point function determined in a numerical simulation differs a bit from the CFT prediction at the shortest distance $|x|=2$ where the lattice operators don't overlap, but it agrees with it better and better at larger distances. Theoretically, the small discrepancy which goes to zero as $x\to\infty$ is due to two effects: 1) the microscopic model only becomes CFT at large distances; 2) the operator \eqref{eq:sigmalat} we constructed is imperfect, note \ref{note:imperfect}.
+
+
+Similarly, we can map the CFT operator $\epsilon$ to the lattice operator. In this case it's a bit harder to construct the needed lattice operator, and some naive choice give poor results. Here is one operator which 1) works reasonably well in simulations and 2) is suitable for experimental work, as we will explain below:
 \beq
-\epsilon(i+1/2)=c_2 \big( (n_{i-1} -n_{i})(n_{i+1} -n_{i+2}) - b \big)
+\epsilon(i+1/2)=c_2 \big[ (n_{i-1} -n_{i})(n_{i+1} -n_{i+2}) - b \big], \quad b =\langle (n_{i-1} -n_{i})(n_{i+1} -n_{i+2}) \rangle\,.
 \label{eq:epslat}
 \eeq
-We take 
-\beq
-b =\langle (n_{i-1} -n_{i})(n_{i+1} -n_{i+2}) \rangle =0.488577,
-\eeq
-and 
-\beq
-c_2 = 2.05816,
-\eeq
-The DMRG result are summarised in Fig.~\ref{fig:eps-eps}.
+To understand the expression of this operator note that it's obtained by putting next to each other two lattice operators for $\sigma$ from \eqref{eq:sigmalat}. Naively, you can think of $\epsilon$ as a "renormalized square" of the CFT operator $\sigma$, and \eqref{eq:epslat} corresponds to this intuition. In \eqref{eq:epslat}, we subtract the constant $b$ which corresponds to subtracting the identity contribution. This is needed because the CFT operators apart from the identity must have zero one point functions.
+In \eqref{eq:sigmalat} we did not need to subtract it because it was automatically zero. The meaning of the constant $c_2$ is the same as $c_1$ in \eqref{eq:sigmalat}.
+
+The DMRG result are summarised in Fig.~\ref{fig:eps-eps}. This is for the same Hamiltonian parameters as in \eqref{fig:sigma-sigma}. The constants are $b =0.488577$, $c_2 = 2.05816$. Because operator \eqref{eq:epslat} is constructed from 4 points, we only show results for $|x|\ge 4$ where the lattice operators don't overlap. Comparing this plot with the one for $\sigma$, we see that the two-point function of $\epsilon$ decreases with the distance much faste, due to larger scaling dimension of $\epsilon$. We may expect that the experimental measurement of this two-point function will be more challenging. This will be discussed below.
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=0.6]{fig-eps-eps.pdf}
-	\caption{The two-point function $\langle \epsilon(0)\epsilon(x)\rangle$ for $1\le |x|\le 20$, plotted in log-log-scale as a function of $|x|_L$, see Eq.~\eqref{eq:xL}. Solid blue line - exact CFT prediction $(|x|_L)^{-2}$. Red dots - our determination using DMRG and lattice operator \eqref{eq:epslat}. }
+	\caption{The two-point function $\langle \epsilon(0)\epsilon(x)\rangle$ for $4\le |x|\le 20$, plotted in log-log-scale as a function of $|x|_L$, see Eq.~\eqref{eq:xL}. Solid blue line - exact CFT prediction $(|x|_L)^{-2}$. Red dots - our determination using DMRG and lattice operator \eqref{eq:epslat}. We only show the DMRG result at separation $|x|\ge 4$, because for smaller $|x|$ the lattice operators overlap. \SR{Modify the plot removing the points at $x=1,2,3$. But still show the blue line for $x>1$.}}
 	\label{fig:eps-eps}
 \end{figure}
 
-After fixing the map from CFT operator to lattice, we can now measure the three point function using DMRG, as shown in Fig.~\ref{fig:eps-sig-sig}.
+Let us now discuss the three point function $\langle\epsilon(x_1) \sigma(x_2)\sigma(x_3)\rangle $.  We can set $x_1=0$ by translation invariance. The plots for the theoretical prediction and the DMRG are shown in Fig.~\ref{fig:eps-sig-sig}. In the left panel we show the exact CFT prediction, and in the right panel the relative error between DMRG and CFT (i.e.~$|f_{\rm DMRG}/f_{\rm CFT}-1|$). Some comments are in order. Note that the CFT prediction is a function which blows up as $x_2$ or $x_3$ approach 0, and goes to zero as $x_2,x_3$, see Eq.~\eqref{eq:ess}. This function is symmetric under the interchange of $x_2$ as $x_3$ and also under the flip of the circle orientation which maps $x_2\to L-x_2$, $x_3\to L-x_3$.
+
+In DMRG, we only show the result for the ranges $|x_2|,|x_3|\ge 3$, $|x_2-x_3|\ge 2$ where the lattice operators don't overlap. We see that the agreement between CFT and DMRG is excellent. Note that in this test we used exactly the same Hamiltonian parameters and the same lattice operators for $\sigma$ and $\epsilon$ as in previous plots, i.e.~no further tuning is necessary. Note that we reproduce not only the shape of the CFT prediction, but also the overall normalization (i.e.~the coefficient $C_{\sigma\sigma\epsilon}$ in Eq.~\eqref{eq:ess}.) 
+
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=0.7]{fig-eps-sig-sig-theory.pdf}
 		\includegraphics[scale=0.7]{fig-eps-sig-sig-DMRG.pdf}
-	\caption{The three-point function $\langle \epsilon(1)\sigma(x_2)\sigma(x_3)\rangle$. Left - exact CFT predictio. Right - our determination using DMRG. }
+	\caption{The three-point function $\langle \epsilon(0)\sigma(x_2)\sigma(x_3)\rangle$. Left - exact CFT prediction on a circle of length $L=40$. Right - the relative error between our experimental determination using DMRG and the CFT prediction, in the range of separation in which the lattice operators don't overlap, which is $|x_2|,|x_3|\ge 3$, $|x_2-x_3|\ge 2$. }
 	\label{fig:eps-sig-sig}
 \end{figure}
 
