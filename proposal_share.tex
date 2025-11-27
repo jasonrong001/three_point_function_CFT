@@ -81,7 +81,7 @@ Conformal Field Theory (CFT) defines predicts correlation functions of local ope
 \begin{align}
 	\langle\sigma(x_1)\sigma(x_2)\rangle &=\frac{1}{|x-y|^{2\Delta_{\sigma}}}, \label{eq:ss}\\
 \langle\epsilon(x_1)\epsilon(x_2)\rangle &=\frac{1}{|x-y|^{2\Delta_{\epsilon}}},\label{eq:ee} \\
-	\langle\sigma(x_1)\sigma(x_2)\epsilon(x_3)\rangle &=\frac{C_{\sigma\sigma\epsilon}}{|x_1-x_2|^{2\Delta_{\sigma}-\Delta_{\epsilon}}|x_1-x_3|^{\Delta_{\sigma}}|x_2-x_3|^{\Delta_{\sigma}}},\quad C_{\sigma\sigma\epsilon}=1/2. \label{eq:ess}
+	\langle\sigma(x_1)\sigma(x_2)\epsilon(x_3)\rangle &=\frac{C_{\sigma\sigma\epsilon}}{|x_1-x_2|^{2\Delta_{\sigma}-\Delta_{\epsilon}}|x_1-x_3|^{\Delta_{\epsilon}}|x_2-x_3|^{\Delta_{\epsilon}}},\quad C_{\sigma\sigma\epsilon}=1/2. \label{eq:ess}
 \end{align}
 These equations are written for equal-time correlation functions on an infinite-length straight line, Fig.~\ref{fig:straight-line-circle}(a). On a circle of length $L$, Fig.~\ref{fig:straight-line-circle}(b), we should use the same formulas with the substitution
 \beq
@@ -155,7 +155,7 @@ This equation is a good chance to understand the logic of matching local lattice
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=0.6]{fig-sigma-sigma.pdf}
-	\caption{The two-point function $\langle \sigma(0)\sigma(x)\rangle$ in the range $2\le |x|\le 20$, plotted in log-log-scale as a function of $|x|_L$, see Eq.~\eqref{eq:xL}. Solid blue line - exact CFT prediction $(|x|_L)^{-0.25}$. Red dots - our determination using DMRG and lattice operator \eqref{eq:sigmalat}. We only show the DMRG result at separation $|x|\ge 2$, where the lattice operators don't overlap. \SR{modify the plot removing the point at $x=1$. But still plot for the blue line for $x>1$. }}
+	\caption{The two-point function $\langle \sigma(0)\sigma(x)\rangle$ in the range $2\le |x|\le 20$, plotted in log-log-scale as a function of $|x|_L$, see Eq.~\eqref{eq:xL}. Solid blue line - exact CFT prediction $(|x|_L)^{-0.25}$. Red dots - our determination using DMRG and lattice operator \eqref{eq:sigmalat}. We only show the DMRG result at separation $|x|\ge 2$, where the lattice operators don't overlap.}
 	\label{fig:sigma-sigma}
 \end{figure}
 
@@ -178,26 +178,33 @@ Similarly, we can map the CFT operator $\epsilon$ to the lattice operator. In th
 To understand the expression of this operator note that it's obtained by putting next to each other two lattice operators for $\sigma$ from \eqref{eq:sigmalat}. Naively, you can think of $\epsilon$ as a "renormalized square" of the CFT operator $\sigma$, and \eqref{eq:epslat} corresponds to this intuition. In \eqref{eq:epslat}, we subtract the constant $b$ which corresponds to subtracting the identity contribution. This is needed because the CFT operators apart from the identity must have zero one point functions.
 In \eqref{eq:sigmalat} we did not need to subtract it because it was automatically zero. The meaning of the constant $c_2$ is the same as $c_1$ in \eqref{eq:sigmalat}.
 
-The DMRG result are summarised in Fig.~\ref{fig:eps-eps}. This is for the same Hamiltonian parameters as in \eqref{fig:sigma-sigma}. The constants are $b =0.488577$, $c_2 = 2.05816$. Because operator \eqref{eq:epslat} is constructed from 4 points, we only show results for $|x|\ge 4$ where the lattice operators don't overlap. Comparing this plot with the one for $\sigma$, we see that the two-point function of $\epsilon$ decreases with the distance much faste, due to larger scaling dimension of $\epsilon$. We may expect that the experimental measurement of this two-point function will be more challenging. This will be discussed below.
+The DMRG result are summarised in Fig.~\ref{fig:eps-eps}. This is for the same Hamiltonian parameters as in \eqref{fig:sigma-sigma}. The constants are $b =0.488577$, $c_2 = 2.05816$. Because operator \eqref{eq:epslat} is constructed from 4 points, we only show results for $|x|\ge 4$ where the lattice operators don't overlap. Comparing this plot with the one for $\sigma$, we see that the two-point function of $\epsilon$ decreases with the distance much faster, due to larger scaling dimension of $\epsilon$. We may expect that the experimental measurement of this two-point function will be more challenging. This will be discussed below.
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=0.6]{fig-eps-eps.pdf}
-	\caption{The two-point function $\langle \epsilon(0)\epsilon(x)\rangle$ for $4\le |x|\le 20$, plotted in log-log-scale as a function of $|x|_L$, see Eq.~\eqref{eq:xL}. Solid blue line - exact CFT prediction $(|x|_L)^{-2}$. Red dots - our determination using DMRG and lattice operator \eqref{eq:epslat}. We only show the DMRG result at separation $|x|\ge 4$, because for smaller $|x|$ the lattice operators overlap. \SR{Modify the plot removing the points at $x=1,2,3$. But still show the blue line for $x>1$.}}
+	\caption{The two-point function $\langle \epsilon(0)\epsilon(x)\rangle$ for $4\le |x|\le 20$, plotted in log-log-scale as a function of $|x|_L$, see Eq.~\eqref{eq:xL}. Solid blue line - exact CFT prediction $(|x|_L)^{-2}$. Red dots - our determination using DMRG and lattice operator \eqref{eq:epslat}. We only show the DMRG result at separation $|x|\ge 4$, because for smaller $|x|$ the lattice operators overlap. }
 	\label{fig:eps-eps}
 \end{figure}
 
 \subsection{Three-point function $\langle \epsilon \sigma\sigma\rangle$}
 
-Let us now discuss the three point function $\langle\epsilon(x_1) \sigma(x_2)\sigma(x_3)\rangle $.  We can set $x_1=0$ by translation invariance. The plots for the theoretical prediction and the DMRG are shown in Fig.~\ref{fig:eps-sig-sig}. In the left panel we show the exact CFT prediction, and in the right panel the relative error between DMRG and CFT (we plot $f_{\rm DMRG}/f_{\rm CFT}-1$, i.e. relative error including the sign). Some comments are in order. Note that the CFT prediction is a function which blows up as $x_2$ or $x_3$ approach 0, and goes to zero as $x_2,x_3$, see Eq.~\eqref{eq:ess}. This function is symmetric under the interchange of $x_2$ as $x_3$ and also under the flip of the circle orientation which maps $x_2\to L-x_2$, $x_3\to L-x_3$.
-
-In DMRG, we only show the result for the ranges $|x_2|,|x_3|\ge 3$, $|x_2-x_3|\ge 2$ where the lattice operators don't overlap. We see that the agreement between CFT and DMRG is excellent. Note that in this test we used exactly the same Hamiltonian parameters and the same lattice operators for $\sigma$ and $\epsilon$ as in previous plots, i.e.~no further tuning is necessary. Note that we reproduce not only the shape of the CFT prediction, but also the overall normalization (i.e.~the coefficient $C_{\sigma\sigma\epsilon}$ in Eq.~\eqref{eq:ess}.) 
+Let us now discuss the three point function $\langle\epsilon(x_1) \sigma(x_2)\sigma(x_3)\rangle $.  We can set $x_1=0$ by translation invariance. The plots for the CFT prediction on the circle of length $L=40$ is shown in Fig.~\ref{fig:eps-sig-sig-theory}, as a 3D plot and as a contour plot in Log scale. We see that it is a function which blows up as $x_2$ or $x_3$ approach 0, and goes to zero as $x_2\to x_3$, see Eq.~\eqref{eq:ess}. This function is symmetric under the interchange of $x_2$ as $x_3$ and also under the flip of the circle orientation which maps $x_2\to L-x_2$, $x_3\to L-x_3$.
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[scale=0.7]{fig-eps-sig-sig-theory.pdf}
+	\includegraphics[scale=0.3]{fig-eps-sig-sig-theory-3D.pdf}
+	\includegraphics[scale=0.5]{fig-eps-sig-sig-theory.pdf}
+	\caption{The three-point function $\langle \epsilon(0)\sigma(x_2)\sigma(x_3)\rangle$ on a circle of length $L=40$. Left - 3D plot. Right Contour plot in the log scale. \SR{The plot legend show show line levels as $10^{-2},10^{-1.5}, 10^{-1}, 10^{-0.5}, 1$, but I was not able to achieve this. Change color scheme if you wish to your preferred one.}} 
+	\label{fig:eps-sig-sig-theory}
+\end{figure}
+
+In Fig.~\ref{fig:eps-sig-sig} we show the computation of the same correlation function using DMRG, as a contour plot in in Log scale. We also show the relative error of DMRG w.r.t. CFT, i.e. $|f_{\rm DMRG}/f_{\rm CFT}-1|$. \SR{Let's just plot abs value of the relative error}. In DMRG, we only show the result for the ranges $|x_2|,|x_3|\ge 3$, $|x_2-x_3|\ge 2$ where the lattice operators don't overlap. We see that the agreement between CFT and DMRG is excellent. Note that in this test we used exactly the same Hamiltonian parameters and the same lattice operators for $\sigma$ and $\epsilon$ as in previous plots, i.e.~no further tuning is necessary. Note that we reproduce not only the shape of the CFT prediction, but also the overall normalization (i.e.~the coefficient $C_{\sigma\sigma\epsilon}$ in Eq.~\eqref{eq:ess}.) 
+
+\begin{figure}[htbp]
+	\centering
 		\includegraphics[scale=0.7]{fig-eps-sig-sig-DMRG.pdf}
-	\caption{The three-point function $\langle \epsilon(0)\sigma(x_2)\sigma(x_3)\rangle$. Left - exact CFT prediction on a circle of length $L=40$. Right - the relative error between our experimental determination using DMRG and the CFT prediction, in the range of separation in which the lattice operators don't overlap, which is $|x_2|,|x_3|\ge 3$, $|x_2-x_3|\ge 2$. \SR{because you put $\epsilon$ to 1, the left plot does not have symmetry under $x\to L-x$. let's put epsilon to $0$, it will look nicer. $x_2$, $x_3$ should range from $0$ to $L$. Up to you to put cutoffs on the maximal range you want to cover.}}
+	\caption{The three-point function $\langle \epsilon(0)\sigma(x_2)\sigma(x_3)\rangle$ from DMRG for $L=40$. Left - Log scale plot. Relative error between our experimental determination using DMRG and the CFT prediction. We only show the range of separation in which the lattice operators don't overlap, which is $|x_2|,|x_3|\ge 3$, $|x_2-x_3|\ge 2$. }
 	\label{fig:eps-sig-sig}
 \end{figure}
 
