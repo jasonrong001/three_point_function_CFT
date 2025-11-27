@@ -34,8 +34,9 @@
 
 %%%%%%%%%% End TeXmacs macros
 \def\red{\color{red}}
-\newcommand{\SR}[1]{{\red \bf [{SR:} #1]}}
 
+\newcommand{\SR}[1]{{\red \bf [{SR:} #1]}}
+\newcommand{\junchen}[1]{\textcolor{blue}{\textbf{[JR: #1]}}}
 
 \makeatletter
 \def\@fpheader{\ }
@@ -61,7 +62,7 @@ $^2$IHES, Bures-sur-Yvette}
 
 
 
-\abstract{This is a note on the measurement of 3pt function using Rydberg atom experiments}
+\abstract{This is a note on the measurement of 3pt function using Rydberg atom experiments.}
 
 
 
@@ -200,9 +201,28 @@ In DMRG, we only show the result for the ranges $|x_2|,|x_3|\ge 3$, $|x_2-x_3|\g
 	\label{fig:eps-sig-sig}
 \end{figure}
 
+\subsection{estimation of sample size}
+\junchen{feel free to change this subsection.}The sample() function of iTensor allows us to sample the ground state through the Born rule. The result depends on the size of the sample, see Fig.~\ref{fig:sig-sig-sample} for the two point function $\langle\sigma \sigma \rangle$, and Fig.~\ref{fig:eps-sig-sig-sample} for the three point function $\langle\epsilon\sigma\sigma\rangle$.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.5]{fig-sigma-sigma-sample-10e3.pdf}
+		\includegraphics[scale=0.5]{fig-sigma-sigma-sample-10e4.pdf}
+	\caption{The three-point function $\langle \sigma(0)\sigma(x)\rangle$ from sampling the ground state. Left - sample size $N=10^3$. Right - sample size $N=10^4$. }
+	\label{fig:sig-sig-sample}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.7]{fig-eps-sig-sig-sample-10e4.pdf}
+		\includegraphics[scale=0.7]{fig-eps-sig-sig-sample-10e5.pdf}
+	\caption{The three-point function $\langle \epsilon(0)\sigma(x_2)\sigma(x_3)\rangle$ from sampling the ground state. Left - sample size $N=10^4$. Right - sample size $N=10^5$. }
+	\label{fig:eps-sig-sig-sample}
+\end{figure}
+
 \section{Effects of distance variation}
 \label{sec:distvar}
  
+
 
 \bibliography{reference.bib}
 \bibliographystyle{utphys}
