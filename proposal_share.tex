@@ -138,7 +138,9 @@ The phase diagram near the Ising transition is reported in Fig.~\ref{phasediagra
 
 It is useful to contrast this model with the transverse field Ising model (TFIM). TFIM has lattice onsite $\mathbb{Z}_2$ symmetry. This corresponds to the $\mathbb{Z}_2$ symmetry of the CFT under which $\sigma\to-\sigma$ while $\epsilon$ is invariant. In contrast, the Rydberg atom model \eqref{eq:model} does not have onsite $\mathbb{Z}_2$ symmetry. Instead, $\mathbb{Z}_2$ symmetry of the CFT will emerge from a lattice translation by one lattice unit. (In the broken phase, the expectation value $\langle n_i \rangle$ is periodic with period 2, and shift by one lattice unit permutes the two ground states.) This will have to be taken into account when constructing lattice operators which represent CFT operators.
 
-\section{Two-point function of $\sigma$}
+\section{Correlation functions: comparing CFT and DMRG}
+
+\subsection{Two-point function of $\sigma$}
 
 Operator $\sigma$ has low scaling dimension. Its two-point function decreases with the distance, but only quite slowly. This is the easiest nontrivial observable to measure experimentally. We also believe that this will be a great way to tune the system to the critical point.
 
@@ -164,6 +166,8 @@ We then used lattice operator \eqref{eq:sigmalat} to measure the two-point funct
 
 In Fig.~\ref{fig:sigma-sigma}, we see that the two-point function determined in a numerical simulation differs a bit from the CFT prediction at the shortest distance $|x|=2$ where the lattice operators don't overlap, but it agrees with it better and better at larger distances. Theoretically, the small discrepancy which goes to zero as $x\to\infty$ is due to two effects: 1) the microscopic model only becomes CFT at large distances; 2) the operator \eqref{eq:sigmalat} we constructed is imperfect, note \ref{note:imperfect}.
 
+\subsection{Two-point function of $\epsilon$}
+
 
 Similarly, we can map the CFT operator $\epsilon$ to the lattice operator. In this case it's a bit harder to construct the needed lattice operator, and some naive choice give poor results. Here is one operator which 1) works reasonably well in simulations and 2) is suitable for experimental work, as we will explain below:
 \beq
@@ -182,6 +186,8 @@ The DMRG result are summarised in Fig.~\ref{fig:eps-eps}. This is for the same H
 	\label{fig:eps-eps}
 \end{figure}
 
+\subsection{Three-point function $\langle \epsilon \sigma\sigma\rangle$}
+
 Let us now discuss the three point function $\langle\epsilon(x_1) \sigma(x_2)\sigma(x_3)\rangle $.  We can set $x_1=0$ by translation invariance. The plots for the theoretical prediction and the DMRG are shown in Fig.~\ref{fig:eps-sig-sig}. In the left panel we show the exact CFT prediction, and in the right panel the relative error between DMRG and CFT (we plot $f_{\rm DMRG}/f_{\rm CFT}-1$, i.e. relative error including the sign). Some comments are in order. Note that the CFT prediction is a function which blows up as $x_2$ or $x_3$ approach 0, and goes to zero as $x_2,x_3$, see Eq.~\eqref{eq:ess}. This function is symmetric under the interchange of $x_2$ as $x_3$ and also under the flip of the circle orientation which maps $x_2\to L-x_2$, $x_3\to L-x_3$.
 
 In DMRG, we only show the result for the ranges $|x_2|,|x_3|\ge 3$, $|x_2-x_3|\ge 2$ where the lattice operators don't overlap. We see that the agreement between CFT and DMRG is excellent. Note that in this test we used exactly the same Hamiltonian parameters and the same lattice operators for $\sigma$ and $\epsilon$ as in previous plots, i.e.~no further tuning is necessary. Note that we reproduce not only the shape of the CFT prediction, but also the overall normalization (i.e.~the coefficient $C_{\sigma\sigma\epsilon}$ in Eq.~\eqref{eq:ess}.) 
@@ -190,7 +196,7 @@ In DMRG, we only show the result for the ranges $|x_2|,|x_3|\ge 3$, $|x_2-x_3|\g
 	\centering
 	\includegraphics[scale=0.7]{fig-eps-sig-sig-theory.pdf}
 		\includegraphics[scale=0.7]{fig-eps-sig-sig-DMRG.pdf}
-	\caption{The three-point function $\langle \epsilon(0)\sigma(x_2)\sigma(x_3)\rangle$. Left - exact CFT prediction on a circle of length $L=40$. Right - the relative error between our experimental determination using DMRG and the CFT prediction, in the range of separation in which the lattice operators don't overlap, which is $|x_2|,|x_3|\ge 3$, $|x_2-x_3|\ge 2$. }
+	\caption{The three-point function $\langle \epsilon(0)\sigma(x_2)\sigma(x_3)\rangle$. Left - exact CFT prediction on a circle of length $L=40$. Right - the relative error between our experimental determination using DMRG and the CFT prediction, in the range of separation in which the lattice operators don't overlap, which is $|x_2|,|x_3|\ge 3$, $|x_2-x_3|\ge 2$. \SR{because you put $\epsilon$ to 1, the left plot does not have symmetry under $x\to L-x$. let's put epsilon to $0$, it will look nicer. $x_2$, $x_3$ should range from $0$ to $L$. Up to you to put cutoffs on the maximal range you want to cover.}}
 	\label{fig:eps-sig-sig}
 \end{figure}
 
