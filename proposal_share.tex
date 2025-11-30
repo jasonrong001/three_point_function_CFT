@@ -228,8 +228,25 @@ There are two ways to study the variance. The first way is to compute the varian
 Below we will report the results of a second method, which is more direct and closer to the experiment. As is well known, DMRG algorithms allow to quickly \emph{sample} the wave function, i.e. to generate sequences of random collapsed states distributed according to the Born rule.\footnote{{\tt sample()} function of the {\tt iTensor.jl} package.} This is very quick and allows us to simulate the experimental process directly. Statistical errors will go down as $C/\sqrt{N}$, and we can estimate the constant $C$ needed to resolve the signal.
 
 \SR{stopped here}
-
-The result depends on the size of the sample, see Fig.~\ref{fig:sig-sig-sample} for the two point function $\langle\sigma \sigma \rangle$, and Fig.~\ref{fig:eps-sig-sig-sample} for the three point function $\langle\epsilon\sigma\sigma\rangle$.
+We first collect $N$ samples, and measure the two point function on the $m$-th sample by
+\beq
+X_{m}(l)=\frac{1}{40} \sum_{x=1}^{40} \sigma(x)\sigma(x+l) \bigg|_{m{\rm -th~sample}}.
+\eeq
+Notice that we have averaged over all the configurations where location of the two $\sigma$'s are separated by distance $l$. 
+Suppose $X(l)$ follows a distribution with mean $\overline{X(l)}$ and standard deviation $SD$, we can estimate them using the samples available by
+\begin{align}
+\overline{X(l)}_{est}=\frac{1}{N} \sum_{m} X_{(m)}(l),
+\end{align}
+and 
+\beq
+[SD^2]_{est} = \frac{1}{N}\sum_m (X_m(l) - \overline{X(l)})^2
+\eeq
+When the sample size $N$ is large enough, according the ``central limit theorem'', the the probability distribution of the mean $\overline{X(l)}$ is approximately a gaussian distribution with variance $(SD_N)^2= (SD/\sqrt{N})^2$. 
+We therefore obtain an estimation of the two point correlation function as
+\beq
+\langle \sigma(0)\sigma(l) \rangle_{est} = \overline{X(l)}_{est}\pm \frac{[SD]_{est}}{\sqrt{N}}.
+\eeq
+The results for different $l$ are plotted in Fig.~\ref{fig:sig-sig-sample}.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=0.5]{fig-sigma-sigma-sample-10e3.pdf}
@@ -238,6 +255,9 @@ The result depends on the size of the sample, see Fig.~\ref{fig:sig-sig-sample} 
 	\label{fig:sig-sig-sample}
 \end{figure}
 
+\junchen{stopped here.}
+
+See Fig.~\ref{fig:eps-sig-sig-sample} for a measurement of the three point function $\langle\epsilon\sigma\sigma\rangle$ using sampling.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=0.7]{fig-eps-sig-sig-sample-10e4.pdf}
