@@ -52,7 +52,7 @@
 % you can safely ignore it.
 
 \affiliation{$^1$ CPHT, CNRS, \'Ecole Polytechnique, Institut Polytechnique de Paris, Palaiseau, France\\
-$^2$IHES, Bures-sur-Yvette}
+$^2$ IHES, Bures-sur-Yvette}
 
 
 % e-mail addresses: one for each author, in the same order as the authors
@@ -95,6 +95,7 @@ These equations are written for equal-time correlation functions on an infinite-
 	\label{fig:straight-line-circle}
 \end{figure}
 
+A measurement of the 3pt function would constitute a decisive experimental test of conformal invariance. As far as we know there is no such experiment.
 
 %In Section \ref{sec:model} we describe a microscopic model realizable with Rydberg atoms, which reduces at its quantum critical point to the Ising model CFT. 
 
@@ -150,7 +151,7 @@ The lattice operator that represents $\sigma$ is taken to be
 \sigma(i+1/2) = c_1 (-1)^i (n_i -n_{i+1})
 \label{eq:sigmalat}
 \eeq
-This equation is a good chance to understand the logic of matching local lattice operators and local CFT operators. Any local lattice operators corresponds to a linear combination of CFT operators and their derivatives. At large distances derivatives contribute less to correlation functions than the operators without derivatives, but still it's good to suppress them to get cleaner results. The linear combination $n_i -n_{i+1}$ in \eqref{eq:sigmalat} kills some unwanted terms, enhancing the contribution of $\sigma$. In the l.h.s. of \eqref{eq:sigmalat}, we put the CFT operator $\sigma$ at point $x=i+1/2$, which is the middle of the block of two lattice points $i,i+1$.\footnote{\label{note:imperfect} Note that it's still not an exact CFT $\sigma$, but a much better approximation than, say, $(-1)^in_i$. This discussion can be made much more detailed and theoretical; here we focus on the essential details.} When lattice operators are shifted by one unit, this gives a $\mathbb{Z}_2$ transformation in CFT, which would map $\sigma\to-\sigma$. To compensate it we include $(-1)^i$ factor in the r.h.s. of \eqref{eq:sigmalat}. Finally, CFT operators conventionally have unit normalization, see coefficient 1 in \eqref{eq:ss}. Lattice operators do not come with any natural normalization. We include constant $c_1$ in \eqref{eq:sigmalat} to achieve this. This constant cannot be determined from first principles; it will need to be determined by a fit.
+This equation is a good chance to understand the logic of matching local lattice operators and local CFT operators. Any local lattice operators corresponds to a linear combination of CFT operators and their derivatives. At large distances derivatives contribute less to correlation functions than the operators without derivatives, but still it's good to suppress them to get cleaner results. The linear combination $n_i -n_{i+1}$ in \eqref{eq:sigmalat} kills some unwanted terms, enhancing the contribution of $\sigma$. In the l.h.s. of \eqref{eq:sigmalat}, we put the CFT operator $\sigma$ at point $x=i+1/2$, which is the middle of the block of two lattice points $i,i+1$.\footnote{\label{note:imperfect}Note that it's still not an exact CFT $\sigma$, but a much better approximation than, say, $(-1)^in_i$. This discussion can be made much more detailed and theoretical; here we focus on the essential details.} When lattice operators are shifted by one unit, this gives a $\mathbb{Z}_2$ transformation in CFT, which would map $\sigma\to-\sigma$. To compensate it we include $(-1)^i$ factor in the r.h.s. of \eqref{eq:sigmalat}. Finally, CFT operators conventionally have unit normalization, see coefficient 1 in \eqref{eq:ss}. Lattice operators do not come with any natural normalization. We include constant $c_1$ in \eqref{eq:sigmalat} to achieve this. This constant cannot be determined from first principles; it will need to be determined by a fit.
 
 \begin{figure}[htbp]
 	\centering
@@ -225,7 +226,7 @@ Since all our observables are functions of $n_i$, we can obtain them averaging o
 
 There are two ways to study the variance. The first way is to compute the variance of any observable $\mathcal{O}$ by evaluating the correlation function of its square $\mathcal{O}^2$. Generally, while the correlation function tends to zero at large distances, its variance will go to a constant in the same limit.\footnote{This happens because we arrange the one-point function of lattice operators corresponding to CFT operators to be zero. But the one-point function of the \emph{squares} of the same CFT operators will not be zero. It is the latter one-point function which controls the variance at large separation.} So, good statistics will be hardest to obtain in the large-distance tails. This first method could allow us to optimize the choice of lattice operators. 
 
-Below we will report the results of a second method, which is more direct and closer to the experiment. As is well known, DMRG algorithms allow to quickly \emph{sample} the wave function, i.e. to generate sequences of random collapsed states distributed according to the Born rule.\footnote{{\tt sample()} function of the {\tt iTensor.jl} package.} This is very quick and allows us to simulate the experimental process directly. Statistical errors will go down as $C/\sqrt{N}$, with $C$ which can be estimated from the "data".
+Below we will report the results of a second method, which is more direct and closer to the experiment. As is well known, DMRG algorithms allow to quickly \emph{sample} the wave function, i.e. to generate sequences of random collapsed states distributed according to the Born rule.\footnote{{\tt sample()} function of the {\tt iTensor.jl} package.} This is very quick and allows us to simulate the experimental process directly. Statistical errors will go down as $C/\sqrt{N}$, with $C$ which can be thus estimated from the "DMRG data".
 
 Let us describe the procedure in detail for the case of the two-point function of $\sigma$. We collect $N$ collapsed states $\Psi_i$, $i=1,\ldots,N$, and for each of them we measure the two-point function $\sigma(y)\sigma(y+x)$ as a function of the distance $x$:
 \beq
