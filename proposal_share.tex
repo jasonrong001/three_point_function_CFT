@@ -167,7 +167,7 @@ In Fig.~\ref{fig:sigma-sigma} we show the comparison between the exact CFT two-p
 \eeq
 We then used lattice operator \eqref{eq:sigmalat} to measure the two-point function. The constant $c_1=1.32854$. 
 
-In Fig.~\ref{fig:sigma-sigma}, we see that the two-point function determined in a numerical simulation differs by 2.5\% from the CFT prediction at the shortest distance $|x|=2$ where the lattice operators don't overlap, but the deviation goes down quickly at larger distances. Theoretically, the small discrepancy which goes to zero as $x\to\infty$ is due to two effects: 1) the microscopic model only becomes CFT at large distances; 2) the operator \eqref{eq:sigmalat} we constructed is imperfect, note \ref{note:imperfect}.
+In Fig.~\ref{fig:sigma-sigma}, we see that the two-point function determined in a numerical simulation differs by 2.5\% from the CFT prediction at the shortest distance $|x|=2$ where the lattice operators don't overlap, but the deviation decreases quickly at larger distances. Theoretically, the small discrepancy which goes to zero as $x\to\infty$ is due to two effects: 1) the microscopic model only becomes CFT at large distances; 2) the operator \eqref{eq:sigmalat} we constructed is imperfect, note \ref{note:imperfect}.
 
 \subsection{Two-point function of $\epsilon$}
 
@@ -177,7 +177,7 @@ Similarly, we can map the CFT operator $\epsilon$ to the lattice operator. In th
 \epsilon(i+1/2)=c_2 \big[ (n_{i-1} -n_{i})(n_{i+1} -n_{i+2}) - b \big], \quad b =\langle (n_{i-1} -n_{i})(n_{i+1} -n_{i+2}) \rangle\,.
 \label{eq:epslat}
 \eeq
-To understand the expression of this operator note that it's obtained by putting next to each other two lattice operators for $\sigma$ from \eqref{eq:sigmalat}. Naively, you can think of $\epsilon$ as a "renormalized square" of the CFT operator $\sigma$, and \eqref{eq:epslat} corresponds to this intuition. In \eqref{eq:epslat}, we subtract the constant $b$ which corresponds to subtracting the identity contribution. This is needed because the CFT operators apart from the identity must have zero one point functions.
+To understand the expression of this operator note that it's obtained by putting next to each other two lattice operators for $\sigma$ from \eqref{eq:sigmalat}. Naively, you can think of $\epsilon$ as a "renormalized square" of the CFT operator $\sigma$, and \eqref{eq:epslat} corresponds to this intuition. In \eqref{eq:epslat}, we subtract the constant $b$ which corresponds to subtracting the identity contribution. This is needed because the CFT operators apart from the identity must have zero one-point functions.
 In \eqref{eq:sigmalat} we did not need to subtract it because it was automatically zero. The meaning of the constant $c_2$ is the same as $c_1$ in \eqref{eq:sigmalat}.
 
 The DMRG result are summarised in Fig.~\ref{fig:eps-eps}. This is for the same Hamiltonian parameters as in \eqref{fig:sigma-sigma}. The constants are $b =0.488577$, $c_2 = 2.05816$. Because operator \eqref{eq:epslat} is constructed from 4 points, we only show results for $|x|\ge 4$ where the lattice operators don't overlap. Comparing this plot with the one for $\sigma$, we see that the two-point function of $\epsilon$ decreases with the distance much faster, due to larger scaling dimension of $\epsilon$. We may expect that the experimental measurement of this two-point function will be more challenging. This will be discussed below. The relative error of DMRG vs CFT is also larger, reaching 30\% at minimal non-overlapping separation, although also going quickly to zero as $x$ in increased.
@@ -192,7 +192,7 @@ The DMRG result are summarised in Fig.~\ref{fig:eps-eps}. This is for the same H
 
 \subsection{Three-point function $\langle \epsilon \sigma\sigma\rangle$}
 
-Let us now discuss the three point function $\langle\epsilon(x_1) \sigma(x_2)\sigma(x_3)\rangle $.  We can set $x_1=0$ by translation invariance. The plots for the CFT prediction on the circle of length $L=40$ is shown in Fig.~\ref{fig:eps-sig-sig-theory}, as a 3D plot and as a contour plot . It is a function which blows up as $x_2$ or $x_3$ approach 0, and goes to zero as $x_2\to x_3$, see Eq.~\eqref{eq:ess}. This function is symmetric under the interchange of $x_2$ as $x_3$ and also under the flip of the circle orientation which maps $x_2\to L-x_2$, $x_3\to L-x_3$.
+Let us now discuss the three-point function $\langle\epsilon(x_1) \sigma(x_2)\sigma(x_3)\rangle $.  We can set $x_1=0$ by translation invariance. The plots for the CFT prediction on the circle of length $L=40$ is shown in Fig.~\ref{fig:eps-sig-sig-theory}, as a 3D plot and as a contour plot . It is a function which blows up as $x_2$ or $x_3$ approach 0, and goes to zero as $x_2\to x_3$, see Eq.~\eqref{eq:ess}. This function is symmetric under the interchange of $x_2$ as $x_3$ and also under the flip of the circle orientation which maps $x_2\to L-x_2$, $x_3\to L-x_3$.
 
 \begin{figure}[htbp]
 	\centering
@@ -242,7 +242,7 @@ and
 \beq
 [\Sigma(x)^2]_{est} = \frac{1}{N-1}\sum_i (X_i(x) - \overline{X(x)})^2
 \eeq
-By the central limit theorem, for $N\to\infty$, the  sample mean $\overline{X(x)}_{est}$ has a gaussian distribution with variance $ (\Sigma(x)/\sqrt{N})^2$ around the true mean.  We therefore obtain an estimation of the two point correlation function, including one standard deviation error bars, as
+By the central limit theorem, for $N\to\infty$, the  sample mean $\overline{X(x)}_{est}$ has a gaussian distribution with variance $ (\Sigma(x)/\sqrt{N})^2$ around the true mean.  We therefore obtain an estimation of the two-point correlation function, including one standard deviation error bars, as
 \beq
 \langle \sigma(0)\sigma(x) \rangle_{est} = \overline{X(x)}_{est}\pm \frac{1}{\sqrt{N}} \sqrt{[\Sigma(x)^2]_{est}}.
 \eeq
@@ -256,9 +256,9 @@ The results are plotted in Fig.~\ref{fig:sig-sig-sample}, where we show two typi
 \end{figure}
 The error bars for $N=10^4$ are about $\sqrt{10}$ smaller than for $N=10^3$, as expected.\footnote{For example, the last point in the left (right) plot is $0.525\pm0.018$ ($0.534\pm0.006$).} As $N\to\infty$, the result is seen to converge to the DMRG result from Fig.~\ref{fig:sigma-sigma}, which for large $x$ agrees with the CFT result (blue solid line).
 
-Our conclusion is that $10^4$ collapsed states will show outstanding agreement between CFT and experiment for the $\sigma$ two point function. Certainly $5\times 10^3$, and perhaps even $10^3$ would be enough to get a convincing agreement.
+Our conclusion is that $10^4$ collapsed states will show outstanding agreement between CFT and experiment for the $\sigma$ two-point function. Certainly $5\times 10^3$, and perhaps even $10^3$ would be enough to get a convincing agreement.
 
-We can perform a similar study for the $\langle\epsilon(0)\epsilon(x)\rangle$ two point function. As this function decreases fast with the distance, we expect that a much larger number of collapsed states will be needed. Here we take $N=10^5$. The results are shown in Fig~\ref{fig:eps-eps-sample}. We see that the relative statistical error grows from a few percent at small separation to  about 20\% at the largest separation.
+We can perform a similar study for the $\langle\epsilon(0)\epsilon(x)\rangle$ two-point function. As this function decreases fast with the distance, we expect that a much larger number of collapsed states will be needed. Here we take $N=10^5$. The results are shown in Fig~\ref{fig:eps-eps-sample}. We see that the relative statistical error grows from a few percent at small separation to about 20\% at the largest separation. Note that relative statistical error is the largest at long distances, while as we have seen in Fig.~\ref{fig:eps-eps}, the systematic error coming from the difference between DMRG and CFT will be the largest at short distances. The sum of these two errors will be $\lesssim 20\%$ for all distances.
 
 \begin{figure}[htbp]
 	\centering
@@ -268,7 +268,8 @@ We can perform a similar study for the $\langle\epsilon(0)\epsilon(x)\rangle$ tw
 	\label{fig:eps-eps-sample}
 \end{figure}
 
-For the study of the three point function  $\langle \epsilon(0)\sigma(x_2)\sigma(x_3)\rangle$, when averaging over the all configurations on a single collapsed state, we need to take in account the configurations related by reflection. The estimation and relative statistical error are given in Fig.~\ref{fig:eps-sig-sig-sample}.
+Finally (ta-da!), we study the three-point function  $\langle \epsilon(0)\sigma(x_2)\sigma(x_3)\rangle$. Here, when averaging over a single collapsed state, we take in account the configurations related by both shifts and reflections, to maximally improve statistics. The estimation and relative statistical error for $N=10^5$ are given in Fig.~\ref{fig:eps-sig-sig-sample}. Comparing to Fig.~\ref{fig:eps-sig-sig}, we see again that the statistical and the systematic errors anticorrelate, and that their sum is below 10-15\% in a large region. Thus we are optimistic that this experimental test of conformal invariance will succeed.
+
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=0.65]{fig-eps-sig-sig-sample-10e5.pdf}		
