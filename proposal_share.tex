@@ -228,7 +228,7 @@ There are two ways to study the variance. The first way is to compute the varian
 Below we will report the results of a second method, which is more direct and closer to the experiment. As is well known, DMRG algorithms allow to quickly \emph{sample} the wave function, i.e. to generate sequences of random collapsed states distributed according to the Born rule.\footnote{{\tt sample()} function of the {\tt iTensor.jl} package.} This is very quick and allows us to simulate the experimental process directly. Statistical errors will go down as $C/\sqrt{N}$, with $C$ which can be estimated from the "data".
 
 Let us describe the procedure in detail for the case of the two-point function of $\sigma$. We collect $N$ collapsed states $\Psi_i$, $i=1,\ldots,N$, and for each of them we measure the two-point function $\sigma(y)\sigma(y+x)$ as a function of the distance $x$:
-\beq
+\beq\label{sample}
 X_{i}(x)=\frac{1}{L} \sum_{y=0}^{L-1} \langle \Psi_i|\sigma(y+\frac 12)\sigma(y+x +\frac 12 )|\Psi_i\rangle,
 \eeq
 where $L=40$ is the chain length. Notice that we have averaged over all the configurations where location of the two lattice operators $\sigma$ are separated by distance $x$, because the correlation function is expected to be translationally invariant.\footnote{For this observable there is no gain to average over changes of orientation, as it is already invariant under this transformation. For the three-point function this extra average will be useful.}
@@ -267,15 +267,12 @@ We can perform a similar study for the $\langle\epsilon(0)\epsilon(x)\rangle$ tw
 	\label{fig:eps-eps-sample}
 \end{figure}
 
-
-\junchen{stopped here.}
-
-See Fig.~\ref{fig:eps-sig-sig-sample} for a measurement of the three point function $\langle\epsilon\sigma\sigma\rangle$ using sampling.
+For the study of the three point function  $\langle \epsilon(0)\sigma(x_2)\sigma(x_3)\rangle$, when averaging over the all configurations on a single collapsed state, we need to take in account the configurations related by reflection. The estimation and relative statistical error are given in Fig.~\ref{fig:eps-sig-sig-sample}.
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[scale=0.7]{fig-eps-sig-sig-sample-10e4.pdf}
-		\includegraphics[scale=0.7]{fig-eps-sig-sig-sample-10e5.pdf}
-	\caption{The three-point function $\langle \epsilon(0)\sigma(x_2)\sigma(x_3)\rangle$ from sampling the ground state. Left - sample size $N=10^4$. Right - sample size $N=10^5$. }
+	\includegraphics[scale=0.65]{fig-eps-sig-sig-sample-10e5.pdf}		
+	\includegraphics[scale=0.65]{fig-eps-sig-sig-relative-stat-error.pdf}
+	\caption{The three-point function $\langle \epsilon(0)\sigma(x_2)\sigma(x_3)\rangle$ from sampling the ground state, using $N=10^5$ collapsed states. Left - the estimation of $\langle \epsilon(0)\sigma(x_2)\sigma(x_3)\rangle$. Right - the relative statistical error, that is, the statistical error divided by the CFT prediction. }
 	\label{fig:eps-sig-sig-sample}
 \end{figure}
 
