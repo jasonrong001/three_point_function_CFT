@@ -114,7 +114,7 @@ We refer to $|0\rangle$ as empty and $|1\rangle$ as occupied site.
 
 Using the same conventions as in~\cite{FangFang:2024eaw},  we write a realistic Hamiltonian where the atoms in the excited states interact with a repulsive $1/r^6$ interactions:
 \begin{equation}
-    \hat{H}=\frac{\Omega}{2} \sum_i (a_i^{\dagger}+a_i) - \Delta \sum_i n_i + C_6\sum_{ij}\frac{1}{(d_{ij})^6}  n_{i}n_{j}.
+    \hat{H}=\frac{\Omega}{2} \sum_i (a_i^{\dagger}+a_i) - \Delta \sum_i n_i + C_6\sum_{i<j}\frac{1}{(d_{ij})^6}  n_{i}n_{j}.
     \label{eq:model}
 \end{equation}
 Here $d_{ij}$ is the distance between the $i$-th and $j$-th sites,
@@ -254,7 +254,7 @@ The results are plotted in Fig.~\ref{fig:sig-sig-sample}, where we show two typi
 	\caption{The two-point function $\langle \sigma(0)\sigma(x)\rangle$ from sampling the ground state. Left - sample size $N=10^3$. Right - sample size $N=10^4$.  }
 	\label{fig:sig-sig-sample}
 \end{figure}
-The error bars for $N=10^4$ are about $\sqrt{10}$ smaller than for $N=10^3$, as expected.\footnote{For example, the last point in the left (right) plot is $0.525\pm0.018$ ($0.534\pm0.006$).} As $N\to\infty$, the result is seen to converge to the DMRG result from Fig.~\ref{fig:sigma-sigma}, which for large $x$ agrees with the CFT result (blue solid line).
+The error bars for $N=10^4$ are about $\sqrt{10}$ times smaller than for $N=10^3$, as expected.\footnote{For example, the last point in the left (right) plot is $0.525\pm0.018$ ($0.534\pm0.006$).} As $N\to\infty$, the result is seen to converge to the DMRG result from Fig.~\ref{fig:sigma-sigma}, which for large $x$ agrees with the CFT result (blue solid line).
 
 Our conclusion is that $10^4$ collapsed states will show outstanding agreement between CFT and experiment for the $\sigma$ two-point function. Certainly $5\times 10^3$, and perhaps even $10^3$ would be enough to get a convincing agreement.
 
@@ -278,11 +278,55 @@ Finally (ta-da!), we study the three-point function  $\langle \epsilon(0)\sigma(
 	\label{fig:eps-sig-sig-sample}
 \end{figure}
 
+\section{Effects of adiabatic evolution}
+\label{sec:adiabatic}
+
+%To be discussed in the future if the above is judged promising.
+
+In the experimental setup, the spin chain is initially prepared with Hamiltonian parameters different from the ones corresponding to the critical point, and then the parameters are varied over the duration of the experiment, which is $t_{\rm exp}\sim 10\mu{\rm s}$ \cite[Sec. II]{noise-note}. We would like that this evolution can be considered adiabatic, so that the spin chain Hamiltonian remain in is ground state during this evolution. The condition for this is
+\beq
+t_{\rm exp} \omega_{\rm gap}\gg 1
+\eeq
+where $\omega_{\rm gap}=E_{\rm gap}/\hbar$ and $E_{\rm gap}$ is the energy gap. This energy gap will be smallest at the end of the evolution, when we reach the critical point.
+
+Let's suppose the atoms are separated by $a=10\mu\rm m$. Important energy quantity $C_6/a^6$ is then \cite[Tab. 1]{noise-note}
+\beq
+C_6/a^6 = \hbar\ 0.86\times 10^6{\rm\ rad }\cdot {\rm s}^{-1}
+\eeq 
+(cf the value quoted in \cite{emailB} $C_6/a^6 = 2\pi\ {\rm MHz}$ which if we understand the notation appears factor $2\pi$ higher).
+
+One important quantity below is the gap of the quantum spin chain. The critical energy gap is $E_{\rm gap} = E_1-E_0=0.00327$ for $L=40$ in dimensionless units. In our DRMG simulations we set $C_6/a^6=1$. Using the physical value of $C_6/a^6$ we get in physical units 
+\beq
+\omega_{\rm gap} \approx 3 \text{ kHz}
+\eeq
+So we fail the adiabaticity condition by many orders of magnitude.
+
+
 \section{Effects of distance variation}
 \label{sec:distvar}
 
-To be discussed in the future if the above is judged promising.
- 
+%To be discussed in the future if the above is judged promising.
+
+In the experimental setup, each Rubidium atoms is localized in a potential well around its theoretical position. Precision in the placement of these traps is about $0.1\mu\rm m$ \cite{emailV}. The atoms experience thermal motion in the trap with $T=15\mu\rm K$ \cite[Sec.3.B]{noise-note} and explore the region about $0.1\mu\rm m$ around the trap positions \cite{emailV}.
+
+When quantum evolution starts, traps are turned off \cite{noise-note}. 
+
+Variation of atom positions gives rise to the variation of parameters of the spin-chain Hamiltonian. This is easy to understand and to model.
+
+Further we discuss time dependence. Initial thermal velocities of atoms are 
+\beq
+v_{\rm th}=\sqrt{k_B T/m} \approx 0.04\ {\rm m}/{\rm s}
+\eeq
+This causes extra change in the atomic positions of $0.4\mu{\rm m}$ over the $10\mu{\rm s}$ duration of the experiment.
+
+Can we consider this motion inertial? If two nearby atoms move to $n_i=1$ states, this causes repulsive interaction $U=C_6/r^6$ and the force $F=U' = 6 U/r$. The relative change in atomic velocity due to this force over the duration of the experiment can be estimated as
+\beq
+\frac{\Delta v}{v} =  \frac{F t_{\rm exp}}{m v} = \frac{3 U}{kT} \frac {v t_{\rm exp}}{r}
+\eeq
+The first factor is $O(1)$, while the second is $\ll 1$, so the backreaction of spin evolution on the classical atomic motion can be neglected.
+
+Finally let us discuss if we can consider the motion of atoms classically.
+
  \section{Tuning to the critical point}
  \label{sec:tuning}
  
