@@ -114,31 +114,51 @@ We refer to $|0\rangle$ as empty and $|1\rangle$ as occupied site.
 
 Using the same conventions as in~\cite{FangFang:2024eaw},  we write a realistic Hamiltonian where the atoms in the excited states interact with a repulsive $1/r^6$ interactions:
 \begin{equation}
-    \hat{H}=\frac{\Omega}{2} \sum_i (a_i^{\dagger}+a_i) - \Delta \sum_i n_i + C_6\sum_{i<j}\frac{1}{(d_{ij})^6}  n_{i}n_{j}.
+    \hat H_{phys}=\frac{\hbar \Omega}{2} \sum_i (a_i^{\dagger}+a_i) - \hbar \Delta \sum_i n_i + \left(\frac{C_6}{a^6}\right)\sum_{i<j}\frac{1}{d_{ij}^6}  n_{i}n_{j}.
     \label{eq:model}
 \end{equation}
-Here $d_{ij}$ is the distance between the $i$-th and $j$-th sites,
- \beq   d_{ij}=a \frac{\sin(\frac{|i-j|}{L}\pi)}{\sin(\frac{1}{L}\pi)},
+Here $a$ is distance between neighboring atoms, and $d_{ij}$ is the dimensionless distance between the $i$-th and $j$-th sites in the units of $a$
+ \beq   d_{ij}=\frac{\sin(\frac{|i-j|}{L}\pi)}{\sin(\frac{1}{L}\pi)},
 \eeq
-where $a$ is the lattice constant. We will set $a=1$ for later discussion. For the effects of distance variation see Sec.~\ref{sec:distvar}.
+(i.e. $d_{i,i+1}=1$, $d_{i,i+2}\approx 2$, etc.)
 
-The sign of $\Omega$ is not important, as it can flipped by redefining $|1\rangle \to -|1\rangle$.
+For the effects of distance variation see Sec.~\ref{sec:distvar}.
+
+The constant $\left(\frac{C_6}{a^6}\right)$ sets the scale of energy, we will take it out and define the dimensionless Hamiltonian $\hat H$, as follows:
+\begin{align}
+	\hat H_{phys}&= \left(\frac{C_6}{a^6}\right) \hat H\\
+	\hat H &= \frac{\Omega'}{2} \sum_i (a_i^{\dagger}+a_i) - \Delta' \sum_i n_i + \sum_{i<j}\frac{1}{d_{ij}^6}  n_{i}n_{j}
+	\label{eq:modelp}\\
+	\Omega' &= \hbar \Omega/\left(\frac{C_6}{a^6}\right)\\
+	\Delta' &= \hbar \Delta/\left(\frac{C_6}{a^6}\right)
+\end{align}
+$\Omega'$ and $\Delta'$ are real dimensionless numbers. The sign of $\Omega'$ is unimportant as it can flipped by redefining $|1\rangle \to -|1\rangle$.
 %\begin{align}
 %d^{\dagger}|0\rangle \rightarrow -d^{\dagger}|0\rangle. 
 %\end{align}
-The experimentally accessible parameter space is, roughly,
+The experimentally accessible parameter space is, roughly, 
 \begin{align}
-\Omega/C_6 \in [0,5],\quad \Delta/C_6 \in[-5,5].
+\Omega' \in [0,5],\quad \Delta' \in[-5,5].
 \end{align}
 The phase diagram near the Ising transition is reported in Fig.~\ref{phasediagramHBlong}.
 \begin{figure}[htbp]
 \centering
 \includegraphics[scale=0.5]{phase_diagram_SSF_LR.png}
-\caption{The phase diagram of the Rydberg model \eqref{eq:model}. The red circle corresponds to the point studied in~\cite{FangFang:2024eaw}.}
+\caption{The phase diagram of the Rydberg model \eqref{eq:model}. The red circle corresponds to the point studied in~\cite{FangFang:2024eaw}. \SR{Redo with $\Omega'$, $\Delta'$ instead of $\Omega/C_6$, $\Delta/C_6$ on the axes.}}
 \label{phasediagramHBlong}
 \end{figure}
 
-It is useful to contrast this model with the transverse field Ising model (TFIM). TFIM has lattice onsite $\mathbb{Z}_2$ symmetry. This corresponds to the $\mathbb{Z}_2$ symmetry of the CFT under which $\sigma\to-\sigma$ while $\epsilon$ is invariant. In contrast, the Rydberg atom model \eqref{eq:model} does not have onsite $\mathbb{Z}_2$ symmetry. Instead, $\mathbb{Z}_2$ symmetry of the CFT will emerge from a lattice translation by one lattice unit. (In the broken phase, the expectation value $\langle n_i \rangle$ is periodic with period 2, and shift by one lattice unit permutes the two ground states.) This will have to be taken into account when constructing lattice operators which represent CFT operators.
+We can pass from the $0,1$ basis to $\pm 1$ basis. In this basis we have $n_i=(1+\sigma^z_i)/2$, $a_i+a^\dagger_i=\sigma^x_i$. The Hamiltonian becomes
+\beq
+\hat H = \frac{\Omega'}{2} \sum_i \sigma^x_i + \sum_{i<j}\frac{1}{4d_{ij}^6}  \sigma^z_{i}\sigma^z_{j}+ \frac 12 (\sum_{j=1}^{L-1} \frac{1}{2d_{j0}^6} - \Delta') \sum_{i}  \sigma^z_{i} + const
+\eeq
+We have
+\beq
+\sum_{j=1}^{L-1} \frac{1}{2d_{j0}^6} = \zeta(6) +O(1/L^2)=1.01734\ldots+O(1/L^2)
+\eeq
+For $\Delta'=\zeta(6)$ the model has the exact $\mathbb{Z_2}$ symmetry. This is the "tip of the parabola" in Fig. \ref{phasediagramHBlong}. On the line $\Delta'=\zeta(6)$ the model is very nearly approximated by the transverse field Ising model (TFIM). The phase transition in the TFIM would be at $\Omega'=1/2$. The phase diagram is symmetric with respect to $\Delta'=\zeta(6)$.
+
+For general $\Delta'\in(0,1)$, the Hamiltonian $\hat H$ does not have onsite $\mathbb{Z}_2$ symmetry. But the phase transition is still in the $\mathbb{Z}_2$-symmetric Ising-CFT universality class. The $\mathbb{Z}_2$ symmetry of the CFT will emerge from a lattice translation by one lattice unit. (In the broken phase, the expectation value $\langle n_i \rangle$ is periodic with period 2, and shift by one lattice unit permutes the two ground states.) This will have to be taken into account when constructing lattice operators which represent CFT operators.
 
 \section{Correlation functions: comparing CFT and DMRG}
 
@@ -163,7 +183,7 @@ This equation is a good chance to understand the logic of matching local lattice
 
 In Fig.~\ref{fig:sigma-sigma} we show the comparison between the exact CFT two-point function $\langle \sigma\sigma\rangle$ and the two-point function of lattice operators, as a function of the distance. We used DMRG to find the ground state of the $L=40$ chain, with Hamiltonian parameters:
 \beq
-\Omega/C_6=0.18, \quad \Delta/C_6=0.1843
+\Omega'=0.18, \quad \Delta'=0.1843
 \eeq
 We then used lattice operator \eqref{eq:sigmalat} to measure the two-point function. The constant $c_1=1.32854$. 
 
@@ -283,23 +303,25 @@ Finally (ta-da!), we study the three-point function  $\langle \epsilon(0)\sigma(
 
 %To be discussed in the future if the above is judged promising.
 
-In the experimental setup, the spin chain is initially prepared with Hamiltonian parameters different from the ones corresponding to the critical point, and then the parameters are varied over the duration of the experiment, which is $t_{\rm exp}\sim 10\mu{\rm s}$ \cite[Sec. II]{noise-note}. We would like that this evolution can be considered adiabatic, so that the spin chain Hamiltonian remain in is ground state during this evolution. The condition for this is
+In the experimental setup, the spin chain is initially prepared with Hamiltonian parameters different from the ones corresponding to the critical point, and then the parameters are varied over the duration of the experiment, which is $t_{\rm exp}\sim 10\mu{\rm s}$ \cite[Sec. II]{noise-note}. We would like that this evolution can be considered adiabatic, so that the spin chain Hamiltonian remains in its ground state during this evolution. The condition for this is
 \beq
-t_{\rm exp} \omega_{\rm gap}\gg 1
+t_{\rm exp} E_{\rm gap}\gg \hbar
+\label{eq:cond}
 \eeq
-where $\omega_{\rm gap}=E_{\rm gap}/\hbar$ and $E_{\rm gap}$ is the energy gap. This energy gap will be smallest at the end of the evolution, when we reach the critical point.
+where $E_{\rm gap}$ is the energy gap. This energy gap will be smallest at the end of the evolution, when we reach the critical point.
 
 Let's suppose the atoms are separated by $a=10\mu\rm m$. Important energy quantity $C_6/a^6$ is then \cite[Tab. 1]{noise-note}
 \beq
-C_6/a^6 = \hbar\ 0.86\times 10^6{\rm\ rad }\cdot {\rm s}^{-1}
+C_6/a^6 = \hbar\ {\red 2\pi} \cdot 0.86\ {\rm\ rad }\cdot {\rm \mu s}^{-1}
 \eeq 
-(cf the value quoted in \cite{emailB} $C_6/a^6 = 2\pi\ {\rm MHz}$ which if we understand the notation appears factor $2\pi$ higher).
+(Question for the Pasqual team: the factor $\red 2\pi$ seems to be missing in line 1 \cite[Tab. 1]{noise-note}. Should it be included? Email \cite{emailB} told us "$C_6/a^6 = 2\pi\ {\rm MHz}$").
 
-One important quantity below is the gap of the quantum spin chain. The critical energy gap is $E_{\rm gap} = E_1-E_0=0.00327$ for $L=40$ in dimensionless units. In our DRMG simulations we set $C_6/a^6=1$. Using the physical value of $C_6/a^6$ we get in physical units 
+The critical energy gap of the dimensionless Hamiltonian $\hat H$ is $E_{\rm gap} = E_1-E_0=0.00327$ for $L=40$, in our DRMG simulations. The physical energy gap is therefore this times $C_6/a^6$, i.e.
 \beq
-\omega_{\rm gap} \approx 3 \text{ kHz}
+(E_{\rm gap})_{phys} \approx \hbar\  {\red 2\pi}\cdot 0.003 {\rm\ rad }\cdot {\rm \mu s}^{-1}
 \eeq
-So we fail the adiabaticity condition by many orders of magnitude.
+
+It looks like we fail the adiabaticity condition \eqref{eq:cond} by a factor of about 30.
 
 
 \section{Effects of distance variation}
