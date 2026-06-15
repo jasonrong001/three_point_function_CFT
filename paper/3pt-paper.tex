@@ -1,0 +1,150 @@
+\documentclass[a4paper,11pt]{article}
+\pdfoutput=1 % if your are submitting a pdflatex (i.e.~if you have
+% images in pdf, png or jpg format)
+
+\usepackage{jheppub,amsthm} % for details on the use of the package, please
+% see the JHEP-author-manual
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{booktabs,multirow, quotes}
+
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,graphicx,xcolor,alltt}
+\usepackage{framed}
+
+%%%%%%%%%% Start TeXmacs macros
+%\catcode`\<=\active \def<{
+%\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\newcommand{\longminus}{{-\!\!-}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+
+
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\ea}{\end{eqnarray}}
+
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{example}{Example}[section]
+\theoremstyle{theorem}
+\newtheorem{lemma}{Lemma}[section]
+
+%%%%%%%%%% End TeXmacs macros
+\def\red{\color{red}}
+
+\newcommand{\SR}[1]{{\red \bf [{SR:} #1]}}
+\newcommand{\junchen}[1]{\textcolor{blue}{\textbf{[JR: #1]}}}
+
+\makeatletter
+\def\@fpheader{\ }
+\makeatother
+
+\title{Direct tests of conformal symmetry with Rydberg atoms: assessment and proposals}
+
+ 
+\author{Junchen Rong$^1$,}
+\author{Slava Rychkov$^2$}
+
+% The "\note" macro will give a warning: "Ignoring empty anchor..."
+% you can safely ignore it.
+
+\affiliation{$^1$CPHT, CNRS, \'Ecole Polytechnique, Institut Polytechnique de Paris, Palaiseau, France\\
+$^2$Institut des Hautes \'Etudes Scientifiques, 91440 Bures-sur-Yvette, France}
+
+
+% e-mail addresses: one for each author, in the same order as the authors
+\emailAdd{junchen.rong@polytechnique.edu}
+\emailAdd{slava@ihes.fr}
+
+
+
+
+\abstract{This is a note on the measurement of 3pt function using Rydberg atom experiments.}
+
+
+
+\begin{document} 
+	
+	\maketitle
+	
+	\flushbottom
+
+
+\flushbottom
+
+
+\section{Introduction}
+
+Conformal invariance as a symmetry of critical fluctuations was first conjectured by Polyakov in 1970 \cite{Polyakov:1970xd}. This idea ended up quite influential and led to the development of the conformal field theory (CFT), by Polyakov and others \cite{Polyakov:1974gs,Belavin:1984vu}. By now it is widely believed that a great majority of critical points---both thermodynamic and quantum---possess an emergent conformal invariance and their long-distance behavior is described by a CFT \cite{Cardy1987,Cardy:1996xt,tsvelik,fradkin}.\footnote{Exceptions---critical points with only scale invariance---do exist, but when this happens is well understood \cite{Polchinski:1987dy,Nakayama:2013is}.} CFTs are tightly constrained and can be solved, in 2D often exactly \cite{DiFrancesco:1997nk}, while in higher dimensions approximately using the numerical conformal bootstrap \cite{Poland:2018epd}. Scaling dimensions of CFT local operators are related to the critical exponents, which can be experimentally measured, providing many indirect tests of conformal invariance, reviewed e.g.~in \cite{Henkel1999,Rychkov:2025zks}. In comparison, until recently little theoretical effort was devoted to designing direct tests \cite{Pokrovskii1973,Gompper1985}, and such experiments were lacking \cite{Rychkov:2025zks}. In thermodynamic phase transitions such tests are limited by imaging possibilities with X-ray or neutron probes, although see \cite{Podo:2026hfh} for a recent proposal to use grazing scattering of X-rays on critical binary alloys.
+
+In the meantime, cold atom platforms revolutionized the experimental study of quantum phase transitions \cite{}. They allow to engineer many quantum Hamiltonians of interest and study their quantum critical points \cite{}. These experiments can measure the state of every atom, thus providing a snapshot view of the many-body quantum state. Averaging over many snapshots allows to measure equal-time correlation function \cite{}---a classic way to detect conformal invariance \cite{Polyakov:1970xd}.
+
+The time is ripe to give a general discussion of existing and future tests of conformal invariance in cold atom experiments, which is our purpose here. Our paper has two main parts. In Section \ref{sec:gen}, we propose our view of which tests should count as indirect and which ones are direct. Indirect tests are measurements of critical exponents, while direct tests need to verify that correlation functions satisfy a conformal Ward identity. We illustrate these points by examples of existing experiments. 
+
+Then, in Section \ref{sec:prop},  we discuss the simplest setups to test conformal invariance through measurements of equal-time two-point correlation functions, with periodic and open boundary conditions. We present results of our numerical simulations for experiments with 1D chains of Rydberg atoms. The tests we imagine have not yet been performed due to limitations of decoherence and adiabaticity of ground state preparation, but we hope they are within reach. In Section 4 we conclude.
+
+\section{Tests of conformal invariance}
+\label{sec:gen}
+
+Conformal invariance is a property of the probability distribution $P[\phi(x)]$ of the fluctuating order parameter at the second-order phase transition. Experimentally, we may probe this probability distribution through correlation functions. Any conformal field theory (CFT) will have a (generally infinite) set of local primary operators $\mathcal{O}_i(x)$, $i=1,2,\ldots$, whose correlation functions are conformally covariant, i.e. have definite transformation properties under the conformal group of the manifold. This leads to definite predictions of the shape of the correlation functions. Testing these predictions would constitute a direct test of conformal invariance.
+
+Let's contrast this to indirect tests. The following analogy may help to understand our point of view on what is direct and what is indirect. Symmetry is ultimately about shapes. A direct test of the roundness of a planar disk would be to rotate it and see if it looks. An indirect test would be the measurement of the circumference to diameter ratio. For CFTs, an indirect test would be a measurement of some number which can be predicted using techniques of conformal invariance. In fact CFTs can often be solved exactly, or numerically to very high accuracy. For example, Belavin, Polyakov and Zamolodchikov \cite{} introduced an infinite series of 2D CFTs called minimal models which can be solved exactly, determining the spectrum of scaling dimensions of the primary operators. There is a simple relation between scaling dimensions of primary operators and the main critical exponents characterizing the phase transitions \cite{}. By measuring critical experiments, we thus test predictions of conformal field theory, albeit indirectly. Many such indirect tests can be extracted from the literature \cite{}, even though the experiments may not have been presented as such.
+
+Let's go back to direct tests via correlation functions. Importantly, not every correlation function is suitable for a nontrivial test. Indeed, the shape of some correlation functions is fully constrained without the need to invoke conformal transformations.  Consider e.g.~the two-point function $\langle \mathcal{O}_i(x) \mathcal{O}_i(y)\rangle$ in infinite volume, which takes the form
+\beq
+\langle \mathcal{O}_i(x) \mathcal{O}_i(y)\rangle = \frac{1}{|x-y|^{2\Delta_i}}\,,
+\label{eq:two-point}
+\eeq
+where $\Delta$ is the scaling dimension of $\mathcal{O}_i$. (For the moment we are considering CFTs in Euclidean space, as is appropriate for the thermodynamic phase transitions. Later on we will adapt the discussion to the Lorentzian manifold, as needed for quantum phase transitions.) Eq.~\eqref{eq:two-point} follows from just scale, rotation and translation invariances, without using special conformal transformations. Therefore, measuring \eqref{eq:two-point} cannot be said to directly probe conformal invariance. That's a pity, because experimental measurements using the neutron and X-ray scattering typically probe two-point functions.
+
+To probe conformal invariance, we have several options:
+\begin{enumerate}
+	\item Three- and higher-point correlation functions in infinite volume;
+	\item Two-point functions on nontrivial geometries;
+	\item Two-point functions in presence of boundaries or defects.
+\end{enumerate}
+Let's consider these in turn.
+
+\subsection{Three-point correlation functions in infinite volume}
+
+Basic predictions about CFT correlation functions made by Polyakov in his seminal work \cite{} are well known:
+
+Two-point functions of scalar primaries of equal scaling dimensions are given by \eqref{eq:two-point}. This follows without the use of conformal invariance. Two-point functions of primaries of unequal scaling dimensions vanish. This does use conformal invariance, but appears to be challenging to use in an experimental test, since the experimental probes will couple predominantly to low-dimension primaries.
+
+Proceeding to three-point functions, they take the form \cite{}
+\beq
+\langle \mathcal{O}_1(x_1) \mathcal{O}_2(x_2) \mathcal{O}_3(x_3)\rangle = 
+\frac{C_{123}}{|x_1-x_2|^{h_{123}} |x_1-x_3|^{h_{132}} |x_2-x_2|^{h_{231}}}
+\eeq
+where $h_{ijk}=\Delta_i+\Delta_j-\Delta_k$ is fixed in terms of scaling dimensions, and $C_{123}$ is a constant, called the operator product expansion (OPE) coefficient, which depends on the theory and on the considered correlator. This equation crucially relies on the conformal invariance, as scale invariance would only fix the sum $h_{123}+h_{132}+h_{231}$. It's not clear to us how test this equation with neutron and X-ray scattering, but below we will discuss how to do this with Rydberg atoms.
+
+Finally, four-point functions have a more complicated functional form, since they may depend on conformally-invariant cross-ratios \cite{}. %We will give here only the expression for equal scaling dimensions: 
+%\beq
+%\langle \mathcal{O}(x_1) \mathcal{O}(x_2) \mathcal{O}(x_3) \mathcal{O}(x_4)\rangle = 
+%\frac {g(u,v)} {|x_1-x_2|^{2\Delta_\mathcal{O}} |x_3-x_4|^{2\Delta_\mathcal{O}}},\quad 
+%u=\frac{x_{12}^2 x_{34}^2}{ x_{13}^2 x_{24}^2},\quad v=u_{1\leftrightarrow 3}.
+%\eeq
+In principle, it may be possible to measure the four-point function in a scattering experiment when two probes are sent simultaneously into the critical sample, and they both scatter. However we are not aware of any existing experiment.
+
+\subsection{Two-point functions on nontrivial geometries}
+
+Suppose a sheet of a two-dimensional material at a thermodynamic phase transition is rolled up to form a cylinder $S^1\times \mathbb{R}$. Two-point functions on such a geometry are predicted to have the form:
+\beq
+\langle \mathcal{O}_i(\theta_1,\tau_1) \mathcal{O}_i(\theta_2,\tau_2)\rangle = \frac{1}{[1-2 e^{-\tau_{12}}\cos (\theta_{1}-\theta_2)+e^{-2\tau_{12}}]^{\Delta_i}}\,,
+\label{eq:two-point-cyl}
+\eeq
+where we parametrize the cylinder by the angle $\theta$ and by $\tau\in\mathbb{R}$, $\tau_{12}=\tau_1-\tau_2$.
+
+The standard way to derive Eq.~\eqref{eq:two-point-cyl} is to note that the cylinder can be "unrolled" i.e. transformed to the Euclidean plane by a Weyl transformation, which acts in a known way on the correlation functions. This allows to recover Eq.~\eqref{eq:two-point-cyl} from \eqref{eq:two-point}.
+ 
+Another way to derive Eq.~\eqref{eq:two-point-cyl} is to note that 
+As a two-dimensional manifold, the cylinder has a crucial property that it is conformally flat. This means that we can transform the metric on the cylinder into the metric of the flat Euclidean space by a Weyl transformations. CFT predicts how correlation functions transform under Weyl transformations. This 
+
+
+\bibliography{reference.bib}
+\bibliographystyle{utphys}
+
+\end{document}

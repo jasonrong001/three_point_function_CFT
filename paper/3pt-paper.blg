@@ -1,0 +1,60 @@
+This is BibTeX, Version 0.99d (TeX Live 2023)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: 3pt-paper.aux
+The style file: utphys.bst
+Database file #1: reference.bib
+Repeated entry---line 2961 of file reference.bib
+ : @article{Belavin:1984vu
+ :                        ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 2975 of file reference.bib
+ : @book{DiFrancesco:1997nk
+ :                         ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 3060 of file reference.bib
+ : @book{DiFrancesco:1997nk
+ :                         ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for ""
+You've used 16 entries,
+            2328 wiz_defined-function locations,
+            699 strings with 6737 characters,
+and the built_in function-call counts, 4559 in all, are:
+= -- 499
+> -- 101
+< -- 0
++ -- 42
+- -- 26
+* -- 336
+:= -- 549
+add.period$ -- 32
+call.type$ -- 16
+change.case$ -- 11
+chr.to.int$ -- 0
+cite$ -- 16
+duplicate$ -- 270
+empty$ -- 506
+format.name$ -- 26
+if$ -- 1214
+int.to.chr$ -- 0
+int.to.str$ -- 16
+missing$ -- 50
+newline$ -- 68
+num.names$ -- 18
+pop$ -- 103
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 151
+stack$ -- 0
+substring$ -- 208
+swap$ -- 98
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 38
+width$ -- 18
+write$ -- 146
+(There were 3 error messages)
