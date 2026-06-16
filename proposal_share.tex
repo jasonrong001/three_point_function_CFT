@@ -51,8 +51,8 @@
 % The "\note" macro will give a warning: "Ignoring empty anchor..."
 % you can safely ignore it.
 
-\affiliation{$^1$ CPHT, CNRS, \'Ecole Polytechnique, Institut Polytechnique de Paris, Palaiseau, France\\
-$^2$ IHES, Bures-sur-Yvette}
+\affiliation{$^1$CPHT, CNRS, \'Ecole Polytechnique, Institut Polytechnique de Paris, Palaiseau, France\\
+$^2$Institut des Hautes \'Etudes Scientifiques, 91440 Bures-sur-Yvette, France}
 
 
 % e-mail addresses: one for each author, in the same order as the authors
@@ -114,7 +114,7 @@ We refer to $|0\rangle$ as empty and $|1\rangle$ as occupied site.
 
 Using the same conventions as in~\cite{FangFang:2024eaw},  we write a realistic Hamiltonian where the atoms in the excited states interact with a repulsive $1/r^6$ interactions:
 \begin{equation}
-    \hat H_{phys}=\frac{\hbar \Omega}{2} \sum_i (a_i^{\dagger}+a_i) - \hbar \Delta \sum_i n_i + \left(\frac{C_6}{a^6}\right)\sum_{i<j}\frac{1}{d_{ij}^6}  n_{i}n_{j}.
+    \hat H_{phys}=\frac{\hbar \Omega}{2} \sum_i (a_i^{\dagger}+a_i) - \hbar \Delta \sum_i n_i + U \sum_{i<j}\frac{1}{d_{ij}^6}  n_{i}n_{j},\quad U=\frac{C_6}{a^6}.
     \label{eq:model}
 \end{equation}
 Here $a$ is distance between neighboring atoms, and $d_{ij}$ is the dimensionless distance between the $i$-th and $j$-th sites in the units of $a$
@@ -124,13 +124,13 @@ Here $a$ is distance between neighboring atoms, and $d_{ij}$ is the dimensionles
 
 For the effects of distance variation see Sec.~\ref{sec:distvar}.
 
-The constant $\left(\frac{C_6}{a^6}\right)$ sets the scale of energy, we will take it out and define the dimensionless Hamiltonian $\hat H$, as follows:
+Factoring out $U$, we define the dimensionless Hamiltonian $\hat H$, as follows:
 \begin{align}
-	\hat H_{phys}&= \left(\frac{C_6}{a^6}\right) \hat H\\
+	\hat H_{phys}&= U\hat H\\
 	\hat H &= \frac{\Omega'}{2} \sum_i (a_i^{\dagger}+a_i) - \Delta' \sum_i n_i + \sum_{i<j}\frac{1}{d_{ij}^6}  n_{i}n_{j}
 	\label{eq:modelp}\\
-	\Omega' &= \hbar \Omega/\left(\frac{C_6}{a^6}\right)\\
-	\Delta' &= \hbar \Delta/\left(\frac{C_6}{a^6}\right)
+	\Omega' &= \hbar \Omega/U,\quad
+	\Delta' = \hbar \Delta/U\,.
 \end{align}
 $\Omega'$ and $\Delta'$ are real dimensionless numbers. The sign of $\Omega'$ is unimportant as it can flipped by redefining $|1\rangle \to -|1\rangle$.
 %\begin{align}
@@ -305,23 +305,26 @@ Finally (ta-da!), we study the three-point function  $\langle \epsilon(0)\sigma(
 
 In the experimental setup, the spin chain is initially prepared with Hamiltonian parameters different from the ones corresponding to the critical point, and then the parameters are varied over the duration of the experiment, which is $t_{\rm exp}\sim 10\mu{\rm s}$ \cite[Sec. II]{noise-note}. We would like that this evolution can be considered adiabatic, so that the spin chain Hamiltonian remains in its ground state during this evolution. The condition for this is
 \beq
-t_{\rm exp} E_{\rm gap}\gg \hbar
+t_{\rm exp} E_{\rm gap}/ \hbar  \gg 2\pi 
 \label{eq:cond}
 \eeq
 where $E_{\rm gap}$ is the energy gap. This energy gap will be smallest at the end of the evolution, when we reach the critical point.
 
-Let's suppose the atoms are separated by $a=10\mu\rm m$. Important energy quantity $C_6/a^6$ is then \cite[Tab. 1]{noise-note}
+Let's suppose the atoms are separated by $a=10\mu\rm m$. Important energy quantity $U=C_6/a^6$ is then \cite[Tab. 1]{noise-note}
 \beq
-C_6/a^6 = \hbar\ {\red 2\pi} \cdot 0.86\ {\rm\ rad }\cdot {\rm \mu s}^{-1}
+U/\hbar = 0.86\ {\rm\ rad }\cdot {\rm \mu s}^{-1}
 \eeq 
-(Question for the Pasqual team: the factor $\red 2\pi$ seems to be missing in line 1 \cite[Tab. 1]{noise-note}. Should it be included? Email \cite{emailB} told us "$C_6/a^6 = 2\pi\ {\rm MHz}$").
+(Confirmed by Guillaume; seems to disagree with email \cite{emailB} which said "$C_6/a^6 = 2\pi\ {\rm MHz}$").
 
-The critical energy gap of the dimensionless Hamiltonian $\hat H$ is $E_{\rm gap} = E_1-E_0=0.00327$ for $L=40$, in our DRMG simulations. \junchen{At the tip of the parabola, we get $E_{\rm gap} = E_1-E_0=0.0094713$. Deeply in the disordered phase, we get $E_{\rm gap}$ of order 1.} The physical energy gap is therefore this times $C_6/a^6$, i.e.
+The critical energy gap of the dimensionless Hamiltonian $\hat H$ is $E_{\rm gap} = E_1-E_0=0.00327$ for $L=40$, in our DRMG simulations. \junchen{At the tip of the parabola, we get $E_{\rm gap} = E_1-E_0=0.0094713$. Deeply in the disordered phase, we get $E_{\rm gap}$ of order 1.} The physical energy gap is therefore this times $U$, i.e.
 \beq
-(E_{\rm gap})_{phys} \approx \hbar\  {\red 2\pi}\cdot 0.003 {\rm\ rad }\cdot {\rm \mu s}^{-1}
+(E_{\rm gap})_{phys} /\hbar = 0.0028 {\rm\ rad }\cdot {\rm \mu s}^{-1},
 \eeq
-
-It looks like we fail the adiabaticity condition \eqref{eq:cond} by a factor of about 30.
+So we have 
+\beq
+(E_{\rm gap})_{phys}/\hbar/(2\pi)\  \approx 450\ {\rm Hz}
+\eeq
+We fail the adiabaticity condition \eqref{eq:cond} by a factor of about 200.
 
 
 \section{Effects of distance variation}

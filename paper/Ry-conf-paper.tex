@@ -78,20 +78,71 @@ $^2$Institut des Hautes \'Etudes Scientifiques, 91440 Bures-sur-Yvette, France}
 
 \section{Introduction}
 
-Conformal invariance as a symmetry of critical fluctuations was first conjectured by Polyakov in 1970 \cite{Polyakov:1970xd}. This idea ended up quite influential and led to the development of the conformal field theory (CFT), by Polyakov and others \cite{Polyakov:1974gs,Belavin:1984vu}. By now it is widely believed that a great majority of critical points---both thermodynamic and quantum---possess an emergent conformal invariance and their long-distance behavior is described by a CFT \cite{Cardy1987,Cardy:1996xt,tsvelik,fradkin}.\footnote{Exceptions---critical points with only scale invariance---do exist, but when this happens is well understood \cite{Polchinski:1987dy,Nakayama:2013is}.} CFTs are tightly constrained and can be solved, in 2D often exactly \cite{DiFrancesco:1997nk}, while in 3D approximately using the numerical conformal bootstrap \cite{Poland:2018epd}. Scaling dimensions of CFT local operators are related to the critical exponents, which can be experimentally measured, providing many indirect tests of conformal invariance, reviewed e.g.~in \cite{Henkel1999,Rychkov:2025zks}. In comparison, until recently little theoretical effort was devoted to designing direct tests \cite{Pokrovskii1973,Gompper1985}, and such experiments were lacking \cite{Rychkov:2025zks}. In thermodynamic phase transitions such tests are limited by imaging possibilities with X-ray or neutron probes, although see \cite{Podo:2026hfh} for a recent proposal to use grazing scattering of X-rays on critical binary alloys.
+Conformal invariance as a symmetry of critical fluctuations was first conjectured by Polyakov in 1970 \cite{Polyakov:1970xd}. This idea ended up quite influential and led to the development of the conformal field theory (CFT), by Polyakov and others \cite{Polyakov:1974gs,Belavin:1984vu}. By now it is widely believed that a great majority of critical points---both thermodynamic and quantum---possess an emergent conformal invariance and their long-distance behavior is described by a CFT \cite{Cardy1987,Cardy:1996xt,tsvelik,giamarchi2003quantum,sachdev,fradkin}.\footnote{Exceptions---critical points with only scale invariance---do exist, but when this happens is well understood \cite{Polchinski:1987dy,Nakayama:2013is}.} CFTs are tightly constrained and can be solved, in low dimensions often exactly \cite{DiFrancesco:1997nk}, while in higher dimensions approximately using the numerical conformal bootstrap \cite{Poland:2018epd}. Scaling dimensions of CFT local operators are related to the critical exponents, which can be experimentally measured, providing many indirect tests of conformal invariance, reviewed e.g.~in \cite{Henkel1999,Rychkov:2025zks}. In comparison, until recently little theoretical effort was devoted to designing direct tests \cite{Pokrovskii1973,Gompper1985}, and such experiments were lacking \cite{Rychkov:2025zks}. In thermodynamic phase transitions such tests are limited by imaging possibilities with X-ray or neutron probes, although see \cite{Podo:2026hfh} for a recent proposal to use grazing scattering of X-rays on critical binary alloys.
 
 In the meantime, cold atom platforms revolutionized the experimental study of quantum phase transitions \cite{}. They allow to engineer many quantum Hamiltonians of interest and study their quantum critical points \cite{}. These experiments can measure the state of every atom, thus providing a snapshot view of the many-body quantum state. Averaging over many snapshots allows to measure equal-time correlation function \cite{}---a classic way to detect conformal invariance \cite{Polyakov:1970xd}.
 
 The time is ripe to give a general discussion of existing and future tests of conformal invariance in cold atom experiments, which is our purpose here. Our paper has two main parts. In Section \ref{sec:gen}, we propose our view of which tests should count as indirect and which ones are direct. Indirect tests are measurements of critical exponents, while direct tests need to verify that correlation functions satisfy a conformal Ward identity. We illustrate these points by examples of existing experiments. 
 
-Then, in Section \ref{sec:prop},  we discuss the simplest setups to test conformal invariance through measurements of equal-time two-point correlation functions, with periodic and open boundary conditions. We present results of our numerical simulations for experiments with 1D chains of Rydberg atoms. The tests we imagine have not yet been performed due to limitations of decoherence and adiabaticity of ground state preparation, but we hope they are within reach. In Section \ref{sec:concl} we conclude.
+Then, in Section \ref{sec:prop},  we discuss the simplest setups to test conformal invariance through measurements of equal-time two-point correlation functions, with periodic and open boundary conditions. We present results of our numerical simulations for experiments with 1D chains of Rydberg atoms. The tests we imagine have not yet been performed due to limitations of decoherence and/or insufficient adiabaticity of ground state preparation, but we hope they are within reach. In Section \ref{sec:concl} we conclude.
 
+---
+
+Notation: D for spatial dimension, d for full spacetime dimension, as is common in cond-mat and exp literature
 \section{Tests of conformal invariance}
 \label{sec:gen}
 
+[One phrase summary of what happens in this section]
+
+Experimental tests of conformal symmetry fall into two groups - indirect and direct.
+
+Suppose we want to check rotational symmetry of a 3D object - is it a sphere? The direct way would be to stare at it from different directions. An indirect way would be to check if the circumference to diameter ratio equals $\pi$. 
+The point of this analogy is that symmetry is fundamentally about shapes of objects. In a quantum field theory the most basic object is a correlation function. Hence, a direct test conformal symmetry should test constraints which it imposes on the functional form of correlators. On the other hand, an indirect test can be a measurement of some number predicted using techniques of CFT. In fact specific CFTs can often be solved exactly, or numerically to very high accuracy. For example, an infinite series of 2d CFTs called minimal models was solved exactly, determining the local operator scaling dimensions and other properties \cite{Belavin:1984vu,DiFrancesco:1997nk}. The main critical exponents characterizing phase transitions can be expressed in terms of these scaling dimensions \cite{cardy1996scaling}. Hence, any measurement of a critical experiment in agreement with a CFT prediction is an indirect test of conformal symmetry. Many such indirect tests can be extracted from the literature \cite{Henkel1999,Rychkov:2025zks}, even though the original experimental papers may not have emphasized the connection with conformal symmetry.
+
+Talking about CFT correlators, we should specify the geometry, including the signature: Euclidean or Lorentzian. As a representative example, consider the 2d Ising CFT, i.e. the $M(3,4)$ minimal model, which has local primary operators $\mathcal{O}=\sigma,\epsilon$ of scaling dimensions $\Delta_\mathcal{O}=1/8,1$. Then, in infinite flat 2d space, the simplest nontrivial correlators are 2-point and 3-point functions
+\begin{align}
+	\langle \mathcal{O}(x_1) \mathcal{O}(x_2)\rangle &= \frac{1}{x_{12}^{2\Delta_\mathcal{O}}}\,,
+	\label{eq:two-point}\\
+	\langle \sigma(x_1) \sigma(x_2)\epsilon(x_3)\rangle &= \frac{C_{\sigma\sigma\epsilon}}{x_{12}^{2\Delta_\sigma-\Delta_\epsilon}
+x_{31}^{\Delta_\epsilon} x_{32}^{\Delta_\epsilon}}\,,\quad C_{\sigma\sigma\epsilon}=1/2,. \label{eq:three-point}
+	\end{align}
+	Here $x_{ij}$ are either the Euclidean or the Lorentzian distances between $x_i$ and $x_j$, depending on the signature of the space.\footnote{In the latter case, the distances are computed with infinitesimal imaginary parts for time differences, depending on the operator ordering, giving phases for light-like point separations \cite{Hofman:2008ar}.}
+	
+	Let us exemplify the direct/indirect separation. To measure $\Delta_\sigma$ or $\Delta_\epsilon$ or the coefficient $C_{\sigma\sigma\epsilon}$ would be an indirect test of conformal symmetry, as used in the solution of the 2d Ising CFT. To measure the 2-point functions \eqref{eq:two-point} and see a powerlaw would be a direct test, but of the more mundane symmetry - scale invariance. Finally, to measure the 3-point function \eqref{eq:three-point} would be a direct test of conformal symmetry. Indeed, this specific functional form in terms of just three parameters $\Delta_\sigma,\Delta_\epsilon,C_{\sigma\sigma\epsilon}$ was the earliest nontrivial prediction of conformal symmetry \cite{Polyakov:1970xd}, obtained by imposing invariance under conformal transformations.
+	
+	\SR{stopped here}
+	
+Theory is easiest in infinite space, write (or not) 2pt functions, 3pt functions. Only 3pt function is sensitive to conformal invariance.
+
+But the experiments are done in finite space. Typically Rydberg experiments are done on 1D spin chains either with atoms arranged either in a circle or as an interval. This maps on a CFT on either a cylinder or strip geometry, with time running vertically. 
+Conformal transformations on cylinder work differently than on flat space. Even two-point functions are fixed by conformal symmetry.
+On a strip geometry we can consider two-point function with one operator fixed on the boundary, one in the bulk.
+
+Another difference is that most theoretical CFT work is usually done in Euclidean $d$-dimensional space, while experimental measurements in quantum critical points will correspond to real time.
+
+Stress that in 2D with (2+1)d CFT this is not available. 
+
+\subsection{Literature review}
+
+Just as a guidance for now, will not be included in the paper in identical form.
+These papers prepare ground state by adiabatic evolution:
+
+\begin{itemize}
+	
+	\item Norman Yao group: Fang et al \cite{Fang:2024uyf} Cesium (133Cs) Rydberg atoms. (1+1)d Ising universality. Ring geometry for 1D. $N=24$ atoms on a ring. Two point function with exponential decay. $\Delta_\sigma=0.127(37)$, corr length $\xi=13.2^{+5.7}_{-3.6}$.  Rydberg blockade regime. Also studied (2+1)d Ising, including boundary critical phenomena.
+	\item Browaeys group: Emperauger et al \cite{Emperauger:2025raf} $N=24$ Rubidium circular, XY universality. Two-point correlation of compact boson, Luttinger parameter $K=1.85(1)$ from simulations in the FM case where they have better data, scaling dimension of the vertex operator $\Delta\approx 0.13$,  measured $K=1.6(4)$, corr length $\xi=15(4)$ from imperfections of ground state preparation (e.g. holes in the spin chain due to failed excitation or spontaneous decay. Just this effect alone  gives correlation length $\xi = 1/\log(1-2p)=24.5$ for their $p=0.04$.
+	\item Manuel Endres group: Sun et al \cite{Sun:2026aqf}. Sr atoms. Rydberg blockade regime. Open boundary conditions. Ising and TCI. Using periodic in time modulation, can measure excitation energies. For Ising check integer quantization for the first 7 energy levels on the strip. Also for TCI, with some bdry conds they extract some universal energy ratios. E.g. they extract $E_2/E_1=1.45(25)$ for the theoretical value $4/3$.
+
+	\end{itemize}
+	
+Also: measuring scaling dimensions from holographic digital quantum circuits: \cite{Anand:2022cdi,Dborin:2022zdd,Haghshenas:2023bje},
+
+KZ measurements 1D \cite{Keesling:2018ish,Zhang:2025xkp} - finite size scaling;
+2D \cite{Ebadi:2020ldi,Manovitz:2024hif}
+
+	
 Conformal invariance is a property of the probability distribution $P[\phi(x)]$ of the fluctuating order parameter at the second-order phase transition. Experimentally, we may probe this probability distribution through correlation functions. Any conformal field theory (CFT) will have a (generally infinite) set of local primary operators $\mathcal{O}_i(x)$, $i=1,2,\ldots$, whose correlation functions are conformally covariant, i.e. have definite transformation properties under the conformal group of the manifold. This leads to definite predictions of the shape of the correlation functions. Testing these predictions would constitute a direct test of conformal invariance.
 
-Let's contrast this to indirect tests. The following analogy may help to understand our point of view on what is direct and what is indirect. Symmetry is ultimately about shapes. A direct test of the roundness of a planar disk would be to rotate it and see if it looks. An indirect test would be the measurement of the circumference to diameter ratio. For CFTs, an indirect test would be a measurement of some number which can be predicted using techniques of conformal invariance. In fact CFTs can often be solved exactly, or numerically to very high accuracy. For example, Belavin, Polyakov and Zamolodchikov \cite{} introduced an infinite series of 2D CFTs called minimal models which can be solved exactly, determining the spectrum of scaling dimensions of the primary operators. There is a simple relation between scaling dimensions of primary operators and the main critical exponents characterizing the phase transitions \cite{}. By measuring critical experiments, we thus test predictions of conformal field theory, albeit indirectly. Many such indirect tests can be extracted from the literature \cite{}, even though the experiments may not have been presented as such.
 
 Let's go back to direct tests via correlation functions. Importantly, not every correlation function is suitable for a nontrivial test. Indeed, the shape of some correlation functions is fully constrained without the need to invoke conformal transformations.  Consider e.g.~the two-point function $\langle \mathcal{O}_i(x) \mathcal{O}_i(y)\rangle$ in infinite volume, which takes the form
 \beq
@@ -151,7 +202,9 @@ As a two-dimensional manifold, the cylinder has a crucial property that it is co
 
 \acknowledgments
 
-We thank the researchers at the Institut d'Optique, Ecole Polytechnique (Antoine Browaeys, Thierry Lahaye, David Clement, Thomas Chalopin), PASQUAL (Guillaume Villaret, Adrien Signoles, Alexander Dauphin), and Institute for Advanced Study, Tsinghua University (Wenlan Chen, Yingfei Gu, Chengshu Li) for very useful discussions of cold atom experiments. SR~is partially supported by the Simons Collaboration on the Probabilistic Paths to Quantum Field Theory (award SFI-MPS-PP-00012621-16). 
+We thank the researchers at the Institut d'Optique, Ecole Polytechnique (Antoine Browaeys, Thierry Lahaye, David Clement, Thomas Chalopin), PASQUAL (Guillaume Villaret, Adrien Signoles, Alexander Dauphin), and Institute for Advanced Study, Tsinghua University (Wenlan Chen, Yingfei Gu, Chengshu Li) for discussions of cold atom experiments. SR also thanks Hans Peter B\"uchler and Enrico Rinaldi for discussions. SR~is partially supported by the Simons Collaboration on the Probabilistic Paths to Quantum Field Theory (award SFI-MPS-PP-00012621-16). 
+
+
 
 \section*{Data availability statement}
 
