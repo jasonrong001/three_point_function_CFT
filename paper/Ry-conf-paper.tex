@@ -37,6 +37,7 @@
 
 \newcommand{\SR}[1]{{\red \bf [{SR:} #1]}}
 \newcommand{\junchen}[1]{\textcolor{blue}{\textbf{[JR: #1]}}}
+\def\cO{\mathcal{O}}
 
 \makeatletter
 \def\@fpheader{\ }
@@ -94,36 +95,63 @@ Notation: D for spatial dimension, d for full spacetime dimension, as is common 
 
 [One phrase summary of what happens in this section]
 
+\subsection{General discussion}
 Experimental tests of conformal symmetry fall into two groups - indirect and direct.
 
 Suppose we want to check rotational symmetry of a 3D object - is it a sphere? The direct way would be to stare at it from different directions. An indirect way would be to check if the circumference to diameter ratio equals $\pi$. 
 The point of this analogy is that symmetry is fundamentally about shapes of objects. In a quantum field theory the most basic object is a correlation function. Hence, a direct test conformal symmetry should test constraints which it imposes on the functional form of correlators. On the other hand, an indirect test can be a measurement of some number predicted using techniques of CFT. In fact specific CFTs can often be solved exactly, or numerically to very high accuracy. For example, an infinite series of 2d CFTs called minimal models was solved exactly, determining the local operator scaling dimensions and other properties \cite{Belavin:1984vu,DiFrancesco:1997nk}. The main critical exponents characterizing phase transitions can be expressed in terms of these scaling dimensions \cite{cardy1996scaling}. Hence, any measurement of a critical experiment in agreement with a CFT prediction is an indirect test of conformal symmetry. Many such indirect tests can be extracted from the literature \cite{Henkel1999,Rychkov:2025zks}, even though the original experimental papers may not have emphasized the connection with conformal symmetry.
 
-Talking about CFT correlators, we should specify the geometry, including the signature: Euclidean or Lorentzian. As a representative example, consider the 2d Ising CFT, i.e. the $M(3,4)$ minimal model, which has local primary operators $\mathcal{O}=\sigma,\epsilon$ of scaling dimensions $\Delta_\mathcal{O}=1/8,1$. Then, in infinite flat 2d space, the simplest nontrivial correlators are 2-point and 3-point functions
+Talking about CFT correlators, we should specify the geometry, including the signature: Euclidean or Lorentzian. As a representative example, consider the 2d Ising CFT, i.e. the $M(3,4)$ minimal model, which has local primary operators $=\sigma,\epsilon$ of scaling dimensions $\Delta_\sigma=1/8$, $\Delta_\epsilon=1$. Then, in infinite flat 2d space, the simplest nontrivial correlators are two-point (2pt) and thee-point (3pt) functions
 \begin{align}
-	\langle \mathcal{O}(x_1) \mathcal{O}(x_2)\rangle &= \frac{1}{x_{12}^{2\Delta_\mathcal{O}}}\,,
+	\langle \mathcal{O}(x_1) \mathcal{O}(x_2)\rangle &= \frac{1}{x_{12}^{2\Delta_\mathcal{O}}}\qquad (\mathcal{O}=\sigma,\epsilon)\,,
 	\label{eq:two-point}\\
 	\langle \sigma(x_1) \sigma(x_2)\epsilon(x_3)\rangle &= \frac{C_{\sigma\sigma\epsilon}}{x_{12}^{2\Delta_\sigma-\Delta_\epsilon}
-x_{31}^{\Delta_\epsilon} x_{32}^{\Delta_\epsilon}}\,,\quad C_{\sigma\sigma\epsilon}=1/2,. \label{eq:three-point}
+x_{31}^{\Delta_\epsilon} x_{32}^{\Delta_\epsilon}}\,,\quad C_{\sigma\sigma\epsilon}=1/2. \label{eq:three-point}
 	\end{align}
 	Here $x_{ij}$ are either the Euclidean or the Lorentzian distances between $x_i$ and $x_j$, depending on the signature of the space.\footnote{In the latter case, the distances are computed with infinitesimal imaginary parts for time differences, depending on the operator ordering, giving phases for light-like point separations \cite{Hofman:2008ar}.}
 	
-	Let us exemplify the direct/indirect separation. To measure $\Delta_\sigma$ or $\Delta_\epsilon$ or the coefficient $C_{\sigma\sigma\epsilon}$ would be an indirect test of conformal symmetry, as used in the solution of the 2d Ising CFT. To measure the 2-point functions \eqref{eq:two-point} and see a powerlaw would be a direct test, but of the more mundane symmetry - scale invariance. Finally, to measure the 3-point function \eqref{eq:three-point} would be a direct test of conformal symmetry. Indeed, this specific functional form in terms of just three parameters $\Delta_\sigma,\Delta_\epsilon,C_{\sigma\sigma\epsilon}$ was the earliest nontrivial prediction of conformal symmetry \cite{Polyakov:1970xd}, obtained by imposing invariance under conformal transformations.
+	The direct/indirect separation works as follows. To measure $\Delta_\sigma$, $\Delta_\epsilon$, or $C_{\sigma\sigma\epsilon}$ in agreement with their exact CFT values would be an indirect test of conformal symmetry. To measure the 2pt functions \eqref{eq:two-point} and see a powerlaw would be a direct test albeit not of the conformal but of the more mundane scale symmetry. Finally, to measure the 3pt function \eqref{eq:three-point} would be a direct test of conformal symmetry. Indeed, this specific functional form in terms of just three parameters $\Delta_\sigma,\Delta_\epsilon,C_{\sigma\sigma\epsilon}$ was one of the earliest nontrivial predictions of conformal symmetry \cite{Polyakov:1970xd}, obtained from covariance under conformal maps.
+	Scale symmetry alone would allow here an infinite number of possibilities \cite{Rychkov:2016iqz}.
+	Measurements of infinite-volume 3pt functions are complicated, and it was never attempted. 
 	
-	\SR{stopped here}
+	Let us move to finite volume case, which is most relevant for the Rydberg atom experiments, typically done on groups of 20-200 atoms grouped in a 1D or 2D array. To compare with 2d CFT, we consider the 1D setup---a chain of Rydberg atoms arranged either as a circle or as an interval, whose interactions are adjusted to be at the quantum critical point. This corresponds to CFT on the geometry which is respectively the ``cylinder'' or the ``strip'' (see Fig. ??), where time runs vertically.  
 	
-Theory is easiest in infinite space, write (or not) 2pt functions, 3pt functions. Only 3pt function is sensitive to conformal invariance.
+	While scale symmetry is broken by finite volume, conformal symmetry survives. In fact conformal group for the 2d cylinder is as large as that of the plane, while for the strip it's the same as for the half-plane. This results in constraints on correlators.  As the simplest nontrivial example, consider the 2pt function on the cylinder \cite{Luscher:1974ez}:
+	\beq
+	\label{eq:2ptcyl}
+	\langle \mathcal{O}(\phi_1,\tau_1) \mathcal{O}(\phi_2,\tau_2)\rangle  = 
+	\frac{e^{-\Delta_\cO T}}{|1-2e^{-T} \cos(\phi_1-\phi_2) + e^{-2T}|^{\Delta_\cO}}\,,
+		\eeq
+		where $\phi_i\in [0,2\pi]$, $\tau_i\in \mathbb{R}$. This is for the Euclidean cylinder. The 2pt function is time-translation invariant, and decays exponentially at large time separation $T=|\tau_1-\tau_2|$. One may easily derive this expression by mapping the cylinder to the plane by an exponential map, and using the infinite-plane result \eqref{eq:two-point}. But, for the sake of the argument, one can also derive it independently by staying on the cylinder and using its conformal group. 
+		
+		
+		For the Rydberg atom experiments, one needs to analytically continue \eqref{eq:2ptcyl} to Lorentzian signature. Then the 2pt function exhibits oscillating behavior in the time direction \cite{Luscher:1974ez}. We don't give the details, since below we will focus on the equal time case, when the 2pt function reduces to
+	\beq
+	\label{eq:2ptcylequal}
+	\langle \mathcal{O}(\phi_1,0) \mathcal{O}(\phi_2,0)\rangle  = \frac 1{|2\sin\frac{\phi_1-\phi_2}2|^{\Delta_\cO}},
+	\eeq
+	applicable both for Euclidean and Lorentzian signature. We stress again that it is because of conformal symmetry that the functional form is fixed for all angular separations, and not just at short distances where it reduces to the infinite-volume expression \eqref{eq:two-point}. 
+	
+	 In the same spirit, we can consider 2pt function on a strip. For simplicity, let us put one operator in the bulk, one on the boundary, and take them at equal time. Then \SR{what's a good reference?}
+	 \beq
+	 \label{eq:2ptstripequal}
+	 \langle \widehat{\cO}(0,0) \mathcal{O}(\phi,0)\rangle  = \frac {B_{\widehat{\cO} \mathcal{O}}}
+	 {(\sin \phi)^{\Delta_\cO-\Delta_{\widehat{\cO}}} 
+	 	(\sin \frac\phi 2)^{\Delta_{\widehat{\cO}}}}\qquad(\phi\in[0,\pi])\,.
+	 \eeq
+	Here $\widehat\cO$ is the boundary CFT primary operator, of scaling dimension $\Delta_{\widehat{\cO}}$. The spectrum of boundary operators depends on the chosen boundary condition. For example \SR{give some example here} The coefficient  $B_{\widehat{\cO} \mathcal{O}}$ is akin to $C_{\sigma\sigma\epsilon}$ in \eqref{eq:three-point}; its exact value is often known. But here we would like to focus on the specific functional dependence of \eqref{eq:2ptstripequal} on $\phi$. To see this dependence or the dependence in \eqref{eq:2ptcylequal} would be a direct test of conformal invariance.
+	
+ We note that the discussed finite volume tests of conformal invariance have no easy counterpart for 2D, where finite volume typically breaks conformal symmetry. The only exception is a sphere, but in cold atom experiments spherical symmetry will be broken to a discrete subgroup, which makes comparison to CFT subtle although not impossible \cite{Lao:2023zis,Wu:2026ayb}. Experimental realization of the recently proposed fuzzy sphere quantum criticality \cite{Zhu:2022gjc}, with electrons moving on the sphere with a magnetic flux, is currently lacking.
+%Stress that in 2D with (2+1)d CFT this is not available. 
 
-But the experiments are done in finite space. Typically Rydberg experiments are done on 1D spin chains either with atoms arranged either in a circle or as an interval. This maps on a CFT on either a cylinder or strip geometry, with time running vertically. 
-Conformal transformations on cylinder work differently than on flat space. Even two-point functions are fixed by conformal symmetry.
-On a strip geometry we can consider two-point function with one operator fixed on the boundary, one in the bulk.
+\subsection{Existing experimental results}
 
-Another difference is that most theoretical CFT work is usually done in Euclidean $d$-dimensional space, while experimental measurements in quantum critical points will correspond to real time.
+Experimental works \cite{Fang:2024uyf,Emperauger:2025raf} with Rydberg atoms come closest to our philosophy.
 
-Stress that in 2D with (2+1)d CFT this is not available. 
-
-\subsection{Literature review}
-
+ Ref.~\cite{Fang:2024uyf} realized the 2d Ising universality class on a ring of $N=24$ Rydberg atoms and measured the critical 2pt function $\langle \sigma \sigma \rangle$. From short-distance behavior they extracted $\Delta_\sigma=0.127(37)$ in agreement with the exact value (indirect test). At long distances instead of \eqref{eq:2ptcylequal} they saw exponential decay with correlation length $\xi=13.2^{+5.7}_{-3.6}$, attributed to decohence effects. So the direct test is so far elusive.
+ 
+ \SR{stopped here}
+ 
 Just as a guidance for now, will not be included in the paper in identical form.
 These papers prepare ground state by adiabatic evolution:
 
@@ -140,59 +168,6 @@ Also: measuring scaling dimensions from holographic digital quantum circuits: \c
 KZ measurements 1D \cite{Keesling:2018ish,Zhang:2025xkp} - finite size scaling;
 2D \cite{Ebadi:2020ldi,Manovitz:2024hif}
 
-	
-Conformal invariance is a property of the probability distribution $P[\phi(x)]$ of the fluctuating order parameter at the second-order phase transition. Experimentally, we may probe this probability distribution through correlation functions. Any conformal field theory (CFT) will have a (generally infinite) set of local primary operators $\mathcal{O}_i(x)$, $i=1,2,\ldots$, whose correlation functions are conformally covariant, i.e. have definite transformation properties under the conformal group of the manifold. This leads to definite predictions of the shape of the correlation functions. Testing these predictions would constitute a direct test of conformal invariance.
-
-
-Let's go back to direct tests via correlation functions. Importantly, not every correlation function is suitable for a nontrivial test. Indeed, the shape of some correlation functions is fully constrained without the need to invoke conformal transformations.  Consider e.g.~the two-point function $\langle \mathcal{O}_i(x) \mathcal{O}_i(y)\rangle$ in infinite volume, which takes the form
-\beq
-\langle \mathcal{O}_i(x) \mathcal{O}_i(y)\rangle = \frac{1}{|x-y|^{2\Delta_i}}\,,
-\label{eq:two-point}
-\eeq
-where $\Delta$ is the scaling dimension of $\mathcal{O}_i$. (For the moment we are considering CFTs in Euclidean space, as is appropriate for the thermodynamic phase transitions. Later on we will adapt the discussion to the Lorentzian manifold, as needed for quantum phase transitions.) Eq.~\eqref{eq:two-point} follows from just scale, rotation and translation invariances, without using special conformal transformations. Therefore, measuring \eqref{eq:two-point} cannot be said to directly probe conformal invariance. That's a pity, because experimental measurements using the neutron and X-ray scattering typically probe two-point functions.
-
-To probe conformal invariance, we have several options:
-\begin{enumerate}
-	\item Three- and higher-point correlation functions in infinite volume;
-	\item Two-point functions on nontrivial geometries;
-	\item Two-point functions in presence of boundaries or defects.
-\end{enumerate}
-Let's consider these in turn.
-
-\subsection{Three-point correlation functions in infinite volume}
-
-Basic predictions about CFT correlation functions made by Polyakov in his seminal work \cite{} are well known:
-
-Two-point functions of scalar primaries of equal scaling dimensions are given by \eqref{eq:two-point}. This follows without the use of conformal invariance. Two-point functions of primaries of unequal scaling dimensions vanish. This does use conformal invariance, but appears to be challenging to use in an experimental test, since the experimental probes will couple predominantly to low-dimension primaries.
-
-Proceeding to three-point functions, they take the form \cite{}
-\beq
-\langle \mathcal{O}_1(x_1) \mathcal{O}_2(x_2) \mathcal{O}_3(x_3)\rangle = 
-\frac{C_{123}}{|x_1-x_2|^{h_{123}} |x_1-x_3|^{h_{132}} |x_2-x_2|^{h_{231}}}
-\eeq
-where $h_{ijk}=\Delta_i+\Delta_j-\Delta_k$ is fixed in terms of scaling dimensions, and $C_{123}$ is a constant, called the operator product expansion (OPE) coefficient, which depends on the theory and on the considered correlator. This equation crucially relies on the conformal invariance, as scale invariance would only fix the sum $h_{123}+h_{132}+h_{231}$. It's not clear to us how test this equation with neutron and X-ray scattering, but below we will discuss how to do this with Rydberg atoms.
-
-Finally, four-point functions have a more complicated functional form, since they may depend on conformally-invariant cross-ratios \cite{}. %We will give here only the expression for equal scaling dimensions: 
-%\beq
-%\langle \mathcal{O}(x_1) \mathcal{O}(x_2) \mathcal{O}(x_3) \mathcal{O}(x_4)\rangle = 
-%\frac {g(u,v)} {|x_1-x_2|^{2\Delta_\mathcal{O}} |x_3-x_4|^{2\Delta_\mathcal{O}}},\quad 
-%u=\frac{x_{12}^2 x_{34}^2}{ x_{13}^2 x_{24}^2},\quad v=u_{1\leftrightarrow 3}.
-%\eeq
-In principle, it may be possible to measure the four-point function in a scattering experiment when two probes are sent simultaneously into the critical sample, and they both scatter. However we are not aware of any existing experiment.
-
-\subsection{Two-point functions on nontrivial geometries}
-
-Suppose a sheet of a two-dimensional material at a thermodynamic phase transition is rolled up to form a cylinder $S^1\times \mathbb{R}$. Two-point functions on such a geometry are predicted to have the form:
-\beq
-\langle \mathcal{O}_i(\theta_1,\tau_1) \mathcal{O}_i(\theta_2,\tau_2)\rangle = \frac{1}{[1-2 e^{-\tau_{12}}\cos (\theta_{1}-\theta_2)+e^{-2\tau_{12}}]^{\Delta_i}}\,,
-\label{eq:two-point-cyl}
-\eeq
-where we parametrize the cylinder by the angle $\theta$ and by $\tau\in\mathbb{R}$, $\tau_{12}=\tau_1-\tau_2$.
-
-The standard way to derive Eq.~\eqref{eq:two-point-cyl} is to note that the cylinder can be "unrolled" i.e. transformed to the Euclidean plane by a Weyl transformation, which acts in a known way on the correlation functions. This allows to recover Eq.~\eqref{eq:two-point-cyl} from \eqref{eq:two-point}.
- 
-Another way to derive Eq.~\eqref{eq:two-point-cyl} is to note that 
-As a two-dimensional manifold, the cylinder has a crucial property that it is conformally flat. This means that we can transform the metric on the cylinder into the metric of the flat Euclidean space by a Weyl transformations. CFT predicts how correlation functions transform under Weyl transformations. This 
 
 \section{Simple setups to measure two-point functions}
 \label{sec:prop}
