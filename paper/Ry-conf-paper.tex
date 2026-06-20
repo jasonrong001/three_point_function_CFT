@@ -132,23 +132,41 @@ x_{31}^{\Delta_\epsilon} x_{32}^{\Delta_\epsilon}}\,,\quad C_{\sigma\sigma\epsil
 	\eeq
 	applicable both for Euclidean and Lorentzian signature. We stress again that it is because of conformal symmetry that the functional form is fixed for all angular separations, and not just at short distances where it reduces to the infinite-volume expression \eqref{eq:two-point}. 
 	
-	 In the same spirit, we can consider 2pt function on a strip. For simplicity, let us put one operator in the bulk, one on the boundary, and take them at equal time. Then \SR{what's a good reference?}
+	 In the same spirit, we can consider 2pt function on a strip. For simplicity, let us put one operator in the bulk, one on the boundary, and take them at equal time. Then \SR{what's a good reference? Is this equation true only if the two sides of the strip have the same BC?}
 	 \beq
 	 \label{eq:2ptstripequal}
 	 \langle \widehat{\cO}(0,0) \mathcal{O}(\phi,0)\rangle  = \frac {B_{\widehat{\cO} \mathcal{O}}}
 	 {(\sin \phi)^{\Delta_\cO-\Delta_{\widehat{\cO}}} 
 	 	(\sin \frac\phi 2)^{\Delta_{\widehat{\cO}}}}\qquad(\phi\in[0,\pi])\,.
 	 \eeq
-	Here $\widehat\cO$ is the boundary CFT primary operator, of scaling dimension $\Delta_{\widehat{\cO}}$. The spectrum of boundary operators depends on the chosen boundary condition. For example \SR{give some example here} The coefficient  $B_{\widehat{\cO} \mathcal{O}}$ is akin to $C_{\sigma\sigma\epsilon}$ in \eqref{eq:three-point}; its exact value is often known. But here we would like to focus on the specific functional dependence of \eqref{eq:2ptstripequal} on $\phi$. To see this dependence or the dependence in \eqref{eq:2ptcylequal} would be a direct test of conformal invariance.
+	Here $\widehat\cO$ is the boundary CFT primary operator, of scaling dimension $\Delta_{\widehat{\cO}}$. The spectrum of boundary operators depends on the chosen boundary condition. For example \SR{give some example here} The coefficient  $B_{\widehat{\cO} \mathcal{O}}$ is akin to $C_{\sigma\sigma\epsilon}$ in \eqref{eq:three-point}; its exact value is often known. But here we would like to focus on the specific functional dependence of \eqref{eq:2ptstripequal} on $\phi$. To see this, or the dependence in \eqref{eq:2ptcylequal} would be a direct test of conformal symmetry.
+	On the other hand, to measure the asymptotic small-$\phi$ power of \eqref{eq:2ptcylequal} or \eqref{eq:2ptstripequal} and  compare $\Delta_\cO$ with the known CFT value would be an indirect test.
+	
+For completeness let us discuss another possible test of conformal symmetry, namely testing the state-operator-correspondence (SOC). The SOC says that first, energy eigenstates on the cylinder (resp. strip) are in one-to-one correspondence with the bulk (resp. boundary) CFT operators, and second, that the excitation energies about the ground state are proportional to the scaling dimensions of the corresponding CFT operators.  The proportionality factor involves the ``speed of light'' of the emergent Lorentz invariance, which depends on the microscopic details. To eliminate the unknown ``speed of light'', one can study the ratios of excitation energies $E_i/E_j$. Thus the prediction for the cylinder  is 
+\beq
+E_i/E_j = \Delta_{\cO_i}/\Delta_{\cO_j}\,,
+\eeq	
+while for the strip one should replace bulk operators $\cO_i$ with boundary operators $\widehat{\cO}_i$. 
+
+SOC involves all states, those associated with the primary local operators and those associated with the descendants (global and Virasoro). For the states associated with primaries, we can recognize SOC from the 2pt function \eqref{eq:2ptcyl}, where the same scaling dimension $\Delta_\cO$ controls the short-distance asymptotics of \eqref{eq:2ptcylequal} and its exponential decay at infinite time separation. This decay, which becomes oscillation in Lorentzian, means that the lowest exchanged state has energy $\Delta_\cO$ above the vacuum.
+
+SOC is a fundamental property of CFT, which results because the cylinder and stripe geometries are conformally equivalent to the plane and half-plane (see Fig.~?). Therefore, a test of relation also qualifies as a direct test of conformal invariance. \SR{still working on SOC}
 	
  We note that the discussed finite volume tests of conformal invariance have no easy counterpart for 2D, where finite volume typically breaks conformal symmetry. The only exception is a sphere, but in cold atom experiments spherical symmetry will be broken to a discrete subgroup, which makes comparison to CFT subtle although not impossible \cite{Lao:2023zis,Wu:2026ayb}. Experimental realization of the recently proposed fuzzy sphere quantum criticality \cite{Zhu:2022gjc}, with electrons moving on the sphere with a magnetic flux, is currently lacking.
 %Stress that in 2D with (2+1)d CFT this is not available. 
 
-\subsection{Existing experimental results}
+\subsection{Existing experimental results with Rydberg atoms}
 
 Experimental works \cite{Fang:2024uyf,Emperauger:2025raf} with Rydberg atoms come closest to our philosophy.
+Ref.~\cite{Fang:2024uyf} studied the 2d Ising universality class with $N=24$ Rydberg atoms in a circle, while Ref.~\cite{Emperauger:2025raf} studied instead the XY universality class in the same geometry.
+Both works measured critical 2pt functions with a powerlaw at short distances. However at long distances instead of \eqref{eq:2ptcylequal} they saw exponential decay with correlation length $\xi=13.2^{+5.7}_{-3.6}$ \cite{Fang:2024uyf} or $\xi=15(4)$ \cite{Emperauger:2025raf}.  So the direct test of conformal invariance is so far elusive. We will discuss in Section \ref{sec:prop} possible improvements for future experiments.
 
- Ref.~\cite{Fang:2024uyf} realized the 2d Ising universality class on a ring of $N=24$ Rydberg atoms and measured the critical 2pt function $\langle \sigma \sigma \rangle$. From short-distance behavior they extracted $\Delta_\sigma=0.127(37)$ in agreement with the exact value (indirect test). At long distances instead of \eqref{eq:2ptcylequal} they saw exponential decay with correlation length $\xi=13.2^{+5.7}_{-3.6}$, attributed to decohence effects. So the direct test is so far elusive.
+Ref.~\cite{Fang:2024uyf} did provide an indirect test by measuring $\Delta_\sigma=0.127(37)$ from the short distance powerlaw, in agreement with the 2d Ising CFT. Ref.~\cite{Emperauger:2025raf} similarly extracted a scaling dimension $\Delta\approx 0.13$, corresponding to the vertex operator dimension of the compact scalar boson with the Luttinger parameter $K=1.6(4)$. However, this underlying theory can be solved without CFT techniques. So this probably does not count as an indirect test of conformal symmetry.
+
+We next discuss Ref.~\cite{Sun:2026aqf}, who used open boundary conditions (a chain of Rydberg atoms arranged in an interval, not a circle). They did not measure correlation functions, focusing instead on excitation energies above the ground state, probed using time-periodic modulation. Their goal was to test the state-operator correspondence (SOC). According to SOC, excitation energies should be proportional to the scaling dimensions of boundary CFT operators. The proportionality factor involves the ``speed of light'' of the emergent Lorentz invariance, which depends on the microscopic details. To eliminate the unknown ``speed of light' one studies the ratios of excitation energies. The first system studied by Ref.~\cite{Sun:2026aqf} was in the Ising universality class with \SR{what boundary condition}. Measuring several low-lying excitation energies (up to level 7), they could see that they are are equally spaced . This is in agreement with the free Majorana theory description of the underlying CFT. The second system in Ref.~\cite{Sun:2026aqf} realized the tri-critical Ising universality class with \SR{what boundary condition}. In that case the CFT gives a nontrivial prediction $E_2/E_1 = 4/3$. Experimentally they obtained a consistent result $E_2/E_1=1.45(25)$. 
+
+SOC is a fundamental property of CFT, which results because the cylinder and stripe geometries are conformally equivalent to the plane and half-plane. Therefore, a convincing test of SOC would be a also direct test of conformal invariance.\footnote{See also \cite{Wang:2026prw} for a recent discussion.} The work of Ref.~\cite{Sun:2026aqf} goes towards such a test, but more accuracy 
+ They realized Ising and tri-critical Ising universality classes. Using periodic in time modulation, can measure excitation energies. For Ising check integer quantization for the first 7 energy levels on the strip. Also for TCI, with some bdry conds they extract some universal energy ratios. E.g. they extract $E_2/E_1=1.45(25)$ for the theoretical value $4/3$.
  
  \SR{stopped here}
  
