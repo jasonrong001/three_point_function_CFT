@@ -153,11 +153,12 @@ In the case of open boundary condition,
 \beq
 \hat H = \frac{\Omega'}{2} \sum_i \sigma^x_i + \sum_{i<j}\frac{1}{4d_{ij}^6}  \sigma^z_{i}\sigma^z_{j}+ \frac 12 \sum_{i}  \left(\sum_{j\neq i}^{L}( \frac{1}{2d_{ji}^6} - \Delta'_i) \sigma^z_{i} \right)+ const
 \eeq
-We take take $\Delta'_i=1.01734$ and $\Omega=0.488$, then the bulk is in the critical phase. At the boundary, this breaks the $\mathbb{Z}_2$ symmetry, and prefers $\langle Z_i\rangle<0$. To avoid that, we take 
+We take take $\Delta'_i=1.01734$ and $\Omega=0.488$, then the bulk is in the critical phase. At the boundary, this breaks the $\mathbb{Z}_2$ symmetry, and prefers $\langle Z_i\rangle<0$. 
+To avoid that, we take 
 \beq\label{boundarytuning}
 \Delta'_1=\Delta'_N=-5.
 \eeq
-I believe a spatial dependent $\Delta'$ is not hard, as discussed in \cite{Sun:2026aqf}, see the section ``Boundary tuning of TCI CFT''. 
+I believe a spatial dependent $\Delta'$ is not hard, as discussed in \cite{Sun:2026aqf}, see the section ``Boundary tuning of TCI CFT''. The precise value of the detuning on the boundary is not crucial, as long as it is strong enough to fixed the boundary spin.
 Notice that we have to put odd number of atoms, due to the anti-ferromagnetic nature of model, we take $N=41$. The one-point function we got is shown in Fig.~\ref{Z1pt}.
 \begin{figure}[htbp]
 \centering
@@ -167,6 +168,8 @@ Notice that we have to put odd number of atoms, due to the anti-ferromagnetic na
 \end{figure}
 
 If we instead take $N$ to be even, for example $N=40$, this means that we are taking spin-up boundary condition on one end and the spin-down boundary condition on the other end. Performing a conformal map to upper half plane, this means we have put a pair of boundary changing operators, one at the origin and the other at infinity. The 3rd operator $\sigma$ operator is at the unit semi-circle. \junchen{work out this explicitly.}
+
+\junchen{If we tune the boundary $\Delta'$, we probably can reach the free boundary condition, and measure bulk-boundary correlator as we initially planned. But do we want to tune one extra parameter.}
 
 \bibliography{reference.bib}
 \bibliographystyle{utphys}
