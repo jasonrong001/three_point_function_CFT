@@ -101,97 +101,86 @@ Experimental tests of conformal symmetry fall into two groups - indirect and dir
 Suppose we want to check rotational symmetry of a 3D object - is it a round ball? The direct way would be to stare at it from different directions. An indirect way would be to check if the circumference to diameter ratio equals $\pi$. 
 The point of this analogy is that symmetry is fundamentally about shapes of objects. In a quantum field theory the most basic object is a correlation function. Hence, a direct test conformal symmetry should test constraints which it imposes on the functional form of correlators. On the other hand, an indirect test can be a measurement of some number predicted using techniques of CFT. In fact specific CFTs can often be solved exactly, or numerically to very high accuracy. For example, an infinite series of 2d CFTs called minimal models was solved exactly, determining the local operator scaling dimensions and other properties \cite{Belavin:1984vu,DiFrancesco:1997nk}. The main critical exponents characterizing phase transitions can be expressed in terms of these scaling dimensions \cite{cardy1996scaling}. Hence, any measurement of a critical experiment in agreement with a CFT prediction is an indirect test of conformal symmetry. Many such indirect tests can be extracted from the literature \cite{Henkel1999,Rychkov:2025zks}, even though the original experimental papers may not have emphasized the connection with conformal symmetry.
 
-Talking about CFT correlators, we should specify the geometry, including the signature: Euclidean or Lorentzian. As a representative example, consider the 2d Ising CFT, i.e. the $M(3,4)$ minimal model, which has local primary operators $=\sigma,\epsilon$ of scaling dimensions $\Delta_\sigma=1/8$, $\Delta_\epsilon=1$. Then, in infinite flat 2d space, the simplest nontrivial correlators are two-point (2pt) and thee-point (3pt) functions
+Talking about CFT correlators, we should specify the geometry, including the signature: Euclidean or Lorentzian. As a representative example, consider the 2d Ising CFT, i.e. the $M(3,4)$ minimal model, which has local primary operators $=\sigma,\epsilon$ of scaling dimensions $\Delta_\sigma=1/8$, $\Delta_\epsilon=1$. Then, in infinite flat 2d space, the simplest nontrivial correlators are two-point (2pt) and thee-point (3pt) functions of primary operators:
 \begin{align}
-	\langle \mathcal{O}(x_1) \mathcal{O}(x_2)\rangle &= \frac{1}{x_{12}^{2\Delta_\mathcal{O}}}\qquad (\mathcal{O}=\sigma,\epsilon)\,,
+	\langle \mathcal{O}(x_1) \mathcal{O}(x_2)\rangle_{\mathbb{R}^2} &= \frac{1}{x_{12}^{2\Delta_\mathcal{O}}}\qquad (\mathcal{O}=\sigma,\epsilon)\,,
 	\label{eq:two-point}\\
-	\langle \sigma(x_1) \sigma(x_2)\epsilon(x_3)\rangle &= \frac{C_{\sigma\sigma\epsilon}}{x_{12}^{2\Delta_\sigma-\Delta_\epsilon}
+	\langle \sigma(x_1) \sigma(x_2)\epsilon(x_3)\rangle_{\mathbb{R}^2} &= \frac{C_{\sigma\sigma\epsilon}}{x_{12}^{2\Delta_\sigma-\Delta_\epsilon}
 x_{31}^{\Delta_\epsilon} x_{32}^{\Delta_\epsilon}}\,,\quad C_{\sigma\sigma\epsilon}=1/2. \label{eq:three-point}
 	\end{align}
 	Here $x_{ij}$ are either the Euclidean or the Lorentzian distances between $x_i$ and $x_j$, depending on the signature of the space.\footnote{In the latter case, the distances are computed with infinitesimal imaginary parts for time differences, depending on the operator ordering, giving phases for light-like point separations \cite{Hofman:2008ar}.}
 	
 	The direct/indirect separation works as follows. To measure $\Delta_\sigma$, $\Delta_\epsilon$, or $C_{\sigma\sigma\epsilon}$ in agreement with their exact CFT values would be an indirect test of conformal symmetry. To measure the 2pt functions \eqref{eq:two-point} and see a powerlaw would be a direct test albeit not of the conformal but of the more mundane scale symmetry. Finally, to measure the 3pt function \eqref{eq:three-point} would be a direct test of conformal symmetry. Indeed, this specific functional form in terms of just three parameters $\Delta_\sigma,\Delta_\epsilon,C_{\sigma\sigma\epsilon}$ was one of the earliest nontrivial predictions of conformal symmetry \cite{Polyakov:1970xd}, obtained from covariance under conformal maps.
 	Scale symmetry alone would allow here an infinite number of possibilities \cite{Rychkov:2016iqz}.
-	Measurements of infinite-volume 3pt functions are complicated, and it was never attempted. 
+	Measurements of infinite-volume 3pt functions are complicated, and it was never attempted.\footnote{We thank Thomas Chalopin and David Clément for a discussion of the possibility of realizing such a measurement in their experimental platform \cite{Allemand:2025pdq}.}
 	
 	Let us move to finite volume case, which is most relevant for the Rydberg atom experiments, typically done on groups of 20-200 atoms grouped in a 1D or 2D array. To compare with 2d CFT, we consider the 1D setup---a chain of Rydberg atoms arranged either as a circle or as an interval, whose interactions are adjusted to be at the quantum critical point. This corresponds to CFT on the geometry which is respectively the ``cylinder'' or the ``strip'' (see Fig. ??), where time runs vertically.  
 	
-	While scale symmetry is broken by finite volume, conformal symmetry survives. In fact conformal group for the 2d cylinder is as large as that of the plane, while for the strip it's the same as for the half-plane. This results in constraints on correlators.  As the simplest nontrivial example, consider the 2pt function on the cylinder \cite{Luscher:1974ez}:
+	While scale symmetry is broken by finite volume, conformal symmetry survives. In fact conformal group for the 2d cylinder is as large as that of the plane, while for the strip it's the same as for the half-plane. This results in constraints on correlators.  As the simplest nontrivial example, consider the 2pt function of a primary on the cylinder \cite{Luscher:1974ez}:
 	\beq
 	\label{eq:2ptcyl}
-	\langle \mathcal{O}(\phi_1,\tau_1) \mathcal{O}(\phi_2,\tau_2)\rangle  = 
-	\frac{e^{-\Delta_\cO T}}{|1-2e^{-T} \cos(\phi_1-\phi_2) + e^{-2T}|^{\Delta_\cO}}\,,
+	\langle \mathcal{O}(\phi_1,\tau_1) \mathcal{O}(\phi_2,\tau_2)\rangle_{\text{cyl}}  = 
+	\frac{1}{|2 \cosh |\tau_1-\tau_2| - 2 \cos(\phi_1-\phi_2)|^{\Delta_\cO}}\,,
 		\eeq
-		where $\phi_i\in [0,2\pi]$, $\tau_i\in \mathbb{R}$. This is for the Euclidean cylinder. The 2pt function is time-translation invariant, and decays exponentially at large time separation $T=|\tau_1-\tau_2|$. One may easily derive this expression by mapping the cylinder to the plane by an exponential map, and using the infinite-plane result \eqref{eq:two-point}. But, for the sake of the argument, one can also derive it independently by staying on the cylinder and using its conformal group. 
+		where $\phi_i\in [0,2\pi]$, $\tau_i\in \mathbb{R}$. This is for the Euclidean cylinder. The 2pt function is time-translation invariant, and decays exponentially at large time separation. One may easily derive this expression by mapping the cylinder to the plane by an exponential map, and using the infinite-plane result \eqref{eq:two-point}. But, for the sake of the argument, one can also derive it independently by staying on the cylinder and using its conformal group. 
 		
 		
-		For the Rydberg atom experiments, one needs to analytically continue \eqref{eq:2ptcyl} to Lorentzian signature. Then the 2pt function exhibits oscillating behavior in the time direction \cite{Luscher:1974ez}. We don't give the details, since below we will focus on the equal time case, when the 2pt function reduces to
+		For the Hamiltonian dynamics in real time, like for the Rydberg atom experiments, one needs to analytically continue \eqref{eq:2ptcyl} to Lorentzian signature. Then the 2pt function exhibits oscillating behavior in the time direction \cite{Luscher:1974ez}. Below we will focus on the equal time case, when the 2pt function reduces to
 	\beq
 	\label{eq:2ptcylequal}
-	\langle \mathcal{O}(\phi_1,0) \mathcal{O}(\phi_2,0)\rangle  = \frac 1{|2\sin\frac{\phi_1-\phi_2}2|^{\Delta_\cO}},
+	\langle \mathcal{O}(\phi_1,0) \mathcal{O}(\phi_2,0)\rangle_{\text{cyl}}  = \frac 1{|2\sin\frac{\phi_1-\phi_2}2|^{\Delta_\cO}},
 	\eeq
-	applicable both for Euclidean and Lorentzian signature. We stress again that it is because of conformal symmetry that the functional form is fixed for all angular separations, and not just at short distances where it reduces to the infinite-volume expression \eqref{eq:two-point}. 
+	applicable both for Euclidean and Lorentzian signature.
 	
-	 In the same spirit, we can consider 2pt function on a strip. For simplicity, let us put one operator in the bulk, one on the boundary, and take them at equal time. Then \SR{what's a good reference? Is this equation true only if the two sides of the strip have the same BC?}
+	 In the same spirit, we can consider correlation functions on a strip, assuming conformal boundary conditions $B_1$ and $B_2$ on the two boundaries. In this case already 1pt function can be used to test conformal symmetry. In the simplest case with equal boundary conditions, $B_1=B_2$, the 1pt function of a primary operator on the strip of width $\pi$ takes the form:
 	 \beq
-	 \label{eq:2ptstripequal}
-	 \langle \widehat{\cO}(0,0) \mathcal{O}(\phi,0)\rangle  = \frac {B_{\widehat{\cO} \mathcal{O}}}
-	 {(\sin \phi)^{\Delta_\cO-\Delta_{\widehat{\cO}}} 
-	 	(\sin \frac\phi 2)^{\Delta_{\widehat{\cO}}}}\qquad(\phi\in[0,\pi])\,.
+	 \label{eq:1ptstrip}
+	 \langle \mathcal{O}(\phi,0)\rangle_{\text{strip}}  = \frac {A_{\mathcal{O}}}
+	 {(2 \sin \phi)^{\Delta_\cO}}\,, \quad 0<\phi<\pi\,\quad(B_1=B_2)\,.
 	 \eeq
-	 \junchen{Ref~\cite{McAvity:1995zd} mentioned the flat space bulk to boundary correlator explicitly in (2.12).}	Here $\widehat\cO$ is the boundary CFT primary operator, of scaling dimension $\Delta_{\widehat{\cO}}$. The spectrum of boundary operators depends on the chosen boundary condition. For example \SR{give some example here} , in the case of the 1+1D critical Ising model, there are three boundary conditions, the spin-up/down boundary condition $|\pm\rangle$, and the free boundary condition $|f\rangle$. The spin-up boundary condition $|+\rangle$ and the spin-down boundary condition $|-\rangle$ are related by a $\mathbf{Z}_2$ transformation, so their boundary operator spectra are the same. The leading boundary operator (beyond the identity operator) has scaling dimension $\Delta_{\widehat{\cO}}=2$. In the case of the free boundary condition, since we preserve the $\mathbf{Z}_2$ symmetry, we can further classify the boundary operators into $\mathbf{Z}_2$ odd and even operators. The leading $\mathbf{Z}_2$ odd and even operators has scaling dimension $\Delta_{\widehat{\cO}}=1/2$ and $\Delta_{\widehat{\cO}}=2$ respectively. \junchen{On the phase diagram of the Rydberg atom, at generic 2nd order transition point, the  $\mathbf{Z}_2$ symmetry is given by the translation. However, in the special point we discussed, the model becomes literally the AFM Ising model, we can easily get the free boundary condition. We should probably mention this later}	The coefficient  $B_{\widehat{\cO} \mathcal{O}}$ is akin to $C_{\sigma\sigma\epsilon}$ in \eqref{eq:three-point}; its exact value is often known. But here we would like to focus on the specific functional dependence of \eqref{eq:2ptstripequal} on $\phi$. To see this dependence or the dependence in \eqref{eq:2ptcylequal} would be a direct test of conformal invariance. To see this, or the dependence in \eqref{eq:2ptcylequal} would be a direct test of conformal symmetry.
-	 On the other hand, to measure the asymptotic small-$\phi$ power of \eqref{eq:2ptcylequal} or \eqref{eq:2ptstripequal} and  compare $\Delta_\cO$ with the known CFT value would be an indirect test.
+	 This is usually argued conformal-transforming the upper-half-plane 1pt function $\langle \mathcal{O}(z)\rangle_{\text{UHP}} =  {A_{\mathcal{O}}}/(2\, \text{Im} z)^{\Delta_\cO}$ \cite{Cardy:1984bb} to the strip \cite{Calabrese:2006rx}. But it can also be derived by staying on the strip.
+	  
+	 For a nontrivial test, $A_\cO$ in \eqref{eq:1ptstrip} should not vanish due to global symmetry reasons. For example, in the case of the 2d Ising CFT, if we choose $\cO=\sigma$, the boundary condition should break global $\mathbb{Z}_2$, i.e.~it should be either ``spin-up'' or ``spin-down'' boundary condition $|+\rangle$, $|-\rangle$ and not the ``free'' boundary condition $|f\rangle$.
 	 
+	 In summary, it is because of conformal symmetry that the functional form of \eqref{eq:2ptcyl}, \eqref{eq:1ptstrip} is fixed for all angles and not just in the short-distance limit where operators approach each other or the boundary, where it follows by scale symmetry. To see this functional form experimentally would be a direct test of conformal symmetry. Below we will focus on these two simplest direct tests. More complicated tests could be constructed using higher-point functions on the cylinder, or correlators with unequal boundary conditions on two sides of the strip or with boundary operators insertions. 
 	
-For completeness let us discuss another possible test of conformal symmetry, namely testing the state-operator-correspondence (SOC). The SOC says that first, energy eigenstates on the cylinder (resp. strip) are in one-to-one correspondence with the bulk (resp. boundary) CFT operators, and second, that the excitation energies about the ground state are proportional to the scaling dimensions of the corresponding CFT operators.  The proportionality factor involves the ``speed of light'' of the emergent Lorentz invariance, which depends on the microscopic details. To eliminate the unknown ``speed of light'', one can study the ratios of excitation energies $E_i/E_j$. Thus the prediction for the cylinder  is 
+For completeness let us discuss another possible test of conformal symmetry, namely testing the operator-state correspondence (OSC). Consider all local operators of a CFT ${\cO}_i$, both primaries and their descendants. The OSC on the cylinder says that such operators are in one-to-one correspondence with the energy eigenstates on the circle, and that scaling dimensions and the excitation energies about the ground state are proportional to each other. There is also OSC for the strip with boundary conditions $B_1$ and $B_2$, between states on the interval and  boundary (or boundary-changing if $B_1\ne B_2$) operators $\widehat{\cO}_i$. 
+
+The proportionality factor the ``speed of light'' of the emergent Lorentz invariance, as well as the physical length of space. To eliminate these factors, one can study the excitation energy ratios $E_i/E_j$. Then the prediction is 
 \beq
-E_i/E_j = \Delta_{\cO_i}/\Delta_{\cO_j}\,,
+\label{eq:ratio-rel}
+E_i/E_j = \Delta_{\cO_i}/\Delta_{\cO_j}\,\quad\text{(cylinder)},
 \eeq	
-while for the strip one should replace bulk operators $\cO_i$ with boundary operators $\widehat{\cO}_i$. 
+and a similar relation with $\Delta_{\cO_i}\to\Delta_{\widehat{\cO}_i}$ for the strip.
 
-SOC involves all states, those associated with the primary local operators and those associated with the descendants (global and Virasoro). For the states associated with primaries, we can recognize SOC from the 2pt function \eqref{eq:2ptcyl}, where the same scaling dimension $\Delta_\cO$ controls the short-distance asymptotics of \eqref{eq:2ptcylequal} and its exponential decay at infinite time separation. This decay, which becomes oscillation in Lorentzian, means that the lowest exchanged state has energy $\Delta_\cO$ above the vacuum.
+OSC is a fundamental property of CFT, which results because the cylinder and strip geometries are conformally equivalent to the plane and half-plane (see Fig.~?). Therefore, a test of relation \eqref{eq:ratio-rel} also qualifies as a direct test of conformal invariance.\footnote{We thank the authors of \cite{Wang:2026prw} for a discussion.}
 
-SOC is a fundamental property of CFT, which results because the cylinder and stripe geometries are conformally equivalent to the plane and half-plane (see Fig.~?). Therefore, a test of relation also qualifies as a direct test of conformal invariance. \SR{still working on SOC}
-
-
-	
  We note that the discussed finite volume tests of conformal invariance have no easy counterpart for 2D, where finite volume typically breaks conformal symmetry. The only exception is a sphere, but in cold atom experiments spherical symmetry will be broken to a discrete subgroup, which makes comparison to CFT subtle although not impossible \cite{Lao:2023zis,Wu:2026ayb}. Experimental realization of the recently proposed fuzzy sphere quantum criticality \cite{Zhu:2022gjc}, with electrons moving on the sphere with a magnetic flux, is currently lacking.
 %Stress that in 2D with (2+1)d CFT this is not available. 
 
 \subsection{Existing experimental results with Rydberg atoms}
 
-Experimental works \cite{Fang:2024uyf,Emperauger:2025raf} with Rydberg atoms come closest to our philosophy.
-Ref.~\cite{Fang:2024uyf} studied the 2d Ising universality class with $N=24$ Rydberg atoms in a circle, while Ref.~\cite{Emperauger:2025raf} studied instead the XY universality class in the same geometry.
-Both works measured critical 2pt functions with a powerlaw at short distances. However at long distances instead of \eqref{eq:2ptcylequal} they saw exponential decay with correlation length $\xi=13.2^{+5.7}_{-3.6}$ \cite{Fang:2024uyf} or $\xi=15(4)$ \cite{Emperauger:2025raf}.  So the direct test of conformal invariance is so far elusive. We will discuss in Section \ref{sec:prop} possible improvements for future experiments.
+Refs.~\cite{Fang:2024uyf,Emperauger:2025raf} come closest to our philosophy.
+Ref.~\cite{Fang:2024uyf} studied the 2d Ising universality class with $N=24$ Rydberg atoms in a circle, while Ref.~\cite{Emperauger:2025raf} focused on the XY universality class in the same geometry.
+Both works measured critical 2pt functions with a powerlaw at short distances. At long distances instead of \eqref{eq:2ptcylequal} they saw exponential decay with correlation length $\xi=13.2^{+5.7}_{-3.6}$ \cite{Fang:2024uyf} or $\xi=15(4)$ \cite{Emperauger:2025raf}, attributed to decoherence effects and other imperfections.  See Section \ref{sec:prop} for possible improvements for future experiments.
 
-Ref.~\cite{Fang:2024uyf} did provide an indirect test by measuring $\Delta_\sigma=0.127(37)$ from the short distance powerlaw, in agreement with the 2d Ising CFT. Ref.~\cite{Emperauger:2025raf} similarly extracted a scaling dimension $\Delta\approx 0.13$, corresponding to the vertex operator dimension of the compact scalar boson with the Luttinger parameter $K=1.6(4)$. However, this underlying theory can be solved without CFT techniques. So this probably does not count as an indirect test of conformal symmetry.
+Ref.~\cite{Fang:2024uyf} measured $\Delta_\sigma=0.127(37)$ from the short distance powerlaw, in agreement with the 2d Ising CFT - an indirect test. Ref.~\cite{Emperauger:2025raf} similarly measured $\Delta\approx 0.13$, corresponding to the vertex operator dimension of the compact scalar boson with the Luttinger parameter $K=1.6(4)$. Since this underlying theory is free, and can be easily solved without CFT techniques, this probably does not count as an indirect test of conformal symmetry.
 
-We next discuss Ref.~\cite{Sun:2026aqf}, who used open boundary conditions (a chain of Rydberg atoms arranged in an interval, not a circle). They did not measure correlation functions, focusing instead on excitation energies above the ground state, probed using time-periodic modulation. Their goal was to test the state-operator correspondence (SOC). According to SOC, excitation energies should be proportional to the scaling dimensions of boundary CFT operators. The proportionality factor involves the ``speed of light'' of the emergent Lorentz invariance, which depends on the microscopic details. To eliminate the unknown ``speed of light' one studies the ratios of excitation energies. The first system studied by Ref.~\cite{Sun:2026aqf} was in the Ising universality class with \SR{what boundary condition}. Measuring several low-lying excitation energies (up to level 7), they could see that they are are equally spaced . This is in agreement with the free Majorana theory description of the underlying CFT. The second system in Ref.~\cite{Sun:2026aqf} realized the tri-critical Ising universality class with \SR{what boundary condition}. In that case the CFT gives a nontrivial prediction $E_2/E_1 = 4/3$. Experimentally they obtained a consistent result $E_2/E_1=1.45(25)$. 
+We next discuss Ref.~\cite{Sun:2026aqf}, who used the interval geometry (a chain of $N=19$ Rydberg atoms). Using time-periodic modulation, they measured excitation energies, and tested the OSC relation \eqref{eq:ratio-rel} for the strip. They first studied the critical Ising model with spin-up boundary conditions on both sides. Measuring several low-lying excitation energies (up to level 7), they could see that they are are equally spaced, in agreement with the free Majorana theory description of the underlying CFT. They next studied the tricritical Ising (TCI) model with several boundary conditions. E.g.~for TCI with the free boundary conditions they measured $E_2/E_1=1.45(25)$ in agreement with the CFT prediction $4/3$. As the TCI boundary spectrum does not have a free theory description, this is a nontrivial direct test of conformal symmetry, perhaps the first one ever.
 
-SOC is a fundamental property of CFT, which results because the cylinder and stripe geometries are conformally equivalent to the plane and half-plane. Therefore, a convincing test of SOC would be a also direct test of conformal invariance.\footnote{See also \cite{Wang:2026prw} for a recent discussion.} The work of Ref.~\cite{Sun:2026aqf} goes towards such a test, but more accuracy 
- They realized Ising and tri-critical Ising universality classes. Using periodic in time modulation, can measure excitation energies. For Ising check integer quantization for the first 7 energy levels on the strip. Also for TCI, with some bdry conds they extract some universal energy ratios. E.g. they extract $E_2/E_1=1.45(25)$ for the theoretical value $4/3$.
+All previously mentioned references prepare the critical ground state with adiabatic evolution. Another setup is to drive the 1D \cite{Keesling:2018ish,Zhang:2025xkp} or 2D \cite{Ebadi:2020ldi,Manovitz:2024hif} array of Rydberg atoms through the critical point non-adiabatically, and extracts critical exponents using the so-called Kibble-Zurek (KZ) scaling. As any exponent measurement, these are indirect tests of conformal symmetry, including the prediction $z=1$ for the dynamical critical exponent. 
+
+As an aside, we mention Refs.~\cite{Anand:2022cdi,Dborin:2022zdd,Haghshenas:2023bje} using not Rydberg atoms but a quantum computer. They use a classical computer to find a holographic quantum circuit describing a critical state of interest, e.g.~the 2d Ising criticality. The circuit is then evaluated on a quantum computer, so that e.g.~the 2pt function can be measured. While these works do not qualify as a fully experimental test of conformal symmetry in a quantum phase transition, they do demonstrate growing prowess of quantum computing technology.
+
  
- \SR{stopped here}
- 
-Just as a guidance for now, will not be included in the paper in identical form.
-These papers prepare ground state by adiabatic evolution:
-
-\begin{itemize}
-	
-	\item Norman Yao group: Fang et al \cite{Fang:2024uyf} Cesium (133Cs) Rydberg atoms. (1+1)d Ising universality. Ring geometry for 1D. $N=24$ atoms on a ring. Two point function with exponential decay. $\Delta_\sigma=0.127(37)$, corr length $\xi=13.2^{+5.7}_{-3.6}$.  Rydberg blockade regime. Also studied (2+1)d Ising, including boundary critical phenomena.
-	\item Browaeys group: Emperauger et al \cite{Emperauger:2025raf} $N=24$ Rubidium circular, XY universality. Two-point correlation of compact boson, Luttinger parameter $K=1.85(1)$ from simulations in the FM case where they have better data, scaling dimension of the vertex operator $\Delta\approx 0.13$,  measured $K=1.6(4)$, corr length $\xi=15(4)$ from imperfections of ground state preparation (e.g. holes in the spin chain due to failed excitation or spontaneous decay. Just this effect alone  gives correlation length $\xi = 1/\log(1-2p)=24.5$ for their $p=0.04$.
-	\item Manuel Endres group: Sun et al \cite{Sun:2026aqf}. Sr atoms. Rydberg blockade regime. Open boundary conditions. Ising and TCI. Using periodic in time modulation, can measure excitation energies. For Ising check integer quantization for the first 7 energy levels on the strip. Also for TCI, with some bdry conds they extract some universal energy ratios. E.g. they extract $E_2/E_1=1.45(25)$ for the theoretical value $4/3$.
-
-	\end{itemize}
-	
-Also: measuring scaling dimensions from holographic digital quantum circuits: \cite{Anand:2022cdi,Dborin:2022zdd,Haghshenas:2023bje},
-
-KZ measurements 1D \cite{Keesling:2018ish,Zhang:2025xkp} - finite size scaling;
-2D \cite{Ebadi:2020ldi,Manovitz:2024hif}
-
 
 \section{Simple setups to measure two-point functions}
 \label{sec:prop}
+
+ 
+\junchen{On the phase diagram of the Rydberg atom, at generic 2nd order transition point, the  $\mathbf{Z}_2$ symmetry is given by the translation. However, in the special point we discussed, the model becomes literally the AFM Ising model, we can easily get the free boundary condition. We should probably mention this later}	
+
+
 
 \section{Conclusions}
 \label{sec:concl}
