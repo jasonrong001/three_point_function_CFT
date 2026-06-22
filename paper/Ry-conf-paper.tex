@@ -112,33 +112,33 @@ x_{31}^{\Delta_\epsilon} x_{32}^{\Delta_\epsilon}}\,,\quad C_{\sigma\sigma\epsil
 	
 	The direct/indirect separation works as follows. To measure $\Delta_\sigma$, $\Delta_\epsilon$, or $C_{\sigma\sigma\epsilon}$ in agreement with their exact CFT values would be an indirect test of conformal symmetry. To measure the 2pt functions \eqref{eq:two-point} and see a powerlaw would be a direct test albeit not of the conformal but of the more mundane scale symmetry. Finally, to measure the 3pt function \eqref{eq:three-point} would be a direct test of conformal symmetry. Indeed, this specific functional form in terms of just three parameters $\Delta_\sigma,\Delta_\epsilon,C_{\sigma\sigma\epsilon}$ was one of the earliest nontrivial predictions of conformal symmetry \cite{Polyakov:1970xd}, obtained from covariance under conformal maps.
 	Scale symmetry alone would allow here an infinite number of possibilities \cite{Rychkov:2016iqz}.
-	Measurements of infinite-volume 3pt functions are complicated, and it was never attempted.\footnote{We thank Thomas Chalopin and David Cl\'ement for a discussion of the possibility of realizing such a measurement in their experimental platform \cite{Allemand:2025pdq}.}
+	Measurements of infinite-volume 3pt functions are complicated, and it was never attempted.\footnote{We thank Thomas Chalopin and David Cl\'ement for a discussion of the possibility of realizing such a measurement in their experimental cold-atom platform \cite{Allemand:2025pdq}.}
 	
-	Let us move to finite volume case, which is most relevant for the Rydberg atom experiments, typically done on groups of 20-200 atoms grouped in a 1D or 2D array. To compare with 2d CFT, we consider the 1D setup---a chain of Rydberg atoms arranged either as a circle or as an interval, whose interactions are adjusted to be at the quantum critical point. This corresponds to CFT on the geometry which is respectively the ``cylinder'' or the ``strip'' (see Fig. ??), where time runs vertically.  
+	Let us move to finite volume case, which is most relevant for the Rydberg atom experiments, typically done on groups of 20-200 atoms grouped in a 1D or 2D array. As we wish to compare with 2d CFT, we consider the 1D setup---a chain of Rydberg atoms arranged either as a circle or as an interval, whose interactions are adjusted to be at the quantum critical point. This corresponds to CFT on, respectively, the ``cylinder'' or the ``strip'' geometry (see Fig. ??), with time running vertically.  
 	
 	While scale symmetry is broken by finite volume, conformal symmetry survives. In fact conformal group for the 2d cylinder is as large as that of the plane, while for the strip it's the same as for the half-plane. This results in constraints on correlators.  As the simplest nontrivial example, consider the 2pt function of a primary on the cylinder \cite{Luscher:1974ez}:
 	\beq
 	\label{eq:2ptcyl}
 	\langle \mathcal{O}(\phi_1,\tau_1) \mathcal{O}(\phi_2,\tau_2)\rangle_{\text{cyl}}  = 
-	\frac{1}{|2 \cosh |\tau_1-\tau_2| - 2 \cos(\phi_1-\phi_2)|^{\Delta_\cO}}\,,
+	\frac{1}{|2 \cosh(\tau_1-\tau_2) - 2 \cos(\phi_1-\phi_2)|^{\Delta_\cO}}\,,
 		\eeq
-		where $\phi_i\in [0,2\pi]$, $\tau_i\in \mathbb{R}$. This is for the Euclidean cylinder. The 2pt function is time-translation invariant, and decays exponentially at large time separation. One may easily derive this expression by mapping the cylinder to the plane by an exponential map, and using the infinite-plane result \eqref{eq:two-point}. But, for the sake of the argument, one can also derive it independently by staying on the cylinder and using its conformal group. 
+		where $\phi_i\in [0,2\pi]$, $\tau_i\in \mathbb{R}$. This is for the Euclidean cylinder. The 2pt function is time-translation invariant, and decays exponentially at large time separation. This expression can be easily found mapping the cylinder to the plane by an exponential map, and using the infinite-plane result \eqref{eq:two-point} \cite{DiFrancesco:1997nk}. But, for the sake of the argument, one can also derive it independently by staying on the cylinder and using its conformal group. 
 		
 		
-		For the Hamiltonian dynamics in real time, like for the Rydberg atom experiments, one needs to analytically continue \eqref{eq:2ptcyl} to Lorentzian signature. Then the 2pt function exhibits oscillating behavior in the time direction \cite{Luscher:1974ez}. Below we will focus on the equal time case, when the 2pt function reduces to
+		For the Hamiltonian dynamics in real time, like in Rydberg atom experiments, one needs to analytically continue \eqref{eq:2ptcyl} to Lorentzian signature. Then the 2pt function exhibits oscillating behavior in the time direction \cite{Luscher:1974ez}. Below we will focus on the equal time case, in which case the 2pt function reduces to
 	\beq
 	\label{eq:2ptcylequal}
 	\langle \mathcal{O}(\phi_1,0) \mathcal{O}(\phi_2,0)\rangle_{\text{cyl}}  = \frac 1{|2\sin\frac{\phi_1-\phi_2}2|^{\Delta_\cO}},
 	\eeq
-	applicable both for Euclidean and Lorentzian signature.
+for both the Euclidean and Lorentzian signature.
 	
-	 In the same spirit, we can consider correlation functions on a strip, assuming conformal boundary conditions $B_1$ and $B_2$ on the two boundaries. In this case already 1pt function can be used to test conformal symmetry. In the simplest case with equal boundary conditions, $B_1=B_2$, the 1pt function of a primary operator on the strip of width $\pi$ takes the form:
+	 In the same spirit, we can consider correlation functions on a strip, assuming conformal boundary conditions $B_1$ and $B_2$ on the two boundaries. In this case, already 1pt functions can test conformal symmetry. In the simplest case with equal boundary conditions, $B_1=B_2$, the 1pt function of a primary operator on the strip of width $\pi$ takes the form:
 	 \beq
 	 \label{eq:1ptstrip}
 	 \langle \mathcal{O}(\phi,0)\rangle_{\text{strip}}  = \frac {A_{\mathcal{O}}}
 	 {(2 \sin \phi)^{\Delta_\cO}}\,, \quad 0<\phi<\pi\,\quad(B_1=B_2)\,.
 	 \eeq
-	 This is usually argued conformal-transforming the upper-half-plane 1pt function $\langle \mathcal{O}(z)\rangle_{\text{UHP}} =  {A_{\mathcal{O}}}/(2\, \text{Im} z)^{\Delta_\cO}$ \cite{Cardy:1984bb} to the strip \cite{Calabrese:2006rx}. But it can also be derived by staying on the strip.
+	 This is usually shown conformal-transforming the upper-half-plane 1pt function $\langle \mathcal{O}(z)\rangle_{\text{UHP}} =  {A_{\mathcal{O}}}/(2\, \text{Im} z)^{\Delta_\cO}$ \cite{Cardy:1984bb} to the strip \cite{Calabrese:2006rx}. But it can also be derived by staying on the strip.
 	  
 	 For a nontrivial test, $A_\cO$ in \eqref{eq:1ptstrip} should not vanish due to global symmetry reasons. For example, for $\cO=\sigma$ in the 2d Ising CFT, the boundary condition should break global $\mathbb{Z}_2$, hence it should be either ``spin-up'' or ``spin-down'' boundary condition $|+\rangle$, $|-\rangle$ and not the ``free'' boundary condition $|f\rangle$.
 	 
@@ -171,10 +171,9 @@ Next comes Ref.~\cite{Sun:2026aqf}, who used the interval geometry (a chain of $
 The above-mentioned works prepare the critical ground state with adiabatic evolution. Another setup is to drive a 1D \cite{Keesling:2018ish,Zhang:2025xkp} or 2D \cite{Ebadi:2020ldi,Manovitz:2024hif} array of Rydberg atoms through the critical point non-adiabatically, and extract critical exponents from the Kibble-Zurek scaling. As any exponent measurement, these are indirect tests of conformal symmetry, including its prediction $z=1$ for the dynamical critical exponent. 
 
 As an aside, we mention Refs.~\cite{Anand:2022cdi,Dborin:2022zdd,Haghshenas:2023bje} using not Rydberg atoms but a quantum computer. They use a classical computer to find a holographic quantum circuit describing a critical state of interest, e.g.~the 2d Ising criticality. The circuit is then evaluated on a quantum computer, so that e.g.~the 2pt function can be measured. While these works are not fully experimental tests of conformal symmetry in a quantum phase transition, they do demonstrate growing prowess of quantum computing technology.
-
  
 
-\section{Simple setups to measure two-point functions}
+\section{Simple setups for direct tests of conformal symmetry}
 \label{sec:prop}
 
  
