@@ -2,8 +2,7 @@
 \pdfoutput=1 % if your are submitting a pdflatex (i.e.~if you have
 % images in pdf, png or jpg format)
 
-\usepackage{jheppub,amsthm} % for details on the use of the package, please
-% see the JHEP-author-manual
+\usepackage{jheppub} % for details on the use of the package, please see the JHEP-author-manual
 
 \addtolength{\textwidth}{1.0cm}      % widen text block
 \addtolength{\oddsidemargin}{-0.5cm}
@@ -16,12 +15,12 @@
 \setlength{\abovedisplayskip}{5pt}
 \setlength{\belowdisplayskip}{5pt}
 
-\usepackage[utf8]{inputenc}
+%\usepackage[utf8]{inputenc}
 
 \usepackage{booktabs,multirow, quotes}
 
 \usepackage[english]{babel}
-\usepackage{amsmath,amssymb,graphicx,xcolor,alltt}
+\usepackage{amsthm,amsmath,amssymb,graphicx,xcolor,alltt}
 \usepackage{framed}
 
 %%%%%%%%%% Start TeXmacs macros
@@ -121,11 +120,25 @@ x_{31}^{\Delta_\epsilon} x_{32}^{\Delta_\epsilon}}\,,\quad C_{\sigma\sigma\epsil
 	\end{align}
 	Here $x_{ij}$ are either the Euclidean or the Lorentzian distances between $x_i$ and $x_j$, depending on the signature of the space.\footnote{In the latter case, the distances are computed with infinitesimal imaginary parts for time differences, depending on the operator ordering, giving phases for light-like point separations \cite{Hofman:2008ar}.}
 	
-	The direct/indirect separation works as follows. To measure $\Delta_\sigma$, $\Delta_\epsilon$, or $C_{\sigma\sigma\epsilon}$ in agreement with their exact CFT values would be an indirect test of conformality. To measure the 2pt functions \eqref{eq:two-point} and see a powerlaw would be a direct test albeit not of the conformal but of the more mundane scale symmetry. Finally, to measure the 3pt function \eqref{eq:three-point} would be a direct test of conformality. Indeed, this specific functional form in terms of just three parameters $\Delta_\sigma,\Delta_\epsilon,C_{\sigma\sigma\epsilon}$ was one of the earliest nontrivial predictions of conformal symmetry \cite{Polyakov:1970xd}, obtained from covariance under conformal maps.
-	Scale symmetry alone would allow here an infinite number of possibilities \cite{Rychkov:2016iqz}.
-	Measurements of infinite-volume 3pt functions are complicated, and it was never attempted.\footnote{We thank Thomas Chalopin and David Cl\'ement for a discussion of the possibility of realizing such a measurement in their experimental cold-atom platform \cite{Allemand:2025pdq}.}
+	\begin{figure}[ht]
+		\centering
+	   \includegraphics[width=200pt]{fig-flat.pdf}
+		\caption{Direct tests in infinite space: 2pt functions (left) test scale symmetry, while 3pt functions (right) test comformality but are hard to measure.}%
+		\label{fig:flat}
+	\end{figure}
 	
-	Let us move to finite volume case, which is most relevant for the Rydberg atom experiments, typically done on groups of 20-200 atoms grouped in a 1D or 2D array. As we wish to compare with 2d CFT, we consider the 1D setup---a chain of Rydberg atoms arranged either as a circle or as an interval, whose interactions are adjusted to be at the quantum critical point. This corresponds to CFT on, respectively, the ``cylinder'' or the ``strip'' geometry (see Fig. ??), with time running vertically.  
+	The direct/indirect separation works as follows. To measure $\Delta_\sigma$, $\Delta_\epsilon$, or $C_{\sigma\sigma\epsilon}$ in agreement with their exact CFT values would be an indirect test of conformality. To measure the 2pt functions \eqref{eq:two-point} and see a powerlaw would be a direct test albeit not of the conformal but of the more mundane scale symmetry.\footnote{2pt functions of primaries of unequal dimensions vanish by conformality \cite{Polyakov:1970xd}, but it's unclear how to test this experimentally. See \cite{Podo:2026hfh} for a critique of an early proposal by Pokrovsky \cite{Pokrovskii1973,PatashinskiPokrovsky1979}.}  Finally, to measure the 3pt function \eqref{eq:three-point} would be a direct test of conformality. Indeed, this specific functional form in terms of just three parameters $\Delta_\sigma,\Delta_\epsilon,C_{\sigma\sigma\epsilon}$ was one of the earliest nontrivial predictions of conformal symmetry \cite{Polyakov:1970xd}, obtained from covariance under conformal maps.
+	Scale symmetry alone would allow here an infinite number of possibilities \cite{Rychkov:2016iqz}.
+	Measurements of infinite-volume 3pt functions are complicated, and it was never attempted.\footnote{We thank Thomas Chalopin and David Cl\'ement for a discussion of the possibility of realizing such a measurement in their experimental cold-atom platform \cite{Allemand:2025pdq}.} See Fig.~\ref{fig:flat}.
+	
+	Let us move to finite volume case, which is most relevant for the Rydberg atom experiments, typically done on groups of 20-200 atoms grouped in a 1D or 2D array. As we wish to compare with 2d CFT, we consider the 1D setup---a chain of Rydberg atoms arranged either as a circle or as an interval, whose interactions are adjusted to be at the quantum critical point. This corresponds to CFT on, respectively, the ``cylinder'' or the ``strip'' geometry (see Fig.~\ref{fig:cyl}), with time running vertically.  
+	
+		\begin{figure}[ht]
+		\centering
+		\includegraphics[width=200pt]{fig-cyl.pdf}
+		\caption{Direct tests of conformality in finite volume, discussed in the text. Left: 2pt function on the cylinder. Right: 1pt function on the strip with identical boundary conditions.}%
+		\label{fig:cyl}
+	\end{figure}
 	
 	While scale symmetry is broken by finite volume, conformality survives. In fact conformal group for the 2d cylinder is as large as that of the plane, while for the strip it's the same as for the half-plane. This results in constraints on correlators.  As the simplest nontrivial example, consider the 2pt function of a primary on the cylinder \cite{Luscher:1974ez}:
 	\beq
@@ -164,7 +177,14 @@ E_i/E_j = \Delta_{\cO_i}/\Delta_{\cO_j}\,\quad\text{(cylinder)},
 \eeq	
 and a similar relation with $\Delta_{\cO_i}\to\Delta_{\widehat{\cO}_i}$ for the strip.
 
-OSC is a fundamental property of CFT, which results because the cylinder and strip geometries are conformally equivalent to the plane and half-plane (see Fig.~?). Therefore, a test of relation \eqref{eq:ratio-rel} also qualifies as a direct test of conformality.\footnote{We thank the authors of \cite{Wang:2026prw} for a discussion.}
+OSC is a fundamental property of CFT, which results because the cylinder and strip geometries are conformally equivalent to the plane and half-plane (see Fig.~\ref{fig:OSC}). Therefore, a test of relation \eqref{eq:ratio-rel} also qualifies as a direct test of conformality.\footnote{We thank the authors of \cite{Wang:2026prw} for a discussion.}
+
+	\begin{figure}[ht]
+	\centering
+	\includegraphics[width=200pt]{fig-OSC.pdf}
+	\caption{Justification of OSC. Cylinder, resp. strip, can be conformally mapped onto the plane (left), resp. half-plane (right), with constant time sections mapped to constant radius (semi)circles.}%
+	\label{fig:OSC}
+\end{figure}
 
  We note that the discussed finite volume tests of conformal invariance have no easy counterpart for 2D, where finite volume typically breaks conformality. The only exception is a sphere, but in cold atom experiments spherical symmetry will be broken to a discrete subgroup, which makes comparison to CFT subtle although not impossible \cite{Lao:2023zis,Wu:2026ayb}. Experimental realization of the recently proposed fuzzy sphere quantum criticality \cite{Zhu:2022gjc}, with electrons moving on the sphere with a magnetic flux, is currently lacking.
 %Stress that in 2D with (2+1)d CFT this is not available. 
