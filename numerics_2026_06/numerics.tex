@@ -137,16 +137,25 @@ The region $\Omega'\ll 1$ and $\Delta'\ll 1$ corresponds to strong Rydberg block
 
 We now measure the two point function $\langle \sigma\sigma\rangle$. At r $\Delta'=\zeta(6)$, we have the map
 $$\sigma(x)\sim b~(-1)^x Z_x.$$
-The non-universal constant $b$ is model dependent. We take $L=40$, at $\Delta'=\zeta(6)$, the critical point is located at $\Omega'=0.488$. The two point function is shown in Fig.~\ref{ZZ2pt}. We have used the definition
+The non-universal constant $b$ is model dependent. We take $L=24$, at $\Delta'=\zeta(6)$, the critical point is located at $\Omega'=0.488$. The two point function is shown in Fig.~\ref{ZZ2pt}. We have used the definition
 $$
 |x|_L:= \frac{L}{\pi} \sin\left(\frac{\pi}{L} |x|\right)
 $$
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.6\textwidth]{ZZ_correlation.png}
-\caption{The correlation function $(-1)^x \langle Z_i Z_{x+i}\rangle$. The red, green, blue curves correspond to $\Omega'=0.488,~0.490,$ and $0.486$ respectively. The black dashed line is $\frac{0.645}{|x_L|^{1/4}}$.} 
+\caption{The correlation function $(-1)^x \langle Z_i Z_{x+i}\rangle$. The red, green, blue curves correspond to $\Omega'=0.488,~0.45,$ and $0.52$ respectively. The black dashed line is $\frac{0.645}{|x_L|^{1/4}}$.} 
 \label{ZZ2pt}
 \end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\textwidth]{ZZ_correlation_est.png}
+\caption{Sample size $N=2\times10^3$.} 
+\label{ZZ2ptsample}
+\end{figure}
+
+One can also sample the ground state. According to the Born's rule, the statistical correlation from sampling the ground state should reproduce the correlation function of operators measured on the vacuum state. The result is summarized in Fig.~\ref{ZZ2ptsample}.
 
 \section{Open boundary condition}
 In the case of open boundary condition,
@@ -159,7 +168,7 @@ We can further tune $\Delta'$ on the boundary to be
 \Delta'_1=\Delta'_N=-5.
 \eeq
 I believe a spatial dependent $\Delta'$ is not hard, as discussed in \cite{Sun:2026aqf}, see the section ``Boundary tuning of TCI CFT''. The precise value of the detuning on the boundary is not crucial, as long as it is strong enough to fixed the boundary spin.
-Notice that we have to put odd number of atoms, due to the anti-ferromagnetic nature of model, we take $N=41$. The one-point function we got is shown in Fig.~\ref{Z1pt}.
+Notice that we have to put odd number of atoms, due to the anti-ferromagnetic nature of model, we take $N=25$. The one-point function we got is shown in Fig.~\ref{Z1pt}.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.6\textwidth]{Z1pt.png}
@@ -167,9 +176,16 @@ Notice that we have to put odd number of atoms, due to the anti-ferromagnetic na
 \label{Z1pt}
 \end{figure}
 
-If we instead take $N$ to be even, for example $N=40$, this means that we are taking spin-up boundary condition on one end and the spin-down boundary condition on the other end. Performing a conformal map to upper half plane, this means we have put a pair of boundary changing operators, one at the origin and the other at infinity. The 3rd operator $\sigma$ operator is at the unit semi-circle. \junchen{work out this explicitly.}
+If we instead take $N$ to be even, for example $N=24$, this means that we are taking spin-up boundary condition on one end and the spin-down boundary condition on the other end. Performing a conformal map to upper half plane, this means we have put a pair of boundary changing operators, one at the origin and the other at infinity. The 3rd operator $\sigma$ operator is at the unit semi-circle.
 
-\junchen{If we tune the boundary $\Delta'$, we probably can reach the free boundary condition, and measure bulk-boundary correlator as we initially planned. But do we want to tune one extra parameter.}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\textwidth]{Z1pt_est.png}
+\caption{The correlation function $|\langle Z_x \rangle|$ from sampling the ground state.  We have taking the sample size $N=\times10^4$.}
+\label{Z1ptest}
+\end{figure}
+
+One can also sample the ground state. The result is summarized in Fig.~\ref{Z1ptest}. Notice due to the lack of translational symmetry, we need more sample as compared to the two point function of periodic spin chain.
 
 \bibliography{reference.bib}
 \bibliographystyle{utphys}
