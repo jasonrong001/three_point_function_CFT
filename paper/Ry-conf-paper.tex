@@ -195,13 +195,82 @@ Both works saw a short-distance powerlaw, followed by exponential decay with cor
 
 Measurements of excitation energies were performed in Ref.~\cite{Sun:2026aqf}, working on the interval geometry (a chain of $N=19$ Rydberg atoms), and using time-periodic modulation. They thus tested the OSC relation \eqref{eq:ratio-rel} for the strip. For the critical Ising model with spin-up boundary conditions on both sides, they measured low-lying excitation energies up to level $\sim7$, showing that they are are equally spaced, in agreement with the free Majorana theory description of the underlying CFT. They next studied the tricritical Ising (TCI) model with several boundary conditions. E.g.~for TCI with the free boundary conditions they measured $E_2/E_1=1.45(25)$ in agreement with the CFT prediction $4/3$. As the TCI boundary spectrum does not have a free theory description, this is a nontrivial direct test of conformality, perhaps the first one ever.
 
-The measurements of Ref.~\cite{Fang:2024uyf,Emperauger:2025raf,Sun:2026aqf} were done with the critical ground state, prepared via with adiabatic evolution. Another setup is to drive a 1D \cite{Keesling:2018ish,Zhang:2025xkp} or 2D \cite{Ebadi:2020ldi,Manovitz:2024hif} array of Rydberg atoms through the critical point non-adiabatically, and extract critical exponents from the Kibble-Zurek scaling. As any exponent measurement, these count as indirect tests of conformality, including its prediction $z=1$ for the dynamical critical exponent. 
+The measurements of Ref.~\cite{Fang:2024uyf,Emperauger:2025raf,Sun:2026aqf} were done with the critical ground state, prepared via with adiabatic evolution. Another setup is to drive a 1D \cite{Keesling:2018ish,Zhang:2025xkp} or 2D \cite{Ebadi:2020ldi,Manovitz:2024hif} array of Rydberg atoms through the critical point non-adiabatically, and extract critical exponents from the Kibble-Zurek scaling \cite{delCampo:2013nla}. As any exponent measurement, these count as indirect tests of conformality, including its prediction $z=1$ for the dynamical critical exponent. 
 
 We also mention closely related digital quantum computer studies \cite{Anand:2022cdi,Dborin:2022zdd,Haghshenas:2023bje}. They first use a classical computer to find a holographic quantum circuit describing the critical state of interest, e.g.~the 2d Ising criticality. The circuit is then evaluated on a quantum computer, measuring e.g.~the 2pt function. While these works are not fully experimental tests of conformality in a quantum phase transition, they do demonstrate growing power of quantum computing.
  
 
 \section{Simple setups for direct tests of conformality}
 \label{sec:prop}
+
+\subsection{Two-point function on a circle}
+Consider a chain of $N$ Rydberg atoms equally spaced along a circle $i=0,\ldots,N-1$. 
+%\beq
+%\includegraphics[width=100pt]{fig-circle.jpeg}
+%\label{fig:circle}
+%\eeq
+We describe the states in the 0-1 basis, where $|0\rangle$ ($|1\rangle$) on site $i$ corresponds to the $i$-th atom to be in the ground/Rydberg excited state.
+The creation operator $a_i^\dagger$ maps $|0_i\rangle$ to $|1_i\rangle$. We have the occupation number of site $i$.
+We refer to $|0\rangle$ as empty and $|1\rangle$ as occupied site. 
+
+
+Using the same conventions as in~\cite{FangFang:2024eaw},  we write a realistic Hamiltonian where the atoms in the excited states interact with a repulsive $1/r^6$ interactions:
+\begin{equation}
+	\hat H_{phys}=\frac{\hbar \Omega}{2} \sum_i (a_i^{\dagger}+a_i) - \hbar \Delta \sum_i n_i +  \sum_{i<j}V(r_{ij})  n_{i}n_{j},\quad V(r)= \frac{C_6}{r^6},
+	\label{eq:model}
+\end{equation}
+where $\Omega$ is the effective Rabi frequency, $\Delta$ is the detuning, and $r_{ij}=|\mathbf{r}_i-\mathbf{r}_j|$ is the distance between the atoms. We introduce dimensionless distance $d_{ij}$ dividing by $a$, the distance between the neighboring atoms:
+\beq
+d_{ij}=r_{ij}/a=\frac{\sin(\pi |i-j|/N)}{\sin(\pi/N)},
+\eeq
+so that $d_{i,i+1}=1$, $d_{i,i+2}=2+O(1/N^2)$, etc.
+
+Denoting $U=C_6/a^6$, we will work with the dimensionless Hamiltonian $\hat H=\hat H_{phys}/U$:
+\begin{align}
+	\hat H &= \frac{\Omega'}{2} \sum_i (a_i^{\dagger}+a_i) - \Delta' \sum_i n_i + \sum_{i<j}\frac{1}{d_{ij}^6}  n_{i}n_{j}
+	\label{eq:modelp}\\
+	\Omega' &= \hbar \Omega/U,\quad
+	\Delta' = \hbar \Delta/U\,.
+\end{align}
+$\Omega'$ and $\Delta'$ are real dimensionless numbers. The sign of $\Omega'$ is unimportant as it can flipped by redefining $|1\rangle \to -|1\rangle$.
+%\begin{align}
+%d^{\dagger}|0\rangle \rightarrow -d^{\dagger}|0\rangle. 
+%\end{align}
+The phase diagram is shown in Fig.~\ref{phasediagramHBlong} where the parabola is a line of second order phase transition in the 2d Ising universality class. To study it we need $0<\Delta'<2$ and $0<\Omega'<0.5$.
+
+The region $\Omega'\ll 1$ and $\Delta'\ll 1$ corresponds to strong Rydberg blockade, which can be effectively described by the Fendley-Sengupta-Sachdev (FSS) model \SR{ref?}. Refs.~\cite{Fang:2024uyf,Sun:2026aqf} worked in this part of the phase diagram.
+
+Note that at the general point of the phase transition line the Hamiltonian $\hat H$ does not have onsite $\mathbb{Z}_2$ symmetry. But the phase transition is still in the $\mathbb{Z}_2$-symmetric Ising-CFT universality class. The $\mathbb{Z}_2$ symmetry of the CFT emerges from a lattice translation by one lattice unit. (In the broken phase, the expectation value $\langle n_i \rangle$ is periodic with period 2, and shift by one lattice unit permutes the two ground states.) This has important consequences when constructing lattice operators which represent CFT operators. 
+
+
+We can easily simulate the full model \ref{eq:modelp} directly, so we do not use FSS model.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.6\textwidth]{phase_diagram_SSF_LR.png}
+	\caption{The phase diagram of the Rydberg model \eqref{eq:model}. The red circle corresponds to the point studied in~\cite{FangFang:2024eaw}. \SR{exactly or approximately? can we put their exact point?} The red circle corresponds to the point with exact $\mathbb{Z}_2$ symmetry. \SR{Comments how this was obtained}} 
+	\label{phasediagramHBlong}
+\end{figure}
+
+The experimentally accessible parameter space is, roughly, \cite[Tab. 1]{noise-note}
+\begin{align}
+	\Omega' \in [0,2],\quad \Delta' \in[-10,20].
+\end{align}
+
+We can pass from the $0,1$ basis to $\pm 1$ basis. In this basis we have $n_i=(1+\sigma^z_i)/2$, $a_i+a^\dagger_i=\sigma^x_i$. The Hamiltonian becomes
+\beq
+\hat H = \frac{\Omega'}{2} \sum_i \sigma^x_i + \sum_{i<j}\frac{1}{4d_{ij}^6}  \sigma^z_{i}\sigma^z_{j}+ \frac 12 (\sum_{j=1}^{L-1} \frac{1}{2d_{j0}^6} - \Delta') \sum_{i}  \sigma^z_{i} + const
+\eeq
+We have
+\beq
+\sum_{j=1}^{L-1} \frac{1}{2d_{j0}^6} = \zeta(6) +O(1/L^2)=1.01734\ldots+O(1/L^2)
+\eeq
+For $\Delta'=\zeta(6)$ the model has the exact $\mathbb{Z}_2$ symmetry. This is the "tip of the parabola" in Fig. \ref{phasediagramHBlong}. On the line $\Delta'=\zeta(6)$ the model is very nearly approximated by the transverse field Ising model (TFIM). The phase transition in the TFIM would be at $\Omega'=1/2$. The phase diagram is symmetric with respect to $\Delta'=\zeta(6)$.
+
+For general $\Delta'\in(0,1)$, the Hamiltonian $\hat H$ does not have onsite $\mathbb{Z}_2$ symmetry. But the phase transition is still in the $\mathbb{Z}_2$-symmetric Ising-CFT universality class. The $\mathbb{Z}_2$ symmetry of the CFT will emerge from a lattice translation by one lattice unit. (In the broken phase, the expectation value $\langle n_i \rangle$ is periodic with period 2, and shift by one lattice unit permutes the two ground states.) This will have to be taken into account when constructing lattice operators which represent CFT operators.
+
+
+
 
  
 \junchen{On the phase diagram of the Rydberg atom, at generic 2nd order transition point, the  $\mathbf{Z}_2$ symmetry is given by the translation. However, in the special point we discussed, the model becomes literally the AFM Ising model, we can easily get the free boundary condition. We should probably mention this later}	
