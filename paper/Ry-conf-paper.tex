@@ -91,13 +91,11 @@ $^2$Institut des Hautes \'Etudes Scientifiques, 91440 Bures-sur-Yvette, France}
 
 Conformal invariance as a symmetry of critical fluctuations was first conjectured by Polyakov in 1970 \cite{Polyakov:1970xd}. This idea ended up quite influential and led to the development of the conformal field theory (CFT), by Polyakov and others \cite{Polyakov:1974gs,Belavin:1984vu}. By now it is widely believed that a great majority of critical points---both thermodynamic and quantum---possess an emergent conformal invariance and their long-distance behavior is described by a CFT \cite{Cardy1987,Cardy:1996xt,tsvelik,giamarchi2003quantum,sachdev,fradkin}.\footnote{Well-understood reasons \cite{Polchinski:1987dy,Nakayama:2013is} do allow rare exceptions---critical points with only scale symmetry.} CFTs are tightly constrained and can be solved, in low dimensions often exactly \cite{DiFrancesco:1997nk}, while in higher dimensions approximately using the numerical conformal bootstrap \cite{Poland:2018epd}. Scaling dimensions of CFT local operators are related to the critical exponents, which can be experimentally measured, providing many indirect tests of conformality,\footnote{We will use `conformal symmetry', `conformal invariance' and `conformality' interchangeably.} reviewed e.g.~in \cite{Henkel1999,Rychkov:2025zks}. In comparison, until recently little theoretical effort was devoted to designing direct tests \cite{Pokrovskii1973,Gompper1985}, and such experiments were lacking \cite{Rychkov:2025zks}. In thermodynamic phase transitions such tests are limited by imaging possibilities with X-ray or neutron probes, although see \cite{Podo:2026hfh} for a recent proposal to use grazing scattering of X-rays on critical binary alloys.
 
-In the meantime, cold atom platforms revolutionized the experimental study of quantum phase transitions \cite{Bernien:2017ubn,Scholl:2020hzx,Ebadi:2020ldi,Semeghini:2021wls}. They allow to engineer many quantum Hamiltonians of interest and study their quantum critical points \cite{Keesling:2018ish,Fang:2024uyf,Sun:2026aqf}. These experiments can measure the state of every atom, thus providing a snapshot view of the many-body quantum state. Averaging over many snapshots allows to measure equal-time correlation function \cite{Fang:2024uyf,Emperauger:2025raf}---a classic way to probe conformality \cite{Polyakov:1970xd}.
+In the meantime, cold atom platforms \cite{Browaeys:2020kzz,Morgado:2020jfo} revolutionized the experimental study of quantum phase transitions \cite{Bernien:2017ubn,Scholl:2020hzx,Ebadi:2020ldi,Semeghini:2021wls}. They allow to engineer many quantum Hamiltonians of interest and study their quantum critical points \cite{Keesling:2018ish,Fang:2024uyf,Sun:2026aqf}. These experiments can measure the state of every atom, thus providing a snapshot view of the many-body quantum state. Averaging over many snapshots allows to measure equal-time correlation function \cite{Fang:2024uyf,Emperauger:2025raf}---a classic way to probe conformality \cite{Polyakov:1970xd}.
 
-The time is ripe to give a general discussion of existing and future tests of conformality in cold atom experiments, which is our purpose here. Our paper has two main parts. In Section \ref{sec:gen}, we propose our view of which tests should count as indirect and which ones are direct. Indirect tests are measurements of critical exponents, while direct tests need to verify that correlation functions satisfy a conformal Ward identity. We illustrate these points by examples of existing experiments. 
+The time is ripe for a general discussion of existing and future tests of conformality in cold atom experiments---our purpose here. Our paper has two main parts. In Section \ref{sec:gen}, we propose our view of which tests should count as indirect and which ones are direct. Indirect tests are measurements of critical exponents, while direct tests need to verify that correlation functions satisfy a conformal Ward identity. We illustrate these points by examples of existing experiments. 
 
 Then, in Section \ref{sec:prop},  we discuss the simplest setups to test conformality through measurements of equal-time two-point correlation functions, with periodic and open boundary conditions. We present results of our numerical simulations for experiments with 1D chains of Rydberg atoms. The tests we imagine have not yet been performed due to limitations of decoherence and/or insufficient adiabaticity of ground state preparation, but we hope they are within reach. In Section \ref{sec:concl} we conclude.
-
----
 
 Notation: D for spatial dimension, d for full spacetime dimension, as is common in cond-mat and exp literature
 \section{Tests of conformal invariance}
@@ -207,6 +205,33 @@ We also mention closely related digital quantum computer studies \cite{Anand:202
 \label{sec:prop}
 
 \subsection{Two-point function on a circle}
+
+We consider the standard setup known to lead to Ising quantum criticality in 1d chains of Rydberg atoms \cite[Eq.~(1)]{Browaeys:2020kzz}. We will be interested in arranging them either periodically along a circle or on an interval, with equal spacing $a$ between neighboring atoms.
+
+The ground and Rydberg states of each atom are identified with spin $1/2$ states via $|\!\uparrow\rangle=|g\rangle$, $|\!\downarrow\rangle=|r\rangle$. The Hamiltonian for the chain of atoms is
+\begin{equation}
+	\hat H_{phys}=\frac{\hbar \Omega}{2} \sum_i \sigma^i_x - \hbar \Delta \sum_i n_i +  \sum_{i<j}V_{ij} n_{i}n_{j},\quad V_{ij}= \frac{C_6}{R_{ij}^6},
+	\label{eq:model}
+\end{equation}
+where $\Omega$ is the effective Rabi frequency, $\Delta$ is the detuning, $n_i$ is the operator counting Rydberg excitations at site $i$,  $R_{ij}=|\mathbf{r}_i-\mathbf{r}_j|$ is the distance between the atoms, and $V_{ij}$ is the van der Waals interaction assumed repulsive, $C_6>0$.
+
+
+Denoting $U=C_6/a^6$, we will work with the dimensionless Hamiltonian $\hat H=\hat H_{phys}/U$:
+\begin{align}
+	\hat H &= \frac{\Omega'}{2} \sum_i \sigma^i_x  - \Delta' \sum_i n_i + \sum_{i<j}\frac{1}{d_{ij}^6}  n_{i}n_{j}
+	\label{eq:modelp}
+\end{align}
+where $\Omega'=\hbar \Omega/U$ and $\Delta'=\hbar \Delta/U$ are real dimensionless numbers, and $d_{ij}=R_{ij}/a$ is the dimensionless distance.
+
+\SR{stopped here, working below}
+
+\beq
+d_{ij}=R_{ij}/R_{i,i+1}
+\eeq
+so that $d_{i,i+1}=1$, $d_{i,i+2}=2+O(1/N^2)$, etc. The sign of $\Omega'$ is unimportant as it can flipped by redefining $|1\rangle \to -|1\rangle$.
+
+
+$=\frac{\sin(\pi |i-j|/N)}{\sin(\pi/N)}$
 Consider a chain of $N$ Rydberg atoms equally spaced along a circle $i=0,\ldots,N-1$. 
 %\beq
 %\includegraphics[width=100pt]{fig-circle.jpeg}
@@ -217,25 +242,19 @@ The creation operator $a_i^\dagger$ maps $|0_i\rangle$ to $|1_i\rangle$. We have
 We refer to $|0\rangle$ as empty and $|1\rangle$ as occupied site. 
 
 
-Using the same conventions as in~\cite{Fang:2024eaw},  we write a realistic Hamiltonian where the atoms in the excited states interact with a repulsive $1/r^6$ interactions:
-\begin{equation}
-	\hat H_{phys}=\frac{\hbar \Omega}{2} \sum_i (a_i^{\dagger}+a_i) - \hbar \Delta \sum_i n_i +  \sum_{i<j}V(r_{ij})  n_{i}n_{j},\quad V(r)= \frac{C_6}{r^6},
-	\label{eq:model}
-\end{equation}
-where $\Omega$ is the effective Rabi frequency, $\Delta$ is the detuning, and $r_{ij}=|\mathbf{r}_i-\mathbf{r}_j|$ is the distance between the atoms. We introduce dimensionless distance $d_{ij}$ dividing by $a$, the distance between the neighboring atoms:
+Dimensionless distance $d_{ij}$ dividing $R_{ij}$ by $a$, the distance between the neighboring atoms:
 \beq
 d_{ij}=r_{ij}/a=\frac{\sin(\pi |i-j|/N)}{\sin(\pi/N)},
 \eeq
 so that $d_{i,i+1}=1$, $d_{i,i+2}=2+O(1/N^2)$, etc.
 
-Denoting $U=C_6/a^6$, we will work with the dimensionless Hamiltonian $\hat H=\hat H_{phys}/U$:
-\begin{align}
-	\hat H &= \frac{\Omega'}{2} \sum_i (a_i^{\dagger}+a_i) - \Delta' \sum_i n_i + \sum_{i<j}\frac{1}{d_{ij}^6}  n_{i}n_{j}
-	\label{eq:modelp}\\
-	\Omega' &= \hbar \Omega/U,\quad
-	\Delta' = \hbar \Delta/U\,.
-\end{align}
-$\Omega'$ and $\Delta'$ are real dimensionless numbers. The sign of $\Omega'$ is unimportant as it can flipped by redefining $|1\rangle \to -|1\rangle$.
+
+\beq
+d_{ij}=r_{ij}/a=\frac{\sin(\pi |i-j|/N)}{\sin(\pi/N)},
+\eeq
+so that $d_{i,i+1}=1$, $d_{i,i+2}=2+O(1/N^2)$, etc.
+
+The sign of $\Omega'$ is unimportant as it can flipped by redefining $|1\rangle \to -|1\rangle$.
 %\begin{align}
 %d^{\dagger}|0\rangle \rightarrow -d^{\dagger}|0\rangle. 
 %\end{align}
