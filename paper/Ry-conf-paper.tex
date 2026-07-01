@@ -204,113 +204,84 @@ We also mention closely related digital quantum computer studies \cite{Anand:202
 \section{Simple setups for direct tests of conformality}
 \label{sec:prop}
 
-\subsection{Two-point function on a circle}
-
 We consider the standard setup known to lead to Ising quantum criticality in 1d chains of Rydberg atoms \cite[Eq.~(1)]{Browaeys:2020kzz}. We will be interested in arranging them either periodically along a circle or on an interval, with equal spacing $a$ between neighboring atoms.
 
-The ground and Rydberg states of each atom $|g_i\rangle$ and $|r_i\rangle$ are identified with down and up spin-$1/2$ states. %$|\!\uparrow\rangle=|g\rangle$, $|\!\downarrow\rangle=|r\rangle$. 
+The ground and Rydberg states of each atom $|g_i\rangle$ and $|r_i\rangle$ are identified with down and up spin-$1/2$ states. 
 The Hamiltonian for the chain of atoms is
 \begin{equation}
-	\hat H_{phys}=\frac{\hbar \Omega}{2} \sum_i \sigma^i_x - \hbar \Delta \sum_i n_i +  \sum_{i<j}V_{ij} n_{i}n_{j},\quad V_{ij}= \frac{C_6}{R_{ij}^6},
+	\hat H_{phys}=\frac{\hbar \Omega}{2} \sum_i X_i - \hbar \Delta \sum_i n_i +  \sum_{i<j}V_{ij} n_{i}n_{j},\quad V_{ij}= \frac{C_6}{R_{ij}^6},
 	\label{eq:model}
 \end{equation}
-where $\Omega$ is the effective Rabi frequency, $\Delta$ is the detuning, $n_i=|r_i\rangle \langle r_i|$ counts Rydberg excitations at site $i$,  $R_{ij}=|\mathbf{r}_i-\mathbf{r}_j|$ is the distance between the atoms, and $V_{ij}$ is the van der Waals interaction assumed repulsive, $C_6>0$.
+where $\Omega$ is the effective Rabi frequency, $\Delta$ is the detuning, $n_i=|r_i\rangle \langle r_i|$ counts Rydberg excitations at site $i$,  $X_i$ the Pauli-x matrix, $R_{ij}=|\mathbf{r}_i-\mathbf{r}_j|$ is the distance between the atoms, and $V_{ij}$ is the van der Waals interaction assumed repulsive, $C_6>0$.
 
 
 Denoting $U=C_6/a^6$, we will work with the dimensionless Hamiltonian $\hat H=\hat H_{phys}/U$:
 \begin{align}
-	\hat H &= \frac{\Omega'}{2} \sum_i \sigma^i_x  - \Delta' \sum_i n_i + \sum_{i<j}\frac{1}{d_{ij}^6}  n_{i}n_{j}
+	\hat H &= \frac{\Omega'}{2} \sum_i X_i  - \Delta' \sum_i n_i + \sum_{i<j}\frac{1}{d_{ij}^6}  n_{i}n_{j}
 	\label{eq:modelp}
 \end{align}
 where $\Omega'=\hbar \Omega/U$ and $\Delta'=\hbar \Delta/U$ are real dimensionless numbers, and $d_{ij}=R_{ij}/a$ is the dimensionless distance. 
 
-The rich phase diagram of this model is well studied \cite{Keesling:2018ish,Rader:2019syq}. We will be interested in the part which comprises the disordered phase, the $\mathbb{Z}_2$-broken density wave phase, and the line of Ising critical points separating them (Fig.~\ref{phasediagramHBlong}). This part of the phase diagram can be understood rewriting the Hamiltonian in terms of the sigma-matrices via $n_i=(1+\sigma^z_i)/2$:
+The rich phase diagram of this model is well studied \cite{Keesling:2018ish,Rader:2019syq}. We will be interested in the part which comprises the disordered phase, the $\mathbb{Z}_2$-broken density wave phase, and the line of Ising critical points separating them (Fig.~\ref{phasediagramHBlong}). This part of the phase diagram can be understood rewriting the Hamiltonian in terms of the sigma-matrices via $n_i=(1+Z_i)/2$:
 \beq
-\hat H = \frac{\Omega'}{2} \sum_i \sigma^x_i + \sum_{i<j}\frac{1}{4d_{ij}^6}  \sigma^z_{i}\sigma^z_{j}+  \sum_{i}  \left(\sum_j \frac{1}{4d_{ij}^6} - \frac{\Delta'}{2}\right) \sigma^z_{i} + const
+\hat H = \frac{\Omega'}{2} \sum_i X_i + \sum_{i<j}\frac{1}{4d_{ij}^6}  Z_{i}Z_{j}+  \sum_{i}  \left(\sum_j \frac{1}{4d_{ij}^6} - \frac{\Delta'}{2}\right) Z_{i} + const
 \eeq
-If $\Omega',\Delta'$ are not too small, we can neglect all $\sigma^z_{i}\sigma^z_{j}$ couplings except the nearest-neighbor ones. The Hamiltonian then becomes the antiferromagnetic Ising model in longitudinal and transverse magnetic fields, which has a very similar phase diagram \cite{Ovchinnikov}. In particular, in the infinite-volume limit, the longitudinal field vanishes for $\Delta'=\zeta(6)$ and the phase diagram is symmetric with respect to this line. ($\Omega'\to -\Omega'$ is also a symmetry.)
+If $\Omega',\Delta'$ are not too small, we can neglect non-nearest-neighbor $\sigma^z_{i}\sigma^z_{j}$ couplings. This gives the antiferromagnetic Ising model in longitudinal and transverse magnetic fields, which has a very similar phase diagram \cite{Ovchinnikov}. In particular, in the infinite-volume limit, the longitudinal field vanishes for $\Delta'=\zeta(6)\approx 1.017$ and the phase diagram is symmetric with respect to this line. ($\Omega'\to -\Omega'$ is also a symmetry.)
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.6\textwidth]{phase_diagram_SSF_LR.png}
-	\caption{A part of the phase diagram of the model \eqref{eq:model} showing the Ising phase transition between $\mathbb{Z}_2$ density wave and disordered phase. We do not detail the shaded regions which house further ``exotic'' phases \cite{Keesling:2018ish,Rader:2019syq}. The red circles corresponds to the points studied in~\cite{Fang:2024uyf} (1) and \cite{Sun:2026aqf} (2). The blue circle corresponds to the point $\Delta'=\zeta(6)$, $\Omega'=??$ which we focus on. }
+	\caption{A part of the phase diagram of the model \eqref{eq:model} showing the Ising phase transition between $\mathbb{Z}_2$ density wave and disordered phase. We do not detail the shaded regions which house further ``exotic'' phases \cite{Keesling:2018ish,Rader:2019syq}. The red circles corresponds to the points studied in~\cite{Fang:2024uyf} (1) and \cite{Sun:2026aqf} (2). The blue circle corresponds to the point $\Delta'=\zeta(6)$, $\Omega'=0.488$ which we focus on. }
 	\label{phasediagramHBlong}
 \end{figure}
 
 
-On the other hand, the strong Rydberg blockade limit $\Omega'\ll 1$ and $\Delta'\ll 1$ requires a separate treatment. This can be studied via the effective Fendley-Sengupta-Sachdev model \cite{FSS} or directly from \eqref{eq:modelp} \cite{Keesling:2018ish,Rader:2019syq}. One finds, for $\Delta'\lesssim 0.05$, $\Omega'\lesssim 0.01$, a hierarchy of crystalline phases of period 3,4,5,\ldots, as well as non-commensurate ``floating'' phases separating them. 
+On the other hand, the strong Rydberg blockade limit $\Omega'\ll 1$ and $\Delta'\ll 1$ requires a separate treatment. This can be studied via the effective Fendley-Sengupta-Sachdev (FSS) model \cite{FSS} or directly from \eqref{eq:modelp} \cite{Keesling:2018ish,Rader:2019syq}. One finds, for $\Delta'\lesssim 0.05$, $\Omega'\lesssim 0.01$, a hierarchy of crystalline phases of period 3,4,5,\ldots, as well as non-commensurate ``floating'' phases separating them. 
 
 Several experimental works, including the recent Refs.~\cite{Fang:2024uyf,Sun:2026aqf}, studied the Ising transition while remaining in the strong Rydberg blockade region. Here we will instead focus on the point $\Delta'=\zeta(6)$. One advantage of this point is that $\mathbb{Z}_2$ is realized onsite.\footnote{At a generic point of the critical line the Hamiltonian $\hat H$ does not have onsite $\mathbb{Z}_2$ symmetry, but the phase transition is still in the $\mathbb{Z}_2$ Ising universality class. The $\mathbb{Z}_2$ symmetry of the CFT emerges from a lattice translation by one lattice unit. In the broken phase, the expectation value $\langle n_i \rangle$ is periodic with period 2, and shift by one lattice unit permutes the two ground states.} Other advantages will be discussed below. 
 
+\SR{comment about meson spectroscopy paper}
 
+\subsection{Two-point function on a circle}
 
+We now consider the arrangement of atoms along a circle which was studied in \cite{Fang:2024uyf,Emperauger:2025raf}.
+Since we are on a circle the dimensionless distance in \eqref{eq:model} is $d_{ij}=\frac{\sin(\pi |i-j|/N)}{\sin(\pi/N)}$.
+
+We are interested in the CFT 2pt function at equal time $\langle \sigma(\phi_1,0)\sigma(\phi_2,0)\rangle$, see Eq.~\eqref{eq:2ptcylequal}, where $\sigma$ is the $\mathbb{Z}_2$ nontrivial primary of the 2d Ising CFT. Correlation functions of $\epsilon$ can also be discussed, but since $\epsilon$ has a higher scaling dimension, they will decay faster with a distance and the powerlaw will be harder to resolve experimentally (more on this below).
+
+As mentioned we work at $\Delta'=\zeta(6)$ where the lattice model has on-site $\mathbb{Z}_2$ which flips the sign of $Z_i$. The operators even and odd under this on-site symmetry will map at long distances to $\mathbb{Z}_2$ even and odd CFT operators. So e.g.
+\beq
+Z_j = b (-1)^j \sigma(\phi) +\ldots,\quad \phi=2\pi j/N,
+\eeq 
+where $b$ is a non-universal constant and $(-1)^j$ factor transforms the antiferromagnetic spin chain to the ferromagnetic one. Importantly, the terms $\ldots$ may not contain $\mathbb{Z}_2$ even operators. Taking into account spatial parity, the lowest-dimension operator in $\ldots$ is $(-1)^j \partial_\phi^2 \sigma(\phi)$.
+
+So, we use $(-1)^j Z_j$ as a microscopic proxy for $\sigma(\phi)$. To study $\langle\sigma(0) \sigma(\phi)\rangle$ we measure $(-1)^j\langle Z_0 Z_{j}\rangle$ in the ground state of the spin chain, which we obtain via DMRG. This is shown in Fig.~\ref{ZZ2pt}, plotted with respect to $d_{0j}$ which maps to $\sin(\phi/2)$ up to a constant factor. We take $N=24$ as in \cite{Fang:2024uyf,Emperauger:2025raf}. 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.6\textwidth]{ZZ_correlation.png}
+	\caption{The correlation function $(-1)^j \langle Z_0 Z_{j}\rangle$, plotted with respect to $d_{0j}$ for $N=24$. We work at $\Delta=\zeta(6)$ and three values of $\Omega':$  $0.488$ (critical point, red); $0.45$ (ordered phase, green) and $0.52$ (disordered, red). The black dashed line is the CFT prediction $\propto 1/d_{0j}^{1/4}$. \SR{labels on axes to be adjusted, to agree with the text.}} 
+	\label{ZZ2pt}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.6\textwidth]{ZZ_correlation_est.png}
+	\caption{Sample size $N=2\times10^3$.} 
+	\label{ZZ2ptsample}
+\end{figure}
+
+One can also sample the ground state. According to the Born's rule, the statistical correlation from sampling the ground state should reproduce the correlation function of operators measured on the vacuum state. The result is summarized in Fig.~\ref{ZZ2ptsample}.
 
 
 \SR{stopped here, working below}
 
 
 
-We can pass from the $0,1$ basis to $\pm 1$ basis. In this basis we have $n_i=(1+\sigma^z_i)/2$, $a_i+a^\dagger_i=\sigma^x_i$. The Hamiltonian becomes
- 
-
-\beq
-d_{ij}=R_{ij}/R_{i,i+1}
-\eeq
-so that $d_{i,i+1}=1$, $d_{i,i+2}=2+O(1/N^2)$, etc. The sign of $\Omega'$ is unimportant as it can flipped by redefining $|1\rangle \to -|1\rangle$.
-
-
-$=\frac{\sin(\pi |i-j|/N)}{\sin(\pi/N)}$
-Consider a chain of $N$ Rydberg atoms equally spaced along a circle $i=0,\ldots,N-1$. 
-%\beq
-%\includegraphics[width=100pt]{fig-circle.jpeg}
-%\label{fig:circle}
-%\eeq
-We describe the states in the 0-1 basis, where $|0\rangle$ ($|1\rangle$) on site $i$ corresponds to the $i$-th atom to be in the ground/Rydberg excited state.
-The creation operator $a_i^\dagger$ maps $|0_i\rangle$ to $|1_i\rangle$. We have the occupation number of site $i$.
-We refer to $|0\rangle$ as empty and $|1\rangle$ as occupied site. 
-
-
-Dimensionless distance $d_{ij}$ dividing $R_{ij}$ by $a$, the distance between the neighboring atoms:
-\beq
-d_{ij}=r_{ij}/a=\frac{\sin(\pi |i-j|/N)}{\sin(\pi/N)},
-\eeq
-so that $d_{i,i+1}=1$, $d_{i,i+2}=2+O(1/N^2)$, etc.
-
-
-\beq
-d_{ij}=r_{ij}/a=\frac{\sin(\pi |i-j|/N)}{\sin(\pi/N)},
-\eeq
-so that $d_{i,i+1}=1$, $d_{i,i+2}=2+O(1/N^2)$, etc.
-
-The sign of $\Omega'$ is unimportant as it can flipped by redefining $|1\rangle \to -|1\rangle$.
-%\begin{align}
-%d^{\dagger}|0\rangle \rightarrow -d^{\dagger}|0\rangle. 
-%\end{align}
-The phase diagram is shown in Fig.~\ref{phasediagramHBlong} where the parabola is a line of second order phase transition in the 2d Ising universality class. To study it we need $0<\Delta'<2$ and $0<\Omega'<0.5$.
-
-The region $\Omega'\ll 1$ and $\Delta'\ll 1$ corresponds to strong Rydberg blockade, which can be effectively described by the Fendley-Sengupta-Sachdev (FSS) model \SR{ref?}. Refs.~\cite{Fang:2024uyf,Sun:2026aqf} worked in this part of the phase diagram.
-
-Note that at the general point of the phase transition line the Hamiltonian $\hat H$ does not have onsite $\mathbb{Z}_2$ symmetry. But the phase transition is still in the $\mathbb{Z}_2$-symmetric Ising-CFT universality class. The $\mathbb{Z}_2$ symmetry of the CFT emerges from a lattice translation by one lattice unit. (In the broken phase, the expectation value $\langle n_i \rangle$ is periodic with period 2, and shift by one lattice unit permutes the two ground states.) This has important consequences when constructing lattice operators which represent CFT operators. 
-
-
-We can easily simulate the full model \ref{eq:modelp} directly, so we do not use FSS model.
-
 
 The experimentally accessible parameter space is, roughly, \cite[Tab. 1]{noise-note}
 \begin{align}
 	\Omega' \in [0,2],\quad \Delta' \in[-10,20].
 \end{align}
-
-We can pass from the $0,1$ basis to $\pm 1$ basis. In this basis we have $n_i=(1+\sigma^z_i)/2$, $a_i+a^\dagger_i=\sigma^x_i$. The Hamiltonian becomes
-\beq
-\hat H = \frac{\Omega'}{2} \sum_i \sigma^x_i + \sum_{i<j}\frac{1}{4d_{ij}^6}  \sigma^z_{i}\sigma^z_{j}+ \frac 12 (\sum_{j=1}^{L-1} \frac{1}{2d_{j0}^6} - \Delta') \sum_{i}  \sigma^z_{i} + const
-\eeq
-We have
-\beq
-\sum_{j=1}^{L-1} \frac{1}{2d_{j0}^6} = \zeta(6) +O(1/L^2)=1.01734\ldots+O(1/L^2)
-\eeq
-For $\Delta'=\zeta(6)$ the model has the exact $\mathbb{Z}_2$ symmetry. This is the "tip of the parabola" in Fig. \ref{phasediagramHBlong}. On the line $\Delta'=\zeta(6)$ the model is very nearly approximated by the transverse field Ising model (TFIM). The phase transition in the TFIM would be at $\Omega'=1/2$. The phase diagram is symmetric with respect to $\Delta'=\zeta(6)$.
-
 
 
 
