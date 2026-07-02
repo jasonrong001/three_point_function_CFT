@@ -222,7 +222,7 @@ Denoting $U=C_6/a^6$, we will work with the dimensionless Hamiltonian $\hat H=\h
 \end{align}
 where $\Omega'=\hbar \Omega/U$ and $\Delta'=\hbar \Delta/U$ are real dimensionless numbers, and $d_{ij}=R_{ij}/a$ is the dimensionless distance. 
 
-The rich phase diagram of this model is well studied \cite{Keesling:2018ish,Rader:2019syq}. We will be interested in the part which comprises the disordered phase, the $\mathbb{Z}_2$-broken density wave phase, and the line of Ising critical points separating them (Fig.~\ref{phasediagramHBlong}). This part of the phase diagram can be understood rewriting the Hamiltonian in terms of the sigma-matrices via $n_i=(1+Z_i)/2$:
+The rich phase diagram of this model is well studied \cite{Keesling:2018ish,Rader:2019syq}. Most of it is occupied by the disordered phase, the $\mathbb{Z}_2$-broken density wave phase, and the line of Ising critical points separating them (Fig.~\ref{phasediagramHBlong}). This part of the phase diagram can be understood rewriting the Hamiltonian in terms of the sigma-matrices via $n_i=(1+Z_i)/2$:
 \beq
 \hat H = \frac{\Omega'}{2} \sum_i X_i + \sum_{i<j}\frac{1}{4d_{ij}^6}  Z_{i}Z_{j}+  \sum_{i}  \left(\sum_j \frac{1}{4d_{ij}^6} - \frac{\Delta'}{2}\right) Z_{i} + const
 \eeq
@@ -231,14 +231,15 @@ If $\Omega',\Delta'$ are not too small, we can neglect non-nearest-neighbor $\si
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.6\textwidth]{phase_diagram_SSF_LR.png}
-	\caption{A part of the phase diagram of the model \eqref{eq:model} showing the Ising phase transition between $\mathbb{Z}_2$ density wave and disordered phase. We do not detail the shaded regions which house further ``exotic'' phases \cite{Keesling:2018ish,Rader:2019syq}. The red circles corresponds to the points studied in~\cite{Fang:2024uyf} (1) and \cite{Sun:2026aqf} (2). The blue circle corresponds to the point $\Delta'=\zeta(6)$, $\Omega'=0.488$ which we focus on. }
+	\caption{A part of the phase diagram of the model \eqref{eq:model} showing the Ising phase transition between $\mathbb{Z}_2$ density wave and disordered phase. We do not detail the shaded regions which house further ``exotic'' phases \cite{Keesling:2018ish,Rader:2019syq}. The red circles corresponds to the points studied in~\cite{Fang:2024uyf} (1) and \cite{Sun:2026aqf} (2). The blue circle corresponds to the point $\Delta'=\zeta(6)$, $\Omega'\approx 0.488$ which we focus on. }
 	\label{phasediagramHBlong}
 \end{figure}
 
+The strong Rydberg blockade limit $\Omega',\Delta'\ll 1$ requires a separate treatment. This can be studied via the effective Fendley-Sengupta-Sachdev (FSS) model \cite{FSS} or directly from \eqref{eq:modelp} \cite{Keesling:2018ish,Rader:2019syq}. One finds, for $\Delta'\lesssim 0.05$, $\Omega'\lesssim 0.01$, a hierarchy of crystalline phases of period 3,4,5,\ldots, as well as non-commensurate ``floating'' phases separating them. 
 
-On the other hand, the strong Rydberg blockade limit $\Omega'\ll 1$ and $\Delta'\ll 1$ requires a separate treatment. This can be studied via the effective Fendley-Sengupta-Sachdev (FSS) model \cite{FSS} or directly from \eqref{eq:modelp} \cite{Keesling:2018ish,Rader:2019syq}. One finds, for $\Delta'\lesssim 0.05$, $\Omega'\lesssim 0.01$, a hierarchy of crystalline phases of period 3,4,5,\ldots, as well as non-commensurate ``floating'' phases separating them. 
+Here we will focus on the $\mathbb{Z}_2$ critical line. Everywhere on this line, the phase transition is in the Ising universality class, although the Hamiltonian $\hat H$ does not generically have onsite $\mathbb{Z}_2$ symmetry. At a generic point, the $\mathbb{Z}_2$ symmetry of the Ising CFT emerges (or ``emanates'' \cite{Seiberg:2023cdc}) from the one-unit lattice translation \cite{Slagle:2021ene},  which permutes the two ground states in the broken phase. The only exception is $\Delta'=\zeta(6)$ where the Hamiltonian does have onsite $\mathbb{Z}_2$: $Z_i\to -Z_i$. 
 
-Several experimental works, including the recent Refs.~\cite{Fang:2024uyf,Sun:2026aqf}, studied the Ising transition while remaining in the strong Rydberg blockade region. Here we will instead focus on the point $\Delta'=\zeta(6)$. One advantage of this point is that $\mathbb{Z}_2$ is realized onsite.\footnote{At a generic point of the critical line the Hamiltonian $\hat H$ does not have onsite $\mathbb{Z}_2$ symmetry, but the phase transition is still in the $\mathbb{Z}_2$ Ising universality class. The $\mathbb{Z}_2$ symmetry of the CFT emerges from a lattice translation by one lattice unit. In the broken phase, the expectation value $\langle n_i \rangle$ is periodic with period 2, and shift by one lattice unit permutes the two ground states.} Other advantages will be discussed below. 
+Several experimental works, including the recent Refs.~\cite{Fang:2024uyf,Sun:2026aqf}, studied the Ising transition at generic points of the critical line, towards the strong Rydberg blockade region (see Fig.~\ref{phasediagramHBlong}). Here we will instead focus on the point $\Delta'=\zeta(6)$, $\Omega'\approx 0.488$, far from the Rydberg blockade. In addition to onsite $\mathbb{Z}_2$, this point has other advantages discussed below. 
 
 \SR{comment about meson spectroscopy paper}
 
@@ -249,7 +250,7 @@ Since we are on a circle the dimensionless distance in \eqref{eq:model} is $d_{i
 
 We are interested in the CFT 2pt function at equal time $\langle \sigma(\phi_1,0)\sigma(\phi_2,0)\rangle$, see Eq.~\eqref{eq:2ptcylequal}, where $\sigma$ is the $\mathbb{Z}_2$ nontrivial primary of the 2d Ising CFT. Correlation functions of $\epsilon$ can also be discussed, but since $\epsilon$ has a higher scaling dimension, they will decay faster with a distance and the powerlaw will be harder to resolve experimentally (more on this below).
 
-As mentioned we work at $\Delta'=\zeta(6)$ where the lattice model has on-site $\mathbb{Z}_2$ which flips the sign of $Z_i$. The operators even and odd under this on-site symmetry will map at long distances to $\mathbb{Z}_2$ even and odd CFT operators. So e.g.
+As mentioned we work at $\Delta'=\zeta(6)$ where the lattice model has onsite $\mathbb{Z}_2$ which flips the sign of $Z_i$. The operators even and odd under this on-site symmetry will map at long distances to $\mathbb{Z}_2$ even and odd CFT operators. So e.g.
 \beq
 Z_j = b (-1)^j \sigma(\phi) +\ldots,\quad \phi=2\pi j/N,
 \eeq 
