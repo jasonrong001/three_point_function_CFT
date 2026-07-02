@@ -191,7 +191,7 @@ Measurements of critical 2pt functions were performed by Refs.~\cite{Fang:2024uy
 Ref.~\cite{Fang:2024uyf} studied the 2d Ising universality class with $N=24$ Rydberg atoms in a circle, while Ref.~\cite{Emperauger:2025raf} focused on the XY universality class in the same geometry.
 Both works saw a short-distance powerlaw, followed by exponential decay with correlation length $\xi=13.2^{+5.7}_{-3.6}$ \cite{Fang:2024uyf} or $\xi=15(4)$ \cite{Emperauger:2025raf}, attributed to decoherence effects and other imperfections. Thus the direct test of conformality via Eq.~\eqref{eq:2ptcylequal} remains open. (See Section \ref{sec:prop} for possible improvements.) Still, from short-distance powerlaw they could extract scaling dimensions and compare with the theory. Ref.~\cite{Fang:2024uyf} saw $\Delta_\sigma=0.127(37)$ in agreement with the 2d Ising CFT, which counts as an indirect test of conformality. Ref.~\cite{Emperauger:2025raf} measured $\Delta\approx 0.13$, the vertex operator dimension in the compact scalar boson CFT at Luttinger parameter $K=1.6(4)$. Since $K$ is a modulus (unconstrained parameter), it's hard to interpret this result as an indirect test of conformality.
 
-Energy gap measurements were performed in Ref.~\cite{Sun:2026aqf}, working on the interval geometry (a chain of $N=19$ Rydberg atoms), and using time-periodic modulation. They thus tested the OSC relation \eqref{eq:ratio-rel} for the strip. For the critical Ising model with spin-up boundary conditions on both sides, they measured low energy gaps up to level $\sim7$, showing that they are are equally spaced, in agreement with the free Majorana theory description of the underlying CFT. They next studied the tricritical Ising (TCI) model with several boundary conditions. E.g.~for TCI with the free boundary conditions they measured $(E_2-E_0)/(E_1-E_0)=1.45(25)$ in agreement with the CFT prediction $4/3$. As the TCI boundary spectrum does not have a free theory description, this is a nontrivial direct test of conformality, perhaps the first one ever.
+Energy gap measurements were performed in Ref.~\cite{Sun:2026aqf}, working on the interval geometry (a chain of $N=19$ Rydberg atoms), and using time-periodic modulation. They thus tested the OSC relation \eqref{eq:ratio-rel} for the strip. For the critical Ising model with spin-up boundary conditions on both sides, they measured low energy gaps up to level $\sim7$, showing that they are are equally spaced, in agreement with the free Majorana theory description of the underlying CFT. They next studied the tricritical Ising (TCI) model with several boundary conditions. E.g.~for TCI with the free boundary conditions they measured $(E_2-E_0)/(E_1-E_0)=1.45(25)$ in agreement with the CFT prediction $4/3$. As the TCI boundary spectrum does not have a free theory description, {\bf this is a nontrivial direct test of conformality}, perhaps the first one ever.
 
 The measurements of Ref.~\cite{Fang:2024uyf,Emperauger:2025raf,Sun:2026aqf} were done with the critical ground state, prepared via with adiabatic evolution. Another setup is to drive a 1D \cite{Keesling:2018ish,Zhang:2025xkp} or 2D \cite{Ebadi:2020ldi,Manovitz:2024hif} array of Rydberg atoms through the critical point non-adiabatically, and extract critical exponents from the Kibble-Zurek scaling \cite{delCampo:2013nla}. As any exponent measurement, these count as indirect tests of conformality, including its prediction $z=1$ for the dynamical critical exponent. 
 
@@ -204,7 +204,7 @@ We also mention closely related digital quantum computer studies \cite{Anand:202
 \section{Simple setups for direct tests of conformality}
 \label{sec:prop}
 
-We consider the standard setup known to lead to Ising quantum criticality in 1d chains of Rydberg atoms \cite[Eq.~(1)]{Browaeys:2020kzz}. We will be interested in arranging them either periodically along a circle or on an interval, with equal spacing $a$ between neighboring atoms.
+We consider the standard setup known to lead to Ising quantum criticality in 1d chains of Rydberg atoms \cite[Eq.~(1)]{Browaeys:2020kzz}. We will be interested in periodic circular ring or linear chain arrangements, with equal spacing $a$ between neighboring atoms.
 
 The ground and Rydberg states of each atom $|g_i\rangle$ and $|r_i\rangle$ are identified with down and up spin-$1/2$ states. 
 The Hamiltonian for the chain of atoms is
@@ -243,7 +243,7 @@ Several experimental works, including the recent Refs.~\cite{Fang:2024uyf,Sun:20
 
 \SR{comment about meson spectroscopy paper}
 
-\subsection{Two-point function on a circle}
+\subsection{Two-point function on a circle: DMRG prediction}
 
 We now consider the arrangement of atoms along a circle which was studied in \cite{Fang:2024uyf,Emperauger:2025raf}.
 Since we are on a circle the dimensionless distance in \eqref{eq:model} is $d_{ij}=\frac{\sin(\pi |i-j|/N)}{\sin(\pi/N)}$.
@@ -260,18 +260,53 @@ So, we use $(-1)^j Z_j$ as a microscopic proxy for $\sigma(\phi)$. To study $\la
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.6\textwidth]{ZZ_correlation.png}
-	\caption{The correlation function $(-1)^j \langle Z_0 Z_{j}\rangle$, plotted with respect to $d_{0j}$ for $N=24$. We work at $\Delta=\zeta(6)$ and three values of $\Omega':$  $0.488$ (critical point, red); $0.45$ (ordered phase, green) and $0.52$ (disordered, red). The black dashed line is the CFT prediction $\propto 1/d_{0j}^{1/4}$. \SR{labels on axes to be adjusted, to agree with the text.}} 
+	\caption{The correlation function $(-1)^j \langle Z_0 Z_{j}\rangle$, plotted with respect to $d_{0j}$ for $N=24$. We work at $\Delta'=\zeta(6)$ and three values of $\Omega':$  $0.488$ (critical point, red); $0.45$ (ordered phase, green) and $0.52$ (disordered, red). The black dashed line is the CFT prediction $\propto 1/d_{0j}^{1/4}$. \SR{labels on axes to be adjusted, to agree with the text. Make the horizontal axis in this plot and the plot below have the same length (probably 10 should be included in both axes, but not much beyond)}} 
 	\label{ZZ2pt}
 \end{figure}
+
+Discussion and comparison to \cite{Slagle:2021ene}. A plot similar to the red line was shown in \cite{Slagle:2021ene}, Fig.~??. There they worked in the strong Rydberg blockade regime and approximated $\sigma(\phi)$ by $(-1)^j(n_j-\langle n\rangle)$. Oscillations because of admixture of $(-1)^j\epsilon(\phi)$. Due to Rydberg blockade, correlator of \cite{Slagle:2021ene} starts approaching CFT from distance 2 only, while our correlator looks good already at distance 1.
+
+
+\subsection{Estimation of needed sample size}
+
+The DMRG calculation provides access to the ground state wavefunction
+\beq
+\Psi_{\rm GS} = \sum_{n_i=0,1} a_{n_0,\ldots, n_{L-1}} |n_0,\ldots, n_{L-1}\rangle
+\eeq
+The correlation function observables are computed averaging with respect to this wavefunction.
+
+In the experiment we will not have access to the wavefunction itself but to \emph{collapsed states} $\Psi_a$, $a=1,\ldots,M$. Each $\Psi_a$ is one of the basis states in the $n_i=0,1$ basis and they will appear in the experiment according to the Born rule, i.e. probability to observe a collapsed state $|n_0,\ldots, n_{L-1}\rangle$ equals $|a_{n_0,\ldots, n_{L-1}}|^2$. 
+
+Any observable which is a function of $n_i$'s can be obtained experimentally averaging over a sufficiently large number of collapsed states. The 2pt function in Fig.~\ref{ZZ2pt} is such an observable. How many collapsed states is needed for a good signal-to-noise ratio? I.e.~how many times $M$ shall we have to repeat the experiment? To answer this question, we need to study the \emph{variance} of our observable. 
+
+The variance of any observable $\mathcal{O}$ can be computed from the expected value of $\mathcal{O}^2$. Generally, at large distances a correlator will tend to zero, because we arrange the 1pt function of lattice operators corresponding to CFT operators to be zero. However, the 1pt function of the \emph{squares} of the same operators will not be zero, causing the correlator variance to go to a constant in the same limit. So, good statistics will be hardest to obtain in the large-distance tails, as expected. 
+
+Here we will not compute the variance but will estimate it, using a method which is more direct and closer to the experiment. DMRG algorithms allow to quickly \emph{sample} the wave function, i.e. to generate sequences of random collapsed states (``snapshots'') distributed according to the Born rule.\footnote{{\tt sample()} function of the {\tt iTensor.jl} package.} This is very quick and allows us to simulate the experimental process directly. Statistical errors will go down as $\Sigma/\sqrt{M}$, where $M$ is the number of snapshots, with $\Sigma$ estimated from the "DMRG data".
+
+For each of $M$ collected collapsed states $\Psi_a$ we measure the 2pt function $(-1)^j\langle Z_0 Z_{j}\rangle$ as a function of $j$:
+\beq\label{sample}
+X_{a}(j)=\frac{1}{N} \sum_{i=0}^{N-1} \langle \Psi_a|(-1)^j Z_i Z_{i+j}|\Psi_a\rangle,
+\eeq
+where $N=24$ is the chain length. To improve statistics, we average over translations.
+
+Mathematically speaking, $X_{a}(j)$ for each $a$ are independent identically distributed random variables, and their mean $\overline{X(j)}$ is the ground-state 2pt function $\langle \Psi|(-1)^j Z_0 Z_{j}|\Psi\rangle$. The mean and the standard deviation $\Sigma$ are estimated by the standard formulas
+\begin{align}
+	\overline{X(j)}_{est}&=\frac{1}{M} \sum_{a} X_{a}(j),\\
+\Sigma(j)^2_{est} &= \frac{1}{M-1}\sum_i (X_a(j) - \overline{X(j)})^2\,.
+\end{align}
+By the central limit theorem, for $M\to\infty$, the sample mean $\overline{X(j)}_{est}$ has a gaussian distribution with variance $ (\Sigma(j)/\sqrt{M})^2$ around the true mean.  We therefore obtain an estimation of the 2pt correlator, including one standard deviation error bars, as
+\beq
+(-1)^j \langle  Z_0 Z_{j}\rangle_{est} = \overline{X(x)}_{est}\pm \frac{1}{\sqrt{M}} \sqrt{\Sigma(x)^2_{est}}.
+\label{eq:conf}
+\eeq
+In Fig.~\ref{ZZ2ptsample} we show the result of applying this procedure. Here the red dots and the dashed line are the same as in Fig.~\ref{ZZ2pt} while the gray error bars are the confidence intervals \eqref{eq:conf} for one random sample of size $M=2\times 10^3$. We conclude that $O(10^3)$ repetitions should be sufficient to resolve the powerlaw decay of the considered 2pt function.
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.6\textwidth]{ZZ_correlation_est.png}
-	\caption{Sample size $N=2\times10^3$.} 
+	\caption{Estimating the critical 2pt function on the ring of $N=24$ atoms from $M=2\times10^3$ snapshots. \SR{adjust axes lables to $(-1)^j \langle  Z_0 Z_{j}\rangle$ and $d_{0j}$. Add DMRG points in red. Make error bars gray and remove the central dot from error bars.}  }
 	\label{ZZ2ptsample}
 \end{figure}
-
-One can also sample the ground state. According to the Born's rule, the statistical correlation from sampling the ground state should reproduce the correlation function of operators measured on the vacuum state. The result is summarized in Fig.~\ref{ZZ2ptsample}.
 
 
 \SR{stopped here, working below}
