@@ -266,6 +266,7 @@ So, we use $(-1)^j Z_j$ as a microscopic proxy for $\sigma(\phi)$. To study $\la
 
 Discussion and comparison to \cite{Slagle:2021ene}. A plot similar to the red line was shown in \cite{Slagle:2021ene}, Fig.~??. There they worked in the strong Rydberg blockade regime and approximated $\sigma(\phi)$ by $(-1)^j(n_j-\langle n\rangle)$. Oscillations because of admixture of $(-1)^j\epsilon(\phi)$. Due to Rydberg blockade, correlator of \cite{Slagle:2021ene} starts approaching CFT from distance 2 only, while our correlator looks good already at distance 1.
 
+Cite DMRG \cite{White1992,Schollwock2011}
 
 \subsection{Estimation of needed sample size}
 
@@ -281,33 +282,60 @@ Any observable which is a function of $n_i$'s can be obtained experimentally ave
 
 The variance of any observable $\mathcal{O}$ can be computed from the expected value of $\mathcal{O}^2$. Generally, at large distances a correlator will tend to zero, because we arrange the 1pt function of lattice operators corresponding to CFT operators to be zero. However, the 1pt function of the \emph{squares} of the same operators will not be zero, causing the correlator variance to go to a constant in the same limit. So, good statistics will be hardest to obtain in the large-distance tails, as expected. 
 
-Here we will not compute the variance but will estimate it, using a method which is more direct and closer to the experiment. DMRG algorithms allow to quickly \emph{sample} the wave function, i.e. to generate sequences of random collapsed states (``snapshots'') distributed according to the Born rule.\footnote{{\tt sample()} function of the {\tt iTensor.jl} package.} This is very quick and allows us to simulate the experimental process directly. Statistical errors will go down as $\Sigma/\sqrt{M}$, where $M$ is the number of snapshots, with $\Sigma$ estimated from the "DMRG data".
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.6\textwidth]{ZZ_correlation_est.png}
+	\caption{Estimating the critical 2pt function on the ring of $N=24$ atoms from independent snapshots. 
+The red dots DMRG data and the dashed line CFT prediction are the same as in Fig.~\ref{ZZ2pt}, while the gray error bars are the confidence intervals \eqref{eq:conf} for one random sample of size $M=2\times 10^3$. 
+		\SR{adjust axes lables to $(-1)^j \langle  Z_0 Z_{j}\rangle$ and $d_{0j}$. Add DMRG points in red. Make error bars gray and remove the central dot from error bars.}  }
+	\label{ZZ2ptsample}
+\end{figure}
 
-For each of $M$ collected collapsed states $\Psi_a$ we measure the 2pt function $(-1)^j\langle Z_0 Z_{j}\rangle$ as a function of $j$:
+Here we will not compute the variance but will estimate it, using a method which is more direct and closer to the experiment. DMRG algorithm produces the wavefunction as an MPS which one can quickly \emph{sample}, i.e. to generate sequences of random collapsed states (``snapshots'') distributed according to the Born rule.\footnote{The {\tt sample()} function of {\tt ITensor} library \cite{ITensor} does that. A similar algorithm was used in \cite[App.B]{Scholl:2020hzx}. } This is very quick and allows us to simulate the experimental process directly. Statistical errors will go down as $\Sigma/\sqrt{M}$, where $M$ is the number of snapshots, with $\Sigma$ estimated from the "DMRG data".
+
+For each of $M$ collected collapsed states $\Psi_a$ we measure the 2pt function $(-1)^j\langle Z_0 Z_{j}\rangle$ as a function of $j$ (averaging over translations):
 \beq\label{sample}
-X_{a}(j)=\frac{1}{N} \sum_{i=0}^{N-1} \langle \Psi_a|(-1)^j Z_i Z_{i+j}|\Psi_a\rangle,
+X_{a}(j)=\frac{1}{N} \sum_{i=0}^{N-1} \langle \Psi_a|(-1)^j Z_i Z_{i+j}|\Psi_a\rangle.
 \eeq
-where $N=24$ is the chain length. To improve statistics, we average over translations.
-
-Mathematically speaking, $X_{a}(j)$ for each $a$ are independent identically distributed random variables, and their mean $\overline{X(j)}$ is the ground-state 2pt function $\langle \Psi|(-1)^j Z_0 Z_{j}|\Psi\rangle$. The mean and the standard deviation $\Sigma$ are estimated by the standard formulas
-\begin{align}
-	\overline{X(j)}_{est}&=\frac{1}{M} \sum_{a} X_{a}(j),\\
-\Sigma(j)^2_{est} &= \frac{1}{M-1}\sum_i (X_a(j) - \overline{X(j)})^2\,.
-\end{align}
+$X_{a}(j)$ for each $a$ are independent identically distributed random variables, whose mean $\overline{X(j)}$ is the ground-state 2pt function $\langle \Psi|(-1)^j Z_0 Z_{j}|\Psi\rangle$. The mean and the standard deviation $\Sigma$ are estimated by the standard formulas
+\beq
+	\overline{X(j)}_{est}=\frac{1}{M} \sum_{a} X_{a}(j),\qquad
+\Sigma(j)^2_{est} = \frac{1}{M-1}\sum_i (X_a(j) - \overline{X(j)})^2\,.
+\eeq
 By the central limit theorem, for $M\to\infty$, the sample mean $\overline{X(j)}_{est}$ has a gaussian distribution with variance $ (\Sigma(j)/\sqrt{M})^2$ around the true mean.  We therefore obtain an estimation of the 2pt correlator, including one standard deviation error bars, as
 \beq
 (-1)^j \langle  Z_0 Z_{j}\rangle_{est} = \overline{X(x)}_{est}\pm \frac{1}{\sqrt{M}} \sqrt{\Sigma(x)^2_{est}}.
 \label{eq:conf}
 \eeq
-In Fig.~\ref{ZZ2ptsample} we show the result of applying this procedure. Here the red dots and the dashed line are the same as in Fig.~\ref{ZZ2pt} while the gray error bars are the confidence intervals \eqref{eq:conf} for one random sample of size $M=2\times 10^3$. We conclude that $O(10^3)$ repetitions should be sufficient to resolve the powerlaw decay of the considered 2pt function.
+In Fig.~\ref{ZZ2ptsample} we show the result of applying this procedure to the critical 2pt function for $N=24$ and $M=2\times 10^3$ samples. 
+From the agreement with Fig.~\ref{ZZ2pt}, we conclude that $O(10^3)$ repetitions should be sufficient to resolve the shape of this correlator.
+
+\subsection{State preparation}
+
+How experiment work. Tweezers which have some imprecision in their center location and spatial spread. Ideally the atoms seat in harmonic oscillator ground state wavefunctions. (This is roughly true). At the beginning of the experiment all atoms are in state $|g\rangle$ which is the ground state if $\Omega=0$ and the detuning $\Delta$ is negative. One starts adiabatic evolution $\Omega(t)$ and $\Delta(t)$ from this state to the chosen point on the critical line. See Fig.~\ref{fig:evolution}
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=0.6\textwidth]{ZZ_correlation_est.png}
-	\caption{Estimating the critical 2pt function on the ring of $N=24$ atoms from $M=2\times10^3$ snapshots. \SR{adjust axes lables to $(-1)^j \langle  Z_0 Z_{j}\rangle$ and $d_{0j}$. Add DMRG points in red. Make error bars gray and remove the central dot from error bars.}  }
-	\label{ZZ2ptsample}
+	\includegraphics[width=0.6\textwidth]{fig-evolution.png}
+	\caption{Adiabatic evolution paths}
+	\label{fig:evolution}
 \end{figure}
 
+Several factors will influence the quality of the prepared ground state.
+
+Duration of the adiabatic evolution
+
+Energy gap above the ground state - will be smallest at the critical point. We are only interested in the $\mathbb{Z}_2$ even energy gap.
+
+For our chosen point it is 
+\beq
+\approx 0.38 U/N, 
+\eeq
+Writing gap as $\hbar v/(N a) \Delta_\epsilon$ where $\Delta_\epsilon=1$ is the scaling dimension of the $\epsilon$ operator in the 2D Ising CFT, we extract the emergent speed of light $v=0.38 a U/\hbar$.
+
+For $a=10\mu{\rm m}$, $U/\hbar=0.86\ {\rm rad}\cdot \mu{\rm s}^{-1}$ we get $v=8.6 m/s$.
+
+ 
 
 \SR{stopped here, working below}
 
