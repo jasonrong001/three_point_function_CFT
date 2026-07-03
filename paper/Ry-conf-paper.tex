@@ -323,13 +323,13 @@ How experiment work. Tweezers which have some imprecision in their center locati
 
 Several factors will influence the quality of the prepared ground state.
 
-Duration of the adiabatic evolution
+Duration of the adiabatic evolution $\Omega(t)$, $\Delta(t)$
 
 Energy gap above the ground state - will be smallest at the critical point. We are only interested in the $\mathbb{Z}_2$ even energy gap.
 
 For our chosen point the $\mathbf{Z}_2$ even energy gap is \SR{please check}
 \beq
-\approx (8*40*0.00974=3.12) U/N, 
+E_{gap} = \approx (8*40*0.00974=3.12) U/N, 
 \eeq
 Writing gap as $\hbar v/(N a) \Delta_\epsilon$ where $\Delta_\epsilon=1$ is the scaling dimension of the $\epsilon$ operator in the 2D Ising CFT, we extract the emergent speed of light $v=3.12 a U/\hbar$.
 
@@ -337,6 +337,43 @@ For $a=10\mu{\rm m}$, $U/\hbar=0.86\ {\rm rad}\cdot \mu{\rm s}^{-1}$ we get $v\a
 
 Tip advantage: For the same $U$, the energy gap is about factor 3 higher at the tip than at the Yau point.
 
+Important things to keep in mind:
+
+Consider idealized situation when centers of potential wells have no uncertainty, but there is uncertainty in the positions of the atoms due to the size of the wavefunction $\Delta x$ and the size of the momentum $\Delta p\sim \hbar/(\Delta x)$. (in practice a bit more because of nonzero temperature)
+
+Then the full uncertainty after time $\tau$ is 
+\beq
+\Delta x_{full}= \Delta x+ \frac{\hbar}{\Delta x} M^{-1} \tau
+\eeq
+where $M$ is the mass of an atom. (Double-check - influence of van der Waals interaction on the atomic motion)
+
+We want $\Delta x_{full}/a \ll 1$, which limits $\Delta x$ and $\tau$ from above.
+
+It makes sense to set $\tau$ so that $\Delta x=\epsilon a$, $\frac{\hbar}{\Delta x} M^{-1} \tau =\epsilon a$, so 
+$\tau=a^2\epsilon^2 \hbar^{-1} M$ 
+
+We can increase $a$, but then $U=C_6/a^6$ decreases and hence the energy gap decreases.
+
+We want $E_{gap} \tau \gg \hbar $.
+
+We have $E_{gap} \tau \hbar^{-1} = 3.12 C_6/a^6 N^{-1} a^2\epsilon^2 \hbar^{-2} M = 3.12 C_6/a^4 N^{-1} \epsilon^2 \hbar^{-2} M$
+
+We see that, for fixed $\epsilon$, we want to take $a$ as small as possible, i.e. $\Delta x$ as small as possible.
+
+Thus the limiting factor for adiabaticity will be $\Delta x$. So we can rewrite the previous equation as
+
+$E_{gap} \tau \hbar^{-1} = 3.12 C_6/(\Delta x)^4 N^{-1} \epsilon^{-2} \hbar^{-2} M$
+
+Parameters:
+Rubidium $n=60$ level Pasqual: $C_6/\hbar =865723 (\mu s)^{-1} (\mu m)^6$, $\Delta x=0.1\mu m$ (optimistic), $M_{Rb}=87$
+
+Local adiabatic evolution: \cite{Richerme:2013hbx} important is the lowest $\mathbb{Z_2}$ state.
+
+Norman Yao: ramp time 5 $\mu s$.
+
+Summary: mention trap parameters for various experiments, and various $C_6$, various evolution times
+
+Describe Norman Yao setup in detail
 
 \SR{stopped here, working below}
 
@@ -349,7 +386,7 @@ The experimentally accessible parameter space is, roughly, \cite[Tab. 1]{noise-n
 \end{align}
 
 
-
+Plan: investigate the $\mathbb{Z}_2$-even energy gap landscape.
  
 \junchen{On the phase diagram of the Rydberg atom, at generic 2nd order transition point, the  $\mathbf{Z}_2$ symmetry is given by the translation. However, in the special point we discussed, the model becomes literally the AFM Ising model, we can easily get the free boundary condition. We should probably mention this later}	
 
