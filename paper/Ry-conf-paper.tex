@@ -162,6 +162,8 @@ for both the Euclidean and Lorentzian signature.
 	  
 	 For a nontrivial test, $A_\cO$ in \eqref{eq:1ptstrip} should not vanish due to global symmetry reasons. For example, for $\cO=\sigma$ in the 2d Ising CFT, the boundary condition should break global $\mathbb{Z}_2$, hence it should be either ``spin-up'' or ``spin-down'' boundary condition $|+\rangle$, $|-\rangle$ and not the ``free'' boundary condition $|f\rangle$.
 	 
+	 Comment: difficulties of boundary setup: lack of translation invariance, ambiguity where bdry is (need to finetune bdry) - downplay in the final version.
+	 
 	 In summary, it is because of conformality that the functional form of \eqref{eq:2ptcyl}, \eqref{eq:1ptstrip} is fixed for all angles and not just in the short-distance limit where operators approach each other or the boundary, where it follows by scale symmetry. To see this functional form experimentally would be a direct test of conformality. In Section \ref{sec:prop} we will discuss further these two simplest direct tests. More complicated tests could be constructed using higher-point functions on the cylinder, or correlators with unequal boundary conditions on two sides of the strip or with boundary operators insertions. 
 	
 Let us next discuss another possible test of conformality, namely testing the operator-state correspondence (OSC). Consider all local operators of a CFT ${\cO}_i$, both primaries and their descendants. The OSC on the cylinder says that such operators are in one-to-one correspondence with the energy eigenstates on the circle, and that scaling dimensions and the gaps above the ground state are proportional to each other. There is also OSC for the strip with boundary conditions $B_1$ and $B_2$, between states on the interval and  boundary (or boundary-changing if $B_1\ne B_2$) operators $\widehat{\cO}_i$. 
@@ -312,6 +314,17 @@ From the agreement with Fig.~\ref{ZZ2pt}, we conclude that $O(10^3)$ repetitions
 
 \subsection{State preparation}
 
+Missing exercises:
+
+1) admixture of c1 for Norman Yao point (two-interval curve) $T=390$ - expect good, make a discussion about epsilon admixture. Cannot explain his correlation length
+
+2) Fix the same c1 and optimize profile (and hence time) for Norman Yao curve - JR does using his AI machine, 
+SR will develop some approximate theory and compute some theoretical profile
+
+3) do the same as 2) for our point starting at $\Delta=-1,\Omega=0$ up to $\Omega=1$ and up.
+
+Further remarks: global path optimization is a possibility, over/undershooting trick is a possibility.
+
 How experiment work. Tweezers which have some imprecision in their center location and spatial spread. Ideally the atoms seat in harmonic oscillator ground state wavefunctions. (This is roughly true). At the beginning of the experiment all atoms are in state $|g\rangle$ which is the ground state if $\Omega=0$ and the detuning $\Delta$ is negative. One starts adiabatic evolution $\Omega(t)$ and $\Delta(t)$ from this state to the chosen point on the critical line. See Fig.~\ref{fig:evolution}
 
 \begin{figure}[htbp]
@@ -400,11 +413,14 @@ Plan: investigate the $\mathbb{Z}_2$-even energy gap landscape.
 We thank colleagues at the Institut d'Optique, Ecole Polytechnique (Antoine Browaeys, Thierry Lahaye, David Clement, Thomas Chalopin), PASQUAL (Guillaume Villaret, Adrien Signoles, Alexander Dauphin), and Institute for Advanced Study, Tsinghua University (Wenlan Chen, Yingfei Gu, Chengshu Li) for discussions of cold atom experiments. SR also thanks Hans Peter B\"uchler and Enrico Rinaldi for discussions. SR~is partially supported by the Simons Collaboration on the Probabilistic Paths to Quantum Field Theory (award SFI-MPS-PP-00012621-16). 
 
 
-
 \section*{Data availability statement}
 
 The DMRG code ??? is available from the authors upon request. 
 
+\appendix
+
+
+	
 \bibliographystyle{utphys}
 \small
 \setlength{\bibsep}{2pt}
