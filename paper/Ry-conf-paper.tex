@@ -137,43 +137,43 @@ x_{31}^{\Delta_\epsilon} x_{32}^{\Delta_\epsilon}}\,,\quad C_{\sigma\sigma\epsil
 	\end{figure}
 	
 	While scale symmetry is broken by finite volume, conformality survives. In fact conformal group for the 2d cylinder is as large as that of the plane, while for the strip it's the same as for the half-plane. This results in constraints on correlators.  As the simplest nontrivial example, consider the 2pt function of a primary on the cylinder \cite{Luscher:1974ez}:
-	\beq
+	\begin{equation}
 	\label{eq:2ptcyl}
 	\langle \mathcal{O}(\phi_1,\tau_1) \mathcal{O}(\phi_2,\tau_2)\rangle_{\text{cyl}}  = 
-	\frac{1}{|2 \cosh(\tau_1-\tau_2) - 2 \cos(\phi_1-\phi_2)|^{\Delta_\cO}}\,,
-		\eeq
+	\frac{1}{|2 \cosh(\tau_1-\tau_2) - 2 \cos(\phi_1-\phi_2)|^{\Delta_\mathcal{O}}}\,,
+		\end{equation}
 		where $\phi_i\in [0,2\pi]$, $\tau_i\in \mathbb{R}$. This is for the Euclidean cylinder. The 2pt function is time-translation invariant, and decays exponentially at large time separation. This expression can be easily found mapping the cylinder to the plane by an exponential map, and using the infinite-plane result \eqref{eq:two-point} \cite{DiFrancesco:1997nk}. But, for the sake of the argument, one can also derive it independently by staying on the cylinder and using its conformal group. 
 		
 		
 		For the Hamiltonian dynamics in real time, like in Rydberg atom experiments, one needs to analytically continue \eqref{eq:2ptcyl} to Lorentzian signature. Then the 2pt function exhibits oscillating behavior in the time direction \cite{Luscher:1974ez}. Below we will focus on the equal time case, in which case the 2pt function reduces to
-	\beq
+	\begin{equation}
 	\label{eq:2ptcylequal}
-	\langle \mathcal{O}(\phi_1,0) \mathcal{O}(\phi_2,0)\rangle_{\text{cyl}}  = \frac 1{|2\sin\frac{\phi_1-\phi_2}2|^{2\Delta_\cO}},
-	\eeq
+	\langle \mathcal{O}(\phi_1,0) \mathcal{O}(\phi_2,0)\rangle_{\text{cyl}}  = \frac 1{|2\sin\frac{\phi_1-\phi_2}2|^{2\Delta_\mathcal{O}}},
+	\end{equation}
 for both the Euclidean and Lorentzian signature.
 	
 	 In the same spirit, we can consider correlation functions on a strip, assuming conformal boundary conditions $B_1$ and $B_2$ on the two boundaries. In this case, already 1pt functions can test conformal symmetry. In the simplest case with equal boundary conditions, $B_1=B_2$, the 1pt function of a primary operator on the strip of width $\pi$ takes the form:
-	 \beq
+	 \begin{equation}
 	 \label{eq:1ptstrip}
 	 \langle \mathcal{O}(\phi,0)\rangle_{\text{strip}}  = \frac {A_{\mathcal{O}}}
-	 {(2 \sin \phi)^{\Delta_\cO}}\,, \quad 0<\phi<\pi\,\quad(B_1=B_2)\,.
-	 \eeq
-	 This is usually shown conformal-transforming the upper-half-plane 1pt function $\langle \mathcal{O}(z)\rangle_{\text{UHP}} =  {A_{\mathcal{O}}}/(2\, \text{Im} z)^{\Delta_\cO}$ \cite{Cardy:1984bb} to the strip \cite{Calabrese:2006rx}. But it can also be derived by staying on the strip.
+	 {(2 \sin \phi)^{\Delta_\mathcal{O}}}\,, \quad 0<\phi<\pi\,\quad(B_1=B_2)\,.
+	 \end{equation}
+	 This is usually shown conformal-transforming the upper-half-plane 1pt function $\langle \mathcal{O}(z)\rangle_{\text{UHP}} =  {A_{\mathcal{O}}}/(2\, \text{Im} z)^{\Delta_\mathcal{O}}$ \cite{Cardy:1984bb} to the strip \cite{Calabrese:2006rx}. But it can also be derived by staying on the strip.
 	  
-	 For a nontrivial test, $A_\cO$ in \eqref{eq:1ptstrip} should not vanish due to global symmetry reasons. For example, for $\cO=\sigma$ in the 2d Ising CFT, the boundary condition should break global $\mathbb{Z}_2$, hence it should be either ``spin-up'' or ``spin-down'' boundary condition $|+\rangle$, $|-\rangle$ and not the ``free'' boundary condition $|f\rangle$.
+	 For a nontrivial test, $A_\mathcal{O}$ in \eqref{eq:1ptstrip} should not vanish due to global symmetry reasons. For example, for $\mathcal{O}=\sigma$ in the 2d Ising CFT, the boundary condition should break global $\mathbb{Z}_2$, hence it should be either ``spin-up'' or ``spin-down'' boundary condition $|+\rangle$, $|-\rangle$ and not the ``free'' boundary condition $|f\rangle$.
 	 
 	 Comment: difficulties of boundary setup: lack of translation invariance, ambiguity where bdry is (need to finetune bdry) - downplay in the final version.
 	 
 	 In summary, it is because of conformality that the functional form of \eqref{eq:2ptcyl}, \eqref{eq:1ptstrip} is fixed for all angles and not just in the short-distance limit where operators approach each other or the boundary, where it follows by scale symmetry. To see this functional form experimentally would be a direct test of conformality. In Section \ref{sec:prop} we will discuss further these two simplest direct tests. More complicated tests could be constructed using higher-point functions on the cylinder, or correlators with unequal boundary conditions on two sides of the strip or with boundary operators insertions. 
 	
-Let us next discuss another possible test of conformality, namely testing the operator-state correspondence (OSC). Consider all local operators of a CFT ${\cO}_i$, both primaries and their descendants. The OSC on the cylinder says that such operators are in one-to-one correspondence with the energy eigenstates on the circle, and that scaling dimensions and the gaps above the ground state are proportional to each other. There is also OSC for the strip with boundary conditions $B_1$ and $B_2$, between states on the interval and  boundary (or boundary-changing if $B_1\ne B_2$) operators $\widehat{\cO}_i$. 
+Let us next discuss another possible test of conformality, namely testing the operator-state correspondence (OSC). Consider all local operators of a CFT ${\mathcal{O}}_i$, both primaries and their descendants. The OSC on the cylinder says that such operators are in one-to-one correspondence with the energy eigenstates on the circle, and that scaling dimensions and the gaps above the ground state are proportional to each other. There is also OSC for the strip with boundary conditions $B_1$ and $B_2$, between states on the interval and  boundary (or boundary-changing if $B_1\ne B_2$) operators $\widehat{\mathcal{O}}_i$. 
 
 The proportionality factor involves the ``speed of light'' of the emergent Lorentz invariance, as well as the physical length of space. To eliminate these factors, one can study the energy gap ratios. Then the prediction is
-\beq
+\begin{equation}
 \label{eq:ratio-rel}
-(E_i-E_0)/(E_j-E_0) = \Delta_{\cO_i}/\Delta_{\cO_j}\,\quad\text{(cylinder)},
-\eeq	
-and a similar relation with $\Delta_{\cO_i}\to\Delta_{\widehat{\cO}_i}$ for the strip.
+(E_i-E_0)/(E_j-E_0) = \Delta_{\mathcal{O}_i}/\Delta_{\mathcal{O}_j}\,\quad\text{(cylinder)},
+\end{equation}	
+and a similar relation with $\Delta_{\mathcal{O}_i}\to\Delta_{\widehat{\mathcal{O}}_i}$ for the strip.
 
 OSC is a fundamental property of CFT, which results because the cylinder and strip geometries are conformally equivalent to the plane and half-plane (see Fig.~\ref{fig:OSC}). Therefore, a test of relation \eqref{eq:ratio-rel} also qualifies as a direct test of conformality.\footnote{We thank the authors of \cite{Wang:2026prw} for a discussion.}
 
@@ -225,15 +225,15 @@ Denoting $U=C_6/a^6$, we will work with the dimensionless Hamiltonian $\hat H=\h
 where $\Omega'=\hbar \Omega/U$ and $\Delta'=\hbar \Delta/U$ are real dimensionless numbers, and $d_{ij}=R_{ij}/a$ is the dimensionless distance. 
 
 The rich phase diagram of this model is well studied \cite{Keesling:2018ish,Rader:2019syq}. Most of it is occupied by the disordered phase, the $\mathbb{Z}_2$-broken density wave phase, and the line of Ising critical points separating them (Fig.~\ref{phasediagramHBlong}). This part of the phase diagram can be understood rewriting the Hamiltonian in terms of the sigma-matrices via $n_i=(1+Z_i)/2$:
-\beq
+\begin{equation}
 \hat H = \frac{\Omega'}{2} \sum_i X_i + \sum_{i<j}\frac{1}{4d_{ij}^6}  Z_{i}Z_{j}+  \sum_{i}  \left(\sum_j \frac{1}{4d_{ij}^6} - \frac{\Delta'}{2}\right) Z_{i} + const
-\eeq
+\end{equation}
 If $\Omega',\Delta'$ are not too small, we can neglect non-nearest-neighbor $\sigma^z_{i}\sigma^z_{j}$ couplings. This gives the antiferromagnetic Ising model in longitudinal and transverse magnetic fields, which has a very similar phase diagram \cite{Ovchinnikov}. In particular, in the infinite-volume limit, the longitudinal field vanishes for $\Delta'=\zeta(6)\approx 1.017$ and the phase diagram is symmetric with respect to this line. ($\Omega'\to -\Omega'$ is also a symmetry.)
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.6\textwidth]{phase_diagram_SSF_LR.png}
-	\caption{A part of the phase diagram of the model \eqref{eq:model} showing the Ising phase transition between $\mathbb{Z}_2$ density wave and disordered phase. We do not detail the two tiny gray regions which house further phases \cite{Keesling:2018ish,Rader:2019syq}. The red points corresponds to the points studied in~\cite{Fang:2024uyf} (1) and \cite{Sun:2026aqf} (2). The blue point corresponds to the point $\Delta'=\zeta(6)$, $\Omega'\approx 0.488$ which we focus on. \SR{add a gray region near $\Delta'=2$, sym w.r.t. $\Delta'=\zeta(6)$}}
+	\caption{A part of the phase diagram of the model \eqref{eq:model} showing the Ising phase transition between $\mathbb{Z}_2$ density wave and disordered phase. We do not detail the two tiny gray regions which house further phases \cite{Keesling:2018ish,Rader:2019syq}. The red points corresponds to the points studied in~\cite{Fang:2024uyf} (1) and \cite{Sun:2026aqf} (2). The blue point corresponds to the point $\Delta'=\zeta(6)$, $\Omega'\approx 0.488$ which we focus on. {\color{red} add a gray region near $\Delta'=2$, sym w.r.t. $\Delta'=\zeta(6)$}}
 	\label{phasediagramHBlong}
 \end{figure}
 
@@ -243,7 +243,7 @@ Here we will focus on the $\mathbb{Z}_2$ critical line. Everywhere on this line,
 
 Several experimental works, including the recent Refs.~\cite{Fang:2024uyf,Sun:2026aqf}, studied the Ising transition at generic points of the critical line, towards the strong Rydberg blockade region (see Fig.~\ref{phasediagramHBlong}). Here we will instead focus on the point $\Delta'=\zeta(6)$, $\Omega'\approx 0.488$, far from the Rydberg blockade. In addition to onsite $\mathbb{Z}_2$, this point has other advantages discussed below. 
 
-\SR{comment about meson spectroscopy paper}
+{\color{red} comment about meson spectroscopy paper}
 
 \subsection{Two-point function on a circle: DMRG prediction}
 
@@ -253,16 +253,16 @@ Since we are on a circle the dimensionless distance in \eqref{eq:model} is $d_{i
 We are interested in the CFT 2pt function at equal time $\langle \sigma(\phi_1,0)\sigma(\phi_2,0)\rangle$, see Eq.~\eqref{eq:2ptcylequal}, where $\sigma$ is the $\mathbb{Z}_2$ nontrivial primary of the 2d Ising CFT. Correlation functions of $\epsilon$ can also be discussed, but since $\epsilon$ has a higher scaling dimension, they will decay faster with a distance and the powerlaw will be harder to resolve experimentally (more on this below).
 
 As mentioned we work at $\Delta'=\zeta(6)$ where the lattice model has onsite $\mathbb{Z}_2$ which flips the sign of $Z_i$. The operators even and odd under this on-site symmetry will map at long distances to $\mathbb{Z}_2$ even and odd CFT operators. So e.g.
-\beq
+\begin{equation}
 Z_j = b (-1)^j \sigma(\phi) +\ldots,\quad \phi=2\pi j/N,
-\eeq 
+\end{equation} 
 where $b$ is a non-universal constant and $(-1)^j$ factor transforms the antiferromagnetic spin chain to the ferromagnetic one. Importantly, the terms $\ldots$ may not contain $\mathbb{Z}_2$ even operators. Taking into account spatial parity, the lowest-dimension operator in $\ldots$ is $(-1)^j \partial_\phi^2 \sigma(\phi)$.
 
 So, we use $(-1)^j Z_j$ as a microscopic proxy for $\sigma(\phi)$. To study $\langle\sigma(0) \sigma(\phi)\rangle$ we measure $(-1)^j\langle Z_0 Z_{j}\rangle$ in the ground state of the spin chain, which we obtain via DMRG. This is shown in Fig.~\ref{ZZ2pt}, plotted with respect to $d_{0j}$ which maps to $\sin(\phi/2)$ up to a constant factor. We take $N=24$ as in \cite{Fang:2024uyf,Emperauger:2025raf}. 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.6\textwidth]{ZZ_correlation.png}
-	\caption{The correlation function $(-1)^j \langle Z_0 Z_{j}\rangle$, plotted with respect to $d_{0j}$ for $N=24$. We work at $\Delta'=\zeta(6)$ and three values of $\Omega':$  $0.488$ (critical point, red); $0.45$ (ordered phase, green) and $0.52$ (disordered, red). The black dashed line is the CFT prediction $\propto 1/d_{0j}^{1/4}$. \SR{labels on axes to be adjusted, to agree with the text. Make the horizontal axis in this plot and the plot below have the same length (probably 10 should be included in both axes, but not much beyond)}} 
+	\caption{The correlation function $(-1)^j \langle Z_0 Z_{j}\rangle$, plotted with respect to $d_{0j}$ for $N=24$. We work at $\Delta'=\zeta(6)$ and three values of $\Omega':$  $0.488$ (critical point, red); $0.45$ (ordered phase, green) and $0.52$ (disordered, red). The black dashed line is the CFT prediction $\propto 1/d_{0j}^{1/4}$. {\color{red} labels on axes to be adjusted, to agree with the text. Make the horizontal axis in this plot and the plot below have the same length (probably 10 should be included in both axes, but not much beyond)}} 
 	\label{ZZ2pt}
 \end{figure}
 
@@ -273,9 +273,9 @@ Cite DMRG \cite{White1992,Schollwock2011}
 \subsection{Estimation of needed sample size}
 
 The DMRG calculation provides access to the ground state wavefunction
-\beq
+\begin{equation}
 \Psi_{\rm GS} = \sum_{n_i=0,1} a_{n_0,\ldots, n_{L-1}} |n_0,\ldots, n_{L-1}\rangle
-\eeq
+\end{equation}
 The correlation function observables are computed averaging with respect to this wavefunction.
 
 In the experiment we will not have access to the wavefunction itself but to \emph{collapsed states} $\Psi_a$, $a=1,\ldots,M$. Each $\Psi_a$ is one of the basis states in the $n_i=0,1$ basis and they will appear in the experiment according to the Born rule, i.e. probability to observe a collapsed state $|n_0,\ldots, n_{L-1}\rangle$ equals $|a_{n_0,\ldots, n_{L-1}}|^2$. 
@@ -289,26 +289,26 @@ The variance of any observable $\mathcal{O}$ can be computed from the expected v
 	\includegraphics[width=0.6\textwidth]{ZZ_correlation_est.png}
 	\caption{Estimating the critical 2pt function on the ring of $N=24$ atoms from independent snapshots. 
 The red dots DMRG data and the dashed line CFT prediction are the same as in Fig.~\ref{ZZ2pt}, while the gray error bars are the confidence intervals \eqref{eq:conf} for one random sample of size $M=2\times 10^3$. 
-		\SR{adjust axes lables to $(-1)^j \langle  Z_0 Z_{j}\rangle$ and $d_{0j}$. Add DMRG points in red. Make error bars gray and remove the central dot from error bars.}  }
+		{\color{red} adjust axes lables to $(-1)^j \langle  Z_0 Z_{j}\rangle$ and $d_{0j}$. Add DMRG points in red. Make error bars gray and remove the central dot from error bars.}  }
 	\label{ZZ2ptsample}
 \end{figure}
 
 Here we will not compute the variance but will estimate it, using a method which is more direct and closer to the experiment. DMRG algorithm produces the wavefunction as an MPS which one can quickly \emph{sample}, i.e. to generate sequences of random collapsed states (``snapshots'') distributed according to the Born rule.\footnote{The {\tt sample()} function of {\tt ITensor} library \cite{ITensor} does that. A similar algorithm was used in \cite[App.B]{Scholl:2020hzx}. } This is very quick and allows us to simulate the experimental process directly. Statistical errors will go down as $\Sigma/\sqrt{M}$, where $M$ is the number of snapshots, with $\Sigma$ estimated from the "DMRG data".
 
 For each of $M$ collected collapsed states $\Psi_a$ we measure the 2pt function $(-1)^j\langle Z_0 Z_{j}\rangle$ as a function of $j$ (averaging over translations):
-\beq\label{sample}
+\begin{equation}\label{sample}
 X_{a}(j)=\frac{1}{N} \sum_{i=0}^{N-1} \langle \Psi_a|(-1)^j Z_i Z_{i+j}|\Psi_a\rangle.
-\eeq
+\end{equation}
 $X_{a}(j)$ for each $a$ are independent identically distributed random variables, whose mean $\overline{X(j)}$ is the ground-state 2pt function $\langle \Psi|(-1)^j Z_0 Z_{j}|\Psi\rangle$. The mean and the standard deviation $\Sigma$ are estimated by the standard formulas
-\beq
+\begin{equation}
 	\overline{X(j)}_{est}=\frac{1}{M} \sum_{a} X_{a}(j),\qquad
 \Sigma(j)^2_{est} = \frac{1}{M-1}\sum_i (X_a(j) - \overline{X(j)})^2\,.
-\eeq
+\end{equation}
 By the central limit theorem, for $M\to\infty$, the sample mean $\overline{X(j)}_{est}$ has a gaussian distribution with variance $ (\Sigma(j)/\sqrt{M})^2$ around the true mean.  We therefore obtain an estimation of the 2pt correlator, including one standard deviation error bars, as
-\beq
+\begin{equation}
 (-1)^j \langle  Z_0 Z_{j}\rangle_{est} = \overline{X(x)}_{est}\pm \frac{1}{\sqrt{M}} \sqrt{\Sigma(x)^2_{est}}.
 \label{eq:conf}
-\eeq
+\end{equation}
 In Fig.~\ref{ZZ2ptsample} we show the result of applying this procedure to the critical 2pt function for $N=24$ and $M=2\times 10^3$ samples. 
 From the agreement with Fig.~\ref{ZZ2pt}, we conclude that $O(10^3)$ repetitions should be sufficient to resolve the shape of this correlator.
 
@@ -316,7 +316,9 @@ From the agreement with Fig.~\ref{ZZ2pt}, we conclude that $O(10^3)$ repetitions
 
 Missing exercises:
 
-1) admixture of c1 for Norman Yao point (two-interval curve) $T=390$ - expect good, make a discussion about epsilon admixture. Cannot explain his correlation length
+1) admixture of c1 for Norman Yao point (two-interval curve) $t=7$ - expect good, make a discussion about epsilon admixture. Cannot explain his correlation length
+
+SR: Hmm I get $|c0|=0.918995, |c1|=0.305473, |c2|=0.137609, sum=0.956801$. Rather large $c1$.
 
 2) Fix the same c1 and optimize profile (and hence time) for Norman Yao curve - JR does using his AI machine, 
 SR will develop some approximate theory and compute some theoretical profile
@@ -340,10 +342,10 @@ Duration of the adiabatic evolution $\Omega(t)$, $\Delta(t)$
 
 Energy gap above the ground state - will be smallest at the critical point. We are only interested in the $\mathbb{Z}_2$ even energy gap.
 
-For our chosen point the $\mathbf{Z}_2$ even energy gap is \SR{please check}
-\beq
+For our chosen point the $\mathbf{Z}_2$ even energy gap is {\color{red} please check}
+\begin{equation}
 E_{gap} = \approx (8*40*0.00974=3.12) U/N, 
-\eeq
+\end{equation}
 Writing gap as $\hbar v/(N a) \Delta_\epsilon$ where $\Delta_\epsilon=1$ is the scaling dimension of the $\epsilon$ operator in the 2D Ising CFT, we extract the emergent speed of light $v=3.12 a U/\hbar$.
 
 For $a=10\mu{\rm m}$, $U/\hbar=0.86\ {\rm rad}\cdot \mu{\rm s}^{-1}$ we get $v\approx 27 m/s$.
@@ -355,9 +357,9 @@ Important things to keep in mind:
 Consider idealized situation when centers of potential wells have no uncertainty, but there is uncertainty in the positions of the atoms due to the size of the wavefunction $\Delta x$ and the size of the momentum $\Delta p\sim \hbar/(\Delta x)$. (in practice a bit more because of nonzero temperature)
 
 Then the full uncertainty after time $\tau$ is 
-\beq
+\begin{equation}
 \Delta x_{full}= \Delta x+ \frac{\hbar}{\Delta x} M^{-1} \tau
-\eeq
+\end{equation}
 where $M$ is the mass of an atom. (Double-check - influence of van der Waals interaction on the atomic motion)
 
 We want $\Delta x_{full}/a \ll 1$, which limits $\Delta x$ and $\tau$ from above.
@@ -388,7 +390,7 @@ Summary: mention trap parameters for various experiments, and various $C_6$, var
 
 Describe Norman Yao setup in detail
 
-\SR{stopped here, working below}
+{\color{red} stopped here, working below}
 
 
 
@@ -401,7 +403,7 @@ The experimentally accessible parameter space is, roughly, \cite[Tab. 1]{noise-n
 
 Plan: investigate the $\mathbb{Z}_2$-even energy gap landscape.
  
-\junchen{On the phase diagram of the Rydberg atom, at generic 2nd order transition point, the  $\mathbf{Z}_2$ symmetry is given by the translation. However, in the special point we discussed, the model becomes literally the AFM Ising model, we can easily get the free boundary condition. We should probably mention this later}	
+{\color{red}  JR:On the phase diagram of the Rydberg atom, at generic 2nd order transition point, the  $\mathbf{Z}_2$ symmetry is given by the translation. However, in the special point we discussed, the model becomes literally the AFM Ising model, we can easily get the free boundary condition. We should probably mention this later}	
 
 
 
