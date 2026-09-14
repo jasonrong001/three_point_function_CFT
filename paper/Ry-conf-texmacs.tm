@@ -551,12 +551,11 @@
   experiments. All simulations for both points will be done with the
   Hamiltonian <eqref|eq:modelp>.
 
-  <\big-table|<tabular|<tformat|<table|<row|<cell|point>|<cell|<math|\<Omega\><rprime|'>>>|<cell|<math|\<Delta\><rprime|'>>>>|<row|<cell|P1<cite|Fang:2024uyf>>|<cell|0.133>|<cell|0.129>>|<row|<cell|P1'>|<cell|0.133>|<cell|0.137>>|<row|<cell|P2<cite|Sun:2026aqf>>|<cell|0.031>|<cell|0.052>>|<row|<cell|P3>|<cell|<math|0.488>>|<cell|<math|\<zeta\><around|(|6|)>>>>>>>>
+  <\big-table|<tabular|<tformat|<table|<row|<cell|point>|<cell|<math|\<Omega\><rprime|'>>>|<cell|<math|\<Delta\><rprime|'>>>>|<row|<cell|P1<cite|Fang:2024uyf>>|<cell|0.133>|<cell|0.137>>|<row|<cell|P2<cite|Sun:2026aqf>>|<cell|0.031>|<cell|0.052>>|<row|<cell|P3>|<cell|<math|0.488>>|<cell|<math|\<zeta\><around|(|6|)>>>>>>>>
     <label|tab:params>Parameters <math|\<Omega\><rprime|'>,\<Delta\><rprime|'>>
     of points P1,P2 used in previous experimental studies of 2d Ising
     criticality with Rydberg atoms <cite|Fang:2024uyf>,<cite|Sun:2026aqf>,
-    and of point P3 which has on-site <math|\<bbb-Z\><rsub|2>>. Below we
-    focus on P1 and P3.
+    and of point P3 which has on-site <math|\<bbb-Z\><rsub|2>>.\ 
   </big-table>
 
   <subsection|Measuring critical 2pt-point function>
@@ -668,7 +667,7 @@
 
   <\equation>
     <around*|\<langle\>|\<sigma\><rsub|i>\<sigma\><rsub|j>|\<rangle\>><rsub|><rsub|>=<frac|1|<around*|(|2
-    sin<frac|2\<pi\><around*|\||i-j|\|>|N>|)><rsup|1/4>> .<label|2ptideal>
+    sin<frac|\<pi\><around*|\||i-j|\|>|N>|)><rsup|1/4>> .<label|2ptideal>
   </equation>
 
   This 2pt function is plotted in Fig. <reference|fig:ideal> for <math|N=24>
@@ -752,37 +751,26 @@
 
   We pass on to simulations. We numerically compute the ground state
   wavefunction for points P1 and P3. The ground state belongs to the
-  translationally invariant, spatial parity invariant sector of the full
-  Hilbert space which for <math|N=24> has dimension <with|color|red|???>.
-  Thus for <math|N=24> we can use exact diagonalization. This will be
-  important for the optimization of adiabatic evolution in Section
+  translationally invariant, spatial parity invariant subspace of the full
+  Hilbert space, which for <math|N=24> has dimension <math|352,698>. Thus for
+  <math|N=24> we can use exact diagonalization. This will be important for
+  the optimization of adiabatic evolution in Section
   <reference|sec:fidelity>.\ 
 
   We the compute the 2pt function <math|<around*|\<langle\>|s<rsub|i>s<rsub|j>|\<rangle\>>>
   which by the symmetries of the problem is translationally and spatial
   parity invariant, i.e. depends only on <math|<around*|\||i-j|\|>>. The
   result is shown in Fig. <reference|fig:2pt-sim>, divided by the CFT
-  prediction <eqref|2ptideal>. For points P1' and P3 the line rapidly
-  asymptotes to a constant, signaling that these points are at the critical
-  line. For point P1 the line shows 20% suppression at larger distances,
-  which means that this point is not quite at the critical line but is in the
-  disordered phase. (However this deviation would not not sufficient to
-  explain the exponential decay of the correlator seen in
-  \ <cite|Fang:2024uyf>, where it was attributed to decoherence.) \ In what
-  follows we will work with point P1'.\ 
-
-  Although the P1' and P3 points are at the critical line, the corresponding
-  curves do show deviation from a constant at small
-  <math|<around*|\||i-j|\|>>. These deviations are due to the correction
-  terms in <eqref|sicorr>. We see that for point P3, where the correction
-  term <math|<around*|(|-1|)><rsup|i>c<rsub|\<varepsilon\>>\<varepsilon\><around*|(|\<phi\><rsub|i>|)>>
+  prediction <eqref|2ptideal>. We see that the ratios rapidly asymptote to a
+  constant for both points P1 and P3. The curves do show deviation from a
+  constant at small <math|<around*|\||i-j|\|>>. These deviations are due to
+  the correction terms in <eqref|sicorr>. We see that for point P3, where the
+  correction term <math|<around*|(|-1|)><rsup|i>c<rsub|\<varepsilon\>>\<varepsilon\><around*|(|\<phi\><rsub|i>|)>>
   is absent, the approach to a constant is smoother and is monotonic.
 
   <\big-figure|<image|fig-2pt-sim.png|1par|||>>
-    <label|fig:2pt-sim>Change vertical axis label to
-    <math|<around*|\<langle\>|s<rsub|i>s<rsub|j>|\<rangle\>>/<around*|\<langle\>|\<sigma\><rsub|i>\<sigma\><rsub|j>|\<rangle\>>>.
-    Note that this will require rescaling of the vertical axis by factor 1/4
-    (?)
+    <label|fig:2pt-sim>2pt function simulations. <with|color|red|Remove P1,
+    rename P1' as P1>
   </big-figure>
 
   Previously, numerical simulations of 2pt functions of the Rydberg spin
@@ -814,8 +802,8 @@
   wavefunction itself but to <em|collapsed states> <math|\<Psi\><rsub|m>>,
   <math|m=1,\<ldots\>,M>, where <math|M> is the number of times we repeated
   the experiment. Each <math|\<Psi\><rsub|m>> is one of the basis states
-  <math|\|n<rsub|0>,\<ldots\>,n<rsub|N-1>> and they will appear in the
-  experiment according to the Born rule, i.e. probability to observe a
+  <math|\|n<rsub|0>,\<ldots\>,n<rsub|L-1>\<rangle\>> and they will appear in
+  the experiment according to the Born rule, i.e. probability to observe a
   collapsed state <math|<around|\||n<rsub|0>,\<ldots\>,n<rsub|L-1>|\<rangle\>>>
   equals <math|<around|\||a<rsub|n<rsub|0>,\<ldots\>,n<rsub|L-1>>|\|><rsup|2>>.
 
@@ -831,17 +819,25 @@
   expected value of <math|\<cal-O\><rsup|2>>.
 
   Here we will not compute the variance but will estimate it, using a method
-  which is more direct and closer to the experiment. First, we recompute the
-  ground state using the DMRG algorithm <cite|White1992|Schollwock2011>. This
-  produces the wavefunction as a matrix product state (MPS). The point is
-  that MPS representation allows us to quickly <em|sample>, i.e. to generate
-  sequences of random collapsed states (\Psnapshots\Q) distributed according
-  to the Born rule.<footnote|The <with|font-family|tt|sample()> function of
-  <with|font-family|tt|ITensor> library <cite|ITensor> does that. A similar
-  algorithm was used in <cite-detail|Scholl:2020hzx|App.B>. > This allows us
-  to simulate the experimental process directly. Statistical errors will go
-  down as <math|\<Sigma\>/<sqrt|M>>, where <math|M> is the number of
-  snapshots, with <math|\<Sigma\>> estimated from the \PDMRG data\Q.
+  which is more direct and closer to the experiment. First, we compute the
+  ground state for <math|N=24> using exact diagonalization, working in the
+  subspace of translation and parity-invariant states, each of which is a
+  finite linear combination of \ the basis states
+  <math|\|n<rsub|0>,\<ldots\>,n<rsub|L-1>\<rangle\>>. We then sample the
+  ground state, i.e. generate a sequence of random collapsed states
+  (\Psnapshots\Q) <math|\|n<rsub|0>,\<ldots\>,n<rsub|L-1>\<rangle\>>
+  distributed according to the Born rule. (This is done in two steps: we
+  first get a random translation and parity-invariant state, and then one of
+  its constituents.) This allows us to simulate the experimental process
+  directly. Statistical errors will go down as <math|\<Sigma\>/<sqrt|M>>,
+  where <math|M> is the number of snapshots, with <math|\<Sigma\>> estimated
+  from the \Pexact diagonalization data\Q.<\footnote>
+    For sufficiently large <math|N>, ED will become unfeasable and one will
+    have to switch to the DMRG algorithm <cite|White1992|Schollwock2011>.
+    This produces the wavefunction as a matrix product state (MPS).
+    Interestingly, MPS representation also allows for quick sampling, using
+    the <tt|sample()> function of the <tt|iTensor.jl> package.
+  </footnote>
 
   In our calculation we picked <math|M=2\<times\>10<rsup|3>>. For each of
   <math|M> collected collapsed states <math|\<Psi\><rsub|m>> we measure the
@@ -875,76 +871,105 @@
 
   In Fig.<nbsp><reference|ZZ2ptsample> we show the result of applying this
   procedure to the critical 2pt function for <math|N=24> and
-  <math|M=2\<times\>10<rsup|3>> samples.\ 
+  <math|M=2\<times\>10<rsup|3>> samples. We see that the statistical error is
+  only a few percent.
 
-  <big-figure|<with|par-mode|center|<image|ZZ_correlation_est.png|0.6par|||><label|ZZ2ptsample>>|Estimating
+  <big-figure|<with|par-mode|center|<image|fig-sampling.png|0.6par|||><label|ZZ2ptsample>>|Estimating
   the critical 2pt function on the ring of <math|N=24> atoms from independent
-  snapshots, for points P1' and P3. <with|color|red|This plot needs to be
-  changed> >
+  snapshots, for points P1 and P3. <with|color|red|Rename P1' as P1>>
 
-  <subsection|State preparation>
+  <subsection|Ground state preparation>
 
-  <label|sec:fidelity>
+  <label|sec:fidelity>In the previous sections, we have seen that if the
+  critical ground state can be obtained, then the critical 2pt function can
+  be measured, with good statistics achievable with
+  <math|O<around*|(|10<rsup|3>|)>> repetitions.\ 
 
-  How can we optimize the evolution curve
-  <math|<around*|(|\<Omega\><rprime|'><around*|(|t|)>,\<Delta\><rprime|'><around*|(|t|)>|)>>
-  so that, for fixed evolution time <math|T>, the final state is as close as
-  possible to the true ground state? What are the achievable fidelities for
-  experimentally reasonable evolution times? We will see that, with the help
-  of optimization, excellent ground state fidelities can be achieved for P1
-  with <math|T> several times shorter than in <cite|Fang:2024uyf>, and even
-  shorter times for P3.
+  Experimentally, one realizes the critical ground state via adiabatic
+  evolution.
 
-  Missing exercises:
+  Let us follow the same protocol as in <cite|Fang:2024uyf>, start evolution
+  with <math|\<Delta\><rprime|'>\<less\>0>, <math|\<Omega\><rprime|'>=0> in
+  the state <math|<around*|\||00\<ldots\>0|\<rangle\>>> (i.e. all atoms in
+  the ground state). This state is in the disordered phase ground state for
+  <math|\<Delta\><rprime|'>\<less\>0>, <math|\<Omega\><rprime|'>=0>. One then
+  picks the evolution dependences (called \Pramp profile\Q)
+  <math|\<Omega\><rprime|'><around*|(|t|)>,\<Delta\><rprime|'><around*|(|t|)>>
+  which ends on the Ising critical line. By the adiabatic theorem, if
+  evolution is sufficiently slow, the end state will approximate the critical
+  ground state in finite volume. However, for experimental reasons, evolution
+  cannot be arbitrarily slow. One wants it to be sufficiently slow so that
+  good ground state fidelity is achieved, yet as fast as possible, to reduce
+  decoherence effects to be discussed in Section <reference|sec:decoherence>.\ 
 
-  1) admixture of c1 for Norman Yao point (two-interval curve) <math|t=7> -
-  expect good, make a discussion about epsilon admixture. Cannot explain his
-  correlation length
+  For optimization purposes, we will fix a path in the
+  <math|<around*|(|\<Omega\><rprime|'>,\<Delta\><rprime|'>|)>> plane and we
+  will vary the local rate of change and the total evolution time. For
+  definiteness, we fix a two-segment path for point P1 and a three-segment
+  path for P3, see Fig. <reference|fig:evolution>.\ 
 
-  SR: Hmm I get <math|<around|\||c*0|\|>=0.918995,<around|\||c*1|\|>=0.305473,<around|\||c*2|\|>=0.137609,s*u*m=0.956801>.
-  Rather large <math|c*1>.
+  The first path is precisely the one used in <cite|Fang:2024uyf>, where
+  total evolution time was <math|t<rsub|f>=7\<mu\><text|s>> split as
+  <math|2\<mu\><text|s>+5\<mu\><text|s>> between the two segments, and the
+  ramp profile <math|\<Omega\><rprime|'><around*|(|t|)>,\<Delta\><rprime|'><around*|(|t|)>>
+  shown in Fig. <reference|fig:yao-ramp>. In particular, linearly growing
+  <math|\<Omega\><rprime|'><around*|(|t|)>> was chosen during the first
+  secment, while during the second segment
+  <math|\<Delta\><rprime|'><around*|(|t|)>> was chosen as a rational function
+  with decreasing first derivative. This was motivated by the locally
+  adiabatic approximation <cite|Roland:2001imn>, which parametrizes evolution
+  in terms of the gap between the ground state and the first excited state.
+  Gap closes at the critical point in the theremodynamic limit, while remains
+  finite at finite <math|N>.
 
-  2) Fix the same c1 and optimize profile (and hence time) for Norman Yao
-  curve - JR does using his AI machine, SR will develop some approximate
-  theory and compute some theoretical profile
+  <big-figure|<image|fig-evolution.pdf|0.6par|||>|<label|fig:evolution>Adiabatic
+  evolution paths.>
 
-  3) do the same as 2) for our point starting at
-  <math|\<Delta\>=-1,\<Omega\>=0> up to <math|\<Omega\>=1> and up.
-
-  Further remarks: global path optimization is a possibility,
-  over/undershooting trick is a possibility.
-
-  How experiment work. Tweezers which have some imprecision in their center
-  location and spatial spread. Ideally the atoms seat in harmonic oscillator
-  ground state wavefunctions. (This is roughly true). At the beginning of the
-  experiment all atoms are in state <math|<around|\||g|\<rangle\>>> which is
-  the ground state if <math|\<Omega\>=0> and the detuning <math|\<Delta\>> is
-  negative. One starts adiabatic evolution <math|\<Omega\><around|(|t|)>> and
-  <math|\<Delta\><around|(|t|)>> from this state to the chosen point on the
-  critical line. See Fig.<nbsp><reference|fig:evolution>
-
-  <big-figure|<with|par-mode|center|<image|fig-evolution.png|0.6par|||><label|fig:evolution>>|Adiabatic
-  evolution paths>
-
-  Several factors will influence the quality of the prepared ground state.
-
-  Duration of the adiabatic evolution <math|\<Omega\><around|(|t|)>>,
-  <math|\<Delta\><around|(|t|)>>
-
-  Energy gap above the ground state - will be smallest at the critical point.
-  We are only interested in the <math|\<bbb-Z\><rsub|2>> even energy gap.
-
-  For our chosen point the <math|<math-bf|Z><rsub|2>> even energy gap is
-  <with|color|red|please check>
+  <math|N=24> is small enough so that full quantum mechanical evolution\ 
 
   <\equation>
-    E<rsub|g*a*p>=\<approx\><around|(|8\<ast\>40\<ast\>0.00974=3.12|)>*U/N,
+    i\<hbar\><wide|\<psi\>|\<dot\>><around*|(|t|)>=U
+    <wide|H|^><around*|(|\<Omega\><rprime|'><around*|(|t|)>,\<Delta\><rprime|'><around*|(|t|)>|)>\<psi\>
+    </equation>
+
+  can be solved numerically for any chosen ramp profile; see Appendix
+  <reference|sec:validation>. This evolution happens within the same
+  translation and spatial-parity invariant <math|352,698>-dimensional
+  subspace of the Hilbert space to which the ground state belongs. We fix
+  <math|U=\<hbar\>\<times\>75.69 MHz> as in <cite|Fang:2024uyf>. We can
+  expand the wave function <math|\<psi\><around*|(|t|)>> in eigenstates of
+  the Hamiltonian at time <math|t>:
+
+  <\equation>
+    \<psi\><around*|(|t|)>=<big|sum><rsub|n=0><rsup|\<infty\>>c<rsub|n><around*|(|t|)><around*|\<nobracket\>|<around*|\||n<around*|(|t|)>|\<nobracket\>>|\<rangle\>>.
   </equation>
 
-  Writing gap as <math|\<hbar\>*v/<around|(|N*a|)>*\<Delta\><rsub|\<epsilon\>>>
-  where <math|\<Delta\><rsub|\<epsilon\>>=1> is the scaling dimension of the
-  <math|\<epsilon\>> operator in the 2D Ising CFT, we extract the emergent
-  speed of light <math|v=3.12*a*U/\<hbar\>>.
+  We refer to <math|<around*|\||c<rsub|0><around*|(|t<rsub|f>|)>|\|>> as the
+  ramp fidelity. The closer it is to 1, the better the final state
+  approximates the critical ground state. For the ramp in
+  <cite|Fang:2024uyf>, we find fidelity ??, see Table\ 
+
+  <\big-table|<tabular|<tformat|<table|<row|<cell|>|<cell|
+  >|<cell|<math|t<rsub|f>,\<mu\><text|s>>>|<cell|<math|<around*|\||c<rsub|0><around*|(|t<rsub|f>|)>|\|>>>|<cell|<math|<around*|\||c<rsub|1><around*|(|t<rsub|f>|)>|\|>>>|<cell|<math|<around*|\||c<rsub|2><around*|(|t<rsub|f>|)>|\|>>>|<cell|<math|<around*|(|1-<big|sum><rsub|n=0><rsup|2><around*|\||c<rsub|n><around*|(|t<rsub|f>|)>|\|><rsup|2>|)><rsup|1/2>>>>|<row|<cell|ramps
+  to P1:>|<cell|<cite|Fang:2024uyf>, Fig.
+  <reference|fig:yao-ramp>>|<cell|7>|<cell|>|<cell|>|<cell|>|<cell|>>|<row|<cell|>|<cell|>|<cell|2>|<cell|>|<cell|>|<cell|>|<cell|>>|<row|<cell|>|<cell|>|<cell|1.5>|<cell|>|<cell|>|<cell|>|<cell|>>|<row|<cell|ramps
+  to P3:>|<cell|>|<cell|?>|<cell|>|<cell|>|<cell|>|<cell|>>|<row|<cell|>|<cell|>|<cell|?>|<cell|>|<cell|>|<cell|>|<cell|>>>>>>
+    <label|tab:ramps>Ramp fidelities.
+  </big-table>
+
+  As we will now describe, for <math|N=24>, with modest computational
+  resources one can optimize ramp profiles, achieving better ground state
+  fidelities than in <cite|Fang:2024uyf> with several times shorter evolution
+  times for point P1, and even shorter times for point P3.
+
+  The computation is split into two phases - optimization and validation. In
+  the optimization stage, the model is reduced to a 20-dimensional subspace
+  of the 20 lowest-energy states (locally for each
+  <math|\<Omega\><rprime|'>,\<Delta\><rprime|'>>). This reduced model is
+  small enough so that optimization can be performed. In the validation
+  stage, one checks fidelities via quantum mechanical evolution in the full
+  <math|352,698>-dimensional subspace. See Appendix <reference|sec:optim> for
+  details.
 
   <subsection|Decoherence effects><label|sec:decoherence>
 
@@ -1044,6 +1069,100 @@
 
   The DMRG code ??? is available from the authors upon request.
 
+  <section|Some details about the experiment of Ref. <cite|Fang:2024uyf>>
+
+  Ref. <cite|Fang:2024uyf> measured 1D and 2D arrays of Rydberg atoms tuned
+  to the quantum critical point in the Ising universalty class. We will
+  report here parameters of their experiments, focussing on 1D case of
+  relevance for this paper.
+
+  The Hamiltonian of Ref. <cite|Fang:2024uyf> is precisely <eqref|eq:model>
+  with <math|N=24> atoms on a circle (they also studied <math|N=40>). To
+  reach the critical state they evolve <math|\<Delta\>,\<Omega\>> as in Fig.
+  <reference|fig:yao-ramp>. They report the following endpoint parameters:
+
+  <\equation>
+    \<Omega\><rsub|>/2\<pi\>=1.6 MHz,<space|1em>\<Delta\>/\<Omega\><rsub|>=0.97<around*|(|5|)>,<space|1em>R<rsub|b>/a\<approx\>1.4,
+  </equation>
+
+  where <math|R<rsub|b>=<around*|(|C<rsub|6>/\<hbar\>\<Omega\>|)><rsup|1/6>>
+  is the blockade radius (they don't report the error on <math|R<rsub|b>/a>).
+  Combining these we compute:
+
+  <\equation>
+    U=C<rsub|6>/a<rsup|6>\<approx\>\<hbar\>\<times\> 2\<pi\> 1.6
+    1.4<rsup|4>MHz=\<hbar\>\<times\>75.69 MHz,
+  </equation>
+
+  <\equation>
+    \<Omega\><rprime|'>=\<hbar\>\<Omega\>/U\<approx\>1/1.4<rsup|6>\<approx\>0.133
+    .
+  </equation>
+
+  The point P1 in Table <reference|tab:params> has
+  <math|\<Delta\><rprime|'>/\<Omega\><rprime|'>=1.03>, at the upper end of
+  the range <math|\<Delta\>/\<Omega\><rsub|>=0.97<around*|(|5|)>> from Ref.
+  <cite|Fang:2024uyf>.\ 
+
+  <\big-figure|<image|fig-Yao-ramp.pdf||||>>
+    <label|fig:yao-ramp>Evolution <math|\<Delta\><around*|(|t|)>> and
+    <math|\<Omega\><around*|(|t|)>> for preparing the critical state in
+    <cite|Fang:2024uyf>, Fig. 1C.\ 
+  </big-figure>
+
+  Ref. <cite|Fang:2024uyf> used the experimental definition of the critical
+  point, as the location of the maximum of susceptibility
+  <math|\<partial\><around*|\<langle\>|n|\<rangle\>>/\<partial\>\<Delta\>>
+  for sufficiently slow sweeps. They note that this also coincides with the
+  excitation gap minimum. For measuring the 2pt function a better theoretical
+  definition of the critical point is where the properties of the system are
+  described by the CFT Hamiltonian. This may differ by <math|1/N> effects
+  from the definitions used in Ref. <cite|Fang:2024uyf>. Our simulations show
+  the point P1 with <math|\<Delta\><rprime|'>/\<Omega\><rprime|'>=1.03> gives
+  the 2pt function consistent with CFT, while
+  <math|\<Delta\><rprime|'>/\<Omega\><rprime|'>=0.97> would give a 2pt
+  function decaying faster than CFT (thus in the disordered phase), with
+  <math|\<sim\>20%> suppression at the largest separation.\ 
+
+  The 2pt function measured in <cite|Fang:2024uyf>, Fig. 2F, was fitted by
+  them by the curve
+
+  <\equation>
+    <around*|\<langle\>|s<rsub|0>s<rsub|j>|\<rangle\>>\<propto\>
+    \<delta\><rsup|-1/4><rsub|j>exp<around*|(|-\<delta\><rsub|j>/\<xi\><rsub|>|)>,<space|1em>\<delta\><rsub|j>=a
+    <frac|N|\<pi\>>sin<around*|(|<frac|\<pi\>j|N>|)>,
+  </equation>
+
+  and <math|\<xi\>/a=13.2<rsup|+5.7><rsub|-3.6>> is the correlation length,
+  attributed to decoherence. The central <math|\<xi\>> value corresponds to
+  about 50% suppression of the correlator at the largest separation w.r.t.
+  the CFT value.
+
+  <section|Ramp profile optimization><label|sec:optim>
+
+  Optimization algorithm includes optimization in reduced 20-dimensional
+  subspace and validation in full <math|352,698>-dimensional subspace. We
+  discuss validation first.
+
+  <subsection|Validation><label|sec:validation>
+
+  <subsection|Optimization within reduced subspace><label|sec:reduced>
+
+  Optimization stage:
+
+  The path is discretized. A few hundred discretization points works well.
+  For each discretization point <math|<around*|(|\<Omega\><rprime|'>,\<Delta\><rprime|'>|)>>,
+  Hamiltonian is diagonalized and the lowest <math|K> states are kept
+  (<math|K=20> works well). One makes sure that this basis varies
+  continuously with <math|\<Omega\><rprime|'>,\<Delta\><rprime|'>> \ The
+  wavefunction is thus approximated by its projection onto the subspace of
+  the 20 lowest-energy states (locally for each
+  <math|\<Omega\><rprime|'>,\<Delta\><rprime|'>>), and the Hamiltonian is a
+  <math|20\<times\>20> matrix, depending on
+  <math|\<Omega\><rprime|'>,\<Delta\><rprime|'>>.
+
+  \;
+
   <\bibliography|bib|utphys|reference>
     <with|href|<macro|1|2|<arg|2>>|<\bib-list|10>
       <bibitem*|1><label|bib-Polyakov:1970xd>A.<nbsp>M. Polyakov, \PConformal
@@ -1105,7 +1224,7 @@
       <hlink|<with|font-shape|italic|Conformal Field
       Theory>|http://dx.doi.org/10.1007/978-1-4612-2256-9>.
       <newblock>Graduate Texts in Contemporary Physics. Springer-Verlag, New
-      York, 1997.
+      York, 1997. <newblock>
 
       <bibitem*|13><label|bib-Poland:2018epd>D.<nbsp>Poland, S.<nbsp>Rychkov,
       and A.<nbsp>Vichi, \PThe Conformal Bootstrap: Theory, Numerical
@@ -1193,7 +1312,7 @@
       [quant-ph]>|http://arxiv.org/abs/2104.04119>.
 
       <bibitem*|25><label|bib-Keesling:2018ish>A.<nbsp>Keesling
-      <with|font-shape|italic|et<nbsp>al.>, \PQuantum Kibble-Zurek mechanism
+      <with|font-shape|italic|et<nbsp>al.>, \PQuantum Kibble\UZurek mechanism
       and critical dynamics on a programmable Rydberg simulator,\Q
       <hlink|<with|font-shape|italic|Nature> <with|font-series|bold|568>
       no.<nbsp>7751, (2019) 207\U211|http://dx.doi.org/10.1038/s41586-019-1070-1>,
@@ -1398,23 +1517,23 @@
       <hlink|<with|font-family|tt|arXiv:2108.09309
       [cond-mat.str-el]>|http://arxiv.org/abs/2108.09309>.
 
-      <bibitem*|53><label|bib-ITensor>M.<nbsp>Fishman, S.<nbsp>R. White, and
-      E.<nbsp>M. Stoudenmire, \PThe ITensor Software Library for Tensor
-      Network Calculations,\Q <hlink|<with|font-shape|italic|SciPost Phys.
-      Codebases> (2022) 4|http://dx.doi.org/10.21468/SciPostPhysCodeb.4>.
-      <slink|https://scipost.org/10.21468/SciPostPhysCodeb.4>.
-
-      <bibitem*|54><label|bib-White1992>S.<nbsp>R. White, \PDensity matrix
+      <bibitem*|53><label|bib-White1992>S.<nbsp>R. White, \PDensity matrix
       formulation for quantum renormalization groups,\Q
       <hlink|<with|font-shape|italic|Phys. Rev. Lett.>
       <with|font-series|bold|69> (1992) 2863\U2866|http://dx.doi.org/10.1103/PhysRevLett.69.2863>.
 
-      <bibitem*|55><label|bib-Schollwock2011>U.<nbsp>Schollwöck, \PThe
+      <bibitem*|54><label|bib-Schollwock2011>U.<nbsp>Schollwöck, \PThe
       density-matrix renormalization group in the age of matrix product
       states,\Q <hlink|<with|font-shape|italic|Annals of Physics>
       <with|font-series|bold|326> (2011) 96\U192|http://dx.doi.org/10.1016/j.aop.2010.09.012>,
       <hlink|<with|font-family|tt|arXiv:1008.3477
       [cond-mat.str-el]>|http://arxiv.org/abs/1008.3477>.
+
+      <bibitem*|55><label|bib-Roland:2001imn>J.<nbsp>Roland and N.<nbsp>J.
+      Cerf, \PQuantum search by local adiabatic evolution,\Q
+      <hlink|<with|font-shape|italic|Phys. Rev. A> <with|font-series|bold|65>
+      no.<nbsp>4, (2002) 042308|http://dx.doi.org/10.1103/PhysRevA.65.042308>,
+      <hlink|<with|font-family|tt|arXiv:quant-ph/0107015>|http://arxiv.org/abs/quant-ph/0107015>.
 
       <bibitem*|56><label|bib-Richerme:2013hbx>P.<nbsp>Richerme,
       C.<nbsp>Senko, J.<nbsp>Smith, A.<nbsp>Lee, S.<nbsp>Korenblit, and
@@ -1451,18 +1570,24 @@
     <associate|auto-14|<tuple|3.2|8>>
     <associate|auto-15|<tuple|3.3|9>>
     <associate|auto-16|<tuple|6|9>>
-    <associate|auto-17|<tuple|7|11>>
+    <associate|auto-17|<tuple|7|10>>
     <associate|auto-18|<tuple|3.4|11>>
     <associate|auto-19|<tuple|8|12>>
     <associate|auto-2|<tuple|2|1>>
     <associate|auto-20|<tuple|3.5|12>>
     <associate|auto-21|<tuple|9|13>>
-    <associate|auto-22|<tuple|3.6|13>>
-    <associate|auto-23|<tuple|3.7|14>>
-    <associate|auto-24|<tuple|4|14>>
-    <associate|auto-25|<tuple|4|15>>
-    <associate|auto-26|<tuple|4|15>>
+    <associate|auto-22|<tuple|2|13>>
+    <associate|auto-23|<tuple|3.6|14>>
+    <associate|auto-24|<tuple|3.7|14>>
+    <associate|auto-25|<tuple|4|14>>
+    <associate|auto-26|<tuple|4|14>>
+    <associate|auto-27|<tuple|5|15>>
+    <associate|auto-28|<tuple|10|15>>
+    <associate|auto-29|<tuple|6|?>>
     <associate|auto-3|<tuple|2.1|1>>
+    <associate|auto-30|<tuple|6.1|?>>
+    <associate|auto-31|<tuple|6.2|?>>
+    <associate|auto-32|<tuple|6.2|?>>
     <associate|auto-4|<tuple|1|2>>
     <associate|auto-5|<tuple|2|3>>
     <associate|auto-6|<tuple|2.2|4>>
@@ -1470,78 +1595,79 @@
     <associate|auto-8|<tuple|4|5>>
     <associate|auto-9|<tuple|2.3|5>>
     <associate|bib-Allemand:2025pdq|<tuple|32|16>>
-    <associate|bib-Anand:2022cdi|<tuple|45|16>>
+    <associate|bib-Anand:2022cdi|<tuple|45|17>>
     <associate|bib-Belavin:1984vu|<tuple|3|15>>
-    <associate|bib-Bernien:2017ubn|<tuple|21|15>>
-    <associate|bib-Browaeys:2020kzz|<tuple|19|15>>
+    <associate|bib-Bernien:2017ubn|<tuple|21|16>>
+    <associate|bib-Browaeys:2020kzz|<tuple|19|16>>
     <associate|bib-Calabrese:2006rx|<tuple|36|16>>
     <associate|bib-Cardy1987|<tuple|4|15>>
     <associate|bib-Cardy:1984bb|<tuple|35|16>>
-    <associate|bib-Cardy:1996xt|<tuple|5|15>>
-    <associate|bib-Dborin:2022zdd|<tuple|46|16>>
-    <associate|bib-DiFrancesco:1997nk|<tuple|12|15>>
-    <associate|bib-Ebadi:2020ldi|<tuple|23|15>>
-    <associate|bib-Emperauger:2025raf|<tuple|28|15>>
-    <associate|bib-FSS|<tuple|50|16>>
-    <associate|bib-Fang:2024uyf|<tuple|26|15>>
-    <associate|bib-Gompper1985|<tuple|17|15>>
-    <associate|bib-Haghshenas:2023bje|<tuple|47|16>>
-    <associate|bib-Henkel1999|<tuple|14|15>>
+    <associate|bib-Cardy:1996xt|<tuple|5|16>>
+    <associate|bib-Dborin:2022zdd|<tuple|46|17>>
+    <associate|bib-DiFrancesco:1997nk|<tuple|12|16>>
+    <associate|bib-Ebadi:2020ldi|<tuple|23|16>>
+    <associate|bib-Emperauger:2025raf|<tuple|28|16>>
+    <associate|bib-FSS|<tuple|50|17>>
+    <associate|bib-Fang:2024uyf|<tuple|26|16>>
+    <associate|bib-Gompper1985|<tuple|17|16>>
+    <associate|bib-Haghshenas:2023bje|<tuple|47|17>>
+    <associate|bib-Henkel1999|<tuple|14|16>>
     <associate|bib-Hofman:2008ar|<tuple|30|16>>
-    <associate|bib-ITensor|<tuple|53|16>>
-    <associate|bib-Keesling:2018ish|<tuple|25|15>>
-    <associate|bib-King:2022phl|<tuple|44|16>>
+    <associate|bib-Keesling:2018ish|<tuple|25|16>>
+    <associate|bib-King:2022phl|<tuple|44|17>>
     <associate|bib-Lao:2023zis|<tuple|38|16>>
     <associate|bib-Luscher:1974ez|<tuple|34|16>>
-    <associate|bib-Manovitz:2024hif|<tuple|42|16>>
-    <associate|bib-Morgado:2020jfo|<tuple|20|15>>
-    <associate|bib-Nakayama:2013is|<tuple|11|15>>
-    <associate|bib-Ovchinnikov|<tuple|49|16>>
+    <associate|bib-Manovitz:2024hif|<tuple|42|17>>
+    <associate|bib-Morgado:2020jfo|<tuple|20|16>>
+    <associate|bib-Nakayama:2013is|<tuple|11|16>>
+    <associate|bib-Ovchinnikov|<tuple|49|17>>
     <associate|bib-PatashinskiPokrovsky1979|<tuple|33|16>>
-    <associate|bib-Podo:2026hfh|<tuple|18|15>>
-    <associate|bib-Pokrovskii1973|<tuple|16|15>>
-    <associate|bib-Poland:2018epd|<tuple|13|15>>
-    <associate|bib-Polchinski:1987dy|<tuple|10|15>>
+    <associate|bib-Podo:2026hfh|<tuple|18|16>>
+    <associate|bib-Pokrovskii1973|<tuple|16|16>>
+    <associate|bib-Poland:2018epd|<tuple|13|16>>
+    <associate|bib-Polchinski:1987dy|<tuple|10|16>>
     <associate|bib-Polyakov:1970xd|<tuple|1|15>>
     <associate|bib-Polyakov:1974gs|<tuple|2|15>>
-    <associate|bib-Rader:2019syq|<tuple|48|16>>
-    <associate|bib-Richerme:2013hbx|<tuple|56|16>>
+    <associate|bib-Rader:2019syq|<tuple|48|17>>
+    <associate|bib-Richerme:2013hbx|<tuple|56|17>>
+    <associate|bib-Roland:2001imn|<tuple|55|?>>
     <associate|bib-Rychkov:2016iqz|<tuple|31|16>>
-    <associate|bib-Rychkov:2025zks|<tuple|15|15>>
-    <associate|bib-Scholl:2020hzx|<tuple|22|15>>
-    <associate|bib-Schollwock2011|<tuple|55|16>>
-    <associate|bib-Seiberg:2023cdc|<tuple|51|16>>
-    <associate|bib-Semeghini:2021wls|<tuple|24|15>>
-    <associate|bib-Slagle:2021ene|<tuple|52|16>>
-    <associate|bib-Sun:2026aqf|<tuple|27|15>>
+    <associate|bib-Rychkov:2025zks|<tuple|15|16>>
+    <associate|bib-Scholl:2020hzx|<tuple|22|16>>
+    <associate|bib-Schollwock2011|<tuple|54|17>>
+    <associate|bib-Seiberg:2023cdc|<tuple|51|17>>
+    <associate|bib-Semeghini:2021wls|<tuple|24|16>>
+    <associate|bib-Slagle:2021ene|<tuple|52|17>>
+    <associate|bib-Sun:2026aqf|<tuple|27|16>>
     <associate|bib-Wang:2026prw|<tuple|37|16>>
-    <associate|bib-White1992|<tuple|54|16>>
+    <associate|bib-White1992|<tuple|53|17>>
     <associate|bib-Wu:2026ayb|<tuple|39|16>>
-    <associate|bib-Zhang:2025xkp|<tuple|41|16>>
+    <associate|bib-Zhang:2025xkp|<tuple|41|17>>
     <associate|bib-Zhu:2022gjc|<tuple|40|16>>
     <associate|bib-cardy1996scaling|<tuple|29|16>>
-    <associate|bib-delCampo:2013nla|<tuple|43|16>>
-    <associate|bib-fradkin|<tuple|9|15>>
-    <associate|bib-giamarchi2003quantum|<tuple|7|15>>
-    <associate|bib-noise-note|<tuple|57|16>>
-    <associate|bib-sachdev|<tuple|8|15>>
-    <associate|bib-tsvelik|<tuple|6|15>>
+    <associate|bib-delCampo:2013nla|<tuple|43|17>>
+    <associate|bib-fradkin|<tuple|9|16>>
+    <associate|bib-giamarchi2003quantum|<tuple|7|16>>
+    <associate|bib-noise-note|<tuple|57|17>>
+    <associate|bib-sachdev|<tuple|8|16>>
+    <associate|bib-tsvelik|<tuple|6|16>>
     <associate|eq:1ptstrip|<tuple|5|4>>
     <associate|eq:2ptcyl|<tuple|3|3>>
     <associate|eq:2ptcylequal|<tuple|4|3>>
     <associate|eq:conf|<tuple|19|12>>
-    <associate|eq:model|<tuple|7|7>>
+    <associate|eq:model|<tuple|7|6>>
     <associate|eq:modelp|<tuple|8|7>>
     <associate|eq:ratio-rel|<tuple|6|5>>
     <associate|eq:three-point|<tuple|2|2>>
     <associate|eq:two-point|<tuple|1|2>>
-    <associate|fig:2pt-sim|<tuple|7|11>>
+    <associate|fig:2pt-sim|<tuple|7|10>>
     <associate|fig:OSC|<tuple|4|5>>
     <associate|fig:cyl|<tuple|2|3>>
     <associate|fig:evolution|<tuple|9|13>>
     <associate|fig:flat|<tuple|1|2>>
     <associate|fig:ideal|<tuple|6|9>>
     <associate|fig:strip|<tuple|3|4>>
+    <associate|fig:yao-ramp|<tuple|10|15>>
     <associate|footnote-1|<tuple|1|1>>
     <associate|footnote-2|<tuple|2|1>>
     <associate|footnote-3|<tuple|3|2>>
@@ -1550,7 +1676,7 @@
     <associate|footnote-6|<tuple|6|4>>
     <associate|footnote-7|<tuple|7|5>>
     <associate|footnote-8|<tuple|8|9>>
-    <associate|footnote-9|<tuple|9|12>>
+    <associate|footnote-9|<tuple|9|11>>
     <associate|footnr-1|<tuple|1|1>>
     <associate|footnr-2|<tuple|2|1>>
     <associate|footnr-3|<tuple|3|2>>
@@ -1559,20 +1685,24 @@
     <associate|footnr-6|<tuple|6|4>>
     <associate|footnr-7|<tuple|7|5>>
     <associate|footnr-8|<tuple|8|9>>
-    <associate|footnr-9|<tuple|9|12>>
+    <associate|footnr-9|<tuple|9|11>>
     <associate|phasediagramHBlong|<tuple|5|7>>
-    <associate|sample|<tuple|17|12>>
+    <associate|sample|<tuple|17|11>>
     <associate|sec:2ptDMRG|<tuple|3.3|9>>
     <associate|sec:concl|<tuple|4|14>>
     <associate|sec:decoherence|<tuple|3.6|13>>
     <associate|sec:fidelity|<tuple|3.5|12>>
     <associate|sec:gen|<tuple|2|1>>
+    <associate|sec:optim|<tuple|6|?>>
     <associate|sec:prop|<tuple|3|6>>
     <associate|sec:prospects|<tuple|3.7|14>>
+    <associate|sec:reduced|<tuple|6.2|?>>
     <associate|sec:sample|<tuple|3.4|11>>
+    <associate|sec:validation|<tuple|6.1|?>>
     <associate|sicorr|<tuple|15|10>>
     <associate|ssCFT|<tuple|10|8>>
-    <associate|tab:params|<tuple|1|8>>
+    <associate|tab:params|<tuple|2|8>>
+    <associate|tab:ramps|<tuple|2|?>>
   </collection>
 </references>
 
@@ -1781,21 +1911,39 @@
 
       Fang:2024uyf
 
-      Fang:2024uyf
-
       Slagle:2021ene
 
       White1992
 
       Schollwock2011
 
-      ITensor
+      Fang:2024uyf
 
-      Scholl:2020hzx
+      Fang:2024uyf
+
+      Roland:2001imn
+
+      Fang:2024uyf
 
       Richerme:2013hbx
 
       noise-note
+
+      Fang:2024uyf
+
+      Fang:2024uyf
+
+      Fang:2024uyf
+
+      Fang:2024uyf
+
+      Fang:2024uyf
+
+      Fang:2024uyf
+
+      Fang:2024uyf
+
+      Fang:2024uyf
     </associate>
     <\associate|figure>
       <tuple|normal|<surround|<hidden-binding|<tuple>|1>||Direct tests in
@@ -1847,19 +1995,24 @@
       </surround>|<pageref|auto-16>>
 
       <tuple|normal|<\surround|<hidden-binding|<tuple>|7>|>
-        Change vertical axis label to <with|mode|<quote|math>|<around*|\<langle\>|s<rsub|i>s<rsub|j>|\<rangle\>>/<around*|\<langle\>|\<sigma\><rsub|i>\<sigma\><rsub|j>|\<rangle\>>>.
-        Note that this will require rescaling of the vertical axis by factor
-        1/4 (?)
+        2pt function simulations. <with|color|<quote|red>|Remove P1, rename
+        P1' as P1>
       </surround>|<pageref|auto-17>>
 
       <tuple|normal|<surround|<hidden-binding|<tuple>|8>||Estimating the
       critical 2pt function on the ring of <with|mode|<quote|math>|N=24>
-      atoms from independent snapshots, for points P1' and P3.
-      <with|color|<quote|red>|This plot needs to be changed>
-      >|<pageref|auto-19>>
+      atoms from independent snapshots, for points P1 and P3.
+      <with|color|<quote|red>|Rename P1' as P1>>|<pageref|auto-19>>
 
       <tuple|normal|<surround|<hidden-binding|<tuple>|9>||Adiabatic evolution
-      paths>|<pageref|auto-21>>
+      paths.>|<pageref|auto-21>>
+
+      <tuple|normal|<\surround|<hidden-binding|<tuple>|10>|>
+        Evolution <with|mode|<quote|math>|\<Delta\><around*|(|t|)>> and
+        <with|mode|<quote|math>|\<Omega\><around*|(|t|)>> for preparing the
+        critical state in [<write|bib|Fang:2024uyf><reference|bib-Fang:2024uyf>],
+        Fig. 1C.\ 
+      </surround>|<pageref|auto-27>>
     </associate>
     <\associate|table>
       <tuple|normal|<\surround|<hidden-binding|<tuple>|1>|>
@@ -1867,8 +2020,7 @@
         of points P1,P2 used in previous experimental studies of 2d Ising
         criticality with Rydberg atoms [<write|bib|Fang:2024uyf><reference|bib-Fang:2024uyf>],[<write|bib|Sun:2026aqf><reference|bib-Sun:2026aqf>],
         and of point P3 which has on-site
-        <with|mode|<quote|math>|\<bbb-Z\><rsub|2>>. Below we focus on P1 and
-        P3.
+        <with|mode|<quote|math>|\<bbb-Z\><rsub|2>>.\ 
       </surround>|<pageref|auto-13>>
     </associate>
     <\associate|toc>
@@ -1914,7 +2066,7 @@
       size <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-18>>
 
-      <with|par-left|<quote|1tab>|3.5<space|2spc>State preparation
+      <with|par-left|<quote|1tab>|3.5<space|2spc>Ground state preparation
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-20>>
 
@@ -1934,9 +2086,15 @@
       availability statement> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-25><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|5<space|2spc>Some
+      details about the experiment of Ref.
+      [<write|bib|Fang:2024uyf><reference|bib-Fang:2024uyf>]>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-26><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-28><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
