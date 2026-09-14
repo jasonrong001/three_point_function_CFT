@@ -264,28 +264,29 @@
   <with|color|red|REMOVE: the left part of the figure.>>
 
   For a nontrivial test, <math|A<rsub|\<cal-O\>>> in <eqref|eq:1ptstrip>
-  should not vanish due to global symmetry reasons. For example, for
-  <math|\<cal-O\>=\<sigma\>> in the 2d Ising CFT, the boundary condition
-  should break global <math|\<bbb-Z\><rsub|2>>, hence it should be either
+  should not be zero, which may happen due to global symmetry reasons. For
+  example, for <math|\<cal-O\>=\<sigma\>> in the 2d Ising CFT, the boundary
+  condition should break global <math|\<bbb-Z\><rsub|2>> for
+  <math|A<rsub|\<cal-O\>>> to be nonzero<math|>, hence it should be either
   \Pspin-up\Q or \Pspin-down\Q boundary condition
   <math|<around|\||+|\<rangle\>>>, <math|<around|\||-|\<rangle\>>> and not
   the \Pfree\Q boundary condition <math|<around|\||f|\<rangle\>>>.
 
-  While one may think that testing 1pt function <eqref|eq:1ptstrip> is better
-  than testing 2pt function <eqref|eq:2ptcylequal>, our preliminary
-  investigations suggest that the opposite is true. A significant advantage
-  of <eqref|eq:2ptcylequal> is translation invariance. It helps in the
+  What is easier: testing 1pt function <eqref|eq:1ptstrip> or testing 2pt
+  function <eqref|eq:2ptcylequal>? Our investigations suggest that testing
+  <eqref|eq:2ptcylequal> is easier. A significant advantage of
+  <eqref|eq:2ptcylequal> is translation invariance. It helps in the
   measurement, since averaging over translations improves statistics. It also
   helps during the adiabatic evolution when preparing the ground state, since
   the whole adiabatic evolution takes place in the translationally invariant
   subsector of the Hilbert space. Eq. <eqref|eq:1ptstrip> has no comparable
-  advantages. It also has a disadvantage: in the cases that we tried,
-  <eqref|eq:1ptstrip> was affected by large corrections to scaling near the
-  boundaries (intuitively, one can say that there is an ambiguity where the
-  CFT boundary is located compared to the Rydberg chain boundary).\ 
-
-  Thus below we will focus on the possible tests of \ <eqref|eq:2ptcylequal>
-  and we will not report any results for <eqref|eq:1ptstrip>.
+  advantages. Moreover, in our numerical experiments, <eqref|eq:1ptstrip> was
+  affected by large corrections to scaling near the boundaries.<\footnote>
+    One can phrase this by saying that there is an ambiguity where the
+    \Ptrue\Q CFT boundary is located compared to the Rydberg chain boundary.
+  </footnote> For these reasons below we will focus on the possible tests of
+  <eqref|eq:2ptcylequal> and we will not report any results for
+  <eqref|eq:1ptstrip>.
 
   <with|font-series|bold|II.> Another possible test of conformality would be
   to test the operator-state correspondence (OSC), which can be tested both
@@ -345,7 +346,7 @@
   subtle although not impossible <cite|Lao:2023zis|Wu:2026ayb>. Recently,
   fuzzy sphere 2D quantum criticality <cite|Zhu:2022gjc>, with electrons
   moving on the two-sphere with a magnetic flux, was proposed as a way to
-  preserve rotational invariance,. Experimental realization of this setup is
+  preserve rotational invariance. Experimental realization of this setup is
   currently lacking.
 
   <subsection|Existing experimental results: Rydberg atoms and related
@@ -431,33 +432,35 @@
   2pt function on the circle was already measured in
   <cite|Fang:2024uyf|Emperauger:2025raf>. But they did not see Eq.
   <eqref|eq:2ptcylequal>. Instead they saw exponential decay. Below we will
-  argue that simple improvements of these existing experiments should be able
-  to reduce decoherence and see Eq. <eqref|eq:2ptcylequal>.
+  argue that simple improvements of these existing experiments have a good
+  chance to reduce decoherence sufficiently so that Eq.
+  <eqref|eq:2ptcylequal> can be verified.
 
   This section is structured as follows STOPPED HERE
 
   <subsection|Hamiltonian and phase diagram>
 
   We consider the standard setup known to lead to Ising quantum criticality
-  in 1d chains of Rydberg atoms <cite-detail|Browaeys:2020kzz|Eq.<nbsp>(1)>.
-  As mentioned we are interested in the periodic circular ring arrangements.
-  In this section we consider the ideal setup where the atoms are exactly
+  in 1D chains of Rydberg atoms <cite-detail|Browaeys:2020kzz|Eq.<nbsp>(1)>.
+  As mentioned we are interested in the periodic circular arrangements. In
+  this section we consider the ideal setup where the atoms are exactly
   equally spaced. The effects of atoms not exactly equally spaced will be
   mentioned below.
 
   To write the Hamiltonian, we identify the Hilbert space of the Rydberg
   chain with the Hilbert space of a spin-1/2 spin chain, identifying the
-  ground state <math|<around|\||g<rsub|i>|\<rangle\>>> and the Rydberg state
-  <math|<around|\||r<rsub|i>|\<rangle\>>> of each atom with down and up
-  spin-<math|1/2> states of the corresponding spin. The Hamiltonian for the
-  chain of <math|N> atoms then becomes
+  ground state <math|<around|\||0<rsub|i>|\<rangle\>>> and the Rydberg state
+  <math|<around|\||1<rsub|i>|\<rangle\>>> of each atom with down and up
+  spin-<math|1/2> states <math|<around*|\||\<downarrow\><rsub|i>|\<rangle\>>,><math|<around*|\||\<uparrow\><rsub|i>|\<rangle\>>>
+  of the corresponding spin. The Hamiltonian for the chain of <math|N> atoms
+  then becomes
 
   <\equation>
-    <wide|H|^><rsub|<text|phys>>=<frac|\<hbar\>*\<Omega\>|2>*<big|sum><rsub|i=1><rsup|N>X<rsub|i>-\<hbar\>*\<Delta\>*<big|sum><rsub|i=1><rsup|N>n<rsub|i>+<big|sum><rsub|i\<less\>j>V<rsub|i*j>*n<rsub|i>*n<rsub|j>,<space|1em>V<rsub|i*j>=<frac|C<rsub|6>|R<rsub|i*j><rsup|6>>.<label|eq:model>
+    <wide|H|^><rsub|<text|phys>>=<frac|\<hbar\>*\<Omega\>|2>*<big|sum><rsub|i=0><rsup|N-1>X<rsub|i>-\<hbar\>*\<Delta\>*<big|sum><rsub|i=0><rsup|N-1>n<rsub|i>+<big|sum><rsub|i\<less\>j>V<rsub|i*j>*n<rsub|i>*n<rsub|j>,<space|1em>V<rsub|i*j>=<frac|C<rsub|6>|R<rsub|i*j><rsup|6>>.<label|eq:model>
   </equation>
 
   Here <math|\<Omega\>> is the effective Rabi frequency, <math|\<Delta\>> is
-  the detuning, <math|n<rsub|i>=<around|\||r<rsub|i>|\<rangle\>><around|\<langle\>|r<rsub|i>|\|>>
+  the detuning, <math|n<rsub|i>=<around|\||1<rsub|i>|\<rangle\>><around|\<langle\>|1<rsub|i>|\|>>
   counts Rydberg excitations at site <math|i>, <math|X<rsub|i>> is the
   Pauli-x matrix, <math|R<rsub|i*j>=<around|\||<math-bf|r><rsub|i>-<math-bf|r><rsub|j>|\|>>
   is the distance between the atoms, and <math|V<rsub|i*j>> is the van der
@@ -474,7 +477,7 @@
   where <math|\<Omega\><rprime|'>=\<hbar\>*\<Omega\>/U> and
   <math|\<Delta\><rprime|'>=\<hbar\>*\<Delta\>/U> are real dimensionless
   numbers, and <math|d<rsub|i*j>=R<rsub|i*j>/a> is the dimensionless
-  distance.
+  distance. <with|color|red|MAKE A PICTURE>
 
   Let us describe the phase diagram of this Hamiltonian. It is rich and well
   studied <cite|Keesling:2018ish|Rader:2019syq>. Most of the parameter space
@@ -507,14 +510,14 @@
   and the disordered phase. We do not show in detail the two tiny gray
   regions which house further phases <cite|Keesling:2018ish|Rader:2019syq>.
   The two red points corresponds to the points studied
-  in<nbsp><cite|Fang:2024uyf> (1) and <cite|Sun:2026aqf> (2), see Table
-  <with|color|red|<reference|tab:params>>. Below we will focus on point 1 as
-  well as the blue point 3 corresponding to
+  in<nbsp><cite|Fang:2024uyf> (P1) and <cite|Sun:2026aqf> (P2), see Table
+  <with|color|red|<reference|tab:params>>. Below we will focus on point P1 as
+  well as the blue point P3 corresponding to
   <math|\<Delta\><rprime|'>=\<zeta\><around|(|6|)>>,
   <math|\<Omega\><rprime|'>\<approx\>0.488>. <with|color|red|add a gray
   region near <math|\<Delta\><rprime|'>=2>, sym w.r.t.
   <math|\<Delta\><rprime|'>=\<zeta\><around|(|6|)>>, add 3 for the blue
-  point>>
+  point>, change 1,2,3 to P1,P2,P3>
 
   The above features of the phase diagram will be sufficient for us, but for
   completeness we describe the additional featurers of the phase diagram in
@@ -540,164 +543,324 @@
   <math|Z<rsub|i>\<to\>-Z<rsub|i>>.\ 
 
   Below for definiteness we will focus on two points on the critical line:
-  the point <math|\<Delta\><rprime|'>=\<zeta\><around|(|6|)>>,
+  point P3 <math|\<Delta\><rprime|'>=\<zeta\><around|(|6|)>>,
   <math|\<Omega\><rprime|'>\<approx\>0.488> which has on-site
-  <math|\<bbb-Z\><rsub|2>>, and the point studied in <cite|Fang:2024uyf> (see
-  Table <reference|tab:params>) which lies closer to (but not quite in) the
-  strong blockade regime. \ We will see that the on-site
-  <math|\<bbb-Z\><rsub|2>> point has some advantages for the experiments. All
-  simulations for both points will be done with the Hamiltonian
-  <eqref|eq:modelp>.
+  <math|\<bbb-Z\><rsub|2>>, and point P1 from <cite|Fang:2024uyf> (see Table
+  <reference|tab:params>) which lies closer to (but not quite in) the strong
+  blockade regime. \ We will see that P3 has some advantages for the
+  experiments. All simulations for both points will be done with the
+  Hamiltonian <eqref|eq:modelp>.
 
-  <\big-table|<tabular|<tformat|<table|<row|<cell|point>|<cell|<math|\<Omega\><rprime|'>>>|<cell|<math|\<Delta\><rprime|'>>>>|<row|<cell|1<cite|Fang:2024uyf>>|<cell|0.133>|<cell|0.129>>|<row|<cell|2<cite|Sun:2026aqf>>|<cell|?>|<cell|?>>|<row|<cell|3>|<cell|<math|0.488>>|<cell|<math|\<zeta\><around|(|6|)>>>>>>>>
+  <\big-table|<tabular|<tformat|<table|<row|<cell|point>|<cell|<math|\<Omega\><rprime|'>>>|<cell|<math|\<Delta\><rprime|'>>>>|<row|<cell|P1<cite|Fang:2024uyf>>|<cell|0.133>|<cell|0.129>>|<row|<cell|P1'>|<cell|0.133>|<cell|0.137>>|<row|<cell|P2<cite|Sun:2026aqf>>|<cell|0.031>|<cell|0.052>>|<row|<cell|P3>|<cell|<math|0.488>>|<cell|<math|\<zeta\><around|(|6|)>>>>>>>>
     <label|tab:params>Parameters <math|\<Omega\><rprime|'>,\<Delta\><rprime|'>>
-    of points 1,2 used in previous experimental studies of 2d Ising
+    of points P1,P2 used in previous experimental studies of 2d Ising
     criticality with Rydberg atoms <cite|Fang:2024uyf>,<cite|Sun:2026aqf>,
-    and of point 3 which has on-site <math|\<bbb-Z\><rsub|2>>. Below we focus
-    on points 1,3.
+    and of point P3 which has on-site <math|\<bbb-Z\><rsub|2>>. Below we
+    focus on P1 and P3.
   </big-table>
 
-  <subsection|Two-point function on a circle: DMRG prediction>
+  <subsection|Measuring critical 2pt-point function>
 
-  We now consider the arrangement of atoms along a circle which was studied
-  in <cite|Fang:2024uyf|Emperauger:2025raf>. Since we are on a circle the
-  dimensionless distance in <eqref|eq:model> is <math|d<rsub|i*j>=<frac|sin
-  <around|(|\<pi\>*<around|\||i-j|\|>/N|)>|sin <around|(|\<pi\>/N|)>>>.
+  We will be interested in the equal time CFT 2pt function
+  \ <math|<around|\<langle\>|\<cal-O\>*<around|(|\<phi\><rsub|1>,0|)>*\<cal-O\>*<around|(|\<phi\><rsub|2>,0|)>|\<rangle\>>>,
+  see Eq.<nbsp><eqref|eq:2ptcylequal>, where we take
+  <math|\<cal-O\>=\<sigma\>>, the <math|\<bbb-Z\><rsub|2>> nontrivial primary
+  of the 2d Ising CFT. Correlation functions of <math|\<epsilon\>> can also
+  be discussed, but since <math|\<epsilon\>> has a higher scaling dimension,
+  they will decay faster with a distance and the powerlaw will be harder to
+  resolve experimentally (more on this below).\ 
 
-  We are interested in the CFT 2pt function at equal time
-  <math|<around|\<langle\>|\<sigma\>*<around|(|\<phi\><rsub|1>,0|)>*\<sigma\>*<around|(|\<phi\><rsub|2>,0|)>|\<rangle\>>>,
-  see Eq.<nbsp><eqref|eq:2ptcylequal>, where <math|\<sigma\>> is the
-  <math|\<bbb-Z\><rsub|2>> nontrivial primary of the 2d Ising CFT.
-  Correlation functions of <math|\<epsilon\>> can also be discussed, but
-  since <math|\<epsilon\>> has a higher scaling dimension, they will decay
-  faster with a distance and the powerlaw will be harder to resolve
-  experimentally (more on this below).
+  In a Rydberg atom experiment, this critical 2pt function is measured as
+  follows <cite|Fang:2024uyf>.\ 
 
-  As mentioned we work at <math|\<Delta\><rprime|'>=\<zeta\><around|(|6|)>>
-  where the lattice model has onsite <math|\<bbb-Z\><rsub|2>> which flips the
-  sign of <math|Z<rsub|i>>. The operators even and odd under this on-site
-  symmetry will map at long distances to <math|\<bbb-Z\><rsub|2>> even and
-  odd CFT operators. So e.g.
+  <\enumerate-numeric>
+    <item>One starts in the ground state of the Rydberg chain at the initial
+    point <math|<around*|(|\<Omega\><rsub|0><rprime|'>,\<Delta\><rsub|0><rprime|'>|)>>
+    with <math|\<Omega\><rsub|0><rprime|'>=0>,
+    <math|\<Delta\><rsub|0><rprime|'>\<less\>0>. For
+    <math|\<Omega\><rprime|'>=0>, the Hamiltonian trivializes and the ground
+    state is easy to find: for any <math|\<Delta\><rprime|'>\<less\>0> it is
+    the tensor product state <math|<around*|\||0|\<rangle\>><rsup|\<otimes\>N>>.
+    This ground state is also easy to prepare experimentally.\ 
+
+    <item>One follows a curve <math|<around*|(|\<Omega\><rprime|'><around*|(|t|)>,\<Delta\><rprime|'><around*|(|t|)>|)>>,
+    <math|0\<leqslant\>t\<leqslant\>T>, in the plane
+    <math|<around*|(|\<Omega\><rprime|'>,\<Delta\><rprime|'>|)>> which joins
+    the initial point with a final point chosen to lie on the critical line
+    (for us, P1 or P3). This curve has to be chosen so that the quantum
+    mechanical evolution is sufficiently adiabatic so that the final state is
+    sifficiently close to the ground state. E.g. the curve used in
+    <cite|Fang:2024uyf> is shown in Fig.<with|color|red| ??>
+
+    <item>At time <math|T>, a projective measurement is performed. The result
+    of this measurement is the collapsed state of the form
+    <math|\<Psi\><rsub|>=<around*|\||n<rsub|i>,\<ldots\>,n<rsub|N>|\<rangle\>>>
+    where <math|n<rsub|i>=0> or 1 if atom <math|i> was found in the ground or
+    the Rydberg state.\ 
+
+    <item>Repeating steps 1,2,3 several times, and averaging over the
+    resulting collapsed states, one measures the 2pt function of an
+    appropriately chosen microscopic operator <math|s<rsub|i>>. This
+    operators must be diagonal in the <math|n<rsub|i>> basis. The operator is
+    chosen so that, at the quantum critical point, and at separation
+    <math|<around*|\||i-j|\|>\<gg\>1>, its 2pt function equals (up to
+    position independent rescaling), the CFT 2pt function we are interested
+    in:
+
+    <\equation>
+      <around*|\<langle\>|s<rsub|i>s<rsub|j>|\<rangle\>>=const.
+      <around|\<langle\>|\<sigma\><around|(|\<phi\><rsub|1>,0|)>*\<sigma\><around|(|\<phi\><rsub|2>,0|)>|\<rangle\>>,<space|1em>\<phi\><rsub|i>=2\<pi\>
+      i/N,<space|1em><around*|\||i-j|\|>\<gg\>1.<label|ssCFT>
+    </equation>
+  </enumerate-numeric>
+
+  Several issues affect the measurement processes, rendering it more or less
+  experimentally feasible. They are discussed below:
+
+  <\enumerate-numeric>
+    <item>(Section <reference|sec:2ptDMRG>) At which minimal separation
+    <math|<around*|\||i-j|\|>> can we trust Eq. <eqref|ssCFT>? We will see
+    that <math|<around*|\||i-j|\|>=1> is already good enough.
+
+    <item>(Section <reference|sec:sample>) How many collapsed states do we
+    need so that statistical errors in the measurement of
+    <math|<around*|\<langle\>|s<rsub|i>s<rsub|j>|\<rangle\>>> are reasonably
+    small, say 10%? I.e. how many times do we have to repeat the experiment?
+    We will see that order <math|10<rsup|3>> times is enough.
+
+    <item>(Section <reference|sec:fidelity>) How can we optimize the
+    evolution curve <math|<around*|(|\<Omega\><rprime|'><around*|(|t|)>,\<Delta\><rprime|'><around*|(|t|)>|)>>
+    so that, for fixed evolution time <math|T>, the final state is as close
+    as possible to the true ground state? What are the achievable fidelities
+    for experimentally reasonable evolution times? We will see that, with the
+    help of optimization, excellent ground state fidelities can be achieved
+    for P1 with <math|T> several times shorter than in <cite|Fang:2024uyf>,
+    and even shorter times for P3.
+
+    <item>(Section <reference|sec:decoherence>) What about the decoherence
+    effects? The main decoherence effects reduce proportionally to the
+    evolution times. Our recipe to reduce them is to reduce the evolution
+    time, while keeping ground state fidelity high enough.
+  </enumerate-numeric>
+
+  Once all of this is discussed, we will summarize our (optimistic)
+  conclusions in Section <reference|sec:prospects>.
+
+  <subsection|Ground state 2pt function><label|sec:2ptDMRG>
+
+  In this section we suppose that parameters of the Rydberg chain Hamiltonian
+  were tuned to lie on the critical line. For concreteness we will consider
+  points P1 and P3 on this line. We will discuss the 2pt function of
+  microscopic operators <math|s<rsub|i>> in the ground state, and see how
+  they compare with the CFT 2pt function of the primary <math|\<sigma\>>. How
+  to realize, via adiabatic evolution, a state sufficiently close to the
+  groud state will be discussed in Section <reference|sec:fidelity> below.
+
+  We map the circle on which Rydberg atoms are positioned to the CFT circle
+  of length <math|2\<pi\>>, so that atom number <math|i> is mapped to the
+  agle <math|\<phi\><rsub|i>=2\<pi\>i/N>. If the microscopic operator
+  <math|s<rsub|i>> were exactly equal to the CFT operator
+  <math|\<sigma\><rsub|i>\<assign\>\<sigma\><around*|(|\<phi\><rsub|i>|)>>,<\footnote>
+    We will no longer write time for the CFT operators, which is always set
+    to zero.
+  </footnote> the ground state correlation function would be equal to
+  <eqref|eq:2ptcylequal> with <math|\<Delta\><rsub|\<cal-O\>>=\<Delta\><rsub|\<sigma\>>=1/8>:
 
   <\equation>
-    Z<rsub|j>=b*<around|(|-1|)><rsup|j>*\<sigma\><around|(|\<phi\>|)>+\<ldots\>,<space|1em>\<phi\>=2*\<pi\>*j/N,
+    <around*|\<langle\>|\<sigma\><rsub|i>\<sigma\><rsub|j>|\<rangle\>><rsub|><rsub|>=<frac|1|<around*|(|2
+    sin<frac|2\<pi\><around*|\||i-j|\|>|N>|)><rsup|1/4>> .<label|2ptideal>
   </equation>
 
-  where <math|b> is a non-universal constant and
-  <math|<around|(|-1|)><rsup|j>> factor transforms the antiferromagnetic spin
-  chain to the ferromagnetic one. Importantly, the terms <math|\<ldots\>> may
-  not contain <math|\<bbb-Z\><rsub|2>> even operators. Taking into account
-  spatial parity, the lowest-dimension operator in <math|\<ldots\>> is
-  <math|<around|(|-1|)><rsup|j>*\<partial\><rsub|\<phi\>><rsup|2>*\<sigma\><around|(|\<phi\>|)>>.
+  This 2pt function is plotted in Fig. <reference|fig:ideal> for <math|N=24>
+  and for distance <math|<around*|\||i-j|\|>=1\<ldots\>12> This is the
+  dependence that we hope to see experimentally. The range of variation for
+  <math|N=24> is not huge, we have <math|<around*|\<langle\>|\<sigma\><rsub|0>\<sigma\><rsub|12><rsub|>|\<rangle\>>\<approx\>0.6<around*|\<langle\>|\<sigma\><rsub|0>\<sigma\><rsub|1><rsub|>|\<rangle\>>>.
+  <with|color|red|We could also plot <eqref|2ptideal> as a function of
+  \ <math|sin<frac|2\<pi\>i|N>> in log-log scale, with
+  <math|sin<frac|2\<pi\>i|N>> on the horizonal axis, but<text-dots>>
 
-  So, we use <math|<around|(|-1|)><rsup|j>*Z<rsub|j>> as a microscopic proxy
-  for <math|\<sigma\><around|(|\<phi\>|)>>. To study
-  <math|<around|\<langle\>|\<sigma\><around|(|0|)>*\<sigma\><around|(|\<phi\>|)>|\<rangle\>>>
-  we measure <math|<around|(|-1|)><rsup|j>*<around|\<langle\>|Z<rsub|0>*Z<rsub|j>|\<rangle\>>>
-  in the ground state of the spin chain, which we obtain via DMRG. This is
-  shown in Fig.<nbsp><reference|ZZ2pt>, plotted with respect to
-  <math|d<rsub|0*j>> which maps to <math|sin <around|(|\<phi\>/2|)>> up to a
-  constant factor. We take <math|N=24> as in
-  <cite|Fang:2024uyf|Emperauger:2025raf>.
+  <\big-figure|<image|fig-2pt-function.pdf|200pt|||>>
+    <label|fig:ideal>CFT prediction for 2pt function at <math|N=24>, Eq.
+    <eqref|2ptideal>.\ 
+  </big-figure>
 
-  <big-figure|<with|par-mode|center|<image|ZZ_correlation.png|0.6par|||><label|ZZ2pt>>|The
-  correlation function <math|<around|(|-1|)><rsup|j>*<around|\<langle\>|Z<rsub|0>*Z<rsub|j>|\<rangle\>>>,
-  plotted with respect to <math|d<rsub|0*j>> for <math|N=24>. We work at
-  <math|\<Delta\><rprime|'>=\<zeta\><around|(|6|)>> and three values of
-  <math|\<Omega\><rprime|'>>: <math|0.488> (critical point, red); <math|0.45>
-  (ordered phase, green) and <math|0.52> (disordered, red). The black dashed
-  line is the CFT prediction <math|\<propto\>1/d<rsub|0*j><rsup|1/4>>.
-  <with|color|red|labels on axes to be adjusted, to agree with the text. Make
-  the horizontal axis in this plot and the plot below have the same length
-  (probably 10 should be included in both axes, but not much beyond)>>
+  Prediction <eqref|2ptideal> is idealized because we can't find a
+  microscopic operator <math|s<rsub|i>> which exacty equals the CFT operator
+  <math|\<sigma\><around*|(|\<phi\><rsub|i>|)>>. The best we can hope for is
+  a relation
 
-  Discussion and comparison to <cite|Slagle:2021ene>. A plot similar to the
-  red line was shown in <cite|Slagle:2021ene>, Fig.<nbsp>??. There they
-  worked in the strong Rydberg blockade regime and approximated
-  <math|\<sigma\><around|(|\<phi\>|)>> by
-  <math|<around|(|-1|)><rsup|j>*<around|(|n<rsub|j>-<around|\<langle\>|n|\<rangle\>>|)>>.
-  Oscillations because of admixture of <math|<around|(|-1|)><rsup|j>*\<epsilon\><around|(|\<phi\>|)>>.
-  Due to Rydberg blockade, correlator of <cite|Slagle:2021ene> starts
-  approaching CFT from distance 2 only, while our correlator looks good
-  already at distance 1.
+  <\equation>
+    s<rsub|i>=\<sigma\><around*|(|\<phi\><rsub|i>|)>+\<ldots\>
+  </equation>
 
-  Cite DMRG <cite|White1992|Schollwock2011>
+  where \<ldots\> stands for CFT operators of higher scaling dimension than
+  <math|\<sigma\>>.\ 
+
+  To find an appropriate operator <math|s<rsub|i>>, let us start with
+  <math|Z<rsub|i>>, the simplest microscopic operator diagonal in the
+  <math|n<rsub|i>> basis. We can expand <math|Z<rsub|i>> in a sum of
+  <math|\<bbb-Z\><rsub|2>>-even and <math|\<bbb-Z\><rsub|2>>-odd CFT
+  operators, as follows:
+
+  <\equation>
+    Z<rsub|i>=<around*|(|-1|)><rsup|i><big|sum><rsub|\<bbb-Z\><rsub|2><text|-odd
+    >\<cal-O\>>c<rsub|\<cal-O\><rsup|>> \<cal-O\><rsup|><around*|(|\<phi\><rsub|i>|)>+<big|sum><rsub|\<bbb-Z\><rsub|2><text|-even
+    >\<cal-O\>>c<rsub|\<cal-O\>>\<cal-O\><around*|(|\<phi\><rsub|i>|)>
+  </equation>
+
+  \;
+
+  In the considered lattice model, lattice translation by one site maps to
+  the <math|\<bbb-Z\><rsub|2>> transformation of the CFT. This explains
+  factor <math|<around*|(|-1|)><rsup|i>> in front of the sum over
+  <math|\<bbb-Z\><rsub|2>>-odd <math|\<cal-O\>>.\ 
+
+  The first <math|\<bbb-Z\><rsub|2>>-odd CFT operator is <math|\<sigma\>>
+  that we are after, and the first <math|\<bbb-Z\><rsub|2>>-even CFT operator
+  is the identity, which can be subtracted by subtracting the vev of
+  <math|Z<rsub|i>>. Thus we identify the microscopic operator:
+  <with|color|red|REF>
+
+  <\equation>
+    s<rsub|i>=<around*|(|-1|)><rsup|i><around*|(|Z<rsub|i>-<around*|\<langle\>|Z<rsub|i>|\<rangle\>>|)>.
+  </equation>
+
+  We then have that <math|s<rsub|i>=c<rsub|\<sigma\>>\<sigma\><around*|(|\<phi\><rsub|i>|)>>
+  plus corrections of higher scaling dimension:
+
+  <\equation>
+    s<rsub|i>=c<rsub|\<sigma\>>\<sigma\><around*|(|\<phi\><rsub|i>|)>+c<rsub|\<partial\><rsub|\<phi\>><rsup|2>*\<sigma\>><rsub|>\<partial\><rsub|\<phi\>><rsup|2>*\<sigma\><around|(|\<phi\><rsub|i>|)>+<around*|(|-1|)><rsup|i>c<rsub|\<varepsilon\>>\<varepsilon\><around*|(|\<phi\><rsub|i>|)>+\<ldots\><label|sicorr>
+  </equation>
+
+  where we kept in the r.h.s. the corrections from two lowest
+  <math|\<bbb-Z\><rsub|2>>-odd and <math|\<bbb-Z\><rsub|2>>-even operators.
+  This is all which can be said in general, and in particular for point P1.
+  For point P3, because of onsite <math|\<bbb-Z\><rsub|2>> symmetry, we have
+  simplifications. All <math|\<bbb-Z\><rsub|2>>-even operators have
+  <math|c<rsub|\<cal-O\>>=0>. Thus <math|<around*|\<langle\>|Z<rsub|i>|\<rangle\>>=0>
+  so that the expression for <math|s<rsub|i>> simplifies. Also
+  <math|c<rsub|\<varepsilon\>>=0> so that
+  <math|\<varepsilon\><around*|(|\<phi\><rsub|i>|)>> drops out from the
+  correction term in <eqref|sicorr>.
+
+  Both for P1 and P3, since correction terms in <eqref|sicorr> have higher
+  scaling dimension than the leading term, we expect that the idealized
+  prediction <eqref|2ptideal> will hold at sufficiently large distances
+  <math|<around*|\||i-j|\|>\<gg\>1>. But at how large distances this holds
+  depends a bit on luck - on how large coefficients <math|c<rsub|\<cal-O\>>>
+  of the correction term are with respect to <math|c<rsub|\<sigma\>>>.\ 
+
+  We pass on to simulations. We numerically compute the ground state
+  wavefunction for points P1 and P3. The ground state belongs to the
+  translationally invariant, spatial parity invariant sector of the full
+  Hilbert space which for <math|N=24> has dimension <with|color|red|???>.
+  Thus for <math|N=24> we can use exact diagonalization. This will be
+  important for the optimization of adiabatic evolution in Section
+  <reference|sec:fidelity>.\ 
+
+  We the compute the 2pt function <math|<around*|\<langle\>|s<rsub|i>s<rsub|j>|\<rangle\>>>
+  which by the symmetries of the problem is translationally and spatial
+  parity invariant, i.e. depends only on <math|<around*|\||i-j|\|>>. The
+  result is shown in Fig. <reference|fig:2pt-sim>, divided by the CFT
+  prediction <eqref|2ptideal>. For points P1' and P3 the line rapidly
+  asymptotes to a constant, signaling that these points are at the critical
+  line. For point P1 the line shows 20% suppression at larger distances,
+  which means that this point is not quite at the critical line but is in the
+  disordered phase. (However this deviation would not not sufficient to
+  explain the exponential decay of the correlator seen in
+  \ <cite|Fang:2024uyf>, where it was attributed to decoherence.) \ In what
+  follows we will work with point P1'.\ 
+
+  Although the P1' and P3 points are at the critical line, the corresponding
+  curves do show deviation from a constant at small
+  <math|<around*|\||i-j|\|>>. These deviations are due to the correction
+  terms in <eqref|sicorr>. We see that for point P3, where the correction
+  term <math|<around*|(|-1|)><rsup|i>c<rsub|\<varepsilon\>>\<varepsilon\><around*|(|\<phi\><rsub|i>|)>>
+  is absent, the approach to a constant is smoother and is monotonic.
+
+  <\big-figure|<image|fig-2pt-sim.png|1par|||>>
+    <label|fig:2pt-sim>Change vertical axis label to
+    <math|<around*|\<langle\>|s<rsub|i>s<rsub|j>|\<rangle\>>/<around*|\<langle\>|\<sigma\><rsub|i>\<sigma\><rsub|j>|\<rangle\>>>.
+    Note that this will require rescaling of the vertical axis by factor 1/4
+    (?)
+  </big-figure>
+
+  Previously, numerical simulations of 2pt functions of the Rydberg spin
+  chain were discussed inin <cite|Slagle:2021ene>, focussing on the strong
+  Rydberg blockade regime where FSS effective Hamiltonian is applicable, and
+  using the same microscopic operator <math|s<rsub|i>>, up to rescaling.
+  There, oscillations in the 2pt function due to admixture of
+  <math|<around|(|-1|)><rsup|j>*\<epsilon\><around|(|\<phi\>|)>> were also
+  observed.\ 
 
   <subsection|Estimation of needed sample size>
 
-  The DMRG calculation provides access to the ground state wavefunction
+  <label|sec:sample>We learned in the previous section that the critical 2pt
+  function for relatively short chains of Rydberg atoms (<math|N=24>)
+  asymptotes to its CFT form at distances order 1. In this section we will
+  discuss how many times one has to repeat the experiment to measure this 2pt
+  function.
+
+  Consider the Hilbert space basis consisting of states
+  <math|\|n<rsub|0>,\<ldots\>,n<rsub|N-1>\<rangle\>> where each
+  <math|n<rsub|i>=0,1>. We can expand the ground state in this basis:
 
   <\equation>
-    \<Psi\><rsub|<math-up|GS>>=<big|sum><rsub|n<rsub|i>=0,1>a<rsub|n<rsub|0>,\<ldots\>,n<rsub|L-1>>\|n<rsub|0>,\<ldots\>,n<rsub|L-1>\<rangle\>
+    <around*|\||0|\<rangle\>>=<big|sum><rsub|n<rsub|i>=0,1>a<rsub|n<rsub|0>,\<ldots\>,n<rsub|L-1>>\|n<rsub|0>,\<ldots\>,n<rsub|L-1>\<rangle\>
+    .
   </equation>
 
-  The correlation function observables are computed averaging with respect to
-  this wavefunction.
-
-  In the experiment we will not have access to the wavefunction itself but to
-  <em|collapsed states> <math|\<Psi\><rsub|a>>, <math|a=1,\<ldots\>,M>. Each
-  <math|\<Psi\><rsub|a>> is one of the basis states in the
-  <math|n<rsub|i>=0,1> basis and they will appear in the experiment according
-  to the Born rule, i.e. probability to observe a collapsed state
-  <math|<around|\||n<rsub|0>,\<ldots\>,n<rsub|L-1>|\<rangle\>>> equals
-  <math|<around|\||a<rsub|n<rsub|0>,\<ldots\>,n<rsub|L-1>>|\|><rsup|2>>.
+  In the experiment we will not have access to the full ground state
+  wavefunction itself but to <em|collapsed states> <math|\<Psi\><rsub|m>>,
+  <math|m=1,\<ldots\>,M>, where <math|M> is the number of times we repeated
+  the experiment. Each <math|\<Psi\><rsub|m>> is one of the basis states
+  <math|\|n<rsub|0>,\<ldots\>,n<rsub|N-1>> and they will appear in the
+  experiment according to the Born rule, i.e. probability to observe a
+  collapsed state <math|<around|\||n<rsub|0>,\<ldots\>,n<rsub|L-1>|\<rangle\>>>
+  equals <math|<around|\||a<rsub|n<rsub|0>,\<ldots\>,n<rsub|L-1>>|\|><rsup|2>>.
 
   Any observable which is a function of <math|n<rsub|i>>'s can be obtained
   experimentally averaging over a sufficiently large number of collapsed
-  states. The 2pt function in Fig.<nbsp><reference|ZZ2pt> is such an
-  observable. How many collapsed states is needed for a good signal-to-noise
-  ratio? I.e.<nbsp>how many times <math|M> shall we have to repeat the
-  experiment? To answer this question, we need to study the <em|variance> of
-  our observable.
+  states. The 2pt function plotted in Fig.<nbsp><reference|fig:2pt-sim> is
+  such an observable. How many collapsed states is needed for a good
+  signal-to-noise ratio? I.e.<nbsp>how many times <math|M> shall we have to
+  repeat the experiment? To answer this question, we need to study the
+  <em|variance> of our observable.
 
   The variance of any observable <math|\<cal-O\>> can be computed from the
-  expected value of <math|\<cal-O\><rsup|2>>. Generally, at large distances a
-  correlator will tend to zero, because we arrange the 1pt function of
-  lattice operators corresponding to CFT operators to be zero. However, the
-  1pt function of the <em|squares> of the same operators will not be zero,
-  causing the correlator variance to go to a constant in the same limit. So,
-  good statistics will be hardest to obtain in the large-distance tails, as
-  expected.
-
-  <big-figure|<with|par-mode|center|<image|ZZ_correlation_est.png|0.6par|||><label|ZZ2ptsample>>|Estimating
-  the critical 2pt function on the ring of <math|N=24> atoms from independent
-  snapshots. The red dots DMRG data and the dashed line CFT prediction are
-  the same as in Fig.<nbsp><reference|ZZ2pt>, while the gray error bars are
-  the confidence intervals <eqref|eq:conf> for one random sample of size
-  <math|M=2\<times\>10<rsup|3>>. <with|color|red|adjust axes lables to
-  <math|<around|(|-1|)><rsup|j>*<around|\<langle\>|Z<rsub|0>*Z<rsub|j>|\<rangle\>>>
-  and <math|d<rsub|0*j>>. Add DMRG points in red. Make error bars gray and
-  remove the central dot from error bars.> >
+  expected value of <math|\<cal-O\><rsup|2>>.
 
   Here we will not compute the variance but will estimate it, using a method
-  which is more direct and closer to the experiment. DMRG algorithm produces
-  the wavefunction as an MPS which one can quickly <em|sample>, i.e. to
-  generate sequences of random collapsed states (\Psnapshots\Q) distributed
-  according to the Born rule.<footnote|The <with|font-family|tt|sample()>
-  function of <with|font-family|tt|ITensor> library <cite|ITensor> does that.
-  A similar algorithm was used in <cite-detail|Scholl:2020hzx|App.B>. > This
-  is very quick and allows us to simulate the experimental process directly.
-  Statistical errors will go down as <math|\<Sigma\>/<sqrt|M>>, where
-  <math|M> is the number of snapshots, with <math|\<Sigma\>> estimated from
-  the "DMRG data".
+  which is more direct and closer to the experiment. First, we recompute the
+  ground state using the DMRG algorithm <cite|White1992|Schollwock2011>. This
+  produces the wavefunction as a matrix product state (MPS). The point is
+  that MPS representation allows us to quickly <em|sample>, i.e. to generate
+  sequences of random collapsed states (\Psnapshots\Q) distributed according
+  to the Born rule.<footnote|The <with|font-family|tt|sample()> function of
+  <with|font-family|tt|ITensor> library <cite|ITensor> does that. A similar
+  algorithm was used in <cite-detail|Scholl:2020hzx|App.B>. > This allows us
+  to simulate the experimental process directly. Statistical errors will go
+  down as <math|\<Sigma\>/<sqrt|M>>, where <math|M> is the number of
+  snapshots, with <math|\<Sigma\>> estimated from the \PDMRG data\Q.
 
-  For each of <math|M> collected collapsed states <math|\<Psi\><rsub|a>> we
-  measure the 2pt function <math|<around|(|-1|)><rsup|j>*<around|\<langle\>|Z<rsub|0>*Z<rsub|j>|\<rangle\>>>
-  as a function of <math|j> (averaging over translations):
+  In our calculation we picked <math|M=2\<times\>10<rsup|3>>. For each of
+  <math|M> collected collapsed states <math|\<Psi\><rsub|m>> we measure the
+  2pt function <math|<around|\<langle\>|s<rsub|0>*s<rsub|j>|\<rangle\>>> as a
+  function of <math|j> (averaging over translations):
 
   <\equation>
-    <label|sample>X<rsub|a><around|(|j|)>=<frac|1|N>*<big|sum><rsub|i=0><rsup|N-1><around|\<langle\>|\<Psi\><rsub|a>*<around|\||<around|(|-1|)><rsup|j>*Z<rsub|i>*Z<rsub|i+j>|\|>*\<Psi\><rsub|a>|\<rangle\>>.
+    <label|sample>X<rsub|m><around|(|j|)>=<frac|1|N>*<big|sum><rsub|i=0><rsup|N-1><around|\<langle\>|\<Psi\><rsub|m>*<around|\||s<rsub|i>*s<rsub|i+j>|\|>*\<Psi\><rsub|m>|\<rangle\>>.
   </equation>
 
-  <math|X<rsub|a><around|(|j|)>> for each <math|a> are independent
-  identically distributed random variables, whose mean
-  <math|<wide|X<around|(|j|)>|\<bar\>>> is the ground-state 2pt function
-  <math|<around|\<langle\>|\<Psi\>*<around|\||<around|(|-1|)><rsup|j>*Z<rsub|0>*Z<rsub|j>|\|>*\<Psi\>|\<rangle\>>>.
+  For a fixed <math|j,> <math|<around*|{|X<rsub|m><around|(|j|)>|}><rsub|m=1><rsup|M>>
+  is a set of <math|M> independent identically distributed random variables,
+  whose mean <math|<wide|X<around|(|j|)>|\<bar\>>> is the ground-state 2pt
+  function <math|<around|\<langle\>|0*<around|\||s<rsub|0>s<rsub|j>|\|>*0|\<rangle\>>>.
   The mean and the standard deviation <math|\<Sigma\>> are estimated by the
-  standard formulas
+  standard formulas <with|color|red|REF>
 
   <\equation>
-    <wide|X<around|(|j|)>|\<bar\>><rsub|e*s*t>=<frac|1|M>*<big|sum><rsub|a>X<rsub|a><around|(|j|)>,<space|2em>\<Sigma\><around|(|j|)><rsup|2><rsub|e*s*t>=<frac|1|M-1>*<big|sum><rsub|i><around|(|X<rsub|a><around|(|j|)>-<wide|X<around|(|j|)>|\<bar\>>|)><rsup|2><space|0.17em>.
+    <wide|X<around|(|j|)>|\<bar\>><rsub|e*s*t>=<frac|1|M>*<big|sum><rsub|m>X<rsub|m><around|(|j|)>,<space|2em>\<Sigma\><around|(|j|)><rsup|2><rsub|e*s*t>=<frac|1|M-1>*<big|sum><rsub|m><around|(|X<rsub|m><around|(|j|)>-<wide|X<around|(|j|)>|\<bar\>>|)><rsup|2><space|0.17em>.
   </equation>
 
   By the central limit theorem, for <math|M\<to\>\<infty\>>, the sample mean
@@ -707,17 +870,30 @@
   correlator, including one standard deviation error bars, as
 
   <\equation>
-    <around|(|-1|)><rsup|j>*<around|\<langle\>|Z<rsub|0>*Z<rsub|j>|\<rangle\>><rsub|e*s*t>=<wide|X<around|(|x|)>|\<bar\>><rsub|e*s*t>\<pm\><frac|1|<sqrt|M>>*<sqrt|\<Sigma\><around|(|x|)><rsup|2><rsub|e*s*t>>.<label|eq:conf>
+    <around|\<langle\>|s<rsub|0>*s<rsub|j>|\<rangle\>><rsub|e*s*t>=<wide|X<around|(|j|)>|\<bar\>><rsub|e*s*t>\<pm\><frac|1|<sqrt|M>>*<sqrt|\<Sigma\><around|(|j|)><rsup|2><rsub|e*s*t>>.<label|eq:conf>
   </equation>
 
   In Fig.<nbsp><reference|ZZ2ptsample> we show the result of applying this
   procedure to the critical 2pt function for <math|N=24> and
-  <math|M=2\<times\>10<rsup|3>> samples. From the agreement with
-  Fig.<nbsp><reference|ZZ2pt>, we conclude that
-  <math|O<around|(|10<rsup|3>|)>> repetitions should be sufficient to resolve
-  the shape of this correlator.
+  <math|M=2\<times\>10<rsup|3>> samples.\ 
+
+  <big-figure|<with|par-mode|center|<image|ZZ_correlation_est.png|0.6par|||><label|ZZ2ptsample>>|Estimating
+  the critical 2pt function on the ring of <math|N=24> atoms from independent
+  snapshots, for points P1' and P3. <with|color|red|This plot needs to be
+  changed> >
 
   <subsection|State preparation>
+
+  <label|sec:fidelity>
+
+  How can we optimize the evolution curve
+  <math|<around*|(|\<Omega\><rprime|'><around*|(|t|)>,\<Delta\><rprime|'><around*|(|t|)>|)>>
+  so that, for fixed evolution time <math|T>, the final state is as close as
+  possible to the true ground state? What are the achievable fidelities for
+  experimentally reasonable evolution times? We will see that, with the help
+  of optimization, excellent ground state fidelities can be achieved for P1
+  with <math|T> several times shorter than in <cite|Fang:2024uyf>, and even
+  shorter times for P3.
 
   Missing exercises:
 
@@ -769,6 +945,8 @@
   where <math|\<Delta\><rsub|\<epsilon\>>=1> is the scaling dimension of the
   <math|\<epsilon\>> operator in the 2D Ising CFT, we extract the emergent
   speed of light <math|v=3.12*a*U/\<hbar\>>.
+
+  <subsection|Decoherence effects><label|sec:decoherence>
 
   For <math|a=10*\<mu\>><with|font-family|rm|m>,
   <math|U/\<hbar\>=0.86<math-up|rad>\<cdot\>\<mu\><math-up|s><rsup|-1>> we
@@ -846,6 +1024,8 @@
   the translation. However, in the special point we discussed, the model
   becomes literally the AFM Ising model, we can easily get the free boundary
   condition. We should probably mention this later>
+
+  <subsection|Prospects for the measurement: summary><label|sec:prospects>
 
   <section|Conclusions><label|sec:concl>
 
@@ -1218,23 +1398,23 @@
       <hlink|<with|font-family|tt|arXiv:2108.09309
       [cond-mat.str-el]>|http://arxiv.org/abs/2108.09309>.
 
-      <bibitem*|53><label|bib-White1992>S.<nbsp>R. White, \PDensity matrix
+      <bibitem*|53><label|bib-ITensor>M.<nbsp>Fishman, S.<nbsp>R. White, and
+      E.<nbsp>M. Stoudenmire, \PThe ITensor Software Library for Tensor
+      Network Calculations,\Q <hlink|<with|font-shape|italic|SciPost Phys.
+      Codebases> (2022) 4|http://dx.doi.org/10.21468/SciPostPhysCodeb.4>.
+      <slink|https://scipost.org/10.21468/SciPostPhysCodeb.4>.
+
+      <bibitem*|54><label|bib-White1992>S.<nbsp>R. White, \PDensity matrix
       formulation for quantum renormalization groups,\Q
       <hlink|<with|font-shape|italic|Phys. Rev. Lett.>
       <with|font-series|bold|69> (1992) 2863\U2866|http://dx.doi.org/10.1103/PhysRevLett.69.2863>.
 
-      <bibitem*|54><label|bib-Schollwock2011>U.<nbsp>Schollwöck, \PThe
+      <bibitem*|55><label|bib-Schollwock2011>U.<nbsp>Schollwöck, \PThe
       density-matrix renormalization group in the age of matrix product
       states,\Q <hlink|<with|font-shape|italic|Annals of Physics>
       <with|font-series|bold|326> (2011) 96\U192|http://dx.doi.org/10.1016/j.aop.2010.09.012>,
       <hlink|<with|font-family|tt|arXiv:1008.3477
       [cond-mat.str-el]>|http://arxiv.org/abs/1008.3477>.
-
-      <bibitem*|55><label|bib-ITensor>M.<nbsp>Fishman, S.<nbsp>R. White, and
-      E.<nbsp>M. Stoudenmire, \PThe ITensor Software Library for Tensor
-      Network Calculations,\Q <hlink|<with|font-shape|italic|SciPost Phys.
-      Codebases> (2022) 4|http://dx.doi.org/10.21468/SciPostPhysCodeb.4>.
-      <slink|https://scipost.org/10.21468/SciPostPhysCodeb.4>.
 
       <bibitem*|56><label|bib-Richerme:2013hbx>P.<nbsp>Richerme,
       C.<nbsp>Senko, J.<nbsp>Smith, A.<nbsp>Lee, S.<nbsp>Korenblit, and
@@ -1261,121 +1441,138 @@
 
 <\references>
   <\collection>
-    <associate|ZZ2pt|<tuple|6|8|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|ZZ2ptsample|<tuple|7|9|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|auto-1|<tuple|1|1|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|auto-10|<tuple|3|6|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|auto-11|<tuple|3.1|6|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|auto-12|<tuple|5|7|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|auto-13|<tuple|1|8|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|auto-14|<tuple|3.2|8|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|auto-15|<tuple|6|8|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|auto-16|<tuple|3.3|9|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|auto-17|<tuple|7|9|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|auto-18|<tuple|3.4|10|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|auto-19|<tuple|8|10|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|auto-2|<tuple|2|1|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|auto-20|<tuple|4|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|auto-21|<tuple|4|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|auto-22|<tuple|4|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|auto-3|<tuple|2.1|1|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|auto-4|<tuple|1|2|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|auto-5|<tuple|2|3|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|auto-6|<tuple|2.2|4|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|auto-7|<tuple|3|4|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|auto-8|<tuple|4|5|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|auto-9|<tuple|2.3|5|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Allemand:2025pdq|<tuple|32|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Anand:2022cdi|<tuple|45|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Belavin:1984vu|<tuple|3|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Bernien:2017ubn|<tuple|21|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Browaeys:2020kzz|<tuple|19|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Calabrese:2006rx|<tuple|36|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Cardy1987|<tuple|4|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Cardy:1984bb|<tuple|35|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Cardy:1996xt|<tuple|5|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Dborin:2022zdd|<tuple|46|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-DiFrancesco:1997nk|<tuple|12|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Ebadi:2020ldi|<tuple|23|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Emperauger:2025raf|<tuple|28|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-FSS|<tuple|50|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Fang:2024uyf|<tuple|26|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Gompper1985|<tuple|17|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Haghshenas:2023bje|<tuple|47|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Henkel1999|<tuple|14|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Hofman:2008ar|<tuple|30|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-ITensor|<tuple|55|14|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Keesling:2018ish|<tuple|25|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-King:2022phl|<tuple|44|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Lao:2023zis|<tuple|38|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Luscher:1974ez|<tuple|34|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Manovitz:2024hif|<tuple|42|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Morgado:2020jfo|<tuple|20|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Nakayama:2013is|<tuple|11|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Ovchinnikov|<tuple|49|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-PatashinskiPokrovsky1979|<tuple|33|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Podo:2026hfh|<tuple|18|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Pokrovskii1973|<tuple|16|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Poland:2018epd|<tuple|13|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Polchinski:1987dy|<tuple|10|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Polyakov:1970xd|<tuple|1|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Polyakov:1974gs|<tuple|2|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Rader:2019syq|<tuple|48|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Richerme:2013hbx|<tuple|56|14|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Rychkov:2016iqz|<tuple|31|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Rychkov:2025zks|<tuple|15|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Scholl:2020hzx|<tuple|22|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Schollwock2011|<tuple|54|14|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Seiberg:2023cdc|<tuple|51|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Semeghini:2021wls|<tuple|24|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Slagle:2021ene|<tuple|52|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Sun:2026aqf|<tuple|27|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Wang:2026prw|<tuple|37|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-White1992|<tuple|53|14|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Wu:2026ayb|<tuple|39|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Zhang:2025xkp|<tuple|41|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-Zhu:2022gjc|<tuple|40|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-cardy1996scaling|<tuple|29|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-delCampo:2013nla|<tuple|43|13|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-fradkin|<tuple|9|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-giamarchi2003quantum|<tuple|7|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-noise-note|<tuple|57|14|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-sachdev|<tuple|8|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|bib-tsvelik|<tuple|6|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|eq:1ptstrip|<tuple|5|4|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|eq:2ptcyl|<tuple|3|3|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|eq:2ptcylequal|<tuple|4|3|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|eq:conf|<tuple|14|10|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|eq:model|<tuple|7|6|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|eq:modelp|<tuple|8|7|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|eq:ratio-rel|<tuple|6|5|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|eq:three-point|<tuple|2|2|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|eq:two-point|<tuple|1|2|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|fig:OSC|<tuple|4|5|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|fig:cyl|<tuple|2|3|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|fig:evolution|<tuple|8|10|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|fig:flat|<tuple|1|2|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|fig:strip|<tuple|3|4|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|footnote-1|<tuple|1|1|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|footnote-2|<tuple|2|1|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|footnote-3|<tuple|3|2|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|footnote-4|<tuple|4|2|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|footnote-5|<tuple|5|2|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|footnote-6|<tuple|6|5|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|footnote-7|<tuple|7|9|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|footnr-1|<tuple|1|1|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|footnr-2|<tuple|2|1|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|footnr-3|<tuple|3|2|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|footnr-4|<tuple|4|2|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|footnr-5|<tuple|5|2|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|footnr-6|<tuple|6|5|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|footnr-7|<tuple|7|9|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|phasediagramHBlong|<tuple|5|7|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|sample|<tuple|12|9|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|sec:concl|<tuple|4|12|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|sec:gen|<tuple|2|1|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|sec:prop|<tuple|3|6|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
-    <associate|tab:params|<tuple|1|?|../../../../../../.TeXmacs/texts/scratch/no_name_37.tm>>
+    <associate|2ptideal|<tuple|11|9>>
+    <associate|ZZ2ptsample|<tuple|8|12>>
+    <associate|auto-1|<tuple|1|1>>
+    <associate|auto-10|<tuple|3|6>>
+    <associate|auto-11|<tuple|3.1|6>>
+    <associate|auto-12|<tuple|5|7>>
+    <associate|auto-13|<tuple|1|8>>
+    <associate|auto-14|<tuple|3.2|8>>
+    <associate|auto-15|<tuple|3.3|9>>
+    <associate|auto-16|<tuple|6|9>>
+    <associate|auto-17|<tuple|7|11>>
+    <associate|auto-18|<tuple|3.4|11>>
+    <associate|auto-19|<tuple|8|12>>
+    <associate|auto-2|<tuple|2|1>>
+    <associate|auto-20|<tuple|3.5|12>>
+    <associate|auto-21|<tuple|9|13>>
+    <associate|auto-22|<tuple|3.6|13>>
+    <associate|auto-23|<tuple|3.7|14>>
+    <associate|auto-24|<tuple|4|14>>
+    <associate|auto-25|<tuple|4|15>>
+    <associate|auto-26|<tuple|4|15>>
+    <associate|auto-3|<tuple|2.1|1>>
+    <associate|auto-4|<tuple|1|2>>
+    <associate|auto-5|<tuple|2|3>>
+    <associate|auto-6|<tuple|2.2|4>>
+    <associate|auto-7|<tuple|3|4>>
+    <associate|auto-8|<tuple|4|5>>
+    <associate|auto-9|<tuple|2.3|5>>
+    <associate|bib-Allemand:2025pdq|<tuple|32|16>>
+    <associate|bib-Anand:2022cdi|<tuple|45|16>>
+    <associate|bib-Belavin:1984vu|<tuple|3|15>>
+    <associate|bib-Bernien:2017ubn|<tuple|21|15>>
+    <associate|bib-Browaeys:2020kzz|<tuple|19|15>>
+    <associate|bib-Calabrese:2006rx|<tuple|36|16>>
+    <associate|bib-Cardy1987|<tuple|4|15>>
+    <associate|bib-Cardy:1984bb|<tuple|35|16>>
+    <associate|bib-Cardy:1996xt|<tuple|5|15>>
+    <associate|bib-Dborin:2022zdd|<tuple|46|16>>
+    <associate|bib-DiFrancesco:1997nk|<tuple|12|15>>
+    <associate|bib-Ebadi:2020ldi|<tuple|23|15>>
+    <associate|bib-Emperauger:2025raf|<tuple|28|15>>
+    <associate|bib-FSS|<tuple|50|16>>
+    <associate|bib-Fang:2024uyf|<tuple|26|15>>
+    <associate|bib-Gompper1985|<tuple|17|15>>
+    <associate|bib-Haghshenas:2023bje|<tuple|47|16>>
+    <associate|bib-Henkel1999|<tuple|14|15>>
+    <associate|bib-Hofman:2008ar|<tuple|30|16>>
+    <associate|bib-ITensor|<tuple|53|16>>
+    <associate|bib-Keesling:2018ish|<tuple|25|15>>
+    <associate|bib-King:2022phl|<tuple|44|16>>
+    <associate|bib-Lao:2023zis|<tuple|38|16>>
+    <associate|bib-Luscher:1974ez|<tuple|34|16>>
+    <associate|bib-Manovitz:2024hif|<tuple|42|16>>
+    <associate|bib-Morgado:2020jfo|<tuple|20|15>>
+    <associate|bib-Nakayama:2013is|<tuple|11|15>>
+    <associate|bib-Ovchinnikov|<tuple|49|16>>
+    <associate|bib-PatashinskiPokrovsky1979|<tuple|33|16>>
+    <associate|bib-Podo:2026hfh|<tuple|18|15>>
+    <associate|bib-Pokrovskii1973|<tuple|16|15>>
+    <associate|bib-Poland:2018epd|<tuple|13|15>>
+    <associate|bib-Polchinski:1987dy|<tuple|10|15>>
+    <associate|bib-Polyakov:1970xd|<tuple|1|15>>
+    <associate|bib-Polyakov:1974gs|<tuple|2|15>>
+    <associate|bib-Rader:2019syq|<tuple|48|16>>
+    <associate|bib-Richerme:2013hbx|<tuple|56|16>>
+    <associate|bib-Rychkov:2016iqz|<tuple|31|16>>
+    <associate|bib-Rychkov:2025zks|<tuple|15|15>>
+    <associate|bib-Scholl:2020hzx|<tuple|22|15>>
+    <associate|bib-Schollwock2011|<tuple|55|16>>
+    <associate|bib-Seiberg:2023cdc|<tuple|51|16>>
+    <associate|bib-Semeghini:2021wls|<tuple|24|15>>
+    <associate|bib-Slagle:2021ene|<tuple|52|16>>
+    <associate|bib-Sun:2026aqf|<tuple|27|15>>
+    <associate|bib-Wang:2026prw|<tuple|37|16>>
+    <associate|bib-White1992|<tuple|54|16>>
+    <associate|bib-Wu:2026ayb|<tuple|39|16>>
+    <associate|bib-Zhang:2025xkp|<tuple|41|16>>
+    <associate|bib-Zhu:2022gjc|<tuple|40|16>>
+    <associate|bib-cardy1996scaling|<tuple|29|16>>
+    <associate|bib-delCampo:2013nla|<tuple|43|16>>
+    <associate|bib-fradkin|<tuple|9|15>>
+    <associate|bib-giamarchi2003quantum|<tuple|7|15>>
+    <associate|bib-noise-note|<tuple|57|16>>
+    <associate|bib-sachdev|<tuple|8|15>>
+    <associate|bib-tsvelik|<tuple|6|15>>
+    <associate|eq:1ptstrip|<tuple|5|4>>
+    <associate|eq:2ptcyl|<tuple|3|3>>
+    <associate|eq:2ptcylequal|<tuple|4|3>>
+    <associate|eq:conf|<tuple|19|12>>
+    <associate|eq:model|<tuple|7|7>>
+    <associate|eq:modelp|<tuple|8|7>>
+    <associate|eq:ratio-rel|<tuple|6|5>>
+    <associate|eq:three-point|<tuple|2|2>>
+    <associate|eq:two-point|<tuple|1|2>>
+    <associate|fig:2pt-sim|<tuple|7|11>>
+    <associate|fig:OSC|<tuple|4|5>>
+    <associate|fig:cyl|<tuple|2|3>>
+    <associate|fig:evolution|<tuple|9|13>>
+    <associate|fig:flat|<tuple|1|2>>
+    <associate|fig:ideal|<tuple|6|9>>
+    <associate|fig:strip|<tuple|3|4>>
+    <associate|footnote-1|<tuple|1|1>>
+    <associate|footnote-2|<tuple|2|1>>
+    <associate|footnote-3|<tuple|3|2>>
+    <associate|footnote-4|<tuple|4|2>>
+    <associate|footnote-5|<tuple|5|2>>
+    <associate|footnote-6|<tuple|6|4>>
+    <associate|footnote-7|<tuple|7|5>>
+    <associate|footnote-8|<tuple|8|9>>
+    <associate|footnote-9|<tuple|9|12>>
+    <associate|footnr-1|<tuple|1|1>>
+    <associate|footnr-2|<tuple|2|1>>
+    <associate|footnr-3|<tuple|3|2>>
+    <associate|footnr-4|<tuple|4|2>>
+    <associate|footnr-5|<tuple|5|2>>
+    <associate|footnr-6|<tuple|6|4>>
+    <associate|footnr-7|<tuple|7|5>>
+    <associate|footnr-8|<tuple|8|9>>
+    <associate|footnr-9|<tuple|9|12>>
+    <associate|phasediagramHBlong|<tuple|5|7>>
+    <associate|sample|<tuple|17|12>>
+    <associate|sec:2ptDMRG|<tuple|3.3|9>>
+    <associate|sec:concl|<tuple|4|14>>
+    <associate|sec:decoherence|<tuple|3.6|13>>
+    <associate|sec:fidelity|<tuple|3.5|12>>
+    <associate|sec:gen|<tuple|2|1>>
+    <associate|sec:prop|<tuple|3|6>>
+    <associate|sec:prospects|<tuple|3.7|14>>
+    <associate|sec:sample|<tuple|3.4|11>>
+    <associate|sicorr|<tuple|15|10>>
+    <associate|ssCFT|<tuple|10|8>>
+    <associate|tab:params|<tuple|1|8>>
   </collection>
 </references>
 
@@ -1580,15 +1777,11 @@
 
       Fang:2024uyf
 
-      Emperauger:2025raf
+      Fang:2024uyf
 
       Fang:2024uyf
 
-      Emperauger:2025raf
-
-      Slagle:2021ene
-
-      Slagle:2021ene
+      Fang:2024uyf
 
       Slagle:2021ene
 
@@ -1638,55 +1831,44 @@
       <write|bib|Rader:2019syq><reference|bib-Rader:2019syq>]. The two red
       points corresponds to the points studied in
       <no-break><specific|screen|<resize|<move|<with|color|<quote|#A0A0FF>|->|-0.3em|>|0em||0em|>>[<write|bib|Fang:2024uyf><reference|bib-Fang:2024uyf>]
-      (1) and [<write|bib|Sun:2026aqf><reference|bib-Sun:2026aqf>] (2), see
-      Table <with|color|<quote|red>|??> Below we will focus on point 1 as
-      well as the blue point 3 corresponding to
+      (P1) and [<write|bib|Sun:2026aqf><reference|bib-Sun:2026aqf>] (P2), see
+      Table <with|color|<quote|red>|<reference|tab:params>>. Below we will
+      focus on point P1 as well as the blue point P3 corresponding to
       <with|mode|<quote|math>|\<Delta\><rprime|'>=\<zeta\><around|(|6|)>>,
       <with|mode|<quote|math>|\<Omega\><rprime|'>\<approx\>0.488>.
       <with|color|<quote|red>|add a gray region near
       <with|mode|<quote|math>|\<Delta\><rprime|'>=2>, sym w.r.t.
       <with|mode|<quote|math>|\<Delta\><rprime|'>=\<zeta\><around|(|6|)>>,
-      add 3 for the blue point>>|<pageref|auto-12>>
+      add 3 for the blue point>, change 1,2,3 to P1,P2,P3>|<pageref|auto-12>>
 
-      <tuple|normal|<surround|<hidden-binding|<tuple>|6>||The correlation
-      function <with|mode|<quote|math>|<around|(|-1|)><rsup|j>*<around|\<langle\>|Z<rsub|0>*Z<rsub|j>|\<rangle\>>>,
-      plotted with respect to <with|mode|<quote|math>|d<rsub|0*j>> for
-      <with|mode|<quote|math>|N=24>. We work at
-      <with|mode|<quote|math>|\<Delta\><rprime|'>=\<zeta\><around|(|6|)>> and
-      three values of <with|mode|<quote|math>|\<Omega\><rprime|'>>:
-      <with|mode|<quote|math>|0.488> (critical point, red);
-      <with|mode|<quote|math>|0.45> (ordered phase, green) and
-      <with|mode|<quote|math>|0.52> (disordered, red). The black dashed line
-      is the CFT prediction <with|mode|<quote|math>|\<propto\>1/d<rsub|0*j><rsup|1/4>>.
-      <with|color|<quote|red>|labels on axes to be adjusted, to agree with
-      the text. Make the horizontal axis in this plot and the plot below have
-      the same length (probably 10 should be included in both axes, but not
-      much beyond)>>|<pageref|auto-15>>
+      <tuple|normal|<\surround|<hidden-binding|<tuple>|6>|>
+        CFT prediction for 2pt function at <with|mode|<quote|math>|N=24>, Eq.
+        (<reference|2ptideal>).\ 
+      </surround>|<pageref|auto-16>>
 
-      <tuple|normal|<surround|<hidden-binding|<tuple>|7>||Estimating the
+      <tuple|normal|<\surround|<hidden-binding|<tuple>|7>|>
+        Change vertical axis label to <with|mode|<quote|math>|<around*|\<langle\>|s<rsub|i>s<rsub|j>|\<rangle\>>/<around*|\<langle\>|\<sigma\><rsub|i>\<sigma\><rsub|j>|\<rangle\>>>.
+        Note that this will require rescaling of the vertical axis by factor
+        1/4 (?)
+      </surround>|<pageref|auto-17>>
+
+      <tuple|normal|<surround|<hidden-binding|<tuple>|8>||Estimating the
       critical 2pt function on the ring of <with|mode|<quote|math>|N=24>
-      atoms from independent snapshots. The red dots DMRG data and the dashed
-      line CFT prediction are the same as in Fig.
-      <no-break><specific|screen|<resize|<move|<with|color|<quote|#A0A0FF>|->|-0.3em|>|0em||0em|>><reference|ZZ2pt>,
-      while the gray error bars are the confidence intervals
-      (<reference|eq:conf>) for one random sample of size
-      <with|mode|<quote|math>|M=2\<times\>10<rsup|3>>.
-      <with|color|<quote|red>|adjust axes lables to
-      <with|mode|<quote|math>|<around|(|-1|)><rsup|j>*<around|\<langle\>|Z<rsub|0>*Z<rsub|j>|\<rangle\>>>
-      and <with|mode|<quote|math>|d<rsub|0*j>>. Add DMRG points in red. Make
-      error bars gray and remove the central dot from error bars.>
-      >|<pageref|auto-17>>
+      atoms from independent snapshots, for points P1' and P3.
+      <with|color|<quote|red>|This plot needs to be changed>
+      >|<pageref|auto-19>>
 
-      <tuple|normal|<surround|<hidden-binding|<tuple>|8>||Adiabatic evolution
-      paths>|<pageref|auto-19>>
+      <tuple|normal|<surround|<hidden-binding|<tuple>|9>||Adiabatic evolution
+      paths>|<pageref|auto-21>>
     </associate>
     <\associate|table>
       <tuple|normal|<\surround|<hidden-binding|<tuple>|1>|>
         Parameters <with|mode|<quote|math>|\<Omega\><rprime|'>,\<Delta\><rprime|'>>
-        of points 1,2 used in previous experimental studies of 2d Ising
+        of points P1,P2 used in previous experimental studies of 2d Ising
         criticality with Rydberg atoms [<write|bib|Fang:2024uyf><reference|bib-Fang:2024uyf>],[<write|bib|Sun:2026aqf><reference|bib-Sun:2026aqf>],
-        and of point 3 which has on-site <with|mode|<quote|math>|\<bbb-Z\><rsub|2>>.
-        Below we focus on points 1,3.
+        and of point P3 which has on-site
+        <with|mode|<quote|math>|\<bbb-Z\><rsub|2>>. Below we focus on P1 and
+        P3.
       </surround>|<pageref|auto-13>>
     </associate>
     <\associate|toc>
@@ -1720,29 +1902,41 @@
       diagram <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-11>>
 
-      <with|par-left|<quote|1tab>|3.2<space|2spc>Two-point function on a
-      circle: DMRG prediction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <with|par-left|<quote|1tab>|3.2<space|2spc>Measuring critical 2pt-point
+      function <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-14>>
 
-      <with|par-left|<quote|1tab>|3.3<space|2spc>Estimation of needed sample
-      size <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-16>>
-
-      <with|par-left|<quote|1tab>|3.4<space|2spc>State preparation
+      <with|par-left|<quote|1tab>|3.3<space|2spc>Ground state 2pt function
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-15>>
+
+      <with|par-left|<quote|1tab>|3.4<space|2spc>Estimation of needed sample
+      size <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-18>>
+
+      <with|par-left|<quote|1tab>|3.5<space|2spc>State preparation
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-20>>
+
+      <with|par-left|<quote|1tab>|3.6<space|2spc>Decoherence effects
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-22>>
+
+      <with|par-left|<quote|1tab>|3.7<space|2spc>Prospects for the
+      measurement: summary <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-23>>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>Conclusions>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-20><vspace|0.5fn>
+      <no-break><pageref|auto-24><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Data
       availability statement> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-21><vspace|0.5fn>
+      <no-break><pageref|auto-25><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-22><vspace|0.5fn>
+      <no-break><pageref|auto-26><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
