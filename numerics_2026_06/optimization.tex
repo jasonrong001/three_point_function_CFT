@@ -114,7 +114,7 @@ The final point  P3$=(\Omega,\Delta)=(0.488,\zeta(6))$ is also a critical point.
 
 \section{Matrix free time evolution of the ground state}
 We use a matrix-free approach to calculate the time evolution of the ground state.  At $L=24$, the dimension of the zero-momentum, reflection-positive Hilbert space is $D=352{,}698$. The $352{,}698\times352{,}698$ Hamiltonian is never explicitly constructed and stored.
-From the Schrödinger equation
+The Schrödinger equation is
 \[i\hbar\frac{\partial}{\partial t}\lvert\psi(t)\rangle
 =
 U H(t)\lvert\psi(t)\rangle .\]
@@ -160,7 +160,7 @@ $$
 c_{1,2}={}\frac12\mp\frac{\sqrt3}{6}, \quad
 a_{1,2}=\frac{3\mp2\sqrt3}{12}.
 $$
-Equation~\eqref{eq:cf4} instead combines two exponentials with the two generators
+Equation~\eqref{eq:cf4} combines two exponentials with the two generators
 \begin{equation*}
 G_A=a_2H_1+a_1H_2,
 \qquad
@@ -226,7 +226,7 @@ F_{dt/2}&=F_{\Delta t\to0}+\frac{C dt^4}{16}
 \end{align*}
 Here $F_{d t\to0}$ is the fidelity obtained in the zero-numerical-step-size limit.  Doing the time evolution at both $dt$ and $dt/2$ allows us to estimate $ C$ and find $F_{d t\to0}$.
 
-We can also use this method to evolve the experimental curve:
+We can use this method to evolve the experimental curve:
 \begin{align}
 {\rm Segment 1}: \quad& \Omega'(t)=0.133 \frac{t}{2\tilde{t}}, \quad \Delta'(t)=\Delta_i, \nonumber\\
 {\rm Segment 2}: \quad& \Omega'(t)=0.133, \quad \Delta'(t)=\frac{G_i \Delta_f (t-2\tilde{t}) + G_f \Delta_i (7\tilde{t} - t)}{ G_i (t-2\tilde{t}) + G_f (7 \tilde{t}-t)},
@@ -399,10 +399,10 @@ The objective is $1-F_{20}$ with
 F_{20}=\left|\langle g_f\vert\psi_{20}(T)\rangle\right|^2.
 \label{eq:f20}
 \end{equation}
-We minimize it with multistart Nelder--Mead searches.  
+We minimize it using the Nelder--Mead method with multiple initial seeds.  
 Since this is a finite search in a finite harmonic family, the best result found at each time is not a proof of global optimality.
 We do the optimization at different total times $T$. 
-After the optimization, we use the CF4-Krylov time evolution of the full Hamiltonian to compute the true fidelity; the results are summarized in Figure~\ref{fig:fidelity}. The coefficients of the optimized curve are summarized in Table~\ref{tab:path-coefficients}.
+After the optimization, we use the CF4-Krylov time evolution of the full Hamiltonian to compute the true fidelity; the results are summarized in Figure~\ref{fig:fidelity}. The coefficients of the optimized curves are summarized in Table~\ref{tab:path-coefficients}.
 For the $T_{physical}=1.2$ ramping, we get 
 \[
 |c_0|=0.9994925634,\qquad
