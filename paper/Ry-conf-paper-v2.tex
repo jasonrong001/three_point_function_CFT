@@ -1004,7 +1004,14 @@ optimization stage, the model is reduced to a 20-dimensional subspace of the
 model is small enough so that optimization can be performed. In the validation
 stage, one checks fidelities via quantum mechanical evolution in the full
 $352, 698$-dimensional subspace. 
-After optimization, our ramping profile achieves higher fidelity with shorter time than the ramping profile used in the experiment. If we choose to ramp to P3 instead, we can get $99.9\%$ fidelity with $t_f=1.2\mu s$. The details of the optimization algorithm and the optimized ramping profiles for different $t_f$ can be found in \ref{sec:optim}.
+After optimization, our ramping profile achieves higher fidelity with shorter time than the ramping profile used in the experiment. If we choose to ramp to P3 instead, we can get $99.9\%$ fidelity with $t_f=1.2\mu s$. The corresponding ramping profile is shown in Fig.~\ref{fig:rampingprofile}.
+ \begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.6\columnwidth]{ramping_profile.pdf}
+  \caption{The optimized ramping profile at $t_f=1.2\mu {\rm s}$.}
+  \label{fig:rampingprofile}
+\end{figure}
+The details of the optimization algorithm and the optimized ramping profiles for different $t_f$ can be found in \ref{sec:optim}.
 
 \subsection{Decoherence effects}\label{sec:decoherence}
 
@@ -1482,12 +1489,6 @@ which are the overlap of the evolved state with the ground, 1st excited, and 2nd
   \includegraphics[width=0.6\columnwidth]{F_vs_t.pdf}
   \caption{The fidelity of the optimized curves verified using CF4-Krylov time evolution.}
   \label{fig:fidelity}
-\end{figure}
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.6\columnwidth]{ramping_profile.pdf}
-  \caption{The optimized ramping profile at $T_{\rm physical}=1.2\mu s$.}
-  \label{fig:rampingprofile}
 \end{figure}
 We can calculate the relative error of the two-point function measured on the time-evolved states, as shown in Fig.~\ref{fig:rampingerror}.
 \begin{figure}[ht]
