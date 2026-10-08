@@ -1389,13 +1389,12 @@ The off-diagonal part of the connection
 i\langle y_a(q)|\partial_q y_b(q)\rangle
 \eeq
 gives the non-adiabatic transition. 
-The diagonal part is the Berry phase. Alternatively, we can choose a basis \(U(q) \) , such that:
+The diagonal part is the Berry phase. To eliminate the Berry connection, we can choose a basis \(U(q) \) , such that:
 \beq
 {\langle U_a|\partial_qU_b\rangle\approx0
 \quad\text{for every }a,b.}
 \eeq
-This eliminates the Berry connection term in the Hamiltonian. Of course, in this basis, the truncated Hamiltonian is not diagonal anymore.
-This basis can be constructed in an iterative way. Suppose \beq
+Of course, in this basis, the truncated Hamiltonian is not diagonal anymore. This basis can be constructed in an iterative way. Suppose \beq
 U_j=
 \begin{pmatrix}
 |u_0(q_j)\rangle&
@@ -1481,11 +1480,9 @@ The objective is $1-F_{20}$ with
 F_{20}=\left|\langle g_f\vert\psi_{20}(T)\rangle\right|^2.
 \label{eq:f20}
 \end{equation}
-We minimize it using the Nelder--Mead method with multiple initial seeds.  Since this is a finite search, the best result found is necessarily a global maximum. We do the optimization at different total times $T$. 
-After the optimization, we use the CF4-Krylov time evolution of the full Hamiltonian to compute the true fidelity; the results are summarized in Figure~\ref{fig:fidelity}. 
-The coefficients of the optimized ramping profile are summarized in Table~\ref{tab:path-coefficients}. From these coefficients, one can reconstruct the ramping profile $(\Omega'(t), \Delta'(t))$ using \eqref{eq:density}, \eqref{eq:clock} and \eqref{PathB}.
-For the $T=1.2 \mu {\rm s}$, we get Fig.~\ref{fig:rampingprofile}.
-At the end of the ramping, we get the fidelity shown in Table~\ref{tab:fidel}.
+We minimize it using the Nelder--Mead method with multiple initial seeds.  Since this is a local optimization, the best result found is necessarily a global maximum. After the optimization, we use the CF4-Krylov time evolution of the full Hamiltonian to compute the true fidelity; the results are summarized in Figure~\ref{fig:fidelity}. 
+We do the optimization at different total times $T$. The coefficients of the optimized ramping profile are summarized in Table~\ref{tab:path-coefficients}. From these coefficients, one can reconstruct the ramping profile $(\Omega'(t), \Delta'(t))$ using \eqref{eq:density}, \eqref{eq:clock} and \eqref{PathB}.
+For $T=1.2 \mu {\rm s}$, the optimized ramping profile is shown in Fig.~\ref{fig:rampingprofile}. At the end of the ramping, we get the fidelity shown in Table~\ref{tab:fidel}.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.6\columnwidth]{F_vs_t.pdf}
