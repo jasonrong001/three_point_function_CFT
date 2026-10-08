@@ -1367,7 +1367,7 @@ Y_j^{}\in\mathbb R^{352698\times20},
 \qquad
 (Y_j^{})^T Y_j=I_{20}.
 \eeq
-To ensure smoothness, we can impose $\langle s_a(q_j)|s_a(q_{j+1})\rangle>0$.
+To ensure smoothness, we can impose $\langle y_a(q_j)|y_a(q_{j+1})\rangle>0$.
 The truncated Hamiltonian is simply a diagonal matrix in this basis
 \beq
 (H^{\rm diag}_{\rm trun})_{ab} = E_a \delta_{ab}.
@@ -1401,7 +1401,7 @@ U_j=
 \cdots&
 |u_{19}(q_j)\rangle
 \end{pmatrix}\eeq
-is the smoothly transported basis at $q_j$, which we already know. We now seek the basis $U_{j+1}$ at the next time step. Now define the matrix 
+is the smoothly transported basis at $q_j$, which we already know. We now seek the basis $U_{j+1}$ at the next time step. Define the matrix 
 \beq
 M_{a,b}=\langle u_a (q_{i})| y_b (q_{i+1}) \rangle .
 \eeq
@@ -1456,7 +1456,7 @@ Now we introduce the ansatz for $q(t)$ that we use for optimization. Let $u=t/T\
 \end{aligned}
 \label{eq:density}
 \end{equation}
-and adjust the coefficients $\vec{a}$ and $\vec{b}$ to optimize the time-evolution. 
+and adjust the coefficients $\vec{a}$ and $\vec{b}$ to optimize the ramping profile. 
 The map between path coordinate and time is
 \begin{equation}
 q(t)=u^{-1}(t/T), \quad {\rm with}\quad u(q)=\frac{\int_0^q\rho(s)\,\dd s}
@@ -1480,7 +1480,7 @@ The objective is $1-F_{20}$ with
 F_{20}=\left|\langle g_f\vert\psi_{20}(T)\rangle\right|^2.
 \label{eq:f20}
 \end{equation}
-We minimize it using the Nelder--Mead method with multiple initial seeds.  Since this is a local optimization, the best result found is necessarily a global maximum. After the optimization, we use the CF4-Krylov time evolution of the full Hamiltonian to compute the true fidelity; the results are summarized in Figure~\ref{fig:fidelity}. 
+We minimize it using the Nelder--Mead method~\cite{NelderMead1965} with multiple initial seeds.  Since this is a local optimization, the best result found is necessarily a global maximum. After the optimization, we use the CF4-Krylov time evolution of the full Hamiltonian to compute the true fidelity; the results are summarized in Figure~\ref{fig:fidelity}. 
 We do the optimization at different total times $T$. The coefficients of the optimized ramping profile are summarized in Table~\ref{tab:path-coefficients}. From these coefficients, one can reconstruct the ramping profile $(\Omega'(t), \Delta'(t))$ using \eqref{eq:density}, \eqref{eq:clock} and \eqref{PathB}.
 For $T=1.2 \mu {\rm s}$, the optimized ramping profile is shown in Fig.~\ref{fig:rampingprofile}. At the end of the ramping, we get the fidelity shown in Table~\ref{tab:fidel}.
 \begin{figure}[ht]
