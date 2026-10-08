@@ -768,7 +768,7 @@ The first $\mathbb{Z}_2$-odd CFT operator is $\sigma$ that we are after, and
 the first $\mathbb{Z}_2$-even CFT operator is the identity, which can be
 subtracted by subtracting the vev of $Z_i$. Thus we identify the microscopic
 operator \cite{Slagle:2021ene}
-\begin{equation}
+\begin{equation}\label{latticeoperator}
 	s_i = (- 1)^i (Z_i - \langle Z_i \rangle) .
 \end{equation}
 We then have that $s_i = c_{\sigma} \sigma (\phi_i)$ plus corrections of
@@ -944,7 +944,7 @@ $N$.
 
 \begin{figure}[h]\centering
 	\resizebox{0.6\columnwidth}{!}{\includegraphics{ramping_curves.png}}
-	\caption{\label{fig:evolution}Adiabatic evolution paths $A$ and $B$ discussed in this work. \SR{Add A, B to the figure}}
+	\caption{\label{fig:evolution}Adiabatic evolution paths $A$ and $B$ discussed in this work.}
 \end{figure}
 
 Ref.~\cite{Fang:2024uyf} did not fully optimize their ramp profile, citing high computational cost. The point we want to make here is that 
@@ -1314,25 +1314,23 @@ Here $F_{0}$ is the fidelity obtained in the zero-numerical-step-size limit.  Th
 
 As a first application, we use this method to analyze the ramp profile P1-R1 from \cite{Fang:2024uyf}, plotted in Fig.~\ref{fig:yao-ramp}.
 We can use this method to evolve the experimental curve:
-\begin{align}
-{\rm Segment 1}: \quad& \Omega'(t)=0.133 \frac{t}{2\tilde{t}}, \quad \Delta'(t)=\Delta_i, \nonumber\\
-{\rm Segment 2}: \quad& \Omega'(t)=0.133, \quad \Delta'(t)=\frac{G_i \Delta_f (t-2\tilde{t}) + G_f \Delta_i (7\tilde{t} - t)}{ G_i (t-2\tilde{t}) + G_f (7 \tilde{t}-t)},
-\end{align}
-with 
-\begin{equation}
-\Delta_i = -0.403,~\Delta_f = 0.137,~G_i =0.45389,~G_f = 0.03039, \quad {\rm and}~ \tilde{t}=75.69.
-\end{equation}
-Here $G_i$ and $G_f$ are the energy gaps, and $\tilde{t}=75.69$ corresponds to $1 \mu s$ in physical units. Using $dt=1$, we get 
 \beq
-|c_0|=0.9952060572,\qquad
-|c_1|=0.0653074360,\qquad
-|c_2|=0.0361195216.
+q(t)=
+\begin{cases}
+\dfrac{t}{151.38},
+&0\leq t\leq151.38,\\[10pt]
+1+
+\dfrac{
+0.453893\,(t-151.38)
+}{
+0.453893\,(t-151.38)
++
+0.030395\,(529.83-t)
+},
+&151.38\leq t\leq529.83.
+\end{cases}
 \eeq
-Let us define the lattice operator 
-$$
- s_i = (-1)^i (Z_i -\langle Z_i \rangle).
-$$
-We can calculate the error on its two-point function introduced by ramping, which is 
+After the time evolution, we get the fidelity shown in Table~\ref{tab:fidel}. Define the lattice spin operator $s_i$ as in \eqref{latticeoperator}. We can calculate the error on its two-point function introduced by ramping, which is 
 \begin{equation}\label{def:error}
 \frac{
 \langle s_i s_{i+d}\rangle_t-
@@ -1341,6 +1339,7 @@ We can calculate the error on its two-point function introduced by ramping, whic
 \langle s_i s_{i+d}\rangle_{\mathrm{ED}}
 }.
 \end{equation}
+Here $\langle s_i s_{i+d}\rangle_t$ and $\langle s_i s_{i+d}\rangle_{\mathrm{ED}}$ are correlation functions measured on the time-evolved state and the ground state (from exact diagonalization). The results correspond to the dashed purple line in Fig.~\ref{fig:rampingerror}.
 
 \subsection{Optimization within reduced subspace}\label{sec:reduced}
 
@@ -1348,92 +1347,82 @@ In the previous subsection we described how, given a ramp profile, Schr\"odinger
 
 \SR{stopped here}
 
-Concretely, we distribute enough (a few hundred) sample points along the ramping path $(\Omega'(q), \Delta'(q))$. Here $q$ parametrizes the curve. Optimizing the ramping curve means finding $q(t)$ such that the final state achieves high fidelity.
+Concretely, we distribute enough (a few hundred) sample points along the ramping path $(\Omega'(q), \Delta'(q))$. Optimizing the ramping profile means finding $q(t)$ such that the final state achieves high fidelity.
  At every sampled point, an iterative eigensolver computes the lowest 20 eigenstates together with four guard states.
  We construct a discrete parallel-transport gauge by aligning the truncated Hilbert space at neighboring path points via the singular-value decomposition of their overlap matrix, which is equivalent to solving an orthogonal Procrustes problem~\cite{Kato1950,Schonemann1966,LiuVanderbilt2015}. We will discuss this procedure in detail below.
 Let us parametrize the path by $q$. If there were no level crossing, we could simply diagonalize the Hamiltonian at all $q$ to get 
-$$
-E_j^{}
+\beq
+Y_j^{}
 =
 \begin{pmatrix}
-|e_0(q_j)\rangle&
-|e_1(q_j)\rangle&
+|y_0(q_j)\rangle&
+|y_1(q_j)\rangle&
 \cdots&
-|e_{19}(q_j)\rangle
+|y_{19}(q_j)\rangle
 \end{pmatrix}.
-$$
+\eeq
 For our calculation,
 \beq
-E_j^{}\in\mathbb R^{352698\times20},
+Y_j^{}\in\mathbb R^{352698\times20},
 \qquad
-(E_j^{})^T E_j^{\mathrm{raw}}=I_{20}.
+(Y_j^{})^T Y_j=I_{20}.
 \eeq
-To ensure smoothness, we can impose 
-$$
-\langle e_a(q_j)|e_a(q_{j+1})\rangle>0.
-$$
+To ensure smoothness, we can impose $\langle s_a(q_j)|s_a(q_{j+1})\rangle>0$.
 The truncated Hamiltonian is simply a diagonal matrix in this basis
-$$
-H_{\rm trun} = D(q).
-$$
-This $q$-dependent basis introduces a Berry phase term to the Schrödinger equation. Write a time-dependent state as
-$$
-|\psi(t)\rangle =\vec{c} \cdot \vec{E}(q(t)) .
-$$
+\beq
+(H^{\rm diag}_{\rm trun})_{ab} = E_a \delta_{ab}.
+\eeq
+Here $E_a$ is the energy of the $a$-th state. This $q$-dependent basis introduces a Berry phase term to the Schrödinger equation. Write a time-dependent state as
+\beq
+|\psi(t)\rangle =\vec{c} \cdot \vec{Y}(q(t)) .
+\eeq
 The Schrödinger equation becomes
-$$
-i\frac{d\mathbf c}{dt}
-=
-\left[
-D(q)-\dot q\,\mathcal A(q)
-\right]\mathbf c,
-$$
+\beq
+i\frac{d c_a}{dt}
+= E_a c_a-\dot q\,\sum_b \mathcal A_{ab}(q)
+c_b,
+\eeq
 The off-diagonal part of the connection 
 \beq
 \mathcal A_{ab}(q)
 =
-i\langle e_a(q)|\partial_q e_b(q)\rangle
-=
-i\frac{\langle e_a|\partial_qH|e_b\rangle}
-{E_b-E_a},
-\qquad a\neq b,
+i\langle y_a(q)|\partial_q y_b(q)\rangle
 \eeq
 gives the non-adiabatic transition. 
 The diagonal part is the Berry phase. Alternatively, we can choose a basis \(U(q) \) , such that:
-$$
+\beq
 {\langle U_a|\partial_qU_b\rangle\approx0
 \quad\text{for every }a,b.}
-$$
+\eeq
 This eliminates the Berry connection term in the Hamiltonian. Of course, in this basis, the truncated Hamiltonian is not diagonal anymore.
-
-The basis can be constructed in an iterative way. Suppose \beq
+This basis can be constructed in an iterative way. Suppose \beq
 U_j=
 \begin{pmatrix}
-|U_0(q_j)\rangle&
+|u_0(q_j)\rangle&
 \cdots&
-|U_{19}(q_j)\rangle
+|u_{19}(q_j)\rangle
 \end{pmatrix}\eeq
 is the smoothly transported basis at $q_j$, which we already know. We now seek the basis $U_{j+1}$ at the next time step. Now define the matrix 
-$$
-M_{a,b}=\langle U_a (q_{i})| e_b (q_{i+1}) \rangle .
-$$
+\beq
+M_{a,b}=\langle u_a (q_{i})| y_b (q_{i+1}) \rangle .
+\eeq
 One can perform a singular value decomposition 
-$$
-M_j=U_j^T E_{j+1}^{\rm raw}=W_j\Sigma_jV_j^T.
-$$
+\beq
+M_j=U_j^T Y_{j+1}=W_j\Sigma_jV_j^T.
+\eeq
 We then define the orthogonal rotation
 \beq
 R_j=V_jW_j^T.
 \eeq
 One can shown that the correct basis at $q_{j+1}$ is 
 \begin{equation}
-U_{j+1}=E_{j+1}R_j. 
+U_{j+1}=Y_{j+1}R_j. 
 \end{equation}
 Notice that 
 \begin{align}
-U_j^T U_{j+1} &=U_j^T E_{j+1} R_j  \nonumber \\
+U_j^T U_{j+1} &=U_j^T Y_{j+1} R_j  \nonumber \\
 &=W_j\Sigma_j V_j^T V_j  W_j^T \nonumber \\
-&=W_j\Sigma_jW_j^T. \nonumber
+&=W_j\Sigma_jW_j^T. 
 \end{align}
 is symmetric and positive definite.
 Expanding at small \(\delta q\), we get
@@ -1447,14 +1436,18 @@ We know, however,
 \((\partial_qU)^TU+U^T\partial_qU=0,\)
 because $U^TU=1$, which means \(U_j^T\partial_qU_j\) is antisymmetric. 
 This is only possible if and only if 
-$$
+\beq
 U_j^T\partial_qU_j=0,
-$$ 
-which is precisely the gauge fixing condition.
+\eeq
+which is precisely the gauge-fixing condition.
 The above SVD gauge-fixing procedure works even if there are level crossings. The only dangerous case is a crossing at the truncation boundary, which we checked does not happen in our case.
-We use $q$ as a path coordinate: $H(q)=H(\Omega(q),\Delta(q))$. 
+After building the above basis, the truncated Hamiltonian is simply the original Hamiltonian evaluated on these states,
+\beq
+(H_{\rm trun})_{ab} = \langle u_a | H(q) | u_b \rangle,  
+\eeq
+whose matrix elements vary smoothly with $q$. In the optimization stage, we will use this Hamiltonian to evolve our state.
 
-Let $u=t/T\in[0,1]$ be normalized time. We optimize a positive density $\rho(q)\propto \dd t/\dd q$ along the fixed path. We parametrize $\rho(q)$ to be 
+Now we introduce the ansatz for $q(t)$ that we use for optimization. Let $u=t/T\in[0,1]$ be normalized time. We optimize a function $\rho(q)\propto \dd t/\dd q$ along the fixed path. We parametrize $\rho(q)$ as 
 \begin{equation}
 \begin{aligned}
 \rho(q; \vec{a}, \vec{b})=\rho_0(q)\exp\!\Bigg[&
@@ -1465,11 +1458,11 @@ Let $u=t/T\in[0,1]$ be normalized time. We optimize a positive density $\rho(q)\
 \label{eq:density}
 \end{equation}
 and adjust the coefficients $\vec{a}$ and $\vec{b}$ to optimize the time-evolution. 
-The map between path coordinate and physical time is
+The map between path coordinate and time is
 \begin{equation}
-u(q)=\frac{\int_0^q\rho(s)\,\dd s}
-{\int_0^{q_{\max}}\rho(s)\,\dd s},
-\qquad q(t)=u^{-1}(t/T).
+q(t)=u^{-1}(t/T), \quad {\rm with}\quad u(q)=\frac{\int_0^q\rho(s)\,\dd s}
+{\int_0^{q_{\max}}\rho(s)\,\dd s}.
+\qquad 
 \label{eq:clock}
 \end{equation}
 We take $K_s=K_c=6$, therefore 6 sine plus 6 cosine modes. For Path A, we take
@@ -1480,37 +1473,29 @@ We take $K_s=K_c=6$, therefore 6 sine plus 6 cosine modes. For Path A, we take
 390, & 1<q\leq2,
 \end{cases}
 \eeq
-so the zero-coefficient schedule preserves the $2:5$ segment-time
-ratio of the experimental reference protocol. For Path B, we take $\rho_0=1$ for all three segments.
+so the zero-coefficient profile preserves the $2:5$ segment-time
+ratio of the experimental profile. For Path B, we take $\rho_0=1$ for all three segments.
 
 The objective is $1-F_{20}$ with
 \begin{equation}
 F_{20}=\left|\langle g_f\vert\psi_{20}(T)\rangle\right|^2.
 \label{eq:f20}
 \end{equation}
-We minimize it using the Nelder--Mead method with multiple initial seeds.  
-Since this is a finite search in a finite harmonic family, the best result found at each time is not a proof of global optimality.
-We do the optimization at different total times $T$. We have used the physical final time $t^{\rm physical}_f= (T/75.69) \mu s$ in the figure.
+We minimize it using the Nelder--Mead method with multiple initial seeds.  Since this is a finite search, the best result found is necessarily a global maximum. We do the optimization at different total times $T$. 
 After the optimization, we use the CF4-Krylov time evolution of the full Hamiltonian to compute the true fidelity; the results are summarized in Figure~\ref{fig:fidelity}. 
-The coefficients of the optimized curves are summarized in Table~\ref{tab:path-coefficients}. From these coefficients, one can reconstruct the ramping profile $(\Omega'(t), \Delta'(t))$ using \eqref{eq:density}, \eqref{eq:clock} and \eqref{PathB}.
-For the $t^{\rm physical}_f=1.2 \mu s$, we get Fig.~\ref{fig:rampingprofile}.
-At the end of the ramping, we get
-\beq
-|c_0|=0.9994925634,\qquad
-|c_1|=0.0059982238,\qquad
-|c_2|=0.0136415391,
-\eeq
-which are the overlap of the evolved state with the ground, 1st excited, and 2nd excited states.
+The coefficients of the optimized ramping profile are summarized in Table~\ref{tab:path-coefficients}. From these coefficients, one can reconstruct the ramping profile $(\Omega'(t), \Delta'(t))$ using \eqref{eq:density}, \eqref{eq:clock} and \eqref{PathB}.
+For the $T=1.2 \mu {\rm s}$, we get Fig.~\ref{fig:rampingprofile}.
+At the end of the ramping, we get the fidelity shown in Table~\ref{tab:fidel}.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.6\columnwidth]{F_vs_t.pdf}
-  \caption{\label{fig:fidelity}The fidelity of the optimized curves verified using CF4-Krylov time evolution.}
+  \caption{\label{fig:fidelity}The fidelity of the optimized ramping profiles verified using CF4-Krylov time evolution.}
 \end{figure}
-We can calculate the relative error of the two-point function measured on the time-evolved states, as shown in Fig.~\ref{fig:rampingerror}.
+We can also calculate the error introduced by ramping, defined in~\eqref{def:error}. The results are shown in Fig.~\ref{fig:rampingerror}.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.9\columnwidth]{ramping_error.pdf}
-  \caption{\label{fig:rampingerror}The relative error of the two-point function for the optimized curve of Path B and the experimental curve, as defined in~\eqref{def:error}. }
+  \caption{\label{fig:rampingerror}The relative error of the two-point function for the optimized ramping profile of Path B and the experimental profile for Path A, as defined in~\eqref{def:error}. }
 
 \end{figure}
 
@@ -1524,7 +1509,7 @@ six-sine plus six-cosine time-density ansatz.}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{c*{12}{r}}
 \toprule
-$t^{\rm physical}_f$
+$T~(\mu{\rm s})$
 & $a_1$ & $a_2$ & $a_3$ & $a_4$ & $a_5$ & $a_6$
 & $b_1$ & $b_2$ & $b_3$ & $b_4$ & $b_5$ & $b_6$ \\
 \midrule
@@ -1549,7 +1534,7 @@ $t^{\rm physical}_f$
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{c*{12}{r}}
 \toprule
-$t^{\rm physical}_f$
+$T~(\mu{\rm s})$
 & $a_1$ & $a_2$ & $a_3$ & $a_4$ & $a_5$ & $a_6$
 & $b_1$ & $b_2$ & $b_3$ & $b_4$ & $b_5$ & $b_6$ \\
 \midrule
