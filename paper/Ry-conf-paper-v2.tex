@@ -1344,9 +1344,11 @@ We can calculate the error on its two-point function introduced by ramping, whic
 
 \subsection{Optimization within reduced subspace}\label{sec:reduced}
 
+In the previous subsection we described how, given a ramp profile, Schr\"odinger evolution within the $\mathcal{D}$-dimensional subspace can be performed, computing the fidelity at time $T$. In this subsection we discuss how to optimize the ramp profile. While optimizing, final fidelity will have to be computed thousands of times. Computing the full evolution thousands of times is not feasible. We will therefore truncate the Hamiltonian to a $20\times 20$ matrix to make the optimization manageable. This will introduce an error in fidelity. However this still captures the needed profile shape. Once the optimization is over, we compute accurate fidelities as described in the validation section, and it turns out that when approximate fidelity is close to 1, accurate fidelity is also close to 1.
 
-A full-sector propagation is feasible, but thousands of such propagations inside an optimizer are not. We first need to truncate the Hamiltonian to a $20\times 20$ matrix to make the optimization manageable.
-We put enough (a few hundred) sample points along the ramping path $(\Omega'(q), \Delta'(q))$. Here $q$ parametrizes the curve. Optimizing the ramping curve means finding $q(t)$ such that the final state achieves high fidelity.
+\SR{stopped here}
+
+Concretely, we distribute enough (a few hundred) sample points along the ramping path $(\Omega'(q), \Delta'(q))$. Here $q$ parametrizes the curve. Optimizing the ramping curve means finding $q(t)$ such that the final state achieves high fidelity.
  At every sampled point, an iterative eigensolver computes the lowest 20 eigenstates together with four guard states.
  We construct a discrete parallel-transport gauge by aligning the truncated Hilbert space at neighboring path points via the singular-value decomposition of their overlap matrix, which is equivalent to solving an orthogonal Procrustes problem~\cite{Kato1950,Schonemann1966,LiuVanderbilt2015}. We will discuss this procedure in detail below.
 Let us parametrize the path by $q$. If there were no level crossing, we could simply diagonalize the Hamiltonian at all $q$ to get 
