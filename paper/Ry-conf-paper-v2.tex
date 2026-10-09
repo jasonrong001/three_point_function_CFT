@@ -74,7 +74,7 @@ $^2$Institut des Hautes \'Etudes Scientifiques, 91440 Bures-sur-Yvette, France}
 
 
 \abstract{
-We propose a direct test of conformal symmetry using Rydberg-atom arrays. By arranging the atoms on a circle and measuring equal-time two-point correlation functions, the characteristic functional form predicted by conformal field theory can be tested directly. We estimate the number of experimental snapshots required to resolve this behavior with sufficient statistical precision. We further optimize the time-dependent ramping profile of the Rabi frequency $\Omega$ and detuning $\Delta$ used to prepare the target critical state adiabatically. The optimized profile achieves higher fidelity over much shorter evolution times than those employed in previous experiments. Taken together, these results demonstrate that a direct experimental test of conformal symmetry is feasible with current Rydberg-atom technology.}%This is a note on the measurement of 3pt function using Rydberg atom experiments.}
+We propose a direct test of conformal symmetry using Rydberg-atom arrays. By arranging the atoms on a circle and measuring equal-time two-point correlation functions, the characteristic functional form predicted by conformal field theory can be tested directly. We estimate the number of experimental snapshots required to resolve this behavior with sufficient statistical precision. We further optimize the time-dependent ramp profile of the Rabi frequency~$\Omega$ and detuning~$\Delta$ used to prepare the target critical state adiabatically. The optimized profile achieves higher fidelity over much shorter evolution times than those employed in previous experiments. Taken together, these results demonstrate that a direct experimental test of conformal symmetry is feasible with current Rydberg-atom technology.}%This is a note on the measurement of 3pt function using Rydberg atom experiments.}
 
 
 
@@ -927,10 +927,10 @@ effects to be discussed in Section \ref{sec:decoherence}.
 
 For optimization purposes, we will fix a path in the $(\Omega', \Delta')$
 plane and we will vary the local rate of change and the total evolution time.
-For definiteness, we fix a two-segment path (Path A) for point P1 and a three-segment
-path (Path B) for P3, see Fig. \ref{fig:evolution}.
+For definiteness, we fix a two-segment Path A for point P1 and a three-segment
+Path B for P3, see Fig. \ref{fig:evolution}.
 
-The first path is precisely the one used in {\cite{Fang:2024uyf}}, where
+Path A is precisely the one used in {\cite{Fang:2024uyf}}, where
 total evolution time was $T= 7 \mu \text{s}$ split as $2 \mu \text{s} + 5
 \mu \text{s}$ between the two segments. Their ramp profile $\Omega' (t),
 \Delta' (t)$ is shown in Fig. \ref{fig:yao-ramp}. In particular, linearly growing
@@ -950,9 +950,7 @@ $N$.
 Ref.~\cite{Fang:2024uyf} did not fully optimize their ramp profile, citing high computational cost. The point we want to make here is that 
 $N = 24$ is small enough so that efficient optimization is feasible. In fact, we can find better ramp profiles for the two-segment path leading to point P1. Better here means achieving higher ground state fidelity than the profile \cite{Fang:2024uyf} while at the same time having significantly shorter evolution time, which should reduce decoherence effects (see Section \ref{sec:decoherence}). Even better ramp profiles will be found for the three-segment-path leading to point P3. Let us describe these results.
 
-First of all, let us describe how to check if a given profile is good enough (``validation''). 
-
-For $N=24$, and any given profile, we can solve numerically the Schr\"odinger time evolution
+First of all, let us describe how to check if a given profile is good enough (``validation''). For $N=24$, and any given ramp profile, we can solve numerically the Schr\"odinger time evolution
 \begin{equation}
 	i \hbar \dot{\psi} (t) = U H (\Omega' (t), \Delta' (t)) \psi\,, \label{fullQM1}
 \end{equation}
@@ -1222,7 +1220,7 @@ Here \(\mathcal T\) is the time-ordering operator. It is necessary because, in g
 \eeq
 Numerically the time evoluton is realized by discretizing the time interval $[0,T]$ into small steps $h=\delta t$, and approximating the evolution operator by a product of matrix exponentials correspoding to small steps. It pays off to organize this discretization efficiently, so that the error scales with a high power $h$, as this reduces the number of time steps needed to achieve a converged result. Here we used the fourth-order commutator-free Magnus (CF4) scheme, whose error is $O(h^4)$~\cite{BlanesMoan2006,AlvermannFehske2011}.
 
-Let us give some details about how this works. The idea is to sample the time-dependent Hamiltonian at two Gauss--Legendre nodes inside the interval:
+Let us give some details about how this works. The idea is to sample the time-dependent Hamiltonian at two Gauss-Legendre nodes inside the interval:
 \begin{equation}
 t_{n,1}=t_n+c_1 h,\qquad t_{n,2}=t_n+c_2 h\,.
 \end{equation}
