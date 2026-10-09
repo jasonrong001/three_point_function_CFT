@@ -972,8 +972,8 @@ better the final state approximates the critical ground state.
 
 In Table \ref{tab:fidel} we give ramp fidelities as well as $| c_n (T) |^2$ for $n=1,2$ which give the idea for the leading deviation from the ground state, for several ramps to P1 and P3. 
 
-The first line in Table \ref{tab:fidel} is for the ramp from \cite{Fang:2024uyf}, which we call P1-R1, and for which we find fidelity $99.04\%$. The subsequent lines give several ramps that we found via optimization process described below. All these ramps achieve as good fidelities as P1-R1, or better, with 2-3 times shorter evolution times for point P1,
-and even shorter times for point P3. E.g.~ramp P3-R2 achieves $99.9\%$ fidelity with $T=1.2 \mu\text{s}$.
+The first line in Table \ref{tab:fidel} is for the ramp from \cite{Fang:2024uyf}, which we call P1$_{7}$, and for which we find fidelity $99.04\%$. The subsequent lines give several ramps that we found via optimization process described below. The subscript in the ramp name refers to the total ramp time in $\mu{\text{s}}$. All these ramps achieve as good fidelities as P1$_7$, or better, with 2-3 times shorter evolution times for point P1,
+and even shorter times for point P3. E.g.~ramp P3$_{1.2}$ achieves $99.9\%$ fidelity with $T=1.2 \mu\text{s}$.
 
 %%ramps to P1, &  & $7.0$ & $0.99043510$ & $0.00426506$ & $0.00130462$ & $0.00399522$ \\
 %%{\cite{Fang:2024uyf}}, Fig. \ref{fig:yao-ramp}: &  & $2.5$ & $0.99181040$ & $0.00092417$ & $0.00514842$ & $0.00211701$ \\
@@ -993,12 +993,12 @@ and even shorter times for point P3. E.g.~ramp P3-R2 achieves $99.9\%$ fidelity 
 	& $|c_2(T)|^2$
 	& $1-\displaystyle\sum_{n=0}^{2}|c_n(T)|^2$ \\
 	\midrule
-	ramps to P1 & P1-R1 \cite{Fang:2024uyf} & $7.0$ & $0.990435$ & $0.004265$ & $0.001305$ & $0.003995$ \\
-	& P1-R2 & $2.5$ & $0.991810$ & $0.000924$ & $0.005148$ & $0.002117$ \\
-	& P1-R3 & $3.0$ & $0.994031$ & $0.002878$ & $0.001574$ & $0.001517$ \\
+	ramps to P1 & P1$_7$ \cite{Fang:2024uyf} & $7.0$ & $0.990435$ & $0.004265$ & $0.001305$ & $0.003995$ \\
+	& P1$_{2.5}$ & $2.5$ & $0.991810$ & $0.000924$ & $0.005148$ & $0.002117$ \\
+	& P1$_3$ & $3.0$ & $0.994031$ & $0.002878$ & $0.001574$ & $0.001517$ \\
 	\midrule
-	ramps to P3 & P3-R1 & $0.8$ & $0.996062$ & $0.000364$ & $0.000975$ & $0.002599$ \\
-	& P3-R2 & $1.2$ & $0.998985$ & $0.000036$ & $0.000186$ & $0.000793$ \\
+	ramps to P3 & P3$_{0.8}$ & $0.8$ & $0.996062$ & $0.000364$ & $0.000975$ & $0.002599$ \\
+	& P3$_{1.2}$ & $1.2$ & $0.998985$ & $0.000036$ & $0.000186$ & $0.000793$ \\
 	\bottomrule
 	\end{tabular}
 \caption{\label{tab:fidel}Fidelities for various ramp profiles for points P1 and P3, discussed in the text.}
@@ -1357,12 +1357,11 @@ achieves high fidelity. We first discuss how we quickly evaluate fidelity for an
 We start with the Schr{\"o}dinger equation
 \eqref{eq:Schr11} which we write as
 \begin{equation}
-	i \dot{\psi} = H (q (t)) \psi (t)
+	i \dot{\psi} = H (q (t)) \psi (t)\,,
 \end{equation}
 to show explicitly how $q (t)$ enters in the problem. We project this equation
 on the lowest $P = 20$ eigenstates. Let's discuss this first as if $q$ was
-continuous, but eventually $q$ will be discretized. Consider for each $q$ ($q
-\in [0, 2]$ for Path A, $q \in [0, 3]$ for Path B), the first $P$ eigenstates:
+continuous, but eventually $q$ will be discretized. Consider for each $q\in [0,q_{\max}]$ ($q_{\max}=2$ for Path A, $3$ for Path B), the first $P$ eigenstates:
 \begin{equation}
 	Y  (q) = \left(\begin{array}{c}
 		|Y_a (q ) \rangle
@@ -1370,7 +1369,7 @@ continuous, but eventually $q$ will be discretized. Consider for each $q$ ($q
 \end{equation}
 of energies $(E_a)_{a = 0 \ldots P - 1}$. Thus for every $q$
 \begin{equation}
-	Y   \in \mathbb{R}^{\mathcal{D} \times P}, \qquad (Y ^{})^T Y  = I_{20} .
+	Y   \in \mathbb{R}^{\mathcal{D} \times P}, \qquad (Y ^{})^T Y  = I_{P\times P} .
 \end{equation}
 We assume that $Y_a$ are chosen orthonormal and real (since the Hamiltonian is
 real), and that $Y$ varies smoothly with $q$. We write the time-dependent
@@ -1472,111 +1471,137 @@ can solve \eqref{SchrHU} using the same CF4 scheme as described in App.
 the optimization.
 
 
+We now proceed with describing the optimization details. We parametrize not
+$q (t)$ directly, but the function $\rho (q) \propto d t / d q$. Namely, we
+use the following ansatz
+\begin{equation}
+	\rho (q ; \vec{a}, \vec{b}) = \rho_0 (q) \exp \hspace{-0.17em} \left[
+	\sum_{k = 1}^{K_s} a_k \sin \hspace{-0.17em} \left( \frac{k \pi q}{q_{\max}}
+	\right) + \sum_{k = 1}^{K_c} b_k \cos \hspace{-0.17em} \left( \frac{k \pi
+		q}{q_{\max}} \right) \right], \label{eq:density}
+\end{equation}
+with a fixed function $\rho_0 (q)$ (to be described shortly), and real
+parameters $\vec{a}$ and $\vec{b}$, which are adjusted to optimize the ramp
+profile. We take $K_s = K_c = 6$, i.e. a total of 12 parameters.
 
-\SR{stopped here}
+Given $\rho$ and the total evolution time $T$, the map from time $t$ to the
+coordinate $q$ is obtained by solving the equation
+\begin{equation}
+	u (q) = t / T, \quad u (q) : = \frac{\int_0^q \rho (s) \hspace{0.17em} d
+		s}{\int_0^{q_{\max}} \rho (s) \hspace{0.17em} d s}, \label{eq:clock1}
+\end{equation}
+i.e.
+\begin{equation}
+	q (t) = u^{- 1}  (t / T) . \qquad \label{eq:clock}
+\end{equation}
+Note that $u \in [0, 1]$ has the meaning of the normalized time.
 
-Now we introduce the ansatz for $q(t)$ that we use for optimization. Let $u=t/T\in[0,1]$ be normalized time. We optimize a function $\rho(q)\propto \dd t/\dd q$ along the fixed path. We parametrize $\rho(q)$ as 
-\begin{equation}
-\begin{aligned}
-\rho(q; \vec{a}, \vec{b})=\rho_0(q)\exp\!\Bigg[&
-\sum_{k=1}^{K_s}a_k\sin\!\left(\frac{k\pi q}{q_{\max}}\right)\\
-&+\sum_{k=1}^{K_c}b_k\cos\!\left(\frac{k\pi q}{q_{\max}}\right)
-\Bigg],
-\end{aligned}
-\label{eq:density}
-\end{equation}
-and adjust the coefficients $\vec{a}$ and $\vec{b}$ to optimize the ramping profile. 
-The map between path coordinate and time is
-\begin{equation}
-q(t)=u^{-1}(t/T), \quad {\rm with}\quad u(q)=\frac{\int_0^q\rho(s)\,\dd s}
-{\int_0^{q_{\max}}\rho(s)\,\dd s}.
-\qquad 
-\label{eq:clock}
-\end{equation}
-We take $K_s=K_c=6$, therefore 6 sine plus 6 cosine modes. For Path A, we take
-\begin{equation}
-\rho_0(q)=
-\begin{cases}
-156, & 0\leq q\leq1,\\
-390, & 1<q\leq2,
-\end{cases}
-\end{equation}
-so the zero-coefficient profile preserves the $2:5$ segment-time
-ratio of the experimental profile. For Path B, we take $\rho_0=1$ for all three segments.
+For $\rho_0$, we choose
+\begin{align}
+	\text{Path A: } & \rho_0 (q) = \left\{\begin{array}{ll}
+		2, & 0 \leq q \leq 1,\\
+		5, & 1 < q \leq 2,
+	\end{array}\right. \nonumber\\
+	\text{Path B: } &\rho_0 (q) \equiv 1, \label{rho0B}
+\end{align}
+I.e. for Path A the zero-coefficient profile preserves the $2 : 5$
+segment-time ratio of the experimental ramp.
 
-The objective is $1-F_{20}$ with
+The optimization problem is to maximize the fidelity, i.e. (squared) overlap
+of $\psi (T)$ with the ground state $|0 \rangle$ at $q = q_{\max}$:
 \begin{equation}
-F_{20}=\left|\langle g_f\vert\psi_{20}(T)\rangle\right|^2.
-\label{eq:f20}
+	\tilde F  = | \langle 0 (q_{\max}) | \psi  (T) \rangle |^2 \rightarrow \max .
+	\label{eq:f20}
 \end{equation}
-We minimize it using the Nelder--Mead method~\cite{NelderMead1965} with multiple initial seeds.  Since this is a local optimization, the best result found is necessarily a global maximum. After the optimization, we use the CF4-Krylov time evolution of the full Hamiltonian to compute the true fidelity; the results are summarized in Figure~\ref{fig:fidelity}. 
-We do the optimization at different total times $T$. The coefficients of the optimized ramping profile are summarized in Table~\ref{tab:path-coefficients}. From these coefficients, one can reconstruct the ramping profile $(\Omega'(t), \Delta'(t))$ using \eqref{eq:density}, \eqref{eq:clock} and \eqref{PathB}.
-For $T=1.2 \mu {\rm s}$, the optimized ramping profile is shown in Fig.~\ref{fig:rampingprofile}. At the end of the ramping, we get the fidelity shown in Table~\ref{tab:fidel}.
+We put a tilde on $F$ to emphasize that this fidelity is computed using the evolution in the truncated Hilbert space, and is therefore not the true fidelity.
+
+
+\begin{table}[h]
+	\centering
+	\caption{Optimized coefficients for Path A ramps leading to point P1}
+	\label{tab:path-coefficientsA}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{c*{12}{r}}
+			\toprule
+			$T~(\mu{\rm s})$
+			& $a_1$ & $a_2$ & $a_3$ & $a_4$ & $a_5$ & $a_6$
+			& $b_1$ & $b_2$ & $b_3$ & $b_4$ & $b_5$ & $b_6$ \\
+			\midrule
+			2.00
+			&  0.565161 & -1.657209 &  3.299559 &  2.171572 & -1.762571 &  2.607463
+			& -3.832125 & -2.438523 & -5.717325 &  3.100494 & -1.826421 & -3.311279 \\
+			2.25
+			&  0.553266 & -0.634082 &  3.273120 &  4.607602 & -2.649089 &  0.498309
+			& -5.271103 & -2.026259 & -5.404912 &  3.881643 &  0.612730 & -3.308933 \\
+			2.50
+			& -0.096198 & -0.819855 &  2.688715 &  4.455646 & -2.987238 & -0.163164
+			& -5.604367 & -2.128336 & -4.931697 &  4.193614 &  1.601918 & -2.771219 \\
+			2.75
+			& -2.188016 & -0.907333 &  2.860120 &  4.814655 & -3.037231 & -0.667492
+			& -4.404842 & -2.495907 & -4.589297 &  4.883557 &  3.250500 & -1.941580 \\
+			3.00
+			& -0.699069 & -0.863736 &  2.237207 &  6.867565 & -1.721453 & -1.052913
+			& -6.161076 & -1.618110 & -4.648907 &  5.394653 &  5.997293 & -0.610818 \\
+			\bottomrule
+		\end{tabular}%
+	}
+\end{table}
+\begin{table}[h]
+	\centering
+	\caption{Optimized coefficients for Path B ramps leading to point P3}
+	\label{tab:path-coefficientsB}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{c*{12}{r}}
+			\toprule
+			$T~(\mu{\rm s})$
+			& $a_1$ & $a_2$ & $a_3$ & $a_4$ & $a_5$ & $a_6$
+			& $b_1$ & $b_2$ & $b_3$ & $b_4$ & $b_5$ & $b_6$ \\
+			\midrule
+			0.60
+			& -4.272404 & -0.257878 & -2.750781 &  0.761435 &  1.116412 &  0.187347
+			& -0.699790 &  0.540612 & -1.027274 & -2.483160 & -0.067789 &  0.669567 \\
+			0.70
+			& -4.594478 & -0.384034 & -3.139899 &  0.889628 &  1.209487 &  0.390048
+			& -0.976911 &  0.689999 & -0.813433 & -2.280804 &  0.058660 &  0.478638 \\
+			0.80
+			& -4.319620 & -0.460498 & -2.865799 &  0.875479 &  0.856311 &  0.419489
+			& -0.943799 &  0.679953 & -1.042947 & -2.369250 &  0.115863 &  0.407742 \\
+			1.00
+			& -4.248281 & -0.489297 & -3.012873 &  0.858625 &  0.689688 &  0.481482
+			& -1.004111 &  0.868316 & -0.946642 & -2.243263 &  0.298252 &  0.227596 \\
+			1.20
+			& -3.823077 & -0.660905 & -3.089450 &  0.664824 &  0.554296 &  0.733248
+			& -1.104026 &  1.132340 & -0.827626 & -2.207867 &  0.151625 &  0.041041 \\
+			\bottomrule
+		\end{tabular}%
+	}
+\end{table}
+
+
+We solve this maximization problem using the Nelder--Mead method~{\cite{NelderMead1965}}
+with multiple initial seeds, and settle for the best found result (which is
+not necessarily a global maximum). After the optimization, we use validation from App.~\ref{sec:validation}, i.e.~the
+CF4 time evolution of the full Hamiltonian to compute the true
+fidelity $F$; the results are summarized in Figure~\ref{fig:fidelity}. We do the
+optimization at different total times $T$. The coefficients of the optimized
+ramp profiles are summarized in Tables~\ref{tab:path-coefficientsA} and \ref{tab:path-coefficientsB}. From
+these coefficients, it is easy to reconstruct the ramp profile
+$(\Omega' (t), \Delta' (t))$ using \eqref{eq:density}-\eqref{rho0B}. As an
+example, for $T = 1.2 \mu$\text{{\rmfamily{s}}}, the optimized Path B ramp profile
+is shown in Fig.~\ref{fig:rampingprofile}. 
+
+
 \begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.6\columnwidth]{F_vs_t.pdf}
-  \caption{\label{fig:fidelity}The fidelity of the optimized ramping profiles verified using CF4-Krylov time evolution.}
+	\centering
+	\includegraphics[width=0.6\columnwidth]{F_vs_t.pdf}
+	\caption{\label{fig:fidelity}The fidelity $F$ of the optimized ramp profiles, computed via CF4 time evolution as in App.~\ref{sec:validation}. \SR{Change $F_{full}$ to $F$ on the vertical axis}}
 \end{figure}
 
 
+\SR{stopped here}
+In Table~\ref{tab:fidel} we report more detailed information for two of the optimized Path A ramps and ...
 
 
-\begin{table*}[t]
-\centering
-\caption{Optimized coefficients for Path A and Path B. The coefficients enter the
-six-sine plus six-cosine time-density ansatz.}
-\label{tab:path-coefficients}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{c*{12}{r}}
-\toprule
-$T~(\mu{\rm s})$
-& $a_1$ & $a_2$ & $a_3$ & $a_4$ & $a_5$ & $a_6$
-& $b_1$ & $b_2$ & $b_3$ & $b_4$ & $b_5$ & $b_6$ \\
-\midrule
-2.00
-&  0.565161 & -1.657209 &  3.299559 &  2.171572 & -1.762571 &  2.607463
-& -3.832125 & -2.438523 & -5.717325 &  3.100494 & -1.826421 & -3.311279 \\
-2.25
-&  0.553266 & -0.634082 &  3.273120 &  4.607602 & -2.649089 &  0.498309
-& -5.271103 & -2.026259 & -5.404912 &  3.881643 &  0.612730 & -3.308933 \\
-2.50
-& -0.096198 & -0.819855 &  2.688715 &  4.455646 & -2.987238 & -0.163164
-& -5.604367 & -2.128336 & -4.931697 &  4.193614 &  1.601918 & -2.771219 \\
-2.75
-& -2.188016 & -0.907333 &  2.860120 &  4.814655 & -3.037231 & -0.667492
-& -4.404842 & -2.495907 & -4.589297 &  4.883557 &  3.250500 & -1.941580 \\
-3.00
-& -0.699069 & -0.863736 &  2.237207 &  6.867565 & -1.721453 & -1.052913
-& -6.161076 & -1.618110 & -4.648907 &  5.394653 &  5.997293 & -0.610818 \\
-\bottomrule
-\end{tabular}%
-}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{c*{12}{r}}
-\toprule
-$T~(\mu{\rm s})$
-& $a_1$ & $a_2$ & $a_3$ & $a_4$ & $a_5$ & $a_6$
-& $b_1$ & $b_2$ & $b_3$ & $b_4$ & $b_5$ & $b_6$ \\
-\midrule
-0.60
-& -4.272404 & -0.257878 & -2.750781 &  0.761435 &  1.116412 &  0.187347
-& -0.699790 &  0.540612 & -1.027274 & -2.483160 & -0.067789 &  0.669567 \\
-0.70
-& -4.594478 & -0.384034 & -3.139899 &  0.889628 &  1.209487 &  0.390048
-& -0.976911 &  0.689999 & -0.813433 & -2.280804 &  0.058660 &  0.478638 \\
-0.80
-& -4.319620 & -0.460498 & -2.865799 &  0.875479 &  0.856311 &  0.419489
-& -0.943799 &  0.679953 & -1.042947 & -2.369250 &  0.115863 &  0.407742 \\
-1.00
-& -4.248281 & -0.489297 & -3.012873 &  0.858625 &  0.689688 &  0.481482
-& -1.004111 &  0.868316 & -0.946642 & -2.243263 &  0.298252 &  0.227596 \\
-1.20
-& -3.823077 & -0.660905 & -3.089450 &  0.664824 &  0.554296 &  0.733248
-& -1.104026 &  1.132340 & -0.827626 & -2.207867 &  0.151625 &  0.041041 \\
-\bottomrule
-\end{tabular}%
-}
-\end{table*}
 
 
 	
