@@ -540,10 +540,10 @@ repulsive, $C_6 > 0$.
 Denoting $a$ the distance between neighboring atoms, and \ $U = C_6 /
 a^6$, we will work with the dimensionless Hamiltonian $H =
 H_{\text{phys}} / U$:
-\beq
+\begin{equation}
 	H  = \frac{\Omega'}{2}  \sum_i X_i - \Delta'  \sum_i n_i + \sum_{i <
 		j} \frac{1}{d_{ij}^6} n_i n_j,  \label{eq:modelp}
-\eeq
+\end{equation}
 where $\Omega' = \hbar \Omega / U$ and $\Delta' = \hbar \Delta / U$ are real
 dimensionless numbers, and $d_{ij} = R_{ij} / a$ is the dimensionless
 distance. 
@@ -1019,6 +1019,26 @@ After optimization, our ramping profile achieves higher fidelity with shorter ti
 \end{figure}
 The details of the optimization algorithm and the optimized ramping profiles for different $t_f$ can be found in Appendix \ref{sec:optim}.
 
+Finally we discuss deviations in the 2pt function...
+
+Define the lattice spin operator $s_i$ as in \eqref{latticeoperator}. We can calculate the error on its two-point function introduced by ramping, which is 
+\begin{equation}\label{def:error}
+	\frac{
+		\langle s_i s_{i+d}\rangle_t-
+		\langle s_i s_{i+d}\rangle_{\mathrm{ED}}
+	}{
+		\langle s_i s_{i+d}\rangle_{\mathrm{ED}}
+	}.
+\end{equation}
+Here $\langle s_i s_{i+d}\rangle_t$ and $\langle s_i s_{i+d}\rangle_{\mathrm{ED}}$ are correlation functions measured on the time-evolved state and the ground state (from the exact diagonalization). The results correspond to the dashed purple line in Fig.~\ref{fig:rampingerror}.
+
+We can also calculate the error introduced by ramping, defined in~\eqref{def:error}. The results are shown in Fig.~\ref{fig:rampingerror}.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.9\columnwidth]{ramping_error.pdf}
+	\caption{\label{fig:rampingerror}The relative error of the two-point function for the optimized ramping profile of Path B and the experimental profile for Path A, as defined in~\eqref{def:error}. }
+\end{figure}
+
 \subsection{Decoherence effects}\label{sec:decoherence}
 
 For $a = 10 \mu$\text{{\rmfamily{m}}}, $U / \hbar = 0.86 \mathrm{rad} \cdot
@@ -1178,7 +1198,7 @@ We parametrize the two-segment path (Path A in Fig.~\ref{fig:evolution}) as:
 0\leq q\leq1:&\quad
 \Omega'(q)=0.133q,\qquad \Delta'(q)=-0.403, \nonumber\\
 1\leq q\leq2:&\quad
-\Omega'(q)=0.133,\qquad \Delta'(q)=-0.403+0.54(q-1). 
+\Omega'(q)=0.133,\qquad \Delta'(q)=-0.403+0.54(q-1). \label{eq:PA}
 \end{align}
 The final point is therefore P1: $(\Omega',\Delta')=(0.133,0.137)$, which is critical.
 We take the three-segment path  (Path B) to be 
@@ -1194,41 +1214,41 @@ subspace and validation in the full $\mathcal{D}$-dimensional subspace. We discu
 
 \subsection{Validation}\label{sec:validation}
 We use a matrix-free approach to calculate the time evolution of the ground state.  At $N=24$, the dimension of the zero-momentum, reflection-positive Hilbert space is $\mathcal{D}=352{,}698$. (The $\mathcal{D}\times \mathcal{D}$ Hamiltonian is never explicitly constructed and stored.) The Schrödinger equation is given in \eqref{fullQM1}. In this appendix, we take $\hat{t} =t\cdot U/\hbar$ to be the dimensionless time. We will drop the hat to simplify the notation. We thus work with the equation
-\beq
+\begin{equation}
 i\frac{\partial}{\partial t}\lvert\psi(t)\rangle
 =
-H(t)\lvert\psi(t)\rangle .
-\eeq
+H(t)\lvert\psi(t)\rangle .\label{eq:Schr11}
+\end{equation}
 This is formally solved by
-\beq
+\begin{equation}
 \lvert\psi(t)\rangle
 =
 \mathcal{U}(t,0)\lvert\psi(0)\rangle ,
-\eeq
+\end{equation}
 with the time evolution operator,
-\beq
+\begin{equation}
 \mathcal{U}(t,0)
 =
 \mathcal T
 \exp\left[
 -i\int_0^t H(t')\,dt'
 \right].
-\eeq
+\end{equation}
 Here \(\mathcal T\) is the time-ordering operator. It is necessary because, in general,
-\beq
+\begin{equation}
 [H(t_1),H(t_2)]\neq 0.
-\eeq
-Numerically the time evoluton is realized by discretizing the time interval $[0,T]$ into small steps $h=\delta t$, and approximating the evolution operator by a product of matrix exponentials correspoding to small steps. It pays off to organize this discretization efficiently, so that the error scales with a high power $h$, as this reduces the number of time steps needed to achieve a converged result. Here we used the fourth-order commutator-free Magnus (CF4) scheme, whose error is $O(h^4)$~\cite{BlanesMoan2006,AlvermannFehske2011}.
+\end{equation}
+Numerically the time evoluton is realized by discretizing the time interval $[0,T]$ into small steps $h=\delta t$, and approximating the evolution operator by a product of matrix exponentials corresponding to small steps. It pays off to organize this discretization efficiently, so that the error scales with a high power $h$, as this reduces the number of time steps needed to achieve a converged result. Here we used the fourth-order commutator-free Magnus (CF4) scheme, whose error is $O(h^4)$~\cite{BlanesMoan2006,AlvermannFehske2011}.
 
 Let us give some details about how this works. The idea is to sample the time-dependent Hamiltonian at two Gauss-Legendre nodes inside the interval:
 \begin{equation}
 t_{n,1}=t_n+c_1 h,\qquad t_{n,2}=t_n+c_2 h\,.
 \end{equation}
 Let
-\beq
+\begin{equation}
 H_1=H\!\left(\Omega(t_{n,1}),\Delta(t_{n,1})\right),\qquad
 H_2=H\!\left(\Omega(t_{n,2}),\Delta(t_{n,2})\right).
-\eeq
+\end{equation}
 %Thus $H_1$ is the Hamiltonian evaluated at the earlier node and $H_2$ is the Hamiltonian at the later node. With
 The CF4 scheme defines
 \begin{equation}\label{eq:cf4}
@@ -1238,10 +1258,10 @@ The CF4 scheme defines
 \vert \psi_n\rangle,
 \end{equation}
 with 
-\beq
+\begin{equation}
 c_{1,2}=\frac12\mp\frac{\sqrt3}{6}, \quad
 a_{1,2}=\frac14\mp\frac{\sqrt3}{6}.
-\eeq
+\end{equation}
 It can be shown that Eq.~\eqref{eq:cf4} has error $O(\delta t^5)$ with respect to the exact Schr\"odinger evolution. This single step error leads to the $O(h^4)$ for the full evolution which involves $T/h$ steps.
 
 %combines two exponentials with the two generators
@@ -1265,11 +1285,11 @@ which can be calculated in a matrix-free manner.
 This choice follows directly from the power series of the exponential: every term in $e^{-i h G}\vert v\rangle$ is proportional to one of the vectors appearing in Eq.~\eqref{eq:krylovspace}.  The approximation is therefore tailored to the action of the exponential.
 
 For Hermitian $G$ as needed for us, the Lanczos iteration constructs an orthonormal basis
-\beq
+\begin{equation}
 V_m=(\vert v_1\rangle,\ldots,\vert v_m\rangle),
 \qquad
 \vert v_1\rangle={\vert v\rangle}/{\lVert v\rVert},
-\eeq
+\end{equation}
 using the three-term recurrence \cite{Lanczos1950}
 \begin{equation}
 G\vert v_j\rangle
@@ -1303,16 +1323,14 @@ e^{-i h G}\vert v\rangle
 Thus, only the small $m\times m$ matrix $T_m$ needs to be exponentiated.  Constructing this matrix requires repeated products $G\vert w\rangle$.\footnote{Since in our calculation $G$ is a linear combination of $H_1$ and $H_2$, we evaluate such products as weighted sum of the previously computed matrix-free actions $H_1\vert w\rangle$ and $H_2\vert w\rangle$.} We stress that neither Hamiltonian, nor generators $G$, nor exponentials are stored as full $\mathcal{D}\times \mathcal{D}$ matrices.  Krylov approximations to matrix-exponential actions and their convergence are analyzed in Ref.~\cite{HochbruckLubich1997}.% the same combination with commutator-free propagators is discussed explicitly in Ref.~\cite{AlvermannFehske2011}.
 
 Once the full time evolution is completed, we further reduce the remaining $O(h^4)$ error using the Richardson extrapolation \cite{Richardson1911}.  Let $F_h$ denote the final ground-state fidelity obtained for a fixed physical ramp duration $T$ using CF4 step $h$.  We successively decrease the time step to ensure that the error starts scaling as $h^4$. The result is then approximately
-\beq
+\begin{equation}
 F_{h}\approx F_{0}+C h^4,
-\eeq
+\end{equation}
 Here $F_{0}$ is the fidelity obtained in the zero-numerical-step-size limit.  Then, computing $F_h$ and $F_{h/2}$ allows us to estimate $ C$ and to find $F_{0}$.
 
-\SR{stopped here}
-
 As a first application, we use this method to analyze the ramp profile P1-R1 from \cite{Fang:2024uyf}, plotted in Fig.~\ref{fig:yao-ramp}.
-We can use this method to evolve the experimental curve:
-\beq
+In terms of Path A parametrization \eqref{eq:PA}, this ramp profile corresponds to 
+\begin{equation}
 q(t)=
 \begin{cases}
 \dfrac{t}{151.38},
@@ -1327,122 +1345,135 @@ q(t)=
 },
 &151.38\leq t\leq529.83.
 \end{cases}
-\eeq
-After the time evolution, we get the fidelity shown in Table~\ref{tab:fidel}. Define the lattice spin operator $s_i$ as in \eqref{latticeoperator}. We can calculate the error on its two-point function introduced by ramping, which is 
-\begin{equation}\label{def:error}
-\frac{
-\langle s_i s_{i+d}\rangle_t-
-\langle s_i s_{i+d}\rangle_{\mathrm{ED}}
-}{
-\langle s_i s_{i+d}\rangle_{\mathrm{ED}}
-}.
 \end{equation}
-Here $\langle s_i s_{i+d}\rangle_t$ and $\langle s_i s_{i+d}\rangle_{\mathrm{ED}}$ are correlation functions measured on the time-evolved state and the ground state (from exact diagonalization). The results correspond to the dashed purple line in Fig.~\ref{fig:rampingerror}.
+After the time evolution, we get the fidelity shown in the first line of Table~\ref{tab:fidel}. 
 
 \subsection{Optimization within reduced subspace}\label{sec:reduced}
 
 In the previous subsection we described how, given a ramp profile, Schr\"odinger evolution within the $\mathcal{D}$-dimensional subspace can be performed, computing the fidelity at time $T$. In this subsection we discuss how to optimize the ramp profile. While optimizing, final fidelity will have to be computed thousands of times. Computing the full evolution thousands of times is not feasible. We will therefore truncate the Hamiltonian to a $20\times 20$ matrix to make the optimization manageable. This will introduce an error in fidelity. However this still captures the needed profile shape. Once the optimization is over, we compute accurate fidelities as described in the validation section, and it turns out that when approximate fidelity is close to 1, accurate fidelity is also close to 1.
 
-\SR{stopped here}
-
-Concretely, we distribute enough (a few hundred) sample points along the ramping path $(\Omega'(q), \Delta'(q))$. Optimizing the ramping profile means finding $q(t)$ such that the final state achieves high fidelity.
- At every sampled point, an iterative eigensolver computes the lowest 20 eigenstates together with four guard states.
- We construct a discrete parallel-transport gauge by aligning the truncated Hilbert space at neighboring path points via the singular-value decomposition of their overlap matrix, which is equivalent to solving an orthogonal Procrustes problem~\cite{Kato1950,Schonemann1966,LiuVanderbilt2015}. We will discuss this procedure in detail below.
-Let us parametrize the path by $q$. If there were no level crossing, we could simply diagonalize the Hamiltonian at all $q$ to get 
-\beq
-Y_j^{}
-=
-\begin{pmatrix}
-|y_0(q_j)\rangle&
-|y_1(q_j)\rangle&
-\cdots&
-|y_{19}(q_j)\rangle
-\end{pmatrix}.
-\eeq
-For our calculation,
-\beq
-Y_j^{}\in\mathbb R^{352698\times20},
-\qquad
-(Y_j^{})^T Y_j=I_{20}.
-\eeq
-To ensure smoothness, we can impose $\langle y_a(q_j)|y_a(q_{j+1})\rangle>0$.
-The truncated Hamiltonian is simply a diagonal matrix in this basis
-\beq
-(H^{\rm diag}_{\rm trun})_{ab} = E_a \delta_{ab}.
-\eeq
-Here $E_a$ is the energy of the $a$-th state. This $q$-dependent basis introduces a Berry phase term to the Schrödinger equation. Write a time-dependent state as
-\beq
-|\psi(t)\rangle =\vec{c} \cdot \vec{Y}(q(t)) .
-\eeq
-The Schrödinger equation becomes
-\beq
-i\frac{d c_a}{dt}
-= E_a c_a-\dot q\,\sum_b \mathcal A_{ab}(q)
-c_b,
-\eeq
-The off-diagonal part of the connection 
-\beq
-\mathcal A_{ab}(q)
-=
-i\langle y_a(q)|\partial_q y_b(q)\rangle
-\eeq
-gives the non-adiabatic transition. 
-The diagonal part is the Berry phase. To eliminate the Berry connection, we can choose a basis \(U(q) \) , such that:
-\beq
-{\langle U_a|\partial_qU_b\rangle\approx0
-\quad\text{for every }a,b.}
-\eeq
-Of course, in this basis, the truncated Hamiltonian is not diagonal anymore. This basis can be constructed in an iterative way. Suppose \beq
-U_j=
-\begin{pmatrix}
-|u_0(q_j)\rangle&
-\cdots&
-|u_{19}(q_j)\rangle
-\end{pmatrix}\eeq
-is the smoothly transported basis at $q_j$, which we already know. We now seek the basis $U_{j+1}$ at the next time step. Define the matrix 
-\beq
-M_{a,b}=\langle u_a (q_{i})| y_b (q_{i+1}) \rangle .
-\eeq
-One can perform a singular value decomposition 
-\beq
-M_j=U_j^T Y_{j+1}=W_j\Sigma_jV_j^T.
-\eeq
-We then define the orthogonal rotation
-\beq
-R_j=V_jW_j^T.
-\eeq
-One can shown that the correct basis at $q_{j+1}$ is 
+Optimizing the ramping profile means finding $q (t)$ such that the final state
+achieves high fidelity. We first discuss how we quickly evaluate fidelity for any given $q(t)$.
+We start with the Schr{\"o}dinger equation
+\eqref{eq:Schr11} which we write as
 \begin{equation}
-U_{j+1}=Y_{j+1}R_j. 
+	i \dot{\psi} = H (q (t)) \psi (t)
 \end{equation}
-Notice that 
-\begin{align}
-U_j^T U_{j+1} &=U_j^T Y_{j+1} R_j  \nonumber \\
-&=W_j\Sigma_j V_j^T V_j  W_j^T \nonumber \\
-&=W_j\Sigma_jW_j^T. 
-\end{align}
-is symmetric and positive definite.
-Expanding at small \(\delta q\), we get
-\beq
-U_j^TU_{j+1}
-=
-I+\delta q\,U_j^T\partial_qU_j
-+O(\delta q^2).
-\eeq
-We know, however, 
-\((\partial_qU)^TU+U^T\partial_qU=0,\)
-because $U^TU=1$, which means \(U_j^T\partial_qU_j\) is antisymmetric. 
-This is only possible if and only if 
-\beq
-U_j^T\partial_qU_j=0,
-\eeq
-which is precisely the gauge-fixing condition.
-The above SVD gauge-fixing procedure works even if there are level crossings. The only dangerous case is a crossing at the truncation boundary, which we checked does not happen in our case.
-After building the above basis, the truncated Hamiltonian is simply the original Hamiltonian evaluated on these states,
-\beq
-(H_{\rm trun})_{ab} = \langle u_a | H(q) | u_b \rangle,  
-\eeq
-whose matrix elements vary smoothly with $q$. In the optimization stage, we will use this Hamiltonian to evolve our state.
+to show explicitly how $q (t)$ enters in the problem. We project this equation
+on the lowest $P = 20$ eigenstates. Let's discuss this first as if $q$ was
+continuous, but eventually $q$ will be discretized. Consider for each $q$ ($q
+\in [0, 2]$ for Path A, $q \in [0, 3]$ for Path B), the first $P$ eigenstates:
+\begin{equation}
+	Y  (q) = \left(\begin{array}{c}
+		|Y_a (q ) \rangle
+	\end{array}\right)_{a = 0 \ldots P - 1}  .
+\end{equation}
+of energies $(E_a)_{a = 0 \ldots P - 1}$. Thus for every $q$
+\begin{equation}
+	Y   \in \mathbb{R}^{\mathcal{D} \times P}, \qquad (Y ^{})^T Y  = I_{20} .
+\end{equation}
+We assume that $Y_a$ are chosen orthonormal and real (since the Hamiltonian is
+real), and that $Y$ varies smoothly with $q$. We write the time-dependent
+state projected to the $P$-dimensional subspace as:
+\begin{equation}
+	| \psi (t) \rangle = \vec{c} (t) \cdot \vec{Y} (q (t)) .
+\end{equation}
+Substituting this into the Schr{\"o}dinger equation we find
+\begin{equation}
+	i \frac{dc_a}{dt} = E_a (q (t)) c_a (t) - \dot{q} (t)  \hspace{0.17em}
+	\sum_b \mathcal{A} (Y)_{ab} (q (t)) c_b (t),
+\end{equation}
+where
+\begin{equation}
+	\mathcal{A} (Y)_{ab} (q) = i \langle Y_a (q) | \partial_q Y_b (q) \rangle
+\end{equation}
+is the Berry connection.
+
+Following {\cite{Kato1950}}, we find it convenient to pass, by an orthogonal
+rotation, to another real orthonormal basis $U (q)$ of the same
+$P$-dimensional subspace such that the Berry connection $\mathcal{A} (U)$ is
+zero. In that basis the Schr{\"o}dinger equation becomes
+\begin{equation}
+	i \frac{dc_a}{dt} = H_{\textrm{\ensuremath{\operatorname{trun}}}} (q (t))
+	c_a (t), \label{SchrHU}
+\end{equation}
+where
+\begin{equation}
+	H_{\mathrm{trun}} (q)_{ab} = \langle U_a (q) |H (q) |U_b (q) \rangle .
+	\label{HU}
+\end{equation}
+Let us now describe how the basis $U (q)$ is found, in a discretized setting
+which is of interest to us. We distribute order few hundred sample points
+$q_j$ along the ramping path $(\Omega' (q), \Delta' (q))$. \ At every sampled
+point, an iterative eigensolver computes the lowest 20 eigenstates. We thus
+compute $Y_j : = Y (q_j)$. We ensure that the variation is smooth, or at least
+continuous, by imposing the condition $\langle Y_a (q_j) |Y_a (q_{j + 1})
+\rangle > 0$.
+
+We then construct $U_j$ inductively, starting from $U_0 = Y_0$. Given $U_j$,
+we seek the basis $U_{j + 1}$ at the next time step in the form
+\begin{equation}
+	U_{j + 1} = Y_{j + 1} R_j,
+\end{equation}
+where $R_j$ is an orthogonal rotation matrix. Consider the matrix $M = U_j^T
+Y_{j + 1}$, i.e.
+\begin{equation}
+	M_{a, b} = \langle U_a (q_j) |Y_b (q_{j + 1}) \rangle .
+\end{equation}
+Perform a singular value decomposition
+\begin{equation}
+	M_j = U_j^T Y_{j + 1} = W_j \Sigma_j V_j^T,
+\end{equation}
+where $W, V$ are orthogonal and $\Sigma$ diagonal. We claim that the
+orthogonal rotation
+\begin{equation}
+	R_j = V_j W_j^T . \label{eq:Rj}
+\end{equation}
+does the job. The discretized vanishing Berry phase condition that we need to
+check is
+\begin{equation}
+	U_j^T \Delta_j = 0, \quad \Delta_j := U_{j + 1} - U_j .
+\end{equation}
+As we will see, this will not be exactly true, but approximately true, modulo
+$\Delta_j^T \Delta_j $ terms, which are small for small $q$ discretization
+steps.
+
+First of all we note that for $R_j$ as in \eqref{eq:Rj} we have
+\begin{equation}
+	U_j^T U_{j + 1} = U_j^T Y_{j + 1} R_j = W_j \Sigma_j V_j^T V_j W_j^T = W_j
+	\Sigma_j W_j^T
+\end{equation}
+is symmetric. Since
+\begin{equation}
+	U_j^T U_{j + 1} = I + U_j^T \Delta_j,
+\end{equation}
+this implies that $U_j^T \Delta_j$ is symmetric. On the other hand,
+substituting $U_{j + 1} = U_j + \Delta_j$ into $U_{j + 1}^T U_{j + 1} = I$, we
+have
+\begin{equation}
+	\Delta_j^T U_j + U_j^T \Delta_j + \Delta_j^T \Delta_j = 0,
+\end{equation}
+which means that $U_j^T \Delta_j$ is antisymmetric, modulo $\Delta_j^T
+\Delta_j $. Since $U_j^T \Delta_j$ is both symmetric and antisymetric, it is
+zero (modulo $\Delta_j^T \Delta_j $). The described sequence of steps is the same as
+for solving the so called orthogonal Procrustes problem
+{\cite{Schonemann1966,LiuVanderbilt2015}}.
+
+In practice, we find that the matrix elements of the Hamiltonian \eqref{HU}
+constructed with respect to a sufficiently finely spaced grid of $q_j$ points
+vary smoothly with $q$. So we define $H_{\rm trun}
+(q)$ in between the grid points by interpolation. Note that the described computation for $H_{\rm trun}
+(q)$
+is performed once for Path A and once for Path B, before starting the
+optimization process, so it's feasible. With so defined
+$H_{\rm trun} (q)$, and for any given $q (t)$, we
+can solve \eqref{SchrHU} using the same CF4 scheme as described in App.
+\ref{sec:validation}, and compute the fidelity. Because everything is now happening in the $P$-dimensional space, it is feasible to perform it thousands of times, as is needed for
+the optimization.
+
+
+
+\SR{stopped here}
 
 Now we introduce the ansatz for $q(t)$ that we use for optimization. Let $u=t/T\in[0,1]$ be normalized time. We optimize a function $\rho(q)\propto \dd t/\dd q$ along the fixed path. We parametrize $\rho(q)$ as 
 \begin{equation}
@@ -1463,13 +1494,13 @@ q(t)=u^{-1}(t/T), \quad {\rm with}\quad u(q)=\frac{\int_0^q\rho(s)\,\dd s}
 \label{eq:clock}
 \end{equation}
 We take $K_s=K_c=6$, therefore 6 sine plus 6 cosine modes. For Path A, we take
-\beq
+\begin{equation}
 \rho_0(q)=
 \begin{cases}
 156, & 0\leq q\leq1,\\
 390, & 1<q\leq2,
 \end{cases}
-\eeq
+\end{equation}
 so the zero-coefficient profile preserves the $2:5$ segment-time
 ratio of the experimental profile. For Path B, we take $\rho_0=1$ for all three segments.
 
@@ -1486,13 +1517,7 @@ For $T=1.2 \mu {\rm s}$, the optimized ramping profile is shown in Fig.~\ref{fig
   \includegraphics[width=0.6\columnwidth]{F_vs_t.pdf}
   \caption{\label{fig:fidelity}The fidelity of the optimized ramping profiles verified using CF4-Krylov time evolution.}
 \end{figure}
-We can also calculate the error introduced by ramping, defined in~\eqref{def:error}. The results are shown in Fig.~\ref{fig:rampingerror}.
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.9\columnwidth]{ramping_error.pdf}
-  \caption{\label{fig:rampingerror}The relative error of the two-point function for the optimized ramping profile of Path B and the experimental profile for Path A, as defined in~\eqref{def:error}. }
 
-\end{figure}
 
 
 
