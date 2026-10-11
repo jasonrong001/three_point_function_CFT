@@ -699,6 +699,8 @@ experimentally feasible. They are discussed below:
 	can be achieved for P1 with total ramping times shorter than in
 	{\cite{Fang:2024uyf}}, and even shorter times for P3.
 	
+	\item (Section \ref{sec:dev}) What is the deviation in our chosen observable (2pt function) due to the prepared state being not exactly the ground state?
+	
 	\item (Section \ref{sec:decoherence}) What about the decoherence effects?
 	The main decoherence effects reduce proportionally to the evolution times.
 	Our recipe to reduce them is to reduce the evolution time, while keeping
@@ -904,7 +906,7 @@ that the statistical error is only a few percent, and the results agree with the
 		from independent snapshots, for points P1 and P3. The dashed lines are the ED results from Fig.~\ref{fig:2pt-sim}. The central values and the error bars are obtained as described in the text, averaging over $M = 2 \times 10^3$ snapshots.}
 \end{figure}
 
-\subsection{Ground state preparation}
+\subsection{Approximate ground state preparation}
 
 \label{sec:fidelity}In the previous sections, we have seen that if the
 critical ground state can be obtained, then the critical 2pt function can be
@@ -944,7 +946,7 @@ $N$.
 
 \begin{figure}[h]\centering
 	\resizebox{0.6\columnwidth}{!}{\includegraphics{ramping_curves.png}}
-	\caption{\label{fig:evolution}Adiabatic evolution paths $A$ and $B$ discussed in this work.}
+	\caption{\label{fig:evolution}Adiabatic evolution paths A and B discussed in this work.}
 \end{figure}
 
 Ref.~\cite{Fang:2024uyf} did not fully optimize their ramp profile, citing high computational cost. The point we want to make here is that 
@@ -1003,41 +1005,35 @@ and even shorter times for point P3. E.g.~ramp P3$_{1.2}$ achieves $99.9\%$ fide
 	\end{tabular}
 \caption{\label{tab:fidel}Fidelities for various ramp profiles for points P1 and P3, discussed in the text.}
 \end{table}
-Let us describe the optimization process, see Appendix \ref{sec:reduced} for details.
+Let us describe the optimization process (Appendix \ref{sec:reduced}). Let us focus on Path A for definiteness, Path B being completely analogous. We choose a fixed parametrization of the path as $\Omega'(q)$, $\Delta'(q)$, $q\in [0,q_{\max}]$, $q_{\max}=2$. Then finding an optimal ramp means finding dependence $q(t)$ so that the fidelity is maximized. In the optimization stage we don't optimize the exact fidelity (which is too costly to compute), but approximate fidelity. Approximate fidelity, for given $q(t)$, is computed by integrating approximate Schr\"odinger equation, obtained by projecting the full Schr\"odinger equation from the $\mathcal{D}$-dimensional space of translation and parity invariant states to a $P$-dimensional subspace spanned, for each $q$, by the lowest $P=20$ energy eigenstates of the Hamiltonian. This projection to the $P$-dimensional subspace depends on the path but not on the function $q(t)$, and it is performed only once, before the optimization is started. Then, the approximate fidelity is feasible to compute thousands of times as is needed for the optimization process. After optimization, the true fidelity is evaluated from the full Schr\"odinger equation; this is the fidelity reported in Table \ref{tab:fidel}.
 
-\SR{stopped here}
- In the optimization stage, the model is reduced to a 20-dimensional subspace of the
-20 lowest-energy states (locally for each $\Omega', \Delta'$). This reduced
-model is small enough so that optimization can be performed. In the validation
-stage, one checks fidelities via quantum mechanical evolution in the full
-$352, 698$-dimensional subspace. 
-After optimization, our ramping profile achieves higher fidelity with shorter time than the ramping profile used in the experiment. If we choose to ramp to P3 instead, we can get $99.9\%$ fidelity with $t_f=1.2\mu s$. The corresponding ramping profile is shown in Fig.~\ref{fig:rampingprofile}.
+We see that the four optimized ramp profile given in the table achieve higher fidelity with shorter time than the unoptimized ramp profile used in the experiment \cite{Fang:2024uyf}. For example, if we choose to ramp to P3 along the ramp P3$_{1.2}$, we get $99.9\%$ fidelity with $T=1.2\mu {\rm s}$. The corresponding ramp profile is shown in Fig.~\ref{fig:rampingprofile}.
  \begin{figure}[ht]
   \centering
   \includegraphics[width=0.6\columnwidth]{ramping_profile.pdf}
-  \caption{  \label{fig:rampingprofile}The optimized ramping profile P3-R2 with $T=1.2\mu {\rm s}$.}
+  \caption{  \label{fig:rampingprofile}The optimized ramp profile P3$_{1.2}$ with $T=1.2\mu {\rm s}$.}
 \end{figure}
-The details of the optimization algorithm and the optimized ramping profiles for different $t_f$ can be found in Appendix \ref{sec:optim}.
+See Appendix \ref{sec:optim} for further details of the optimization algorithm and the optimized ramp profiles for different $T$.
 
-Finally we discuss deviations in the 2pt function...
+\subsection{Deviation in 2pt function due to imperfect ground state}\label{sec:dev}
 
-Define the lattice spin operator $s_i$ as in \eqref{latticeoperator}. We can calculate the error on its two-point function introduced by ramping, which is 
+In the previous section we explained how to obtain approximate ground state having fidelity close to 1. But how close to one should it be so that our observable---the 2pt function---stays sufficiently close to the exact ground state prediction? In App.~\ref{sec:dev2ptth} we give a theoretical argument that the deviation scales proportionally to the coefficients $c_1(T)$, $c_2(T)$, $\ldots$, i.e.~it is order $(1-F)^{1/2}$. Thus we expect deviation of the order of a few percent due to imperfect fidelity. Here we show a direct check of that prediction. Consider the ratio:
 \begin{equation}\label{def:error}
-	\frac{
-		\langle s_i s_{i+d}\rangle_t-
-		\langle s_i s_{i+d}\rangle_{\mathrm{ED}}
+	w_{|j-j|} = \frac{
+		\langle \tilde 0| s_i s_{j}|\tilde 0\rangle-
+		\langle 0|  s_i s_{j} |0\rangle
 	}{
-		\langle s_i s_{i+d}\rangle_{\mathrm{ED}}
+		\langle 0|s_i s_{j}0|\rangle
 	}.
 \end{equation}
-Here $\langle s_i s_{i+d}\rangle_t$ and $\langle s_i s_{i+d}\rangle_{\mathrm{ED}}$ are correlation functions measured on the time-evolved state and the ground state (from the exact diagonalization). The results correspond to the dashed purple line in Fig.~\ref{fig:rampingerror}.
+Here $\langle 0|  s_i s_{j} |0\rangle$ is the 2pt function in the exact ground state $|0\rangle$ for the end point of the path, while $\langle \tilde 0|  s_i s_{j} |\tilde 0\rangle$ is the 2pt function in the approximate ground state $|\tilde 0\rangle$ obtained after ramping. Thus $w_{|i-j|}$ is the relative error in the 2pt function after ramping w.r.t. to the exact ground state 2pt function. It depends only on $|i-j|$ by translation and parity invariance. In Fig.~\ref{fig:rampingerror} we plot this error for all ramp profiles from Table \ref{tab:fidel}.
 
-We can also calculate the error introduced by ramping, defined in~\eqref{def:error}. The results are shown in Fig.~\ref{fig:rampingerror}.
-\begin{figure}[ht]
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\columnwidth]{ramping_error.pdf}
-	\caption{\label{fig:rampingerror}The relative error of the two-point function for the optimized ramping profile of Path B and the experimental profile for Path A, as defined in~\eqref{def:error}. }
+	\caption{\label{fig:rampingerror}The relative error of the 2pt function, Eq.~\eqref{def:error}, for our optimized ramp profiles and the experimental profile from \cite{Fang:2024uyf}.}
 \end{figure}
+
 
 \subsection{Decoherence effects}\label{sec:decoherence}
 
@@ -1165,7 +1161,7 @@ upper end of the range $\Delta / \Omega  = 0.97 (5)$ from
 
 \begin{figure}[h]\centering
 	\includegraphics{fig-Yao-ramp.pdf}
-	\caption{\label{fig:yao-ramp}Evolution $\Delta (t)$ and $\Omega (t)$ for
+	\caption{\label{fig:yao-ramp}Evolution $\Delta (t)$ and $\Omega (t)$ (``ramp profile'') for
 		preparing the critical state in {\cite{Fang:2024uyf}}, Fig. 1C. }
 \end{figure}
 
@@ -1175,11 +1171,11 @@ point, as the location of the maximum of susceptibility $\partial \langle n
 also coincides with the excitation gap minimum. For measuring the 2pt function
 a better theoretical definition of the critical point is where the properties
 of the system are described by the CFT Hamiltonian. This may differ by $1 / N$
-effects from the definitions used in Ref. {\cite{Fang:2024uyf}}. Our
-simulations show the point P1 with $\Delta' / \Omega' = 1.03$ gives the 2pt
+effects from the definitions used in Ref.~{\cite{Fang:2024uyf}}. Our
+simulations show that this deviation is not negligible. Indeed point P1 with $\Delta' / \Omega' = 1.03$ gives the 2pt
 function consistent with CFT, while $\Delta' / \Omega' = 0.97$ would give a
 2pt function decaying faster than CFT (thus in the disordered phase), with
-$\sim 20\%$ suppression at the largest separation.
+$\sim 20\%$ suppression at the largest separation. We therefore use point P1. Indeed we advocate that future experiments use the measurement of the 2pt function as a proxy for the criticality, rather than the susceptibility peak.
 
 The 2pt function measured in {\cite{Fang:2024uyf}}, Fig. 2F, was fitted by
 them by the curve
@@ -1188,8 +1184,8 @@ them by the curve
 	\quad \delta_j = a \frac{N}{\pi} \sin \left( \frac{\pi j}{N} \right),
 \end{equation}
 and $\xi / a = 13.2^{+ 5.7}_{- 3.6}$ is the correlation length, attributed to
-decoherence. The central $\xi$ value corresponds to about 50\% suppression of
-the correlator at the largest separation w.r.t. the CFT value.
+decoherence. The central $\xi$ value corresponds to $\sim50\%$ suppression of
+the correlator at the largest separation w.r.t.~the CFT.
 
 \section{Ramp profile optimization}\label{sec:optim}
 
@@ -1209,7 +1205,7 @@ We take the three-segment path  (Path B) to be
 \end{align}
 The final point is P3: $(\Omega',\Delta')=(0.488,\zeta(6))$, also a critical point.
 
-With paths so fixed, optimizing the ramping profile then means finding a $q(t)$ so that the fidelity at $t=T$ is maximized. Here $T$ stands for the total ramping time. The optimization algorithm includes optimization in a reduced 20-dimensional
+With paths so fixed, optimizing the ramp profile then means finding a $q(t)$ so that the fidelity at $t=T$ is maximized. Here $T$ stands for the total ramping time. The optimization algorithm includes optimization in a reduced 20-dimensional
 subspace and validation in the full $\mathcal{D}$-dimensional subspace. We discuss validation first.
 
 \subsection{Validation}\label{sec:validation}
@@ -1352,7 +1348,7 @@ After the time evolution, we get the fidelity shown in the first line of Table~\
 
 In the previous subsection we described how, given a ramp profile, Schr\"odinger evolution within the $\mathcal{D}$-dimensional subspace can be performed, computing the fidelity at time $T$. In this subsection we discuss how to optimize the ramp profile. While optimizing, final fidelity will have to be computed thousands of times. Computing the full evolution thousands of times is not feasible. We will therefore truncate the Hamiltonian to a $20\times 20$ matrix to make the optimization manageable. This will introduce an error in fidelity. However this still captures the needed profile shape. Once the optimization is over, we compute accurate fidelities as described in the validation section, and it turns out that when approximate fidelity is close to 1, accurate fidelity is also close to 1.
 
-Optimizing the ramping profile means finding $q (t)$ such that the final state
+Optimizing the ramp profile means finding $q (t)$ such that the final state
 achieves high fidelity. We first discuss how we quickly evaluate fidelity for any given $q(t)$.
 We start with the Schr{\"o}dinger equation
 \eqref{eq:Schr11} which we write as
@@ -1518,8 +1514,6 @@ We put a tilde on $F$ to emphasize that this fidelity is computed using the evol
 
 \begin{table}[h]
 	\centering
-	\caption{Optimized coefficients for Path A ramps leading to point P1}
-	\label{tab:path-coefficientsA}
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{c*{12}{r}}
 			\toprule
@@ -1545,13 +1539,9 @@ We put a tilde on $F$ to emphasize that this fidelity is computed using the evol
 			\bottomrule
 		\end{tabular}%
 	}
-\end{table}
-\begin{table}[h]
-	\centering
-	\caption{Optimized coefficients for Path B ramps leading to point P3}
-	\label{tab:path-coefficientsB}
+	\\[0.5em]
 	\resizebox{\textwidth}{!}{%
-		\begin{tabular}{c*{12}{r}}
+				\begin{tabular}{c*{12}{r}}
 			\toprule
 			$T~(\mu{\rm s})$
 			& $a_1$ & $a_2$ & $a_3$ & $a_4$ & $a_5$ & $a_6$
@@ -1573,18 +1563,50 @@ We put a tilde on $F$ to emphasize that this fidelity is computed using the evol
 			& -3.823077 & -0.660905 & -3.089450 &  0.664824 &  0.554296 &  0.733248
 			& -1.104026 &  1.132340 & -0.827626 & -2.207867 &  0.151625 &  0.041041 \\
 			\bottomrule
-		\end{tabular}%
-	}
+			\end{tabular}
+		}
+	\caption{Optimized coefficients for Path A ramps leading to point P1 (first table) and P3 (second table)}
+	\label{tab:path-coefficients}
 \end{table}
+%\begin{table}[h]
+%	\centering
+%	\resizebox{\textwidth}{!}{%
+%		\begin{tabular}{c*{12}{r}}
+%			\toprule
+%			$T~(\mu{\rm s})$
+%			& $a_1$ & $a_2$ & $a_3$ & $a_4$ & $a_5$ & $a_6$
+%			& $b_1$ & $b_2$ & $b_3$ & $b_4$ & $b_5$ & $b_6$ \\
+%			\midrule
+%			0.60
+%			& -4.272404 & -0.257878 & -2.750781 &  0.761435 &  1.116412 &  0.187347
+%			& -0.699790 &  0.540612 & -1.027274 & -2.483160 & -0.067789 &  0.669567 \\
+%			0.70
+%			& -4.594478 & -0.384034 & -3.139899 &  0.889628 &  1.209487 &  0.390048
+%			& -0.976911 &  0.689999 & -0.813433 & -2.280804 &  0.058660 &  0.478638 \\
+%			0.80
+%			& -4.319620 & -0.460498 & -2.865799 &  0.875479 &  0.856311 &  0.419489
+%			& -0.943799 &  0.679953 & -1.042947 & -2.369250 &  0.115863 &  0.407742 \\
+%			1.00
+%			& -4.248281 & -0.489297 & -3.012873 &  0.858625 &  0.689688 &  0.481482
+%			& -1.004111 &  0.868316 & -0.946642 & -2.243263 &  0.298252 &  0.227596 \\
+%			1.20
+%			& -3.823077 & -0.660905 & -3.089450 &  0.664824 &  0.554296 &  0.733248
+%			& -1.104026 &  1.132340 & -0.827626 & -2.207867 &  0.151625 &  0.041041 \\
+%			\bottomrule
+%		\end{tabular}%
+%	}
+%	\caption{Optimized coefficients for Path B ramps leading to point P3}
+%	\label{tab:path-coefficientsB}
+%\end{table}
 
 
-We solve this maximization problem using the Nelder--Mead method~{\cite{NelderMead1965}}
+We solve this maximization problem using the Nelder-Mead method~{\cite{NelderMead1965}}
 with multiple initial seeds, and settle for the best found result (which is
 not necessarily a global maximum). After the optimization, we use validation from App.~\ref{sec:validation}, i.e.~the
 CF4 time evolution of the full Hamiltonian to compute the true
 fidelity $F$; the results are summarized in Figure~\ref{fig:fidelity}. We do the
 optimization at different total times $T$. The coefficients of the optimized
-ramp profiles are summarized in Tables~\ref{tab:path-coefficientsA} and \ref{tab:path-coefficientsB}. From
+ramp profiles are summarized in Table~\ref{tab:path-coefficients}. From
 these coefficients, it is easy to reconstruct the ramp profile
 $(\Omega' (t), \Delta' (t))$ using \eqref{eq:density}-\eqref{rho0B}. As an
 example, for $T = 1.2 \mu$\text{{\rmfamily{s}}}, the optimized Path B ramp profile
@@ -1601,6 +1623,7 @@ is shown in Fig.~\ref{fig:rampingprofile}.
 \SR{stopped here}
 In Table~\ref{tab:fidel} we report more detailed information for two of the optimized Path A ramps and ...
 
+\section{Deviation in 2pt function due to imperfect fidelity: theory}\label{sec:dev2ptth}
 
 
 
