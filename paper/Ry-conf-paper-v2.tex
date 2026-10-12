@@ -907,8 +907,8 @@ that the statistical error is only a few percent, and the results agree with the
 \end{figure}
 
 \subsection{Approximate ground state preparation}
-
-\label{sec:fidelity}In the previous sections, we have seen that if the
+\label{sec:fidelity}
+In the previous sections, we have seen that if the
 critical ground state can be obtained, then the critical 2pt function can be
 measured, with good statistics achievable with $O (10^3)$ repetitions. 
 
@@ -966,6 +966,7 @@ At any time $t$, the wave function $\psi (t)$ can be expanded in the energy eige
 $t$:
 \begin{equation}
 	\psi (t) = \sum_{n = 0}^{\infty} c_n (t)  | n (t)  \rangle .
+	\label{eq:psiexp12}
 \end{equation}
 Note that extracting coefficients $c_n (t)$ requires computing $\psi(t)$ and the eigenstates of $H(t)$. Our method of solving \eqref{fullQM1} does not require diagonalizing $H(t)$ for every $t$, which would be expensive. However, we do compute the first few low-lying eigenstates of $H(T)$, which lies on the critical line, and in particular the critical ground state $|0(T)\rangle$.
 
@@ -1625,6 +1626,55 @@ In Table~\ref{tab:fidel} we report more detailed information for two of the opti
 
 \section{Deviation in 2pt function due to imperfect fidelity: theory}\label{sec:dev2ptth}
 
+
+In this appendix we discuss theory for leading corrections to the spin-spin
+correlation functions due to the state deviating from the exact ground state.
+In Section \ref{sec:fidelity} we saw that at the end of adiabatic evolution the
+state is not the exact ground state. In Table \ref{tab:fidel} we reported, in addition
+to the fidelity $| c_0 |^2$, the absolute values squared of the coefficients
+$c_1$ and $c_2$ in the expansion \eqref{eq:psiexp12}. In radial quantization of CFT, the
+corresponding states $| 1 \rangle $ and $| 2 \rangle $ are associated with
+states obtained by inserting CFT operators $\varepsilon$ and $\partial^2
+\varepsilon$ at the origin. Specifically we have
+\begin{equation}
+	| 1 \rangle  = \varepsilon (0) | 0 \rangle , \quad | 2 \rangle  = \frac{1}{4
+		\Delta_{\varepsilon}} \partial^2 \varepsilon (0) | 0 \rangle ,
+\end{equation}
+where the prefactor in the latter equation arises from the requirement of unit
+norm. Using the infinite-plane expressions:
+\begin{equation}
+	\langle \sigma (x_1) \sigma (x_2) \rangle = \frac{1}{| x_{12} |^{2
+			\Delta_{\sigma}}}, \quad \langle \sigma (x_1) \sigma (x_2) \varepsilon (0)
+	\rangle = \frac{C_{\sigma \sigma \varepsilon}}{| x_{12} |^{2 \Delta_{\sigma}
+			- \Delta_{\varepsilon}}} \frac{1}{| x_1 |^{\Delta_{\varepsilon}} | x_2
+		|^{\Delta_{\varepsilon}}},
+\end{equation}
+we find, for two points $x_1, x_2$ distance 1 from the origin,
+\begin{equation}
+	\frac{\langle \sigma (x_1) \sigma (x_2) \varepsilon (0) \rangle}{\langle
+		\sigma (x_1) \sigma (x_2) \rangle} = C_{\sigma \sigma \varepsilon} | x_{12}
+	|^{\Delta_e},
+\end{equation}
+
+\begin{equation}
+	\frac{\langle \sigma (x_1) \sigma (x_2) \partial^2 \varepsilon (0)
+		\rangle}{\langle \sigma (x_1) \sigma (x_2) \rangle} = C_{\sigma \sigma
+		\varepsilon} \Delta_{\varepsilon}^2 | x_{12} |^{\Delta_e} (4 - | x_{12} |^2)
+\end{equation}
+Substituting $| x_{12} | = 2 s, s = \sin \frac{| \varphi_{12} |}{2}$, and
+using $\Delta_{\varepsilon} = 1$, $C_{\sigma \sigma \varepsilon} = 1 / 2$, the
+above equations give
+\begin{equation}
+	\frac{\langle 0 |  \sigma (x_1) \sigma (x_2) |  1 \rangle}{\langle 0 | 
+		\sigma (x_1) \sigma (x_2) |  0 \rangle} = s, \quad \frac{\langle 0 |  \sigma
+		(x_1) \sigma (x_2) |  2 \rangle}{\langle 0 |  \sigma (x_1) \sigma (x_2) |  0
+		\rangle} = s (1 - s^2) .
+\end{equation}
+We can use the same equations to compute relative corrections for Rydberg
+chain correlation functions, with $s = \sin \frac{\pi | i - j |}{N}$. The
+important message is that the corrections scale linearly in $c_1, c_2,
+\ldots$, with order 1 coefficients. This is corrobrated by the numerical
+plot in Fig. \ref{fig:rampingerror}.
 
 
 	
