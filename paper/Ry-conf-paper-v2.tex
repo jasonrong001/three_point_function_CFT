@@ -1016,8 +1016,7 @@ We see that the four optimized ramp profile given in the table achieve higher fi
 \end{figure}
 See Appendix \ref{sec:optim} for further details of the optimization algorithm and the optimized ramp profiles for different $T$.
 
-\SR{comment why ramps to R3 are better. Tip advantage: For the same $U$, the energy gap is about factor 3 higher at
-	the tip than at the Yau point.}
+A comment is in order about why the optimized ramps leading to P3 end up having smaller ramp times for the same fidelity than the ramps leading to P1. This is due to a combination of two factors. First, the energy gap at P3 is about factor 3 larger than at P1 for the same $N$ and $U$ (simply because small $\Omega',\Delta'$ create a new energy scale and suppress the energy gap). Second, the matrix elements between the ground state and the excited states are also smaller on Path B than on Path A, at least on the part of the path where it approaches the critical line. We believe that this second property is at least partly related to the fact that on the third segment of Path B the Hamiltonian has onsite $\mathbb{Z}_2$ symmetry.
 
 \subsection{Deviation in 2pt function due to imperfect ground state}\label{sec:dev}
 
@@ -1070,7 +1069,7 @@ Intermediate-state scattering decays represent another effect of comparable sign
 
 As mentioned, at the end of the adiabatic evolution, projective measurement is performed. This is done by a rapid turn on of the tweezer traps, expelling atoms in the Rydberg state, recapturing atoms in the ground state, and subsequent imaging, to determine the Rydberg population of each site. Ref.~\cite{Fang:2024uyf} cites $2\%$ probability that a ground state is misidentified as a Rydberg state (``false positive'') in the process, and $<1.5\%$ probability for the opposite misidentification (``false negative''). These probabilities do not depend on the ramp time $T$, so they represent an irreducible source of error. However they are significantly smaller than the above-mentioned Rydberg state decay probability $P_{\rm decay}=9.3\%$ to which Ref.~\cite{Fang:2024uyf} was subjected, so presumably they represented a subleading source of error in the decoherence budget of \cite{Fang:2024uyf}.
 
-Note that Ref.~\cite{Fang:2024uyf} relied on post-selection to eliminate snapshot with blockade violation (two neighboring atoms in the Rydberg state), as a way to mitigate the above ``false positives''. That was possible for them as they worked at point P1 which is in the near-Rydberg blockade regime, so that only $8\%$ of true snapshots contain blockade violations \cite{Fang:2024uyf} . This strategy will not be available if working at point P3. It remains to be seen \SR{stopped here}
+Note that Ref.~\cite{Fang:2024uyf} relied on post-selection to eliminate snapshots with blockade violation (two neighboring atoms in the Rydberg state), as a way to mitigate the above ``false positives''. That was a possible strategy as they worked at point P1 which is in the near-Rydberg blockade regime. (It should be noticed that this strategy creates a bias, since about $8\%$ of true snapshots at P1 do contain blockade violations \cite{Fang:2024uyf} and are also eliminated.)  It remains to be seen if measurements can be reliably performed at point P3, which is faraway from Rydberg blockade regime, and the above post-selection strategy is not feasible.
 
 %
 %For $a = 10 \mu$\text{{\rmfamily{m}}}, $U / \hbar = 0.86 \mathrm{rad} \cdot
