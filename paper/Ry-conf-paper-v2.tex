@@ -272,7 +272,7 @@ for 2pt functions. The 2pt function of a primary operator on the cylinder of
 circumference $2 \pi$ is given by {\cite{Luscher:1974ez}}:
 \begin{equation}
 	\label{eq:2ptcyl} \langle \mathcal{O}(\phi_1, \tau_1)\mathcal{O}(\phi_2,
-	\tau_2) \rangle_{\ensuremath{\operatorname{cyl}}} = \frac{1}{|2 \cosh
+	\tau_2) \rangle_{\text{cyl}} = \frac{1}{|2 \cosh
 		(\tau_1 - \tau_2) - 2 \cos (\phi_1 - \phi_2) |^{\Delta_{\mathcal{O}}}}
 	\hspace{0.17em},
 \end{equation}
@@ -300,7 +300,7 @@ because below we will focus on the equal time case, in which case the 2pt
 function reduces to
 \begin{equation}
 	\label{eq:2ptcylequal} \langle \mathcal{O}(\phi_1, 0)\mathcal{O}(\phi_2, 0)
-	\rangle_{\ensuremath{\operatorname{cyl}}} = \frac{1}{|2 \sin \frac{\phi_1 -
+	\rangle_{\text{cyl}} = \frac{1}{|2 \sin \frac{\phi_1 -
 			\phi_2}{2} |^{2 \Delta_{\mathcal{O}}}},
 \end{equation}
 for both the Euclidean and Lorentzian signature.
@@ -330,12 +330,12 @@ conditions, $B_1 = B_2$, the 1pt function of a primary operator on the strip
 of width $\pi$ takes the form:
 \begin{equation}
 	\label{eq:1ptstrip} \langle \mathcal{O}(\phi, 0)
-	\rangle_{\ensuremath{\operatorname{strip}}} = \frac{A_{\mathcal{O}}}{(2 \sin
+	\rangle_{\text{strip}} = \frac{A_{\mathcal{O}}}{(2 \sin
 		\phi)^{\Delta_{\mathcal{O}}}} \hspace{0.17em}, \quad 0 < \phi < \pi
 	\hspace{0.17em} \quad (B_1 = B_2) \hspace{0.17em} .
 \end{equation}
 This is usually shown by conformal-transforming the upper-half-plane 1pt
-function $\langle \mathcal{O}(z) \rangle_{\ensuremath{\operatorname{UHP}}} =
+function $\langle \mathcal{O}(z) \rangle_{\text{UHP}} =
 A_{\mathcal{O}} / (2 \hspace{0.17em} \text{Im} z)^{\Delta_{\mathcal{O}}}$
 {\cite{Cardy:1984bb}} to the strip {\cite{Calabrese:2006rx}}. But this can
 also be in principle derived by staying on the strip.
@@ -565,7 +565,7 @@ Hamiltonian in terms of Pauli matrices via $n_i = (1 + Z_i) / 2$:
 \begin{equation}
 	H = \frac{\Omega'}{2}  \sum_i X_i + \sum_{i < j} \frac{1}{4 d_{ij}^6}
 	Z_i Z_j + \sum_i \left( \sum_j \frac{1}{4 d_{ij}^6} - \frac{\Delta'}{2}
-	\right) Z_i +\ensuremath{\operatorname{const}}
+	\right) Z_i +\text{const}
 \end{equation}
 Then, if $\Omega', \Delta'$ are not too small, we can neglect the
 non-nearest-neighbor $Z_i Z_j$ couplings. This gives the antiferromagnetic
@@ -957,7 +957,7 @@ First of all, let us describe how to check if a given profile is good enough (``
 	i \hbar \dot{\psi} (t) = U H (\Omega' (t), \Delta' (t)) \psi\,, \label{fullQM1}
 \end{equation}
 starting from the state $| 00 \ldots 0 \rangle$. (We fix $U = \hbar \times
-75.69\ensuremath{\operatorname{MHz}}$ as in {\cite{Fang:2024uyf}}, see App.~\ref{sec:Yao-details}.) The point is that this evolution happens in the $\mathcal{D}$-dimensional translation and
+75.69\,\text{MHz}$ as in {\cite{Fang:2024uyf}}, see App.~\ref{sec:Yao-details}.) The point is that this evolution happens in the $\mathcal{D}$-dimensional translation and
 spatial-parity invariant subspace of the full Hilbert space, and $\mathcal{D}$ is small enough for $N=24$, so that this computation is feasible;\footnote{All computations in this paper were done in few tens of minutes on a laptop.} see Appendix \ref{sec:validation} for details. This evolution happens within the same translation and
 spatial-parity invariant $\mathcal{D}$-dimensional subspace of the Hilbert space
 to which the ground state belongs. 
@@ -1013,7 +1013,7 @@ We see that the four optimized ramp profile given in the table achieve higher fi
   \centering
   \includegraphics[width=0.49\columnwidth]{ramp_profile1.pdf}
   \includegraphics[width=0.49\columnwidth]{ramp_profile2.pdf}
-  \caption{  \label{fig:rampingprofile}The optimized ramp profile P3$_{1.2}$ with $T=1.2\mu {\rm s}$, and the optimized ramp profile P1$_{3}$ with $T=3\mu {\rm s}$.}
+  \caption{  \label{fig:rampingprofile}Left: The optimized ramp profile P3$_{1.2}$ with $T=1.2\mu {\rm s}$. Right: the optimized ramp profile P1$_{3}$ with $T=3\mu {\rm s}$.}
 \end{figure}
 See Appendix \ref{sec:optim} for further details of the optimization algorithm and the optimized ramp profiles for different $T$.
 
@@ -1158,9 +1158,9 @@ Collaboration on the Probabilistic Paths to Quantum Field Theory (award
 SFI-MPS-PP-00012621-16).
 JR is supported by the European Union (ERC, QFTinAdS, project number 101087025, PI Balt van Rees). Views and opinions expressed are, however, those of the authors only and do not necessarily reflect those of the European Union or the European Research Council Executive Agency.
 
-\section*{Data availability statement}
+\section*{AI use and data availability statement}
 
-The DMRG code ??? is available from the authors upon request.
+Numerical simulations (exact diagonalization, ramp profile optimization) were performed using AI-generated code with human supervision and cross-checks. These codes are available from the authors upon request.
 
 \appendix
 
@@ -1177,15 +1177,15 @@ with $N = 24$ atoms on a circle (they also studied $N = 40$). To reach the
 critical state they evolve $\Delta, \Omega$ as in Fig. \ref{fig:yao-ramp}.
 They report the following endpoint parameters:
 \begin{equation}
-	\Omega  / 2 \pi = 1.6\ensuremath{\operatorname{MHz}}, \quad \Delta / \Omega 
+	\Omega  / 2 \pi = 1.6\,\text{MHz}, \quad \Delta / \Omega 
 	= 0.97 (5), \quad R_b / a \approx 1.4,
 \end{equation}
 where $R_b = (C_6 / \hbar \Omega)^{1 / 6}$ is the blockade radius (they don't
 report the error on $R_b / a$). Combining these we compute:
 \begin{equation}
-	U = C_6 / a^6 \approx \hbar \times 2 \pi 1.6 1.4^4
-	\ensuremath{\operatorname{MHz}}= \hbar \times
-	75.69\ensuremath{\operatorname{MHz}},
+	U = C_6 / a^6 \approx \hbar \times 2 \pi\, 1.6\, 1.4^4\,
+{\rm MHz}= \hbar \times
+	75.69\,{\rm MHz},
 \end{equation}
 \begin{equation}
 	\Omega' = \hbar \Omega / U \approx 1 / 1.4^6 \approx 0.133 .
@@ -1424,7 +1424,7 @@ rotation, to another real orthonormal basis $U (q)$ of the same
 $P$-dimensional subspace such that the Berry connection $\mathcal{A} (U)$ is
 zero. In that basis the Schr{\"o}dinger equation becomes
 \begin{equation}
-	i \frac{dc_a}{dt} = H_{\textrm{\ensuremath{\operatorname{trun}}}} (q (t))
+	i \frac{dc_a}{dt} = H_{\text{trun}} (q (t))
 	c_a (t), \label{SchrHU}
 \end{equation}
 where
@@ -1644,8 +1644,8 @@ optimization at different total times $T$. The coefficients of the optimized
 ramp profiles are summarized in Table~\ref{tab:path-coefficients}. From
 these coefficients, it is easy to reconstruct the ramp profile
 $(\Omega' (t), \Delta' (t))$ using \eqref{eq:density}-\eqref{rho0B}. As an
-example, for $T = 1.2 \mu$\text{{\rmfamily{s}}}, the optimized Path B ramp profile
-is shown in Fig.~\ref{fig:rampingprofile}. 
+example, two optimized ramp profiles (one for each path)
+are shown in Fig.~\ref{fig:rampingprofile}. 
 
 
 \begin{figure}[ht]
