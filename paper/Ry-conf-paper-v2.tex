@@ -1011,8 +1011,9 @@ Let us describe the optimization process (Appendix \ref{sec:reduced}). Let us fo
 We see that the four optimized ramp profile given in the table achieve higher fidelity with shorter time than the unoptimized ramp profile used in the experiment \cite{Fang:2024uyf}. For example, if we choose to ramp to P3 along the ramp P3$_{1.2}$, we get $99.9\%$ fidelity with $T=1.2\mu {\rm s}$. The corresponding ramp profile is shown in Fig.~\ref{fig:rampingprofile}.
  \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.6\columnwidth]{ramping_profile.pdf}
-  \caption{  \label{fig:rampingprofile}The optimized ramp profile P3$_{1.2}$ with $T=1.2\mu {\rm s}$.}
+  \includegraphics[width=0.49\columnwidth]{ramp_profile1.pdf}
+  \includegraphics[width=0.49\columnwidth]{ramp_profile2.pdf}
+  \caption{  \label{fig:rampingprofile}The optimized ramp profile P3$_{1.2}$ with $T=1.2\mu {\rm s}$, and the optimized ramp profile P1$_{3}$ with $T=3\mu {\rm s}$.}
 \end{figure}
 See Appendix \ref{sec:optim} for further details of the optimization algorithm and the optimized ramp profiles for different $T$.
 
@@ -1020,9 +1021,9 @@ A comment is in order about why the optimized ramps leading to P3 end up having 
 
 \subsection{Deviation in 2pt function due to imperfect ground state}\label{sec:dev}
 
-In the previous section we explained how to obtain approximate ground state having fidelity close to 1. But how close to one should it be so that our observable---the 2pt function---stays sufficiently close to the exact ground state prediction? In App.~\ref{sec:dev2ptth} we give a theoretical argument that the deviation scales proportionally to the coefficients $c_1(T)$, $c_2(T)$, $\ldots$, i.e.~it is order $(1-F)^{1/2}$. Thus we expect deviation of the order of a few percent due to imperfect fidelity. Here we show a direct check of that prediction. Consider the ratio:
+In the previous section, we explained how to obtain an approximate ground state having fidelity close to 1. But how close to one should it be so that our observable---the 2pt function---stays sufficiently close to the exact ground state prediction? In App.~\ref{sec:dev2ptth} we give a theoretical argument that the deviation scales proportionally to the coefficients $c_1(T)$, $c_2(T)$, $\ldots$, i.e.~it is order $(1-F)^{1/2}$. Thus we expect deviation of the order of a few percent due to imperfect fidelity. Here we show a direct check of that prediction. Consider the ratio:
 \begin{equation}\label{def:error}
-	w_{|j-j|} = \frac{
+	w_{|i-j|} = \frac{
 		\langle \tilde 0| s_i s_{j}|\tilde 0\rangle-
 		\langle 0|  s_i s_{j} |0\rangle
 	}{
