@@ -176,10 +176,10 @@ such indirect tests can be extracted from the literature
 papers may not have emphasized the connection with conformality.
 
 Talking about CFT correlators, we should specify the geometry, including the
-signature: Euclidean or Lorentzian. Euclidean signature is relevant for the
-description of thermodynamic phase transitions, and Lorentzian signature for
+signature: Euclidean or Lorentzian. The Euclidean signature is relevant for the
+description of thermodynamic phase transitions, and the Lorentzian signature for
 the quantum ones. As a representative example, consider the $\mathcal{M} (3,
-4)$ minimal model, also called 2d Ising CFT, since it describes the
+4)$ minimal model, also called the 2d Ising CFT, since it describes the
 universality class of the Ising phase transition. This theory has local
 primary operators $\sigma, \epsilon$ of scaling dimensions $\Delta_{\sigma} =
 1 / 8$, $\Delta_{\epsilon} = 1$. In infinite flat 2d space, the simplest
@@ -201,19 +201,19 @@ Euclidean or Lorentzian distance squared between $x_i$ and $x_j$.\footnote{In
 	for time differences, depending on the operator ordering, giving phases for
 	light-like point separations. See e.g. {\cite{Hofman:2008ar}}.}
 
-Which direct and indirect tests of conformality can be done in principle using
+Which direct or indirect tests of conformality can be done, in principle, using
 these formulas?
 
 A direct test would be to measure the 3pt function \eqref{eq:three-point} and
 see the given specific functional form in terms of just three parameters
 $\Delta_{\sigma}, \Delta_{\epsilon}, C_{\sigma \sigma \epsilon}$. Indeed this
-dependence was one of the earliest nontrivial predictions of conformality {\cite{Polyakov:1970xd}}, obtained from covariance under conformal
+dependence was one of the earliest nontrivial predictions of conformality {\cite{Polyakov:1970xd}}, obtained from the covariance under conformal
 maps, while scale symmetry alone would allow an infinite number of
 possibilities {\cite{Rychkov:2016iqz}}. Measurements of infinite-volume 3pt
 functions are complicated, and they were never attempted.\footnote{We thank
 	Thomas Chalopin and David Cl{\'e}ment for a discussion of the possibility of
 	realizing such a measurement in their experimental cold-atom platform
-	{\cite{Allemand:2025pdq}}.} See Fig.~\ref{fig:flat}.
+	{\cite{Allemand:2025pdq}}.} 
 
 On the other hand, to measure the 2pt functions \eqref{eq:two-point} and see a
 powerlaw would not be a direct test of conformality, but rather of the more
@@ -221,7 +221,7 @@ mundane scale symmetry.\footnote{2pt functions of primaries of unequal
 	dimensions vanish by conformality {\cite{Polyakov:1970xd}}, but it's unclear
 	how to test this experimentally. See {\cite{Podo:2026hfh}} for a critique of
 	an early proposal by Pokrovsky
-	{\cite{Pokrovskii1973,PatashinskiPokrovsky1979}}.}
+	{\cite{Pokrovskii1973,PatashinskiPokrovsky1979}}.} See Fig.~\ref{fig:flat}.
 
 Finally, one could use \eqref{eq:two-point} or \eqref{eq:three-point} to
 measure $\Delta_{\sigma}$, $\Delta_{\epsilon}$, or $C_{\sigma \sigma
@@ -246,7 +246,7 @@ periodically on a circle. We will also comment on the open boundary condition
 case, when Rydberg atoms are arranged on an interval.
 
 Let us assume that the chain of Rydberg atoms finds itself in the ground
-state, with interactions tuned to be at the quantum critical point. How to get
+state, with interactions tuned to be at a quantum critical point. How to get
 such a state efficiently via adiabatic evolution will be discussed below. The
 corresponding CFT geometry is the surface of a cylinder, where time runs
 vertically, and constant-time circular sections represent space where the
@@ -260,12 +260,12 @@ Rydberg atoms are positioned, Fig. \ref{fig:cyl}.
 		time CFT 2pt function on the cylinder $S^1 \times \mathbb{R}$.}
 \end{figure}
 
-Now it turns out that such a 1D finite-volume setup carries a theoretical
+Now, it turns out that such a 1D finite-volume setup carries a theoretical
 advantage for direct tests of conformality. We have seen that 2pt functions in
 infinite volume would not test conformality but scale symmetry, and one would
 have to go to 3pt functions in infinite volume. But in finite circular volume
 already 2pt functions test conformality! Indeed, while the scale symmetry is
-broken by finite volume, conformality survives. In fact conformal group for
+broken by finite volume, conformality survives. In fact, the conformal group for
 the 2d cylinder (or on any geometry which is, like the cylinder, equivalent to
 the plane by a Weyl transformation) is as large as the conformal group of the
 plane. This leads to constraints on correlators, which are nontrivial already
@@ -283,9 +283,7 @@ the Wick rotation.
 
 The salient features of Eq. \eqref{eq:2ptcyl} are: time-translation
 invariance, and exponential decay at large Euclidean time separation $\tau_1 -
-\tau_2$.
-
-To find Eq. \eqref{eq:2ptcyl}, the easiest is to use the above-mentioned Weyl
+\tau_2$. To find this formula, the easiest is to use the above-mentioned Weyl
 equivalence of the cylinder and the plane, realized by the exponential map.
 Thus \eqref{eq:2ptcyl} can be easily obtained from the infinite-plane result
 \eqref{eq:two-point} {\cite{DiFrancesco:1997nk}}. However, one
@@ -294,8 +292,8 @@ Weyl-equivalence, by staying on the cylinder and using the conformal group of
 the cylinder.
 
 For the Hamiltonian dynamics in real time, like in the Rydberg atom
-experiments, one needs to Wick-rotate \eqref{eq:2ptcyl} to Lorentzian
-signature. Then the 2pt function exhibits oscillating behavior in the time
+experiments, one needs to Wick-rotate \eqref{eq:2ptcyl} to the Lorentzian
+signature. Then, the 2pt function exhibits oscillating behavior in the time
 direction {\cite{Luscher:1974ez}}. We don't show the full formula here,
 because below we will focus on the equal time case, in which case the 2pt
 function reduces to
@@ -304,13 +302,13 @@ function reduces to
 	\rangle_{\text{cyl}} = \frac{1}{|2 \sin \frac{\phi_1 -
 			\phi_2}{2} |^{2 \Delta_{\mathcal{O}}}},
 \end{equation}
-for both the Euclidean and Lorentzian signature.
+for both the Euclidean and the Lorentzian signature.
 
 We see that the functional form of the finite-volume correlator
 \eqref{eq:2ptcylequal} is fixed at all distances, including distances of the
 order of the size of the spatial manifold, in terms of just one parameter
-$\Delta_{\mathcal{O}}$. While this is well known, we would like to stress here
-that this is a direct consequence of conformality. Therefore, to see this
+$\Delta_{\mathcal{O}}$. We would like to stress here
+that this, well-known, fact is a direct consequence of conformality. Therefore, to see this
 functional form experimentally would be a direct test of conformality.
 
 \subsection{Other direct tests}
@@ -321,12 +319,12 @@ possible direct tests.
 
 \text{{\bfseries{I.}}} Instead of periodic boundary conditions (circle), one
 may choose to position Rydberg atoms on an interval. Then, the relevant CFT
-geometry is the strip, Fig. \ref{fig:strip}. There is some freedom for the
+geometry is the strip, Fig.~\ref{fig:strip}. There is some freedom for the
 boundary conditions on the two sides of the strip, playing with interactions
 of Rydberg atoms close to the endpoints. At the critical point, the effect of
 boundary conditions is described by conformal boundary conditions $B_1$ and
 $B_2$ on the two boundaries. In this strip setup, already 1pt functions can
-test conformal symmetry directly. In the simplest case with equal boundary
+test conformality directly. In the simplest case with equal boundary
 conditions, $B_1 = B_2$, the 1pt function of a primary operator on the strip
 of width $\pi$ takes the form:
 \begin{equation}
@@ -364,10 +362,10 @@ since averaging over translations improves statistics. It also helps during
 the adiabatic evolution when preparing the ground state, since the whole
 adiabatic evolution takes place in the translationally invariant subsector of
 the Hilbert space. Eq. \eqref{eq:1ptstrip} has no comparable advantages.
-Moreover, in our numerical experiments, \eqref{eq:1ptstrip} was affected by
+Furthermore, in our numerical experiments we saw that \eqref{eq:1ptstrip} is affected by
 large corrections to scaling near the boundaries.\footnote{One can phrase this
 	by saying that there is an ambiguity where the ``true'' CFT boundary is
-	located compared to the Rydberg chain boundary.} For these reasons below we
+	located compared to the Rydberg chain boundary.} For these reasons, below we
 will focus on the possible tests of \eqref{eq:2ptcylequal} and we will not
 report any results for \eqref{eq:1ptstrip}.
 
@@ -403,7 +401,7 @@ relation analogous to \eqref{eq:ratio-rel} with $\Delta_{\mathcal{O}_n} \to
 \Delta_{\hat{\mathcal{O}}_n}$ \cite{DiFrancesco:1997nk}. 
 
 The OSC is a fundamental property of CFT. Its origin can be traced to the
-already mentioned fact that the cylinder is Weyl-equivalent to the plane,
+above-mentioned fact that the cylinder is Weyl-equivalent to the plane,
 while the strip to the half-plane (see Fig.~\ref{fig:OSC}). Therefore, a test
 of relation \eqref{eq:ratio-rel} would also qualify as a direct test of
 conformality.\footnote{We thank the authors of {\cite{Wang:2026prw}} for a
@@ -418,9 +416,9 @@ conformality.\footnote{We thank the authors of {\cite{Wang:2026prw}} for a
 		sections mapped to constant radius (semi)circles.}
 \end{figure}
 
-In conclusion, we note that the three above-mentioned 1D finite volume tests
+In conclusion, we note that the three above-mentioned 1D finite-volume tests
 of conformal invariance---testing \eqref{eq:2ptcylequal}, \eqref{eq:1ptstrip}
-or \eqref{eq:ratio-rel}---have no easy counterpart for 2D, where finite
+or \eqref{eq:ratio-rel}---have no easy counterparts for 2D, where finite
 volume typically breaks conformality. The only exception is a two-sphere
 spatial manifold. In cold atom experiments, distributing Rydberg atoms on a
 two-sphere will break rotational symmetry to a discrete subgroup, which makes
@@ -433,7 +431,7 @@ realization of this setup is currently lacking.
 \subsection{Existing experimental results: Rydberg atoms and related
 	platforms}
 
-In this subsection we will mention several already performed experimental
+In this section we will mention several already performed experimental
 measurements of quantum criticality with Rydberg atoms and related
 experimental platforms, which we find most interesting and/or relevant to the discussion. We will see that one
 direct test and several indirect ones can be extracted from these
@@ -507,7 +505,7 @@ functional dependence ~\eqref{eq:2ptcylequal} with Rydberg atoms, thus
 performing a direct test of conformality. As mentioned above, the critical 2pt
 function on the circle was already measured in
 {\cite{Fang:2024uyf,Emperauger:2025raf}}. But they did not see Eq.
-\eqref{eq:2ptcylequal}. Instead they saw exponential decay. Below we will
+\eqref{eq:2ptcylequal}. Instead they saw an exponential decay. Below we will
 argue that simple improvements of these existing experiments have a good
 chance to reduce decoherence sufficiently so that Eq. \eqref{eq:2ptcylequal}
 can be verified.
@@ -516,7 +514,7 @@ This section is structured as follows. In Section \ref{sec:hamiltonian-and-phase
 
 \subsection{Hamiltonian and phase diagram}\label{sec:hamiltonian-and-phase-diagram}
 
-We consider the standard setup known to lead to Ising quantum criticality in
+We consider the standard setup known to lead to the Ising quantum criticality in
 1D chains of Rydberg atoms {\cite[Eq.~(1)]{Browaeys:2020kzz}}. As mentioned we
 are interested in the periodic circular arrangements. In this section we
 consider the ideal setup where the atoms are exactly equally spaced. The
@@ -582,7 +580,7 @@ $\Omega' > 0$).
 		\resizebox{0.55\columnwidth}{!}{\includegraphics{phase_diagram_SSF_LR.png}}
 	\end{center}
 	\caption{\label{phasediagramHBlong}A part of the phase diagram of the model \eqref{eq:model} showing
-		the Ising phase transition between thee $\mathbb{Z}_2$ density wave phase
+		the Ising phase transition between the $\mathbb{Z}_2$-broken ``density wave'' phase
 		and the disordered phase. We do not show in detail the two tiny gray regions
 		which house further phases {\cite{Keesling:2018ish,Rader:2019syq}}. The two
 		red points corresponds to the points studied in~{\cite{Fang:2024uyf}} (P1)
@@ -635,7 +633,7 @@ simulations for both points will be done with the Hamiltonian
 		on-site $\mathbb{Z}_2$. }
 \end{table}
 
-\subsection{Measuring critical 2pt-point function}\label{sec:measuring-critical-2pt-point-function}
+\subsection{Measuring critical 2pt function}\label{sec:measuring-critical-2pt-point-function}
 
 We will be interested in the equal-time CFT 2pt function $\langle
 \mathcal{O}(\phi_1, 0)\mathcal{O}(\phi_2, 0) \rangle$, see
@@ -643,7 +641,7 @@ Eq.~\eqref{eq:2ptcylequal}, where we take $\mathcal{O}= \sigma$, the
 lowest-dimension nontrivial primary of the 2d Ising CFT, which is $\mathbb{Z}_2$-odd. Correlation functions
 of the $\mathbb{Z}_2$-even primary $\epsilon$ can also be discussed, but since $\epsilon$ has a higher scaling
 dimension, they will decay faster with a distance and the powerlaw will be
-harder to resolve experimentally (more on this below).
+harder to resolve experimentally.
 
 In a Rydberg atom experiment, this critical 2pt function is measured as
 follows {\cite{Fang:2024uyf}}.
@@ -689,7 +687,7 @@ experimentally feasible. They are discussed below:
 	
 	\item (Section \ref{sec:sample}) How many collapsed states do we need so
 	that statistical errors in the measurement of $\langle s_i s_j \rangle$ are
-	reasonably small, say 10\%? I.e. how many times do we have to repeat the
+	reasonably small, say below 10\%? I.e. how many times do we have to repeat the
 	experiment? We will see that order $10^3$ times is enough.
 	
 	\item (Section \ref{sec:fidelity}) How can we optimize the evolution curve
@@ -721,7 +719,7 @@ state sufficiently close to the groud state will be discussed in Section
 \ref{sec:fidelity} below.
 
 We map the circle on which Rydberg atoms are positioned to the CFT circle of
-length $2 \pi$, so that atom number $i$ is mapped to the agle $\phi_i = 2 \pi
+length $2 \pi$, so that atom number $i$ is mapped to the angle $\phi_i = 2 \pi
 i / N$. If the microscopic operator $s_i$ were exactly equal to the CFT
 operator $\sigma_i := \sigma (\phi_i)$,\footnote{We will no longer write time
 	for the CFT operators, which is always set to zero.} the ground state
@@ -1099,7 +1097,7 @@ Browaeys, Thierry Lahaye, David Clement, Thomas Chalopin), PASQUAL (Guillaume
 Villaret, Adrien Signoles, Alexander Dauphin), and Institute for Advanced
 Study, Tsinghua University (Wenlan Chen, Yingfei Gu, Chengshu Li) for
 discussions of cold atom experiments. In particular we thank Guillaume Villaret for sharing and discussing an early draft of \cite{Dalyac:2026jpu}. SR also thanks Hans Peter B{\"u}chler
-and Enrico Rinaldi for discussions. SR is partially supported by the Simons
+and Enrico Rinaldi for discussions. We thank Antonio Antunes, Victor Gorbenko, Julio Parra-Martinez, Shu-Heng Shao and Balt van Rees for a discussion of operator matching. SR is partially supported by the Simons
 Collaboration on the Probabilistic Paths to Quantum Field Theory (award
 SFI-MPS-PP-00012621-16).
 JR is supported by the European Union (ERC, QFTinAdS, project number 101087025, PI Balt van Rees). Views and opinions expressed are, however, those of the authors only and do not necessarily reflect those of the European Union or the European Research Council Executive Agency.
@@ -1577,8 +1575,8 @@ states obtained by inserting CFT operators $\varepsilon$ and $\partial^2
 	| 1 \rangle  = \varepsilon (0) | 0 \rangle , \quad | 2 \rangle  = \frac{1}{4
 		\Delta_{\varepsilon}} \partial^2 \varepsilon (0) | 0 \rangle ,
 \end{equation}
-where the prefactor in the latter equation arises from the requirement of unit
-norm. Using the infinite-plane expressions:
+where the prefactor in the latter equation arises from the unit
+norm requirement. Using the infinite-plane expressions:
 \begin{equation}
 	\langle \sigma (x_1) \sigma (x_2) \rangle = \frac{1}{| x_{12} |^{2
 			\Delta_{\sigma}}}, \quad \langle \sigma (x_1) \sigma (x_2) \varepsilon (0)
@@ -1598,7 +1596,7 @@ we find, for two points $x_1, x_2$ distance 1 from the origin,
 		\rangle}{\langle \sigma (x_1) \sigma (x_2) \rangle} = C_{\sigma \sigma
 		\varepsilon} \Delta_{\varepsilon}^2 | x_{12} |^{\Delta_e} (4 - | x_{12} |^2)
 \end{equation}
-Substituting $| x_{12} | = 2 s, s = \sin \frac{| \varphi_{12} |}{2}$, and
+Substituting $| x_{12} | = 2 s, s = \sin \frac{| \phi_{12} |}{2}$, and
 using $\Delta_{\varepsilon} = 1$, $C_{\sigma \sigma \varepsilon} = 1 / 2$, the
 above equations give
 \begin{equation}
