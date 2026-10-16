@@ -74,7 +74,7 @@ $^2$Institut des Hautes \'Etudes Scientifiques, 91440 Bures-sur-Yvette, France}
 
 
 \abstract{
-We propose a direct test of conformal symmetry using Rydberg-atom arrays. By arranging the atoms on a circle and measuring equal-time two-point correlation functions, the characteristic functional form predicted by conformal field theory can be tested directly. We estimate the number of experimental snapshots required to resolve this behavior with sufficient statistical precision. We further optimize the time-dependent ramp profile of the Rabi frequency~$\Omega$ and detuning~$\Delta$ used to prepare the target critical state adiabatically. The optimized profile achieves higher fidelity over much shorter evolution times than those employed in previous experiments. Taken together, these results demonstrate that a direct experimental test of conformal symmetry is feasible with current Rydberg-atom technology.}%This is a note on the measurement of 3pt function using Rydberg atom experiments.}
+We propose a direct test of conformal symmetry using Rydberg-atom arrays. By arranging the atoms on a circle and measuring equal-time two-point correlation functions, the characteristic functional form predicted by conformal field theory can be tested directly. We estimate the number of experimental snapshots required to resolve this behavior with sufficient statistical precision. We further optimize the time-dependent ramp profile of the Rabi frequency~$\Omega$ and detuning~$\Delta$ used to prepare the target critical state adiabatically. The optimized profile achieves higher fidelity over much shorter evolution times than those employed in previous experiments. Taken together, these results suggest that a direct experimental test of conformal symmetry is feasible with current Rydberg-atom technology.}
 
 
 
@@ -101,7 +101,7 @@ long-distance behavior is described by a CFT
 	--- critical points with only scale symmetry.} CFTs are tightly constrained
 and can be solved, in low dimensions often exactly
 {\cite{DiFrancesco:1997nk}}, while in higher dimensions approximately, using
-the numerical conformal bootstrap {\cite{Poland:2018epd}}. Since the scaling
+the numerical conformal bootstrap {\cite{Poland:2016chs,Poland:2018epd,Poland:2022qrs,Rychkov:2023wsd}}. Since the scaling
 dimensions of CFT local operators are related to the critical exponents, which
 can be experimentally measured, this provides many
 \text{{\bfseries{indirect}}} tests of conformality,\footnote{We will use
@@ -111,7 +111,7 @@ comparison, until recently little theoretical effort was devoted to designing
 \text{{\bfseries{direct}}} tests {\cite{Pokrovskii1973,Gompper1985}}, and such
 experiments were lacking {\cite{Rychkov:2025zks}}. For
 \text{{\bfseries{thermodynamic}}} phase transitions, such tests are
-challenging due to limitations of imaging with X-ray or neutron probes; see
+challenging due to limitations of imaging with X-ray or neutron probes, although see
 {\cite{Podo:2026hfh}} for a recent proposal to use grazing scattering of
 X-rays on critical binary alloys.
 
@@ -142,7 +142,7 @@ conformality, through a measurements of equal-time two-point (2pt) correlation
 function with periodic boundary conditions in 1D. We present results of
 our numerical simulations for experiments with 1D chains of Rydberg atoms. Our main proposal is how to optimize the ramp profiles for the approximate ground state preparation. We show that optimization allows to get ramps with much shorter evolution times, while the fidelity stays the same or higher than in the previous experiments \cite{Fang:2024uyf}.  The use of such optimized ramps should reduce decoherence effects. 
 
-Our conclusions (Section \ref{sec:concl}) are twofols. First, we hope to have convinced the readers that direct tests of conformality via measuring correlators is a worthwhile enterprise. Second, such tests may well be within reach - simply repeating the existing experiments with the optimized ramps may already yield them.
+Our conclusions (Section \ref{sec:concl}) are twofold. First, we hope to have convinced the readers that direct tests of conformality via measuring correlators is a worthwhile enterprise. Second, such tests may well be within reach, since simply repeating the existing experiments with the optimized ramps may already yield them.
 
 
 {\bf Notation:} As is
@@ -153,23 +153,23 @@ common in the condensed matter and experimental literature, we use D for the spa
 \subsection{General discussion and the main direct test}
 
 We find it convenient to divide possible experimental tests of conformality
-into two groups - indirect and direct.
+into two groups---indirect and direct.
 
 By means of analogy, suppose we have a 3D object and we wish to check its
-rotational symmetry, i.e. if is it a round ball. A direct way would be to
+rotational symmetry, i.e.~if is it a round ball. A direct way would be to
 stare at the object from different directions. An indirect way would be to
-check the circumference to diameter ratio- does it equal $\pi$? Our point is
+check the circumference to diameter ratio---does it equal $\pi$? Our point here is
 that symmetry is fundamentally about \text{{\bfseries{shapes}}} of objects. In
 a quantum field theory the most basic object is a correlator. Hence, a direct
 test of conformality should test constraints which it imposes on the
 functional form of correlators. On the other hand, an indirect test can be a
-measurement of a number predicted using techniques of CFT. Specific CFTs can
+measurement of a number predicted using techniques of CFT. Indeed, specific CFTs can
 often be solved exactly, or numerically to very high accuracy. For example, an
 infinite series of 2d CFTs called minimal models was solved exactly,
 determining the local operator scaling dimensions and other properties
 {\cite{Belavin:1984vu,DiFrancesco:1997nk}}. The main critical exponents
 characterizing phase transitions can be expressed in terms of these scaling
-dimensions {\cite{cardy1996scaling}}. Any measurement of a critical experiment
+dimensions {\cite{cardy1996scaling}}. Then, any measurement of a critical experiment
 in agreement with a CFT prediction is an indirect test of conformality. Many
 such indirect tests can be extracted from the literature
 {\cite{Henkel1999,Rychkov:2025zks}}, even though the original experimental
@@ -177,7 +177,7 @@ papers may not have emphasized the connection with conformality.
 
 Talking about CFT correlators, we should specify the geometry, including the
 signature: Euclidean or Lorentzian. Euclidean signature is relevant for the
-dscription of thermodynamic phase transitions, and Lorentzian signature for
+description of thermodynamic phase transitions, and Lorentzian signature for
 the quantum ones. As a representative example, consider the $\mathcal{M} (3,
 4)$ minimal model, also called 2d Ising CFT, since it describes the
 universality class of the Ising phase transition. This theory has local
@@ -233,7 +233,7 @@ test.
 		\resizebox{200pt}{!}{\includegraphics{fig-flat.pdf}}
 	\end{center}
 	\caption{\label{fig:flat}  Direct tests in infinite space: 2pt functions (left) test but scale
-		symmetry, while 3pt functions (right) do test comformality but are hard to
+		symmetry, while 3pt functions (right) do test conformality but are hard to
 		measure.}
 \end{figure}
 
@@ -379,7 +379,7 @@ Consider the list $\{ \mathcal{O}_n \}_{n = 0}^{\infty}$ of all local
 operators of a CFT, both primaries and their descendants. The OSC on the
 cylinder says that \cite{DiFrancesco:1997nk}:
 \begin{itemize}
-	\renewcommand{\labelitemi}{$\bullet$}\renewcommand{\labelitemii}{$\bullet$}\renewcommand{\labelitemiii}{$\bullet$}\renewcommand{\labelitemiv}{$\bullet$}\item
+\item
 	such operators are in one-to-one correspondence with the energy eigenstates
 	$| n \rangle$ on the circle, with the identity operator $\mathcal{O}_0$
 	corresponding to the ground state $| 0 \rangle$;
@@ -400,7 +400,7 @@ and $B_2$. There, there is correspondence between boundary (or
 boundary-changing if $B_1 \ne B_2$) CFT operators $\hat{\mathcal{O}}_n$ on the
 one hand, and states on the interval on the other hand. There is also a
 relation analogous to \eqref{eq:ratio-rel} with $\Delta_{\mathcal{O}_n} \to
-\Delta_{\hat{\mathcal{O}}_n}$ \cite{DiFrancesco:1997nk}. %{\color{red}{ADD REFS what about~\cite{Cardy:1989ir}}}
+\Delta_{\hat{\mathcal{O}}_n}$ \cite{DiFrancesco:1997nk}. 
 
 The OSC is a fundamental property of CFT. Its origin can be traced to the
 already mentioned fact that the cylinder is Weyl-equivalent to the plane,
@@ -615,7 +615,7 @@ Below for definiteness we will focus on two points on the critical line:
 point P3 $\Delta' = \zeta (6)$, $\Omega' \approx 0.488$ which has on-site
 $\mathbb{Z}_2$, and point P1 from {\cite{Fang:2024uyf}} (see Table
 \ref{tab:params}) which lies closer to (but not quite in) the strong blockade
-regime. \ We will see that P3 has some advantages for the experiments. All
+regime. We will see that P3 has some advantages for the experiments. All
 simulations for both points will be done with the Hamiltonian
 \eqref{eq:modelp}.
 
@@ -738,7 +738,7 @@ experimentally. The range of variation for $N = 24$ is not huge; we have
 $\left\langle \sigma_0 {\sigma_{12}}  \right\rangle \approx 0.6 \left\langle
 \sigma_0 {\sigma_1}  \right\rangle$.\footnote{It could be suggestive to plot
 		\eqref{2ptideal} as a function of \ $\sin \frac{2 \pi i}{N}$ in log-log scale,
-		with $\sin \frac{2 \pi i}{N}$ on the horizonal axis, since such a plot would look a straight line. But since the range of variation is not so large, we prefer to use the linear scale as in Fig.~\ref{fig:ideal}.} Still, the shape of the curve is uniquely predicted, and measuring this curve in agreement with the theory will be a direct test of conformality.
+		with $\sin \frac{2 \pi i}{N}$ on the horizontal axis, since such a plot would look a straight line. But since the range of variation is not so large, we prefer to use the linear scale as in Fig.~\ref{fig:ideal}.} Still, the shape of the curve is uniquely predicted, and measuring this curve in agreement with the theory will be a direct test of conformality.
 
 \begin{figure}[h]\centering
 	\resizebox{250pt}{!}{\includegraphics{fig-2pt-function.pdf}}
@@ -819,7 +819,7 @@ point P3, where the correction term $(- 1)^i c_{\varepsilon} \varepsilon
 
 
 Previously, numerical simulations of 2pt functions of the Rydberg spin chain
-were discussed in {\cite{Slagle:2021ene}}, focussing on the strong Rydberg
+were discussed in {\cite{Slagle:2021ene}}, focusing on the strong Rydberg
 blockade regime where FSS effective Hamiltonian is applicable, and using the
 same microscopic operator $s_i$, up to rescaling. There, oscillations in the
 2pt function due to admixture of $(- 1)^j \epsilon (\phi)$ were also observed.
@@ -866,7 +866,7 @@ n_{L - 1} \rangle.$.} This allows us to
 simulate the experimental process directly. Statistical errors will go down as
 $\Sigma / \sqrt{M}$, where $M$ is the number of snapshots, with $\Sigma$
 estimated from the ``exact diagonalization data''.\footnote{For sufficiently
-	large $N$, ED will become unfeasable and one will have to switch to DMRG {\cite{White1992,Schollwock2011}}. This produces the wavefunction as
+	large $N$, ED will become unfeasible and one will have to switch to DMRG {\cite{White1992,Schollwock2011}}. This produces the wavefunction as
 	a matrix product state (MPS). Interestingly, MPS representation also allows
 	for quick sampling, using the {\texttt{sample()}} function of the
 	{\texttt{iTensor.jl}} package.}
@@ -979,14 +979,6 @@ In Table \ref{tab:fidel} we give ramp fidelities as well as $| c_n (T) |^2$ for 
 The first line in Table \ref{tab:fidel} is for the ramp from \cite{Fang:2024uyf}, which we call P1$_{7}$, and for which we find fidelity $99.04\%$. The subsequent lines give several ramps that we found via optimization process described below. The subscript in the ramp name refers to the total ramp time in $\mu{\text{s}}$. All these ramps achieve as good fidelities as P1$_7$, or better, with 2-3 times shorter evolution times for point P1,
 and even shorter times for point P3. E.g.~ramp P3$_{1.2}$ achieves $99.9\%$ fidelity with $T=1.2 \mu\text{s}$.
 
-%%ramps to P1, &  & $7.0$ & $0.99043510$ & $0.00426506$ & $0.00130462$ & $0.00399522$ \\
-%%{\cite{Fang:2024uyf}}, Fig. \ref{fig:yao-ramp}: &  & $2.5$ & $0.99181040$ & $0.00092417$ & $0.00514842$ & $0.00211701$ \\
-%%&  & $3.0$ & $0.99403067$ & $0.00287821$ & $0.00157414$ & $0.00151699$ \\
-%%\midrule
-%%\multirow{2}{*}{ramps to P3:}
-%%&  & $0.8$ & $0.99606224$ & $0.00036432$ & $0.00097458$ & $0.00259886$ \\
-%%&  & $1.2$ & $0.99898538$ & $0.00003598$ & $0.00018609$ & $0.00079255$ \\
-
 \begin{table}[h]\centering
 \begin{tabular}{llccccc}
 	\toprule
@@ -1075,75 +1067,6 @@ The ``false positive'' probability is at least partly related to atomic motion: 
 
 Ref.~\cite{Fang:2024uyf} relied on post-selection to eliminate snapshots with blockade violation (two neighboring atoms in the Rydberg state), as a way to mitigate the above ``false positives''. That was a possible strategy as they worked at point P1 which is in the near-Rydberg blockade regime. (It should be noticed that this strategy creates a bias, since about $8\%$ of true snapshots at P1 do contain blockade violations \cite{Fang:2024uyf} and are also eliminated.)  It remains to be seen if measurements can be reliably performed at point P3, which is far away from Rydberg blockade regime, and the above post-selection strategy is not feasible.
 
-%
-%For $a = 10 \mu$\text{{\rmfamily{m}}}, $U / \hbar = 0.86 \mathrm{rad} \cdot
-%\mu \mathrm{s}^{- 1}$ we get $v \approx 27 m / s$.
-%
-%
-%
-%Consider idealized situation when centers of potential wells have no
-%uncertainty, but there is uncertainty in the positions of the atoms due to the
-%size of the wavefunction $\Delta x$ and the size of the momentum $\Delta p
-%\sim \hbar / (\Delta x)$. (in practice a bit more because of nonzero
-%temperature)
-%
-%Then the full uncertainty after time $\tau$ is
-%\begin{equation}
-%	\Delta x_{full} = \Delta x + \frac{\hbar}{\Delta x} M^{- 1} \tau
-%\end{equation}
-%where $M$ is the mass of an atom. (Double-check - influence of van der Waals
-%interaction on the atomic motion)
-%
-%We want $\Delta x_{full} / a \ll 1$, which limits $\Delta x$ and $\tau$ from
-%above.
-%
-%It makes sense to set $\tau$ so that $\Delta x = \epsilon a$,
-%$\frac{\hbar}{\Delta x} M^{- 1} \tau = \epsilon a$, so $\tau = a^2 \epsilon^2
-%\hbar^{- 1} M$
-%
-%We can increase $a$, but then $U = C_6 / a^6$ decreases and hence the energy
-%gap decreases.
-%
-%We want $E_{gap} \tau \gg \hbar$.
-%
-%We have $E_{gap} \tau \hbar^{- 1} = 3.12 C_6 / a^6 N^{- 1} a^2 \epsilon^2
-%\hbar^{- 2} M = 3.12 C_6 / a^4 N^{- 1} \epsilon^2 \hbar^{- 2} M$
-%
-%We see that, for fixed $\epsilon$, we want to take $a$ as small as possible,
-%i.e. $\Delta x$ as small as possible.
-%
-%Thus the limiting factor for adiabaticity will be $\Delta x$. So we can
-%rewrite the previous equation as
-%
-%$E_{gap} \tau \hbar^{- 1} = 3.12 C_6 / (\Delta x)^4 N^{- 1} \epsilon^{- 2}
-%\hbar^{- 2} M$
-%
-%Parameters: Rubidium $n = 60$ level Pasqual: $C_6 / \hbar = 865723 (\mu s)^{-
-%	1}  (\mu m)^6$, $\Delta x = 0.1 \mu m$ (optimistic), $M_{Rb} = 87$
-%
-%Local adiabatic evolution: {\cite{Richerme:2013hbx}} important is the lowest
-%$\mathbb{Z_2}$ state.
-%
-%Norman Yao: ramp time 5 $\mu s$.
-%
-%Summary: mention trap parameters for various experiments, and various $C_6$,
-%various evolution times
-%
-%Describe Norman Yao setup in detail
-%
-%{\color{red}{stopped here, working below}}
-%
-%The experimentally accessible parameter space is, roughly, {\cite[Tab.
-%	1]{noise-note}}
-%
-%\begin{align}
-%	\Omega' \in [0, 2], \quad \Delta' \in [- 10, 20] . 
-%\end{align}
-%
-%Plan: investigate the $\mathbb{Z}_2$-even energy gap landscape.
-%
-%Tip advantage: For the same $U$, the energy gap is about factor 3 higher at
-%the tip than at the Yau point.
 
 \section{Summary and conclusions}\label{sec:concl}
 
@@ -1191,8 +1114,8 @@ Numerical simulations (exact diagonalization, ramp profile optimization) were pe
 \label{sec:Yao-details}
 
 Ref.~{\cite{Fang:2024uyf}} measured 1D and 2D arrays of Rydberg atoms tuned to
-the quantum critical point in the Ising universalty class. We will report here
-parameters of their experiments, focussing on 1D case of relevance for this
+the quantum critical point in the Ising universality class. We will report here
+parameters of their experiments, focusing on 1D case of relevance for this
 paper.
 
 The Hamiltonian of {\cite{Fang:2024uyf}} is precisely \eqref{eq:model}
@@ -1267,7 +1190,7 @@ With paths so fixed, optimizing the ramp profile then means finding a $q(t)$ so 
 subspace and validation in the full $\mathcal{D}$-dimensional subspace. We discuss validation first.
 
 \subsection{Validation}\label{sec:validation}
-We use a matrix-free approach to calculate the time evolution of the ground state.  At $N=24$, the dimension of the zero-momentum, reflection-positive Hilbert space is $\mathcal{D}=352{,}698$. (The $\mathcal{D}\times \mathcal{D}$ Hamiltonian is never explicitly constructed and stored.) The Schrödinger equation is given in \eqref{fullQM1}. In this appendix, we take $\hat{t} =t\cdot U/\hbar$ to be the dimensionless time. We will drop the hat to simplify the notation. We thus work with the equation
+We use a matrix-free approach to calculate the time evolution of the ground state.  At $N=24$, the dimension of the zero-momentum, reflection-positive Hilbert space is $\mathcal{D}=352{,}698$. (The $\mathcal{D}\times \mathcal{D}$ Hamiltonian is never explicitly constructed and stored.) The Schr\"odinger equation is given in \eqref{fullQM1}. In this appendix, we take $\hat{t} =t\cdot U/\hbar$ to be the dimensionless time. We will drop the hat to simplify the notation. We thus work with the equation
 \begin{equation}
 i\frac{\partial}{\partial t}\lvert\psi(t)\rangle
 =
@@ -1292,7 +1215,7 @@ Here \(\mathcal T\) is the time-ordering operator. It is necessary because, in g
 \begin{equation}
 [H(t_1),H(t_2)]\neq 0.
 \end{equation}
-Numerically the time evoluton is realized by discretizing the time interval $[0,T]$ into small steps $h=\delta t$, and approximating the evolution operator by a product of matrix exponentials corresponding to small steps. It pays off to organize this discretization efficiently, so that the error scales with a high power $h$, as this reduces the number of time steps needed to achieve a converged result. Here we used the fourth-order commutator-free Magnus (CF4) scheme, whose error is $O(h^4)$~\cite{BlanesMoan2006,AlvermannFehske2011}.
+Numerically the time evolution is realized by discretizing the time interval $[0,T]$ into small steps $h=\delta t$, and approximating the evolution operator by a product of matrix exponentials corresponding to small steps. It pays off to organize this discretization efficiently, so that the error scales with a high power $h$, as this reduces the number of time steps needed to achieve a converged result. Here we used the fourth-order commutator-free Magnus (CF4) scheme, whose error is $O(h^4)$~\cite{BlanesMoan2006,AlvermannFehske2011}.
 
 Let us give some details about how this works. The idea is to sample the time-dependent Hamiltonian at two Gauss-Legendre nodes inside the interval:
 \begin{equation}
@@ -1303,7 +1226,6 @@ Let
 H_1=H\!\left(\Omega(t_{n,1}),\Delta(t_{n,1})\right),\qquad
 H_2=H\!\left(\Omega(t_{n,2}),\Delta(t_{n,2})\right).
 \end{equation}
-%Thus $H_1$ is the Hamiltonian evaluated at the earlier node and $H_2$ is the Hamiltonian at the later node. With
 The CF4 scheme defines
 \begin{equation}\label{eq:cf4}
  \vert \psi_{n+1}\rangle=
@@ -1317,15 +1239,6 @@ c_{1,2}=\frac12\mp\frac{\sqrt3}{6}, \quad
 a_{1,2}=\frac14\mp\frac{\sqrt3}{6}.
 \end{equation}
 It can be shown that Eq.~\eqref{eq:cf4} has error $O(\delta t^5)$ with respect to the exact Schr\"odinger evolution. This single step error leads to the $O(h^4)$ for the full evolution which involves $T/h$ steps.
-
-%combines two exponentials with the two generators
-%\begin{equation*}
-%G_A=a_2H_1+a_1H_2,
-%\qquad
-%G_B=a_1H_1+a_2H_2.
-%\end{equation*}
-%The first operation on $\vert\psi_n\rangle$ is $e^{- i h G_A}$, followed by $e^{-i h G_B}$.  
-%Their product reproduces the time-ordered propagator with local error $O(h^5)$ and hence global error $O(h^4)$, without evaluating an explicit commutator. 
 
 To use Eq.~\eqref{eq:cf4} we need to be able to efficiently evaluate act with a matrix exponential on a state. We discuss this problem in general. Suppose we want to act with $e^{-i h G}$ on a state $|v\rangle$. Forming the full matrix exponential is expensive.
 Instead, we form the order-$m$ Krylov space
@@ -1374,7 +1287,7 @@ e^{-i h G}\vert v\rangle
 \mathbf e_1=(1,0,\ldots,0)^T.
 \label{eq:krylovexp}
 \end{equation}
-Thus, only the small $m\times m$ matrix $T_m$ needs to be exponentiated.  Constructing this matrix requires repeated products $G\vert w\rangle$.\footnote{Since in our calculation $G$ is a linear combination of $H_1$ and $H_2$, we evaluate such products as weighted sum of the previously computed matrix-free actions $H_1\vert w\rangle$ and $H_2\vert w\rangle$.} We stress that neither Hamiltonian, nor generators $G$, nor exponentials are stored as full $\mathcal{D}\times \mathcal{D}$ matrices.  Krylov approximations to matrix-exponential actions and their convergence are analyzed in Ref.~\cite{HochbruckLubich1997}.% the same combination with commutator-free propagators is discussed explicitly in Ref.~\cite{AlvermannFehske2011}.
+Thus, only the small $m\times m$ matrix $T_m$ needs to be exponentiated.  Constructing this matrix requires repeated products $G\vert w\rangle$.\footnote{Since in our calculation $G$ is a linear combination of $H_1$ and $H_2$, we evaluate such products as weighted sum of the previously computed matrix-free actions $H_1\vert w\rangle$ and $H_2\vert w\rangle$.} We stress that neither Hamiltonian, nor generators $G$, nor exponentials are stored as full $\mathcal{D}\times \mathcal{D}$ matrices.  Krylov approximations to matrix-exponential actions and their convergence are analyzed in Ref.~\cite{HochbruckLubich1997}.
 
 Once the full time evolution is completed, we further reduce the remaining $O(h^4)$ error using the Richardson extrapolation \cite{Richardson1911}.  Let $F_h$ denote the final ground-state fidelity obtained for a fixed physical ramp duration $T$ using CF4 step $h$.  We successively decrease the time step to ensure that the error starts scaling as $h^4$. The result is then approximately
 \begin{equation}
@@ -1507,7 +1420,7 @@ have
 	\Delta_j^T U_j + U_j^T \Delta_j + \Delta_j^T \Delta_j = 0,
 \end{equation}
 which means that $U_j^T \Delta_j$ is antisymmetric, modulo $\Delta_j^T
-\Delta_j $. Since $U_j^T \Delta_j$ is both symmetric and antisymetric, it is
+\Delta_j $. Since $U_j^T \Delta_j$ is both symmetric and antisymmetric, it is
 zero (modulo $\Delta_j^T \Delta_j $). The described sequence of steps is the same as
 for solving the so called orthogonal Procrustes problem
 {\cite{Schonemann1966,LiuVanderbilt2015}}.
@@ -1626,36 +1539,6 @@ We put a tilde on $F$ to emphasize that this fidelity is computed using the evol
 	\caption{Optimized coefficients for Path A ramps leading to point P1 (first table) and P3 (second table)}
 	\label{tab:path-coefficients}
 \end{table}
-%\begin{table}[h]
-%	\centering
-%	\resizebox{\textwidth}{!}{%
-%		\begin{tabular}{c*{12}{r}}
-%			\toprule
-%			$T~(\mu{\rm s})$
-%			& $a_1$ & $a_2$ & $a_3$ & $a_4$ & $a_5$ & $a_6$
-%			& $b_1$ & $b_2$ & $b_3$ & $b_4$ & $b_5$ & $b_6$ \\
-%			\midrule
-%			0.60
-%			& -4.272404 & -0.257878 & -2.750781 &  0.761435 &  1.116412 &  0.187347
-%			& -0.699790 &  0.540612 & -1.027274 & -2.483160 & -0.067789 &  0.669567 \\
-%			0.70
-%			& -4.594478 & -0.384034 & -3.139899 &  0.889628 &  1.209487 &  0.390048
-%			& -0.976911 &  0.689999 & -0.813433 & -2.280804 &  0.058660 &  0.478638 \\
-%			0.80
-%			& -4.319620 & -0.460498 & -2.865799 &  0.875479 &  0.856311 &  0.419489
-%			& -0.943799 &  0.679953 & -1.042947 & -2.369250 &  0.115863 &  0.407742 \\
-%			1.00
-%			& -4.248281 & -0.489297 & -3.012873 &  0.858625 &  0.689688 &  0.481482
-%			& -1.004111 &  0.868316 & -0.946642 & -2.243263 &  0.298252 &  0.227596 \\
-%			1.20
-%			& -3.823077 & -0.660905 & -3.089450 &  0.664824 &  0.554296 &  0.733248
-%			& -1.104026 &  1.132340 & -0.827626 & -2.207867 &  0.151625 &  0.041041 \\
-%			\bottomrule
-%		\end{tabular}%
-%	}
-%	\caption{Optimized coefficients for Path B ramps leading to point P3}
-%	\label{tab:path-coefficientsB}
-%\end{table}
 
 
 We solve this maximization problem using the Nelder-Mead method~{\cite{NelderMead1965}}
