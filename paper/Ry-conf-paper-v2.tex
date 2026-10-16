@@ -130,22 +130,23 @@ the equal-time correlation functions
 
 The time is therefore ripe for a general discussion of existing and future
 tests of conformality in cold atom experiments, which will be our purpose
-here. STOPPED HERE Our paper has two main parts. In Section \ref{sec:gen}, we
-propose our view of which tests should count as indirect and which ones are
+here. Our paper has two main parts. In Section \ref{sec:gen}, we
+describe our view of which tests should count as indirect and which ones are
 direct. Indirect tests are measurements of critical exponents, while direct
 tests need to verify that correlation functions satisfy a conformal Ward
-identity. We illustrate these points by examples of existing experiments.
+identity. There are also more subtle tests of the so-called state-operator correspondence (SOC), which we also count as direct.
+We illustrate these points by examples of existing experiments. In fact, one recent experiment \cite{Sun:2026aqf} performed a direct test of conformality via testing SOC. On the other hand, measurements of conformal correlators have so far been difficult due to decoherence effects producing a finite correlation length smaller than the system size.
 
-Then, in Section \ref{sec:prop}, we discuss the simplest setups to test
-conformality through measurements of equal-time two-point correlation
-functions, with periodic and open boundary conditions. We present results of
-our numerical simulations for experiments with 1D chains of Rydberg atoms. The
-tests we imagine have not yet been performed due to limitations of decoherence
-and/or insufficient adiabaticity of ground state preparation, but we hope they
-are within reach. In Section \ref{sec:concl} we conclude.
+This leads us naturally to Section \ref{sec:prop}, where we revisit the simplest setup to test
+conformality, through a measurements of equal-time two-point (2pt) correlation
+function with periodic boundary conditions in 1D. We present results of
+our numerical simulations for experiments with 1D chains of Rydberg atoms. Our main proposal is how to optimize the ramp profiles for the approximate ground state preparation. We show that optimization allows to get ramps with much shorter evolution times, while the fidelity stays the same or higher than in the previous experiments \cite{Fang:2024uyf}.  The use of such optimized ramps should reduce decoherence effects. 
 
-Notation: D for spatial dimension, d for full spacetime dimension, as is
-common in cond-mat and exp literature
+Our conclusions (Section \ref{sec:concl}) are twofols. First, we hope to have convinced the readers that direct tests of conformality via measuring correlators is a worthwhile enterprise. Second, such tests may well be within reach - simply repeating the existing experiments with the optimized ramps may already yield them.
+
+
+{\bf Notation:} As is
+common in the condensed matter and experimental literature, we use D for the spatial dimensionality, while d stands for the full spacetime dimension, 
 
 \section{Tests of conformal invariance}\label{sec:gen}
 
@@ -445,8 +446,8 @@ We start by discussing measurements of critical 2pt functions
 the 2d Ising universality class with $N = 24$ Rydberg atoms in a circle, while
 Ref.~{\cite{Emperauger:2025raf}} focused on the XY universality class in the
 same geometry. Both works saw a short-distance powerlaw, followed by
-exponential decay with correlation length $\xi = 13.2^{+ 5.7}_{- 3.6}$
-{\cite{Fang:2024uyf}} or $\xi = 15 (4)$ {\cite{Emperauger:2025raf}}. Notably
+exponential decay with correlation length $\xi_{\rm d} = 13.2^{+ 5.7}_{- 3.6}$
+{\cite{Fang:2024uyf}} or $\xi_{\rm d} = 15 (4)$ {\cite{Emperauger:2025raf}}. Notably
 this correlation length was attributed to decoherence effects and other
 imperfections, and not to the lack of adiabaticity. This will play a role in
 our proposal in Section \ref{sec:prop}. The important point for now is that, due to this correlation length,
@@ -511,9 +512,9 @@ argue that simple improvements of these existing experiments have a good
 chance to reduce decoherence sufficiently so that Eq. \eqref{eq:2ptcylequal}
 can be verified.
 
-This section is structured as follows STOPPED HERE
+This section is structured as follows. In Section \ref{sec:hamiltonian-and-phase-diagram} we describe the Rydberg spin chain Hamiltonian, its phase diagram, and choose two points on the Ising critical line which will be studied in more detail below. In Section \ref{sec:measuring-critical-2pt-point-function} we describe the main steps of how a critical 2pt function is measured, and the main issues affecting this measurement. These issues are discussed one-by-one in subsequent Sections \ref{sec:2ptDMRG}-\ref{sec:decoherence}. 
 
-\subsection{Hamiltonian and phase diagram}
+\subsection{Hamiltonian and phase diagram}\label{sec:hamiltonian-and-phase-diagram}
 
 We consider the standard setup known to lead to Ising quantum criticality in
 1D chains of Rydberg atoms {\cite[Eq.~(1)]{Browaeys:2020kzz}}. As mentioned we
@@ -578,7 +579,7 @@ $\Omega' > 0$).
 
 \begin{figure}[h]\centering
 	\begin{center}
-		\resizebox{0.6\columnwidth}{!}{\includegraphics{phase_diagram_SSF_LR.png}}
+		\resizebox{0.55\columnwidth}{!}{\includegraphics{phase_diagram_SSF_LR.png}}
 	\end{center}
 	\caption{\label{phasediagramHBlong}A part of the phase diagram of the model \eqref{eq:model} showing
 		the Ising phase transition between thee $\mathbb{Z}_2$ density wave phase
@@ -634,7 +635,7 @@ simulations for both points will be done with the Hamiltonian
 		on-site $\mathbb{Z}_2$. }
 \end{table}
 
-\subsection{Measuring critical 2pt-point function}
+\subsection{Measuring critical 2pt-point function}\label{sec:measuring-critical-2pt-point-function}
 
 We will be interested in the equal-time CFT 2pt function $\langle
 \mathcal{O}(\phi_1, 0)\mathcal{O}(\phi_2, 0) \rangle$, see
@@ -706,8 +707,8 @@ experimentally feasible. They are discussed below:
 	Our recipe to reduce them is to reduce the evolution time, while keeping
 	ground state fidelity high enough.
 \end{enumerate}
-Once all of this is discussed, we will summarize our (optimistic) conclusions
-in Section \ref{sec:prospects}.
+Once all of this is discussed, we will summarize the prospects for this measurement as a part of our general conclusions
+in Section \ref{sec:concl}.
 
 \subsection{Ground-state 2pt function}\label{sec:2ptDMRG}
 
@@ -740,7 +741,7 @@ $\left\langle \sigma_0 {\sigma_{12}}  \right\rangle \approx 0.6 \left\langle
 		with $\sin \frac{2 \pi i}{N}$ on the horizonal axis, since such a plot would look a straight line. But since the range of variation is not so large, we prefer to use the linear scale as in Fig.~\ref{fig:ideal}.} Still, the shape of the curve is uniquely predicted, and measuring this curve in agreement with the theory will be a direct test of conformality.
 
 \begin{figure}[h]\centering
-	\resizebox{200pt}{!}{\includegraphics{fig-2pt-function.pdf}}
+	\resizebox{250pt}{!}{\includegraphics{fig-2pt-function.pdf}}
 	\caption{\label{fig:ideal}CFT prediction for 2pt function at $N = 24$, Eq.
 		\eqref{2ptideal}. }
 \end{figure}
@@ -823,7 +824,7 @@ blockade regime where FSS effective Hamiltonian is applicable, and using the
 same microscopic operator $s_i$, up to rescaling. There, oscillations in the
 2pt function due to admixture of $(- 1)^j \epsilon (\phi)$ were also observed.
 
-\subsection{Estimation of the needed sample size}
+\subsection{Estimation of the needed sample size}\label{sec:estimation-of-the-needed-sample-size}
 
 \label{sec:sample}We learned in the previous section that the critical 2pt
 function for relatively short chains of Rydberg atoms ($N = 24$) asymptotes to
@@ -869,6 +870,14 @@ estimated from the ``exact diagonalization data''.\footnote{For sufficiently
 	a matrix product state (MPS). Interestingly, MPS representation also allows
 	for quick sampling, using the {\texttt{sample()}} function of the
 	{\texttt{iTensor.jl}} package.}
+	
+	\begin{figure}[h]\centering
+		\begin{center}
+			\resizebox{0.6\columnwidth}{!}{\includegraphics{fig-sampling.pdf}}
+		\end{center}
+		\caption{\label{ZZ2ptsample}Estimating the critical 2pt function on the ring of $N = 24$ atoms
+			from independent snapshots, for points P1 and P3. The dashed lines are the ED results from Fig.~\ref{fig:2pt-sim}. The central values and the error bars are obtained as described in the text, averaging over $M = 2 \times 10^3$ snapshots.}
+	\end{figure}
 
 In our calculation we picked $M = 2 \times 10^3$. For each of $M$ collected
 snapshots $\Psi_m$ we measure the 2pt function $\langle s_0 s_j
@@ -897,14 +906,6 @@ By the central limit theorem, for $M \to \infty$, the sample mean $\overline{X
 In Fig.~\ref{ZZ2ptsample} we show the result of applying this procedure to the
 critical 2pt function for $N = 24$ and $M = 2 \times 10^3$ snapshots. We see
 that the statistical error is only a few percent, and the results agree with the ED calculation from Fig.~\ref{fig:2pt-sim} within that error.
-
-\begin{figure}[h]\centering
-	\begin{center}
-		\resizebox{0.6\columnwidth}{!}{\includegraphics{fig-sampling.pdf}}
-	\end{center}
-	\caption{\label{ZZ2ptsample}Estimating the critical 2pt function on the ring of $N = 24$ atoms
-		from independent snapshots, for points P1 and P3. The dashed lines are the ED results from Fig.~\ref{fig:2pt-sim}. The central values and the error bars are obtained as described in the text, averaging over $M = 2 \times 10^3$ snapshots.}
-\end{figure}
 
 \subsection{Approximate ground state preparation}
 \label{sec:fidelity}
@@ -945,7 +946,7 @@ critical point in the thermodynamic limit, while remains finite at finite
 $N$.
 
 \begin{figure}[h]\centering
-	\resizebox{0.6\columnwidth}{!}{\includegraphics{ramping_curves.png}}
+	\resizebox{0.55\columnwidth}{!}{\includegraphics{ramping_curves.png}}
 	\caption{\label{fig:evolution}Adiabatic evolution paths A and B discussed in this work.}
 \end{figure}
 
@@ -1034,7 +1035,7 @@ Here $\langle 0|  s_i s_{j} |0\rangle$ is the 2pt function in the exact ground s
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.9\columnwidth]{ramping_error.pdf}
+	\includegraphics[width=0.8\columnwidth]{ramping_error.pdf}
 	\caption{\label{fig:rampingerror}The relative error of the 2pt function, Eq.~\eqref{def:error}, for our optimized ramp profiles and the experimental profile from \cite{Fang:2024uyf}.}
 \end{figure}
 
@@ -1044,7 +1045,7 @@ Here $\langle 0|  s_i s_{j} |0\rangle$ is the 2pt function in the exact ground s
 The final issue we need to discuss is ``decoherence''. By this we mean effects which disturb the quantum mechanical evolution preparing the state, such as atomic motion and Rydberg state decays; and effects which perturb the measurement process.
 	
 \subsubsection{Atomic motion}
-By atomic motion we mean deviations of Rydberg atom positions from the time-independent, equally spaced distribution on the circle, shown in Fig.~\ref{fig:chain}. Ref.~\cite{Fang:2024uyf} mentions that atomic motion has non-negligible effect on the observed correlation length $\xi$. Here we discuss how smaller ramp time $T$ allows to reduce atomic motion.
+By atomic motion we mean deviations of Rydberg atom positions from the time-independent, equally spaced distribution on the circle, shown in Fig.~\ref{fig:chain}. Ref.~\cite{Fang:2024uyf} mentions that atomic motion has non-negligible effect on the observed decoherence correlation length $\xi_{\rm d}$. Here we discuss how smaller ramp time $T$ allows to reduce atomic motion.
 
 Recall that before quantum mechanical evolution begins, atoms sit in laser-tweezer potential wells. We can assume for simplicity that the atomic position wavefunction is in the ground states of the potential wave, of typical width $\sigma_x$.\footnote{This is an oversimplification because in practice there is an effective temperature and the atom can be in an excited potential well state as well. But in practice the average occupation number $\bar n$ may be quite close to zero. E.g.~\cite{Fang:2024uyf} cites $\bar n\lesssim 0.1$.} In the discussion below we only take into account the atomic displacements along the circle. These are controlled by the ``radial'' tweezer trap profile. The ``axial'' tweezer trap, in the direction orthogonal to the circle plane, is more shallow, but displacements in this direction enter quadratically in the variation of interatomic distances. 
 
@@ -1144,17 +1145,37 @@ Ref.~\cite{Fang:2024uyf} relied on post-selection to eliminate snapshots with bl
 %Tip advantage: For the same $U$, the energy gap is about factor 3 higher at
 %the tip than at the Yau point.
 
-\subsection{Prospects for the measurement: summary}\label{sec:prospects}
+\section{Summary and conclusions}\label{sec:concl}
 
-\section{Conclusions}\label{sec:concl}
+The main purpose of this paper was to attract attention to direct experimental tests of conformality in critical phenomena. Concretely, we chose to discuss here quantum critical phenomena realized in a currently very popular experimental platform---Rydberg atoms. Even more concretely, we focused on one observable---equal-time 2pt function in a periodic chain of Rydberg atoms at a critical point in the Ising universality class. Previously, this 2pt function was experimentally studied in \cite{Fang:2024uyf}, who saw short-distance behavior consistent with CFT, although longer-distance behavior was modified with respect to CFT by decoherence effects, precluding a convincing direct test of conformality.
 
-\text{{\bfseries{Acknowledgements}}}
+In Section \ref{sec:prop}, we went over the main steps of the experimental measurement, having in mind to understand what it would take to achieve say a $10\%$ agreement with theory in a wide range of distances. We did all our computations for two points on the critical line. The first point (P1) is the one used in \cite{Fang:2024uyf} (up to a small but non-negligible correction in the detuning parameter $\Delta$, which sets the point right on the critical line as opposed to just near it). This point sits near the Rydberg-blockade regime, where there was a lot of theoretical work using the effective FSS model \cite{Slagle:2021ene,FSS}. The second point (P3) sits at the tip of the $\mathbb{Z}_2$-broken region of the phase diagram and is as far away from the Rydberg blockade regime as possible. It has onsite $\mathbb{Z}_2$ symmetry. We felt that this region of the critical line could offer advantages with respect to the Rydberg-blockade region, and this guess was indeed vindicated, see below.
+
+We found that: 
+\begin{itemize}
+	\item
+	(Section \ref{sec:2ptDMRG}) working on the circular chain of $N=24$ atoms, the exact ground state 2pt function agrees well with the CFT prediction, starting from distances $|i-j|=1$. The agreement is good for both points P1 and P3, with maximal error about $4\%$ for P1 and less that $1\%$ for P3, see Fig.~\ref{fig:2pt-sim}.
+	\item
+	(Section \ref{sec:estimation-of-the-needed-sample-size}) The variance of the ground state 2pt function is sufficiently small so that good statistics can be obtained with order $10^3$ repetitions of the experiment. Concretely, for $2\times 10^3$ repetitions we find statistical errors $<2.5\%$ for both P1 and P3, see Fig.~\ref{ZZ2ptsample}.
+	\item
+	(Section \ref{sec:fidelity}) Approximate ground states with fidelity $>99\%$ can be prepared via quasi-adiabatic evolution with ramp times as short as $2.5\mu{\rm s}$ for P1 and $0.8\mu{\rm s}$ for P3. This requires ramp optimization, feasible with modest computation resources (App.~\ref{sec:optim}). This observation represents our best hope that the experiment of \cite{Fang:2024uyf} can be improved. Indeed \cite{Fang:2024uyf} used a suboptimal ramp with significantly longer evolution time of $7\mu{\rm s}$.
+	
+	It is in the much shorter ramp time that the advantages of point P3 vs P1 become most clear. Such shorter ramp times are possible for P3 because of the larger overall scale of the energy gap, accompanied by the smallness of the pertinent matrix elements.
+	
+	\item (Section \ref{sec:dev}) We also check explicitly that the error in the 2pt function due to using an approximate ground state vs the exact one is small for our optimized ramps, $4\%$ or less depending on the ramp, see Fig.~\ref{fig:rampingerror}.
+	
+	\item (Section \ref{sec:decoherence}) While the detailed modeling of decoherence effects is beyond the scope of this work (see \cite{Dalyac:2026jpu} for a recent comprehensive discussion), we note that reducing the ramp time has clear mitigating effect on many of them. For example, the Rydberg to ground state decays, one of the main contribution to decoherence in \cite{Fang:2024uyf}, will be suppressed linearly in the ramp time. 
+\end{itemize}
+
+Based on these investigations, one can be fairly certain that repeating the experiment of \cite{Fang:2024uyf} using our optimized ramps should give a strictly better result for the 2pt function. The decoherence length $\xi_{\rm d}$ should become larger, and agreement between experiment and CFT will be achieved in a wider range of distances. We hope that such an experiment will be done, and that it will become the first direct test of conformality from correlator measurements.
+
+\section*{Acknowledgements}
 
 We thank colleagues at the Institut d'Optique, Ecole Polytechnique (Antoine
 Browaeys, Thierry Lahaye, David Clement, Thomas Chalopin), PASQUAL (Guillaume
 Villaret, Adrien Signoles, Alexander Dauphin), and Institute for Advanced
 Study, Tsinghua University (Wenlan Chen, Yingfei Gu, Chengshu Li) for
-discussions of cold atom experiments. SR also thanks Hans Peter B{\"u}chler
+discussions of cold atom experiments. In particular we thank Guillaume Villaret for sharing and discussing an early draft of \cite{Dalyac:2026jpu}. SR also thanks Hans Peter B{\"u}chler
 and Enrico Rinaldi for discussions. SR is partially supported by the Simons
 Collaboration on the Probabilistic Paths to Quantum Field Theory (award
 SFI-MPS-PP-00012621-16).
@@ -1162,7 +1183,7 @@ JR is supported by the European Union (ERC, QFTinAdS, project number 101087025, 
 
 \section*{AI use and data availability statement}
 
-Numerical simulations (exact diagonalization, ramp profile optimization) were performed using AI-generated codes, with human supervision and cross-checks. These codes are available from the authors upon request. 
+Numerical simulations (exact diagonalization, ramp profile optimization) were performed using AI-generated codes, with human supervision and cross-checks. These codes are available from the authors upon request. At the current level of technology they can be also be easily generated from scratch given the text of our paper.
 
 \appendix
 
@@ -1217,11 +1238,11 @@ $\sim 20\%$ suppression at the largest separation. We therefore use point P1. In
 The 2pt function measured in {\cite{Fang:2024uyf}}, Fig. 2F, was fitted by
 them by the curve
 \begin{equation}
-	\langle s_0 s_j \rangle \propto \delta^{- 1 / 4}_j \exp (- \delta_j / \xi ),
+	\langle s_0 s_j \rangle \propto \delta^{- 1 / 4}_j \exp (- \delta_j / \xi_{\rm d} ),
 	\quad \delta_j = a \frac{N}{\pi} \sin \left( \frac{\pi j}{N} \right),
 \end{equation}
-and $\xi / a = 13.2^{+ 5.7}_{- 3.6}$ is the correlation length, attributed to
-decoherence. The central $\xi$ value corresponds to $\sim50\%$ suppression of
+and $\xi_{\rm d} / a = 13.2^{+ 5.7}_{- 3.6}$ is the correlation length, attributed to
+decoherence. The central $\xi_{\rm d}$ value corresponds to $\sim50\%$ suppression of
 the correlator at the largest separation w.r.t.~the CFT.
 
 \section{Ramp profile optimization}\label{sec:optim}
@@ -1649,16 +1670,13 @@ $(\Omega' (t), \Delta' (t))$ using \eqref{eq:density}-\eqref{rho0B}. As an
 example, two optimized ramp profiles (one for each path)
 are shown in Fig.~\ref{fig:rampingprofile}. 
 
-
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.6\columnwidth]{F_vs_t.pdf}
+	\includegraphics[width=0.55\columnwidth]{F_vs_t.pdf}
 	\caption{\label{fig:fidelity}The fidelity $F$ of the optimized ramp profiles, computed via CF4 time evolution as in App.~\ref{sec:validation}. The dashed line shows the fidelity of the ramp from \cite{Fang:2024uyf}, with $T=7\mu{\rm s}$. } 
 \end{figure}
 
-
-\SR{stopped here}
-In Table~\ref{tab:fidel} we report more detailed information for two of the optimized Path A ramps and ...
+In Table~\ref{tab:fidel} we report more detailed information for two optimized Path A ramps and two optimized Path B ramps, choosing in each case the shortest and the third-shortest ramps.
 
 \section{Deviation in 2pt function due to imperfect fidelity: theory}\label{sec:dev2ptth}
 
