@@ -250,7 +250,7 @@ state, with interactions tuned to be at a quantum critical point. How to get
 such a state efficiently via adiabatic evolution will be discussed below. The
 corresponding CFT geometry is the surface of a cylinder, where time runs
 vertically, and constant-time circular sections represent space where the
-Rydberg atoms are positioned, Fig. \ref{fig:cyl}.
+Rydberg atoms are positioned, Fig.~\ref{fig:cyl}.
 
 \begin{figure}[h]\centering
 	\begin{center}
@@ -687,7 +687,7 @@ experimentally feasible. They are discussed below:
 	
 	\item (Section \ref{sec:sample}) How many collapsed states do we need so
 	that statistical errors in the measurement of $\langle s_i s_j \rangle$ are
-	reasonably small, say below 10\%? I.e. how many times do we have to repeat the
+	reasonably small, say below 10\%? I.e.~how many times do we have to repeat the
 	experiment? We will see that order $10^3$ times is enough.
 	
 	\item (Section \ref{sec:fidelity}) How can we optimize the evolution curve
@@ -729,7 +729,7 @@ $\Delta_{\mathcal{O}} = \Delta_{\sigma} = 1 / 8$:
 	{\langle \sigma_i \sigma_j \rangle }  = \frac{1}{\left( 2 \sin \frac{\pi | i
 			- j |}{N} \right)^{1 / 4}} . \label{2ptideal}
 \end{equation}
-This 2pt function is plotted in Fig. \ref{fig:ideal} for $N = 24$ and for
+This 2pt function is plotted in Fig.~\ref{fig:ideal} for $N = 24$ and for
 distance $| i - j | = 1 \ldots 12$.
  This is the dependence that we hope will be seen
 experimentally. The range of variation for $N = 24$ is not huge; we have
@@ -761,8 +761,8 @@ of $\mathbb{Z}_2$-even and $\mathbb{Z}_2$-odd CFT operators, as follows:
 	\mathcal{O}  (\phi_i) + \sum_{\mathbb{Z}_2 \text{-even } \mathcal{O}}
 	c_{\mathcal{O}} \mathcal{O} (\phi_i)
 \end{equation}
-In the considered lattice model, lattice translation by one site maps to the
-$\mathbb{Z}_2$ transformation of the CFT. This explains factor $(- 1)^i$ in
+In the considered lattice model, lattice translation by one site maps to a translation accompanied by the
+global $\mathbb{Z}_2$ transformation of the CFT. This explains factor $(- 1)^i$ in
 front of the sum over $\mathbb{Z}_2$-odd $\mathcal{O}$.
 
 The first $\mathbb{Z}_2$-odd CFT operator is $\sigma$ that we are after, and
@@ -772,15 +772,15 @@ operator \cite{Slagle:2021ene}
 \begin{equation}\label{latticeoperator}
 	s_i = (- 1)^i (Z_i - \langle Z_i \rangle) .
 \end{equation}
-We then have that $s_i = c_{\sigma} \sigma (\phi_i)$ plus corrections of
-higher scaling dimension:
+We then have that $s_i = c_{\sigma} \sigma (\phi_i)\ +$ corrections from
+higher scaling dimension operators:
 \begin{equation}
 	s_i = c_{\sigma} \sigma (\phi_i) {+ c_{\partial_{\phi}^2 \sigma}} 
 	\partial_{\phi}^2 \sigma (\phi_i) + (- 1)^i c_{\varepsilon} \varepsilon
 	(\phi_i) + \ldots \label{sicorr}
 \end{equation}
 where we kept in the RHS the lowest $\mathbb{Z}_2$-odd
-and $\mathbb{Z}_2$-even corrections. This is all which can be said in general,
+and $\mathbb{Z}_2$-even corrections. This is all what can be said in general,
 and in particular for point P1. For point P3, because of the onsite $\mathbb{Z}_2$
 symmetry, we have simplifications. All $\mathbb{Z}_2$-even operators have
 $c_{\mathcal{O}} = 0$. Thus $\langle Z_i \rangle = 0$ so that the expression
@@ -857,13 +857,13 @@ which is more direct and closer to the experiment. First, we compute the
 ground state for $N = 24$ using ED, working in the subspace
 of translation and parity-invariant states, each of which is a finite linear
 combination of  the basis states $|n_0, \ldots, n_{L - 1} \rangle$. We then
-sample the ground state, i.e. generate a sequence of random snapshots $|n_0, \ldots, n_{L - 1} \rangle$ distributed according to the
+sample the ground state, i.e.~generate a sequence of random snapshots $|n_0, \ldots, n_{L - 1} \rangle$ distributed according to the
 Born rule.\footnote{This is done in two steps: we first pick a random translation and
 parity-invariant state, and then retain one of its constituents $|n_0, \ldots,
 n_{L - 1} \rangle.$.} This allows us to
 simulate the experimental process directly. Statistical errors will go down as
 $\Sigma / \sqrt{M}$, where $M$ is the number of snapshots, with $\Sigma$
-estimated from the ``exact diagonalization data''.\footnote{For sufficiently
+estimated from the ``ED data''.\footnote{For sufficiently
 	large $N$, ED will become unfeasible and one will have to switch to DMRG {\cite{White1992,Schollwock2011}}. This produces the wavefunction as
 	a matrix product state (MPS). Interestingly, MPS representation also allows
 	for quick sampling, using the {\texttt{sample()}} function of the
@@ -907,7 +907,7 @@ that the statistical error is only a few percent, and the results agree with the
 
 \subsection{Approximate ground state preparation}
 \label{sec:fidelity}
-In the previous sections, we have seen that if the
+In the previous sections, we saw that if the
 critical ground state can be obtained, then the critical 2pt function can be
 measured, with good statistics achievable with $O (10^3)$ repetitions. 
 
@@ -915,8 +915,7 @@ Experimentally, one realizes the critical ground state via adiabatic
 evolution.
 
 Let us follow the same protocol as in {\cite{Fang:2024uyf}}, starting the evolution in the disordered phase
-with $\Delta' < 0$, $\Omega' = 0$ in the state $| 00 \ldots 0 \rangle$ (i.e.
-all atoms in the ground state). This state is the exact ground
+with $\Delta' < 0$, $\Omega' = 0$ in the state $| 00 \ldots 0 \rangle$ (i.e.~all atoms in the ground state). This state is the exact ground
 state for $\Delta' < 0$, $\Omega' = 0$. One then picks the curve in the $(\Omega',\Delta')$ plane
 (called ``ramp profile'') $(\Omega' (t), \Delta' (t))$ which ends at a point on
 the Ising critical line. We denote by $T$ the total evolution time. By the adiabatic theorem, if the evolution is
@@ -929,18 +928,18 @@ effects to be discussed in Section \ref{sec:decoherence}.
 For optimization purposes, we will fix a path in the $(\Omega', \Delta')$
 plane and we will vary the local rate of change and the total evolution time.
 For definiteness, we fix a two-segment Path A for point P1 and a three-segment
-Path B for P3, see Fig. \ref{fig:evolution}.
+Path B for P3, see Fig.~\ref{fig:evolution}.
 
 Path A is precisely the one used in {\cite{Fang:2024uyf}}, where
 total evolution time was $T= 7 \mu \text{s}$ split as $2 \mu \text{s} + 5
 \mu \text{s}$ between the two segments. Their ramp profile $\Omega' (t),
-\Delta' (t)$ is shown in Fig. \ref{fig:yao-ramp}. In particular, linearly growing
+\Delta' (t)$ is shown in Fig.~\ref{fig:yao-ramp}. In particular, linearly growing
 $\Omega' (t)$ was chosen during the first segment, while during the second
 segment $\Delta' (t)$ was chosen as a rational function with decreasing first
 derivative. This was motivated by the locally adiabatic approximation
 {\cite{Roland:2001imn}}, which parametrizes evolution in terms of the gap
 between the ground state and the first excited state. The gap closes at the
-critical point in the thermodynamic limit, while remains finite at finite
+critical point in the thermodynamic limit, while remaining finite at finite
 $N$.
 
 \begin{figure}[h]\centering
@@ -949,7 +948,7 @@ $N$.
 \end{figure}
 
 Ref.~\cite{Fang:2024uyf} did not fully optimize their ramp profile, citing high computational cost. The point we want to make here is that 
-$N = 24$ is small enough so that efficient optimization is feasible. In fact, we can find better ramp profiles for the two-segment path leading to point P1. Better here means achieving higher ground state fidelity than the profile \cite{Fang:2024uyf} while at the same time having significantly shorter evolution time, which should reduce decoherence effects (see Section \ref{sec:decoherence}). Even better ramp profiles will be found for the three-segment-path leading to point P3. Let us describe these results.
+$N = 24$ is small enough so that efficient optimization is feasible. In fact, we can find better ramp profiles for Path A leading to point P1. Better here means achieving as good or better ground state fidelity than the profile in \cite{Fang:2024uyf} while at the same time having significantly shorter evolution time, which should reduce decoherence effects (see Section \ref{sec:decoherence}). Even better ramp profiles will be found for Path B leading to point P3. Let us describe these results.
 
 First of all, let us describe how to check if a given profile is good enough (``validation''). For $N=24$, and any given ramp profile, we can solve numerically the Schr\"odinger time evolution
 \begin{equation}
@@ -957,9 +956,7 @@ First of all, let us describe how to check if a given profile is good enough (``
 \end{equation}
 starting from the state $| 00 \ldots 0 \rangle$. (We fix $U = \hbar \times
 75.69\,\text{MHz}$ as in {\cite{Fang:2024uyf}}, see App.~\ref{sec:Yao-details}.) The point is that this evolution happens in the $\mathcal{D}$-dimensional translation and
-spatial-parity invariant subspace of the full Hilbert space, and $\mathcal{D}$ is small enough for $N=24$, so that this computation is feasible;\footnote{All computations in this paper were done in few tens of minutes on a laptop.} see Appendix \ref{sec:validation} for details. This evolution happens within the same translation and
-spatial-parity invariant $\mathcal{D}$-dimensional subspace of the Hilbert space
-to which the ground state belongs. 
+spatial-parity invariant subspace of the full Hilbert space to which the ground state belongs, and $\mathcal{D}$ is small enough for $N=24$, so that this computation is feasible;\footnote{All computations in this paper were done in few tens of minutes on a laptop.} see Appendix \ref{sec:validation} for details. 
 
 At any time $t$, the wave function $\psi (t)$ can be expanded in the energy eigenstates of the Hamiltonian at time
 $t$:
@@ -967,12 +964,12 @@ $t$:
 	\psi (t) = \sum_{n = 0}^{\infty} c_n (t)  | n (t)  \rangle .
 	\label{eq:psiexp12}
 \end{equation}
-Note that extracting coefficients $c_n (t)$ requires computing $\psi(t)$ and the eigenstates of $H(t)$. Our method of solving \eqref{fullQM1} does not require diagonalizing $H(t)$ for every $t$, which would be expensive. However, we do compute the first few low-lying eigenstates of $H(T)$, which lies on the critical line, and in particular the critical ground state $|0(T)\rangle$.
+Note that extracting coefficients $c_n (t)$ requires computing $\psi(t)$ and the eigenstates of $H(t)$. Our method of solving \eqref{fullQM1} does not require diagonalizing $H(t)$ for every $t$, which would be expensive. However, at time $t=T$ we do compute the first few low-lying eigenstates of $H(T)$, which lies on the critical line, and in particular the critical ground state $|0(T)\rangle$.
 
 We refer to $| c_0 (T) |^2$ as the ramp fidelity. The closer it is to 1, the
 better the final state approximates the critical ground state. 
 
-In Table \ref{tab:fidel} we give ramp fidelities as well as $| c_n (T) |^2$ for $n=1,2$ which give the idea for the leading deviation from the ground state, for several ramps to P1 and P3. 
+In Table \ref{tab:fidel} we give ramp fidelities, as well as $| c_n (T) |^2$ for $n=1,2$, for several ramps to P1 and P3. These numbers give an idea for the size of the deviation from the ground state. 
 
 The first line in Table \ref{tab:fidel} is for the ramp from \cite{Fang:2024uyf}, which we call P1$_{7}$, and for which we find fidelity $99.04\%$. The subsequent lines give several ramps that we found via optimization process described below. The subscript in the ramp name refers to the total ramp time in $\mu{\text{s}}$. All these ramps achieve as good fidelities as P1$_7$, or better, with 2-3 times shorter evolution times for point P1,
 and even shorter times for point P3. E.g.~ramp P3$_{1.2}$ achieves $99.9\%$ fidelity with $T=1.2 \mu\text{s}$.
@@ -997,22 +994,23 @@ and even shorter times for point P3. E.g.~ramp P3$_{1.2}$ achieves $99.9\%$ fide
 	\end{tabular}
 \caption{\label{tab:fidel}Fidelities for various ramp profiles for points P1 and P3, discussed in the text.}
 \end{table}
-Let us describe the optimization process (Appendix \ref{sec:reduced}). Let us focus on Path A for definiteness, Path B being completely analogous. We choose a fixed parametrization of the path as $\Omega'(q)$, $\Delta'(q)$, $q\in [0,q_{\max}]$, $q_{\max}=2$. Then finding an optimal ramp means finding dependence $q(t)$ so that the fidelity is maximized. In the optimization stage we don't optimize the exact fidelity (which is too costly to compute), but approximate fidelity. Approximate fidelity, for given $q(t)$, is computed by integrating approximate Schr\"odinger equation, obtained by projecting the full Schr\"odinger equation from the $\mathcal{D}$-dimensional space of translation and parity invariant states to a $P$-dimensional subspace spanned, for each $q$, by the lowest $P=20$ energy eigenstates of the Hamiltonian. This projection to the $P$-dimensional subspace depends on the path but not on the function $q(t)$, and it is performed only once, before the optimization is started. Then, the approximate fidelity is feasible to compute thousands of times as is needed for the optimization process. After optimization, the true fidelity is evaluated from the full Schr\"odinger equation; this is the fidelity reported in Table \ref{tab:fidel}.
+Let us describe the optimization process (Appendix \ref{sec:reduced}). Let us focus on Path A for definiteness, Path B being completely analogous. We choose a fixed parametrization of the path as $\Omega'(q)$, $\Delta'(q)$, $q\in [0,q_{\max}]$, $q_{\max}=2$. Finding an optimal ramp means finding dependence $q(t)$ so that the fidelity is maximized. In the optimization stage we don't optimize the exact fidelity (which is too costly to compute), but an approximate fidelity. This approximate fidelity, for a given $q(t)$, is computed by integrating an approximate Schr\"odinger equation, obtained by projecting the full Schr\"odinger equation from the $\mathcal{D}$-dimensional space of translation and parity invariant states to a $P$-dimensional subspace spanned, for each $q$, by the lowest $P=20$ energy eigenstates of the Hamiltonian. This projection to the $P$-dimensional subspace depends on the path but not on the function $q(t)$, and it is performed only once, before the optimization is started. Approximate fidelity is therefore feasible to compute thousands of times as is needed for the optimization process. After optimization, the true fidelity is evaluated from the full Schr\"odinger equation; this is the fidelity reported in Table \ref{tab:fidel}.
 
-We see that the four optimized ramp profile given in the table achieve higher fidelity with shorter time than the unoptimized ramp profile used in the experiment \cite{Fang:2024uyf}. For example, if we choose to ramp to P3 along the ramp P3$_{1.2}$, we get $99.9\%$ fidelity with $T=1.2\mu {\rm s}$. The corresponding ramp profile is shown in Fig.~\ref{fig:rampingprofile}.
+We see that the four optimized ramp profile given in the table achieve higher fidelity with shorter time than the unoptimized ramp profile used in the experiment \cite{Fang:2024uyf}. For example, if we choose to ramp to P3 along the ramp P3$_{1.2}$, we get $99.9\%$ fidelity with $T=1.2\mu {\rm s}$. The corresponding ramp profile is shown in Fig.~\ref{fig:rampingprofile}, right.
  \begin{figure}[ht]
   \centering
+    \includegraphics[width=0.49\columnwidth]{ramp_profile2.pdf}
   \includegraphics[width=0.49\columnwidth]{ramp_profile1.pdf}
-  \includegraphics[width=0.49\columnwidth]{ramp_profile2.pdf}
-  \caption{  \label{fig:rampingprofile}Left: The optimized ramp profile P3$_{1.2}$ with $T=1.2\mu {\rm s}$. Right: the optimized ramp profile P1$_{3}$ with $T=3\mu {\rm s}$.}
+  \caption{  \label{fig:rampingprofile}Left: the optimized ramp profile P1$_{3}$ with $T=3\mu {\rm s}$.
+  Right: The optimized ramp profile P3$_{1.2}$ with $T=1.2\mu {\rm s}$. }
 \end{figure}
 See Appendix \ref{sec:optim} for further details of the optimization algorithm and the optimized ramp profiles for different $T$.
 
-A comment is in order about why the optimized ramps leading to P3 end up having smaller ramp times for the same fidelity than the ramps leading to P1. This is due to a combination of two factors. First, the energy gap at P3 is about factor 3 larger than at P1 for the same $N$ and $U$ (simply because small $\Omega',\Delta'$ create a new energy scale and suppress the energy gap). Second, the matrix elements between the ground state and the excited states are also smaller on Path B than on Path A, at least on the part of the path where it approaches the critical line. We believe that this second property is at least partly related to the fact that on the third segment of Path B the Hamiltonian has onsite $\mathbb{Z}_2$ symmetry.
+A comment is in order about why the optimized ramps leading to P3 end up having smaller ramp times for the same or better fidelity than the ramps leading to P1. This is due to a combination of two factors. First, we found that the energy gap at P3 is factor $\sim 3$ larger than at P1 for the same $N$ and $U$. This can be explained by noticing that small $\Omega',\Delta'$ at P1 create a new energy scale and suppress the energy gap. Second, we saw that the matrix elements between the ground state and the excited states are also smaller on Path B than on Path A, at least on the part of the path where it approaches the critical line. We believe that this second property is at least partly related to the fact that on the third segment of Path B the Hamiltonian has onsite $\mathbb{Z}_2$ symmetry.
 
 \subsection{Deviation in 2pt function due to imperfect ground state}\label{sec:dev}
 
-In the previous section, we explained how to obtain an approximate ground state having fidelity close to 1. But how close to one should it be so that our observable---the 2pt function---stays sufficiently close to the exact ground state prediction? In App.~\ref{sec:dev2ptth} we give a theoretical argument that the deviation scales proportionally to the coefficients $c_1(T)$, $c_2(T)$, $\ldots$, i.e.~it is order $(1-F)^{1/2}$. Thus we expect deviation of the order of a few percent due to imperfect fidelity. Here we show a direct check of that prediction. Consider the ratio:
+In the previous section, we explained how to obtain an approximate ground state having fidelity $F$ close to 1. But how close to 1 should it be so that our observable---the 2pt function---stays sufficiently close to the exact ground state prediction? In App.~\ref{sec:dev2ptth} we give a theoretical argument that the deviation scales proportionally to the coefficients $c_1(T)$, $c_2(T)$, $\ldots$, i.e.~it is order $(1-F)^{1/2}$. Thus we expect a few percent deviation due to imperfect fidelity. Here we show a direct check of that prediction. Consider the ratio:
 \begin{equation}\label{def:error}
 	w_{|i-j|} = \frac{
 		\langle \tilde 0| s_i s_{j}|\tilde 0\rangle-
@@ -1021,7 +1019,7 @@ In the previous section, we explained how to obtain an approximate ground state 
 		\langle 0|s_i s_{j}0|\rangle
 	}.
 \end{equation}
-Here $\langle 0|  s_i s_{j} |0\rangle$ is the 2pt function in the exact ground state $|0\rangle$ for the end point of the path, while $\langle \tilde 0|  s_i s_{j} |\tilde 0\rangle$ is the 2pt function in the approximate ground state $|\tilde 0\rangle$ obtained after ramping. Thus $w_{|i-j|}$ is the relative error in the 2pt function after ramping w.r.t. to the exact ground state 2pt function. It depends only on $|i-j|$ by translation and parity invariance. In Fig.~\ref{fig:rampingerror} we plot this error for all ramp profiles from Table \ref{tab:fidel}.
+Here $\langle 0|  s_i s_{j} |0\rangle$ is the 2pt function in the exact ground state $|0\rangle$ for the end point of the path, while $\langle \tilde 0|  s_i s_{j} |\tilde 0\rangle$ is the 2pt function in the approximate ground state $|\tilde 0\rangle$ obtained after ramping. Thus $w_{|i-j|}$ is the relative error in the 2pt function after ramping w.r.t. to the exact ground state 2pt function. By the translation and parity invariance, it depends only on $|i-j|$. In Fig.~\ref{fig:rampingerror} we plot this error for all ramp profiles from Table \ref{tab:fidel}. It has the expected size.
 
 \begin{figure}[h]
 	\centering
@@ -1032,16 +1030,16 @@ Here $\langle 0|  s_i s_{j} |0\rangle$ is the 2pt function in the exact ground s
 
 \subsection{Decoherence effects}\label{sec:decoherence}
 
-The final issue we need to discuss is ``decoherence''. By this we mean effects which disturb the quantum mechanical evolution preparing the state, such as atomic motion and Rydberg state decays; and effects which perturb the measurement process.
+The final issue we need to discuss is ``decoherence''. By this we mean effects which disturb the quantum mechanical evolution preparing the state (e.g.~the atomic motion and Rydberg state decays), as well as effects which perturb the measurement process.
 	
 \subsubsection{Atomic motion}
 By atomic motion we mean deviations of Rydberg atom positions from the time-independent, equally spaced distribution on the circle, shown in Fig.~\ref{fig:chain}. Ref.~\cite{Fang:2024uyf} mentions that atomic motion has non-negligible effect on the observed decoherence correlation length $\xi_{\rm d}$. Here we discuss how smaller ramp time $T$ allows to reduce atomic motion.
 
-Recall that before quantum mechanical evolution begins, atoms sit in laser-tweezer potential wells. We can assume for simplicity that the atomic position wavefunction is in the ground states of the potential wave, of typical width $\sigma_x$.\footnote{This is an oversimplification because in practice there is an effective temperature and the atom can be in an excited potential well state as well. But in practice the average occupation number $\bar n$ may be quite close to zero. E.g.~\cite{Fang:2024uyf} cites $\bar n\lesssim 0.1$.} In the discussion below we only take into account the atomic displacements along the circle. These are controlled by the ``radial'' tweezer trap profile. The ``axial'' tweezer trap, in the direction orthogonal to the circle plane, is more shallow, but displacements in this direction enter quadratically in the variation of interatomic distances. 
+Recall that before the quantum-mechanical evolution begins, atoms sit in laser-tweezer trap potential wells. We can assume for simplicity that the position wavefunction of each atom is in the ground states of the potential well, of typical width $\sigma_x$.\footnote{This is an oversimplification because in practice there is an effective temperature and the atom can be in an excited potential well state as well. But in practice the average occupation number $\bar n$ may be quite close to zero. E.g.~\cite{Fang:2024uyf} cites $\bar n\lesssim 0.1$.} In the discussion below we only take into account the atomic displacements along the circle. These are controlled by the ``radial'' trap profile. The ``axial'' trap profile, in the direction orthogonal to the circle plane, is more shallow, but displacements in this direction enter quadratically in the variation of interatomic distances, so this effect is subleading. 
 
-Then tweezers are switched off, and quantum-mechanical evolution begins. Unlike the static, uniformly distributed atomic positions shown in Fig.~\ref{fig:chain}, each atom will have initial position uncertainty $\sigma_x$ and the initial velocity spread around zero $\sigma_v= \hbar / (2m \sigma_x)$.\footnote{Assuming a harmonic oscillator ground-state wavefunction.} In plain language, atoms start ``flying away'' from their initial positions. Of course, if the atoms move by a significant amount during the time of the adiabatic evolution, this displacement will affect the strength of the van der Waals interaction between the atoms. So they better move as little as possible. This requires that either the evolution time or small, or $\sigma_v$ is small. However, reducing $\sigma_v$ requires enlarging $\sigma_x$, which increases uncertainty in initial atomic positions, thus also influencing the van der Waals interaction strength. The full uncertainty after evolution time $T=T_{evolve}$ is
+Then, the traps are switched off, and the quantum-mechanical evolution begins (accompanyied by the ramping of $\Omega$ and $\Delta$). Unlike the static, uniformly distributed atomic positions shown in Fig.~\ref{fig:chain}, each atom will have an initial position uncertainty $\sigma_x$ and an initial velocity spread around zero $\sigma_v= \hbar / (2m \sigma_x)$.\footnote{The precise coefficient $1/2$ is assuming the harmonic oscillator ground-state wavefunction.} In plain language, atoms start ``flying away'' from their initial positions. Of course, if the atoms move by a significant amount during the time of the adiabatic evolution, this displacement will affect the strength of the van der Waals interaction between the atoms. So, they better move as little as possible. This requires that either the evolution time or small, or $\sigma_v$ is small. However, reducing $\sigma_v$ requires enlarging $\sigma_x$, which increases uncertainty in the initial atomic positions, thus also influencing the van der Waals interaction strength. The full uncertainty after the evolution time $T=T_{evolve}$ is
 \begin{equation}
-	\sigma_x^{\rm full} \sim\sigma_x + \frac{\hbar}{2m \sigma_x } T \ge 2 \left(\frac {\hbar T}{2m}\right)^{1/2}
+	\sigma_x^{\rm full} \sim\sigma_x + \frac{\hbar}{2m \sigma_x } T \ge 2 \left(\frac {\hbar T}{2m}\right)^{1/2}\,,
 	\label{dxfull}
 \end{equation}
 where $m$ is the mass of the Rydberg atom. The minimum value of $\sigma_x^{\rm full}$ given in the RHS of \eqref{dxfull} is realized for
@@ -1053,42 +1051,41 @@ where we normalized the atomic weight $A$ to that of ${}^{133}$Cs used in \cite{
 
 \subsubsection{Rydberg state decays}
 
-Rydberg state decays to the ground state with the lifetime $1/\gamma_{\rm decay}=71.44\,\mu{\rm s}$ \cite{Fang:2024uyf}. Over the course of a ramp time $T$, the Rydberg state atom has decay probability $P_{\rm decay}=1-e^{-\gamma_{\rm decay} T}$ which is $9.3\%$ for $T=7\,\mu{\rm s}$. This effect is therefore a significant contribution to decoherence \cite{Fang:2024uyf}, even though an atom is not fully in the Rydberg state for the whole ramp.
+The Rydberg state decays to the ground state with the lifetime $1/\gamma_{\rm decay}=71.44\,\mu{\rm s}$ \cite{Fang:2024uyf}. Over the course of a ramp time $T$, a Rydberg state atom has decay probability $P_{\rm decay}=1-e^{-\gamma_{\rm decay} T}$ which is $9.3\%$ for $T=7\,\mu{\rm s}$. This effect is therefore a significant contribution to decoherence \cite{Fang:2024uyf}, even though an atom is not fully in the Rydberg state for the whole ramp.
 
-Intermediate-state scattering decays represent another effect of comparable significance, characterized by a similar timescale. These two effects are modeled in \cite{Fang:2024uyf} using Lindbladian dynamics. While we do not repeat these simulations here, we note that the influence of these two effects scales linearly with $T$ and will be reduced accordingly using the optimized ramps.
+Intermediate-state scattering decays, characterized by a similar timescale, represent another effect of comparable significance. These two effects are modeled in \cite{Fang:2024uyf} using Lindbladian dynamics. While we do not repeat these simulations here, we note that the influence of these two effects scales linearly with $T$, and it will be reduced accordingly when using the optimized ramps.
 
 \subsubsection{Rydberg detection perturbations}
 
-As mentioned, at the end of the adiabatic evolution, projective measurement is performed. This is done by a rapid turn on of the tweezer traps, expelling atoms in the Rydberg state, recapturing atoms in the ground state, and subsequent imaging, to determine the Rydberg population of each site. Ref.~\cite{Fang:2024uyf} cites $2\%$ probability that a ground state is misidentified as a Rydberg state (``false positive'') in the process, and $<1.5\%$ probability for the opposite misidentification (``false negative''). These probabilities are significantly smaller than the above-mentioned Rydberg state decay probability $P_{\rm decay}=9.3\%$ to which Ref.~\cite{Fang:2024uyf} was subjected, so presumably they represented a subleading source of error in the decoherence budget of \cite{Fang:2024uyf}.
-
-The ``false positive'' probability is at least partly related to atomic motion: if an atom has moved too far from the trap center, it is hard to recapture. Thus it is expected to decrease for shorter ramp times $T$. E.g.~\cite[Extended Data Fig. 2]{Bernien:2017ubn} shows that a shorter trap-off time leads to a higher detection rate.
+As mentioned, at the end of the adiabatic evolution, projective measurement is performed. This is done by a rapid turn on of the tweezer traps, expelling atoms in the Rydberg state, recapturing atoms in the ground state, and subsequent imaging, to determine the population of each site. Ref.~\cite{Fang:2024uyf} cites $2\%$ probability that a ground state is misidentified as a Rydberg state (``false positive'') in the process, and $<1.5\%$ probability for the opposite misidentification (``false negative''). These probabilities being smaller than the above-mentioned Rydberg state decay probability $P_{\rm decay}=9.3\%$ to which Ref.~\cite{Fang:2024uyf} was subjected, presumably they represented a subdominant source of error in the decoherence budget of \cite{Fang:2024uyf}.
 
 Ref.~\cite{Fang:2024uyf} relied on post-selection to eliminate snapshots with blockade violation (two neighboring atoms in the Rydberg state), as a way to mitigate the above ``false positives''. That was a possible strategy as they worked at point P1 which is in the near-Rydberg blockade regime. (It should be noticed that this strategy creates a bias, since about $8\%$ of true snapshots at P1 do contain blockade violations \cite{Fang:2024uyf} and are also eliminated.)  It remains to be seen if measurements can be reliably performed at point P3, which is far away from Rydberg blockade regime, and the above post-selection strategy is not feasible.
 
+We are hopeful that this should be possible, also because the ``false positive'' probability is at least partly related to the atomic motion: if an atom has moved too far from the trap center, it is hard to recapture. This probability is expected to decrease for shorter ramp times $T$. E.g.~\cite[Extended Data Fig. 2]{Bernien:2017ubn} shows that a shorter trap-off time leads to a higher detection rate.
 
 \section{Summary and conclusions}\label{sec:concl}
 
 The main purpose of this paper was to attract attention to direct experimental tests of conformality in critical phenomena. Concretely, we chose to discuss here quantum critical phenomena realized in a currently very popular experimental platform---Rydberg atoms. Even more concretely, we focused on one observable---equal-time 2pt function in a periodic chain of Rydberg atoms at a critical point in the Ising universality class. Previously, this 2pt function was experimentally studied in \cite{Fang:2024uyf}, who saw short-distance behavior consistent with CFT, although longer-distance behavior was modified with respect to CFT by decoherence effects, precluding a convincing direct test of conformality.
 
-In Section \ref{sec:prop}, we went over the main steps of the experimental measurement, having in mind to understand what it would take to achieve say a $10\%$ agreement with theory in a wide range of distances. We did all our computations for two points on the critical line. The first point (P1) is the one used in \cite{Fang:2024uyf} (up to a small but non-negligible correction in the detuning parameter $\Delta$, which sets the point right on the critical line as opposed to just near it). This point sits near the Rydberg-blockade regime, where there was a lot of theoretical work using the effective FSS model \cite{Slagle:2021ene,FSS}. The second point (P3) sits at the tip of the $\mathbb{Z}_2$-broken region of the phase diagram and is as far away from the Rydberg blockade regime as possible. It has onsite $\mathbb{Z}_2$ symmetry. We felt that this region of the critical line could offer advantages with respect to the Rydberg-blockade region, and this guess was indeed vindicated, see below.
+In Section \ref{sec:prop}, we went over the main steps of the experimental measurement, having in mind to understand what it would take to achieve say a $10\%$ agreement with theory in a wide range of distances. We did all our computations for two points on the critical line. The first point (P1) is the one used in \cite{Fang:2024uyf} (up to a small but non-negligible correction in the detuning parameter $\Delta$, which sets the point right on the critical line as opposed to just near it). This point sits near the Rydberg-blockade regime, where there was a lot of theoretical work using the effective FSS model \cite{Slagle:2021ene,FSS}. The second point (P3) sits at the tip of the $\mathbb{Z}_2$-broken region of the phase diagram and is as far away from the Rydberg blockade regime as possible. It has onsite $\mathbb{Z}_2$ symmetry. We felt that this region of the critical line could offer advantages with respect to the Rydberg-blockade region, and this turned out indeed the case, see below.
 
-We found that: 
+Our main findings are as follows.
 \begin{itemize}
 	\item
-	(Section \ref{sec:2ptDMRG}) working on the circular chain of $N=24$ atoms, the exact ground state 2pt function agrees well with the CFT prediction, starting from distances $|i-j|=1$. The agreement is good for both points P1 and P3, with maximal error about $4\%$ for P1 and less that $1\%$ for P3, see Fig.~\ref{fig:2pt-sim}.
+	(Section \ref{sec:2ptDMRG}) Working on the circular chain of $N=24$ atoms, we saw that the exact ground state 2pt function agrees well with the CFT prediction, starting from distances $|i-j|=1$. The agreement is good for both points P1 and P3, with maximal error about $4\%$ for P1 and less that $1\%$ for P3, see Fig.~\ref{fig:2pt-sim}.
 	\item
 	(Section \ref{sec:estimation-of-the-needed-sample-size}) The variance of the ground state 2pt function is sufficiently small so that good statistics can be obtained with order $10^3$ repetitions of the experiment. Concretely, for $2\times 10^3$ repetitions we find statistical errors $<2.5\%$ for both P1 and P3, see Fig.~\ref{ZZ2ptsample}.
 	\item
-	(Section \ref{sec:fidelity}) Approximate ground states with fidelity $>99\%$ can be prepared via quasi-adiabatic evolution with ramp times as short as $2.5\mu{\rm s}$ for P1 and $0.8\mu{\rm s}$ for P3. This requires ramp optimization, feasible with modest computation resources (App.~\ref{sec:optim}). This observation represents our best hope that the experiment of \cite{Fang:2024uyf} can be improved. Indeed \cite{Fang:2024uyf} used a suboptimal ramp with significantly longer evolution time of $7\mu{\rm s}$.
+	(Section \ref{sec:fidelity}) Approximate ground states with fidelity $>99\%$ can be prepared via quasi-adiabatic evolution with ramp times as short as $2.5\mu{\rm s}$ for P1 and $0.8\mu{\rm s}$ for P3. This requires ramp optimization, feasible with modest computation resources (App.~\ref{sec:optim}). This observation gives us hope that the experiment of \cite{Fang:2024uyf} can be improved. Indeed \cite{Fang:2024uyf} used a suboptimal ramp with a significantly longer evolution time of $7\mu{\rm s}$.
 	
 	It is in the much shorter ramp time that the advantages of point P3 vs P1 become most clear. Such shorter ramp times are possible for P3 because of the larger overall scale of the energy gap, accompanied by the smallness of the pertinent matrix elements.
 	
-	\item (Section \ref{sec:dev}) We also check explicitly that the error in the 2pt function due to using an approximate ground state vs the exact one is small for our optimized ramps, $4\%$ or less depending on the ramp, see Fig.~\ref{fig:rampingerror}.
+	\item (Section \ref{sec:dev}) We also check explicitly that the error in the 2pt function due to using an approximate ground state vs the exact one is small for our optimized ramps, $\sim 4\%$ or even less, depending on the ramp, see Fig.~\ref{fig:rampingerror}.
 	
 	\item (Section \ref{sec:decoherence}) While the detailed modeling of decoherence effects is beyond the scope of this work (see \cite{Dalyac:2026jpu} for a recent comprehensive discussion), we note that reducing the ramp time has clear mitigating effect on many of them. For example, the Rydberg to ground state decays, one of the main contribution to decoherence in \cite{Fang:2024uyf}, will be suppressed linearly in the ramp time. 
 \end{itemize}
 
-Based on these investigations, one can be fairly certain that repeating the experiment of \cite{Fang:2024uyf} using our optimized ramps should give a strictly better result for the 2pt function. The decoherence length $\xi_{\rm d}$ should become larger, and agreement between experiment and CFT will be achieved in a wider range of distances. We hope that such an experiment will be done, and that it will become the first direct test of conformality from correlator measurements.
+Based on these investigations, we are fairly certain that repeating the experiment of \cite{Fang:2024uyf} using our optimized ramps will give a strictly better result for the 2pt function. The decoherence length $\xi_{\rm d}$ should become larger, and agreement between experiment and CFT will be achieved in a wider range of distances. We hope that such an experiment will be done, and that it will become the first direct test of conformality from correlator measurements.
 
 \section*{Acknowledgements}
 
@@ -1104,7 +1101,7 @@ JR is supported by the European Union (ERC, QFTinAdS, project number 101087025, 
 
 \section*{AI use and data availability statement}
 
-Numerical simulations (exact diagonalization, ramp profile optimization) were performed using AI-generated codes, with human supervision and cross-checks. These codes are available from the authors upon request. At the current level of technology they can be also be easily generated from scratch given the text of our paper.
+Numerical simulations (exact diagonalization, ramp profile optimization) were performed using AI-generated codes, with human supervision and cross-checks. These codes are available from the authors upon request. At the current level of technology, they can be also be easily generated from scratch, given the text of our paper.
 
 \appendix
 
@@ -1113,12 +1110,12 @@ Numerical simulations (exact diagonalization, ramp profile optimization) were pe
 
 Ref.~{\cite{Fang:2024uyf}} measured 1D and 2D arrays of Rydberg atoms tuned to
 the quantum critical point in the Ising universality class. We will report here
-parameters of their experiments, focusing on 1D case of relevance for this
+parameters of their experiments, focusing on the 1D case, relevant for our
 paper.
 
 The Hamiltonian of {\cite{Fang:2024uyf}} is precisely \eqref{eq:model}
 with $N = 24$ atoms on a circle (they also studied $N = 40$). To reach the
-critical state they evolve $\Delta, \Omega$ as in Fig. \ref{fig:yao-ramp}.
+critical state they evolve $\Delta, \Omega$ as in Fig.~\ref{fig:yao-ramp}.
 They report the following endpoint parameters:
 \begin{equation}
 	\Omega  / 2 \pi = 1.6\,\text{MHz}, \quad \Delta / \Omega 
@@ -1136,7 +1133,7 @@ report the error on $R_b / a$). Combining these we compute:
 \end{equation}
 The point P1 in Table \ref{tab:params} has $\Delta' / \Omega' = 1.03$. This is at the
 upper end of the range $\Delta / \Omega  = 0.97 (5)$ from
-{\cite{Fang:2024uyf}}. Taking instead their central value results in non-negligible deviations from criticality, as we now discuss.
+{\cite{Fang:2024uyf}}. Taking instead their central value results in a non-negligible deviation from criticality, as we now discuss.
 
 \begin{figure}[h]\centering
 	\includegraphics{fig-Yao-ramp.pdf}
@@ -1144,7 +1141,7 @@ upper end of the range $\Delta / \Omega  = 0.97 (5)$ from
 		preparing the critical state in {\cite{Fang:2024uyf}}, Fig. 1C. }
 \end{figure}
 
-Ref. {\cite{Fang:2024uyf}} used the experimental definition of the critical
+Ref.~{\cite{Fang:2024uyf}} used the experimental definition of the critical
 point, as the location of the maximum of susceptibility $\partial \langle n
 \rangle / \partial \Delta$ for sufficiently slow sweeps. They note that this
 also coincides with the excitation gap minimum. For measuring the 2pt function
@@ -1153,8 +1150,8 @@ of the system are described by the CFT Hamiltonian. This may differ by $1 / N$
 effects from the definitions used in Ref.~{\cite{Fang:2024uyf}}. Our
 simulations show that this deviation is not negligible. Indeed point P1 with $\Delta' / \Omega' = 1.03$ gives the 2pt
 function consistent with CFT, while $\Delta' / \Omega' = 0.97$ would give a
-2pt function decaying faster than CFT (thus in the disordered phase), with
-$\sim 20\%$ suppression at the largest separation. We therefore use point P1. Indeed we advocate that future experiments use the measurement of the 2pt function as a proxy for the criticality, rather than the susceptibility peak.
+2pt function decaying faster than in CFT (thus in the disordered phase), with
+$\sim 20\%$ suppression at the largest separation. We therefore use point P1. Also, we advocate that future experiments use the measurement of the 2pt function as a proxy for the criticality, rather than the susceptibility peak.
 
 The 2pt function measured in {\cite{Fang:2024uyf}}, Fig. 2F, was fitted by
 them by the curve
@@ -1168,7 +1165,7 @@ the correlator at the largest separation w.r.t.~the CFT.
 
 \section{Ramp profile optimization}\label{sec:optim}
 
-We parametrize the two-segment path (Path A in Fig.~\ref{fig:evolution}) as:
+We parametrize Path A (see Fig.~\ref{fig:evolution}) as:
 \begin{align}
 0\leq q\leq1:&\quad
 \Omega'(q)=0.133q,\qquad \Delta'(q)=-0.403, \nonumber\\
@@ -1176,7 +1173,7 @@ We parametrize the two-segment path (Path A in Fig.~\ref{fig:evolution}) as:
 \Omega'(q)=0.133,\qquad \Delta'(q)=-0.403+0.54(q-1). \label{eq:PA}
 \end{align}
 The final point is therefore P1: $(\Omega',\Delta')=(0.133,0.137)$, which is critical.
-We take the three-segment path  (Path B) to be 
+We take Path B to be 
 \begin{align}\label{PathB}
 0\leq q\leq1:&\quad (\Omega',\Delta')=(q,-1), \nonumber\\
 1\leq q\leq2:&\quad (\Omega',\Delta')=\bigl(1,-1+(\zeta(6)+1)(q-1)\bigr), \nonumber\\
@@ -1184,11 +1181,11 @@ We take the three-segment path  (Path B) to be
 \end{align}
 The final point is P3: $(\Omega',\Delta')=(0.488,\zeta(6))$, also a critical point.
 
-With paths so fixed, optimizing the ramp profile then means finding a $q(t)$ so that the fidelity at $t=T$ is maximized. Here $T$ stands for the total ramping time. The optimization algorithm includes optimization in a reduced 20-dimensional
-subspace and validation in the full $\mathcal{D}$-dimensional subspace. We discuss validation first.
+With paths so fixed, optimizing the ramp profile means finding a $q(t)$ so that the fidelity at $t=T$ (total ramp duration) is maximized. The optimization algorithm includes 1) optimization in a reduced 20-dimensional
+subspace and 2) validation in the full $\mathcal{D}$-dimensional subspace. We discuss validation first.
 
 \subsection{Validation}\label{sec:validation}
-We use a matrix-free approach to calculate the time evolution of the ground state.  At $N=24$, the dimension of the zero-momentum, reflection-positive Hilbert space is $\mathcal{D}=352{,}698$. (The $\mathcal{D}\times \mathcal{D}$ Hamiltonian is never explicitly constructed and stored.) The Schr\"odinger equation is given in \eqref{fullQM1}. In this appendix, we take $\hat{t} =t\cdot U/\hbar$ to be the dimensionless time. We will drop the hat to simplify the notation. We thus work with the equation
+We use a matrix-free approach to calculate the time evolution of the ground state.  At $N=24$, the dimension of the translationally invariant, reflection-positive subspace of the Hilbert space is $\mathcal{D}=352{,}698$. (The $\mathcal{D}\times \mathcal{D}$ Hamiltonian is never explicitly constructed and stored.) The Schr\"odinger equation is given in \eqref{fullQM1}. In this appendix, we take $\hat{t} =t\cdot U/\hbar$ to be the dimensionless time. We will drop the hat to simplify the notation. We thus work with the equation
 \begin{equation}
 i\frac{\partial}{\partial t}\lvert\psi(t)\rangle
 =
@@ -1209,13 +1206,14 @@ with the time evolution operator,
 -i\int_0^t H(t')\,dt'
 \right].
 \end{equation}
-Here \(\mathcal T\) is the time-ordering operator. It is necessary because, in general,
-\begin{equation}
+Time-ordering \(\mathcal T\) is necessary because, in general,
+$
 [H(t_1),H(t_2)]\neq 0.
-\end{equation}
+$
+
 Numerically the time evolution is realized by discretizing the time interval $[0,T]$ into small steps $h=\delta t$, and approximating the evolution operator by a product of matrix exponentials corresponding to small steps. It pays off to organize this discretization efficiently, so that the error scales with a high power $h$, as this reduces the number of time steps needed to achieve a converged result. Here we used the fourth-order commutator-free Magnus (CF4) scheme, whose error is $O(h^4)$~\cite{BlanesMoan2006,AlvermannFehske2011}.
 
-Let us give some details about how this works. The idea is to sample the time-dependent Hamiltonian at two Gauss-Legendre nodes inside the interval:
+The idea of CF4 is to sample the time-dependent Hamiltonian at two Gauss-Legendre nodes inside the interval:
 \begin{equation}
 t_{n,1}=t_n+c_1 h,\qquad t_{n,2}=t_n+c_2 h\,.
 \end{equation}
@@ -1238,7 +1236,7 @@ a_{1,2}=\frac14\mp\frac{\sqrt3}{6}.
 \end{equation}
 It can be shown that Eq.~\eqref{eq:cf4} has error $O(\delta t^5)$ with respect to the exact Schr\"odinger evolution. This single step error leads to the $O(h^4)$ for the full evolution which involves $T/h$ steps.
 
-To use Eq.~\eqref{eq:cf4} we need to be able to efficiently evaluate act with a matrix exponential on a state. We discuss this problem in general. Suppose we want to act with $e^{-i h G}$ on a state $|v\rangle$. Forming the full matrix exponential is expensive.
+To use Eq.~\eqref{eq:cf4} we need to be able to efficiently act with a matrix exponential on a state. We discuss this problem in general. Suppose we want to act with $e^{-i h G}$ on a state $|v\rangle$. Forming the full matrix exponential is expensive.
 Instead, we form the order-$m$ Krylov space
 \begin{equation}
 \mathcal K_m(G,v)=\operatorname{span}\left\{
@@ -1246,8 +1244,7 @@ Instead, we form the order-$m$ Krylov space
 \right\},
 \label{eq:krylovspace}
 \end{equation}
-which can be calculated in a matrix-free manner. 
-This choice follows directly from the power series of the exponential: every term in $e^{-i h G}\vert v\rangle$ is proportional to one of the vectors appearing in Eq.~\eqref{eq:krylovspace}.  The approximation is therefore tailored to the action of the exponential.
+tailored to the power series of the exponential $e^{-i h G}\vert v\rangle$, and calculated in a matrix-free manner. 
 
 For Hermitian $G$ as needed for us, the Lanczos iteration constructs an orthonormal basis
 \begin{equation}
@@ -1275,7 +1272,7 @@ T_m=V_m^\dagger G V_m
 \end{pmatrix},
 \label{eq:tridiagonal}
 \end{equation}
-is an $m\times m$ real symmetric tridiagonal matrix.  Here $V_m$ is a $\mathcal{D}\times m$ matrix only in notation: numerically, its columns are stored as $m$ Lanczos vectors.
+is an $m\times m$ real symmetric tridiagonal matrix. 
 The exponential action is then approximated as \cite{HochbruckLubich1997}
 \begin{equation}
 e^{-i h G}\vert v\rangle
@@ -1287,13 +1284,13 @@ e^{-i h G}\vert v\rangle
 \end{equation}
 Thus, only the small $m\times m$ matrix $T_m$ needs to be exponentiated.  Constructing this matrix requires repeated products $G\vert w\rangle$.\footnote{Since in our calculation $G$ is a linear combination of $H_1$ and $H_2$, we evaluate such products as weighted sum of the previously computed matrix-free actions $H_1\vert w\rangle$ and $H_2\vert w\rangle$.} We stress that neither Hamiltonian, nor generators $G$, nor exponentials are stored as full $\mathcal{D}\times \mathcal{D}$ matrices.  Krylov approximations to matrix-exponential actions and their convergence are analyzed in Ref.~\cite{HochbruckLubich1997}.
 
-Once the full time evolution is completed, we further reduce the remaining $O(h^4)$ error using the Richardson extrapolation \cite{Richardson1911}.  Let $F_h$ denote the final ground-state fidelity obtained for a fixed physical ramp duration $T$ using CF4 step $h$.  We successively decrease the time step to ensure that the error starts scaling as $h^4$. The result is then approximately
+Once the full time evolution is completed, we further reduce the remaining $O(h^4)$ error using the Richardson extrapolation \cite{Richardson1911}.  Let $F_h$ denote the final ground-state fidelity obtained for a fixed ramp duration $T$ using CF4 step $h$.  We successively decrease the time step until the error starts scaling as $h^4$. The result is then approximately
 \begin{equation}
 F_{h}\approx F_{0}+C h^4,
 \end{equation}
 Here $F_{0}$ is the fidelity obtained in the zero-numerical-step-size limit.  Then, computing $F_h$ and $F_{h/2}$ allows us to estimate $ C$ and to find $F_{0}$.
 
-As a first application, we use this method to analyze the ramp profile P1-R1 from \cite{Fang:2024uyf}, plotted in Fig.~\ref{fig:yao-ramp}.
+As a first application, we use this method to analyze the ramp profile P1$_7$ from \cite{Fang:2024uyf}, plotted in Fig.~\ref{fig:yao-ramp}.
 In terms of Path A parametrization \eqref{eq:PA}, this ramp profile corresponds to 
 \begin{equation}
 q(t)=
@@ -1315,7 +1312,7 @@ After the time evolution, we get the fidelity shown in the first line of Table~\
 
 \subsection{Optimization within reduced subspace}\label{sec:reduced}
 
-In the previous subsection we described how, given a ramp profile, Schr\"odinger evolution within the $\mathcal{D}$-dimensional subspace can be performed, computing the fidelity at time $T$. In this subsection we discuss how to optimize the ramp profile. While optimizing, final fidelity will have to be computed thousands of times. Computing the full evolution thousands of times is not feasible. We will therefore truncate the Hamiltonian to a $20\times 20$ matrix to make the optimization manageable. This will introduce an error in fidelity. However this still captures the needed profile shape. Once the optimization is over, we compute accurate fidelities as described in the validation section, and it turns out that when approximate fidelity is close to 1, accurate fidelity is also close to 1.
+In the previous subsection we described how, given a ramp profile, Schr\"odinger evolution within the $\mathcal{D}$-dimensional subspace can be performed, computing the fidelity at time $T$. In this subsection we discuss how to optimize the ramp profile. While optimizing, final fidelity will have to be computed thousands of times. Computing the full evolution thousands of times is not feasible. We will therefore truncate the Hamiltonian to a $20\times 20$ matrix. This will introduce an error in fidelity. However this approximation still captures the needed profile shape. Once the optimization is over, we compute accurate fidelities as described in the validation section, and it turns out that when approximate fidelity is close to 1, accurate fidelity is also close to 1. Let us describe this in detail.
 
 Optimizing the ramp profile means finding $q (t)$ such that the final state
 achieves high fidelity. We first discuss how we quickly evaluate fidelity for any given $q(t)$.
@@ -1325,7 +1322,7 @@ We start with the Schr{\"o}dinger equation
 	i \dot{\psi} = H (q (t)) \psi (t)\,,
 \end{equation}
 to show explicitly how $q (t)$ enters in the problem. We project this equation
-on the lowest $P = 20$ eigenstates. Let's discuss this first as if $q$ was
+on the lowest $P = 20$ eigenstates. Let's discuss this first as if $q$ were
 continuous, but eventually $q$ will be discretized. Consider for each $q\in [0,q_{\max}]$ ($q_{\max}=2$ for Path A, $3$ for Path B), the first $P$ eigenstates:
 \begin{equation}
 	Y  (q) = \left(\begin{array}{c}
@@ -1347,11 +1344,10 @@ Substituting this into the Schr{\"o}dinger equation we find
 	i \frac{dc_a}{dt} = E_a (q (t)) c_a (t) - \dot{q} (t)  \hspace{0.17em}
 	\sum_b \mathcal{A} (Y)_{ab} (q (t)) c_b (t),
 \end{equation}
-where
+with the Berry connection
 \begin{equation}
-	\mathcal{A} (Y)_{ab} (q) = i \langle Y_a (q) | \partial_q Y_b (q) \rangle
+	\mathcal{A} (Y)_{ab} (q) = i \langle Y_a (q) | \partial_q Y_b (q) \rangle\,.
 \end{equation}
-is the Berry connection.
 
 Following {\cite{Kato1950}}, we find it convenient to pass, by an orthogonal
 rotation, to another real orthonormal basis $U (q)$ of the same
@@ -1367,8 +1363,8 @@ where
 	\label{HU}
 \end{equation}
 Let us now describe how the basis $U (q)$ is found, in a discretized setting
-which is of interest to us. We distribute order few hundred sample points
-$q_j$ along the ramping path $(\Omega' (q), \Delta' (q))$. \ At every sampled
+which is of interest to us. We distribute $O(\text{few hundred})$ sample points
+$q_j$ along the ramp path $(\Omega' (q), \Delta' (q))$.  At every sampled
 point, an iterative eigensolver computes the lowest 20 eigenstates. We thus
 compute $Y_j : = Y (q_j)$. We ensure that the variation is smooth, or at least
 continuous, by imposing the condition $\langle Y_a (q_j) |Y_a (q_{j + 1})
@@ -1429,10 +1425,9 @@ vary smoothly with $q$. So we define $H_{\rm trun}
 (q)$ in between the grid points by interpolation. Note that the described computation for $H_{\rm trun}
 (q)$
 is performed once for Path A and once for Path B, before starting the
-optimization process, so it's feasible. With so defined
+optimization process, so it's not overly costly. With so defined
 $H_{\rm trun} (q)$, and for any given $q (t)$, we
-can solve \eqref{SchrHU} using the same CF4 scheme as described in App.
-\ref{sec:validation}, and compute the fidelity. Because everything is now happening in the $P$-dimensional space, it is feasible to perform it thousands of times, as is needed for
+can solve \eqref{SchrHU} using the same CF4 scheme as described in App.~\ref{sec:validation}, and compute the fidelity. Because everything is now happening in the $P$-dimensional space, it is feasible to perform this computation thousands of times, as is needed for
 the optimization.
 
 
@@ -1469,16 +1464,16 @@ For $\rho_0$, we choose
 	\end{array}\right. \nonumber\\
 	\text{Path B: } &\rho_0 (q) \equiv 1, \label{rho0B}
 \end{align}
-I.e. for Path A the zero-coefficient profile preserves the $2 : 5$
+I.e.~for Path A the zero-coefficient profile preserves the $2 : 5$
 segment-time ratio of the experimental ramp.
 
-The optimization problem is to maximize the fidelity, i.e. (squared) overlap
+The optimization problem is to maximize the fidelity, i.e.~the squared overlap
 of $\psi (T)$ with the ground state $|0 \rangle$ at $q = q_{\max}$:
 \begin{equation}
 	\tilde F  = | \langle 0 (q_{\max}) | \psi  (T) \rangle |^2 \rightarrow \max .
 	\label{eq:f20}
 \end{equation}
-We put a tilde on $F$ to emphasize that this fidelity is computed using the evolution in the truncated Hilbert space, and is therefore not the true fidelity.
+We put a tilde on $F$ to emphasize that this is an approximate fidelity, computed using the evolution in the truncated Hilbert space.
 
 
 \begin{table}[h]
@@ -1546,7 +1541,7 @@ CF4 time evolution of the full Hamiltonian to compute the true
 fidelity $F$; the results are summarized in Figure~\ref{fig:fidelity}. We do the
 optimization at different total times $T$. The coefficients of the optimized
 ramp profiles are summarized in Table~\ref{tab:path-coefficients}. From
-these coefficients, it is easy to reconstruct the ramp profile
+them, it is easy to reconstruct the ramp profile
 $(\Omega' (t), \Delta' (t))$ using \eqref{eq:density}-\eqref{rho0B}. As an
 example, two optimized ramp profiles (one for each path)
 are shown in Fig.~\ref{fig:rampingprofile}. 
@@ -1564,12 +1559,12 @@ In Table~\ref{tab:fidel} we report more detailed information for two optimized P
 
 In this appendix we discuss theory for leading corrections to the spin-spin
 correlation functions due to the state deviating from the exact ground state.
-In Section \ref{sec:fidelity} we saw that at the end of adiabatic evolution the
+In Section \ref{sec:fidelity} we saw that at the end of the quasi-adiabatic evolution the
 state is not the exact ground state. In Table \ref{tab:fidel} we reported, in addition
 to the fidelity $| c_0 |^2$, the absolute values squared of the coefficients
 $c_1$ and $c_2$ in the expansion \eqref{eq:psiexp12}. In radial quantization of CFT, the
 corresponding states $| 1 \rangle $ and $| 2 \rangle $ are associated with
-states obtained by inserting CFT operators $\varepsilon$ and $\partial^2
+the states obtained by inserting CFT operators $\varepsilon$ and $\partial^2
 \varepsilon$ at the origin. Specifically we have
 \begin{equation}
 	| 1 \rangle  = \varepsilon (0) | 0 \rangle , \quad | 2 \rangle  = \frac{1}{4
@@ -1585,17 +1580,14 @@ norm requirement. Using the infinite-plane expressions:
 		|^{\Delta_{\varepsilon}}},
 \end{equation}
 we find, for two points $x_1, x_2$ distance 1 from the origin,
-\begin{equation}
+\begin{align}
 	\frac{\langle \sigma (x_1) \sigma (x_2) \varepsilon (0) \rangle}{\langle
-		\sigma (x_1) \sigma (x_2) \rangle} = C_{\sigma \sigma \varepsilon} | x_{12}
-	|^{\Delta_e},
-\end{equation}
-
-\begin{equation}
+		\sigma (x_1) \sigma (x_2) \rangle} &= C_{\sigma \sigma \varepsilon} | x_{12}
+	|^{\Delta_e}, \\
 	\frac{\langle \sigma (x_1) \sigma (x_2) \partial^2 \varepsilon (0)
-		\rangle}{\langle \sigma (x_1) \sigma (x_2) \rangle} = C_{\sigma \sigma
-		\varepsilon} \Delta_{\varepsilon}^2 | x_{12} |^{\Delta_e} (4 - | x_{12} |^2)
-\end{equation}
+		\rangle}{\langle \sigma (x_1) \sigma (x_2) \rangle} &= C_{\sigma \sigma
+		\varepsilon} \Delta_{\varepsilon}^2 | x_{12} |^{\Delta_e} (4 - | x_{12} |^2)\,.
+\end{align}
 Substituting $| x_{12} | = 2 s, s = \sin \frac{| \phi_{12} |}{2}$, and
 using $\Delta_{\varepsilon} = 1$, $C_{\sigma \sigma \varepsilon} = 1 / 2$, the
 above equations give
@@ -1605,11 +1597,11 @@ above equations give
 		(x_1) \sigma (x_2) |  2 \rangle}{\langle 0 |  \sigma (x_1) \sigma (x_2) |  0
 		\rangle} = s (1 - s^2) .
 \end{equation}
-We can use the same equations to compute relative corrections for Rydberg
+We can use these equations to compute relative corrections to 2pt functions for Rydberg
 chain correlation functions, with $s = \sin \frac{\pi | i - j |}{N}$. The
-important message is that the corrections scale linearly in $c_1, c_2,
+message is that the corrections scale linearly in $c_1, c_2,
 \ldots$, with order 1 coefficients. This is corroborated by the numerical
-plot in Fig. \ref{fig:rampingerror}.
+plot in Fig.~\ref{fig:rampingerror}.
 	
 \bibliographystyle{utphys}
 \small
